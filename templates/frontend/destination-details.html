@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
+{% load static image_tags %}
 
 
 {% block title %}
@@ -560,9 +560,17 @@ Verdant Routes - Travel & Tour Booking Agency | {{ destination.name }}
     <section class="about-hero">
 
         {% if destination.image %}
-        <img class="about-hero-bg" src="{{ destination.image.url }}" alt="{{ destination.name }}">
+        <img class="about-hero-bg"
+             src="{{ destination.image.url }}"
+             srcset="{{ destination.image|srcset }}"
+             sizes="100vw"
+             alt="{{ destination.name }}"
+             fetchpriority="high" decoding="async">
         {% else %}
-        <img class="about-hero-bg" src="{% static 'frontend/assets/img/about hero.png' %}" alt="{{ destination.name }}">
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="{{ destination.name }}"
+             fetchpriority="high" decoding="async">
         {% endif %}
 
         <div class="about-hero-overlay"></div>
@@ -648,7 +656,7 @@ Verdant Routes - Travel & Tour Booking Agency | {{ destination.name }}
 
         <!-- floating camera (decoration) -->
         <div class="dd-camera" aria-hidden="true">
-            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="" loading="lazy" decoding="async">
         </div>
 
         <!-- background pattern (same as the Packages page) -->
@@ -717,7 +725,10 @@ Verdant Routes - Travel & Tour Booking Agency | {{ destination.name }}
                     <!-- Destination photo -->
                     {% if destination.image %}
                     <div class="dest-main-photo mb-40">
-                        <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+                        <img src="{{ destination.image.url }}"
+                             srcset="{{ destination.image|srcset }}"
+                             sizes="(max-width: 991px) 100vw, 66vw"
+                             alt="{{ destination.name }}" decoding="async">
                     </div>
                     {% endif %}
 
@@ -758,7 +769,10 @@ Verdant Routes - Travel & Tour Booking Agency | {{ destination.name }}
 
                                     <a href="{% url 'destination_details' d.slug %}" class="r-thumb">
                                         {% if d.image %}
-                                        <img src="{{ d.image.url }}" alt="{{ d.name }}" loading="lazy">
+                                        <img src="{{ d.image.url }}"
+                                             srcset="{{ d.image|srcset }}"
+                                             sizes="72px"
+                                             alt="{{ d.name }}" loading="lazy" decoding="async">
                                         {% endif %}
                                     </a>
 

@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
+{% load static image_tags %}
 
 
 {% block title %}
@@ -612,7 +612,8 @@ img.mfp-img {
 
         <img class="about-hero-bg"
              src="{% static 'frontend/assets/img/about hero.png' %}"
-             alt="Beautiful beach destination">
+             alt="Beautiful beach destination"
+             fetchpriority="high" decoding="async">
 
         <div class="about-hero-overlay"></div>
 
@@ -695,7 +696,7 @@ img.mfp-img {
 
     <!-- DECORATIVE FLOATING CAMERA -->
     <div class="gl-camera" aria-hidden="true">
-        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="" loading="lazy" decoding="async">
     </div>
 
 
@@ -742,8 +743,11 @@ img.mfp-img {
                 <img
                     class="gl-img"
                     src="{{ item.image.url }}"
+                    srcset="{{ item.image|srcset }}"
+                    sizes="(max-width: 575px) 100vw, (max-width: 991px) 50vw, 50vw"
                     alt="{{ item.title|default:item.category.name }}"
                     loading="lazy"
+                    decoding="async"
                 >
 
                 <div class="gl-caption">

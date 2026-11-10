@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
+{% load static image_tags %}
 
 
 {% block title %}
@@ -485,10 +485,18 @@ Verdant Routes - Travel & Tour Booking Agency | {{ package.name }}
     <section class="about-hero">
 
         {% if package.main_image %}
-        <img class="about-hero-bg" src="{{ package.main_image.url }}" alt="{{ package.name }}">
-        {% else %}
-        <img class="about-hero-bg" src="{% static 'frontend/assets/img/about hero.png' %}" alt="{{ package.name }}">
-        {% endif %}
+<img class="about-hero-bg"
+     src="{{ package.main_image.url }}"
+     srcset="{{ package.main_image|srcset }}"
+     sizes="100vw"
+     alt="{{ package.name }}"
+     fetchpriority="high" decoding="async">
+{% else %}
+<img class="about-hero-bg"
+     src="{% static 'frontend/assets/img/about hero.png' %}"
+     alt="{{ package.name }}"
+     fetchpriority="high" decoding="async">
+{% endif %}
 
         <div class="about-hero-overlay"></div>
 
@@ -605,7 +613,10 @@ Verdant Routes - Travel & Tour Booking Agency | {{ package.name }}
                         <!-- Package photo -->
                         {% if package.main_image %}
                         <div class="package-main-photo mb-40">
-                            <img src="{{ package.main_image.url }}" alt="{{ package.name }}">
+                            <img src="{{ package.main_image.url }}"
+     srcset="{{ package.main_image|srcset }}"
+     sizes="(max-width: 991px) 100vw, 66vw"
+     alt="{{ package.name }}" decoding="async">
                         </div>
                         {% endif %}
 
@@ -687,7 +698,10 @@ Verdant Routes - Travel & Tour Booking Agency | {{ package.name }}
 
                                 <a href="{% url 'package_details' p.slug %}" class="r-thumb">
                                     {% if p.main_image %}
-                                    <img src="{{ p.main_image.url }}" alt="{{ p.name }}" loading="lazy">
+                                    <img src="{{ p.main_image.url }}"
+     srcset="{{ p.main_image|srcset }}"
+     sizes="64px"
+     alt="{{ p.name }}" loading="lazy" decoding="async">
                                     {% endif %}
                                 </a>
 

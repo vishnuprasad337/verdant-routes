@@ -1,6 +1,6 @@
 {% extends "frontend/base.html" %}
 {% load static %}
-
+{% load image_tags %}
 
 {% block extra_css %}
 
@@ -3460,8 +3460,10 @@
                     <div class="dest-card {% cycle 'is-tall' 'is-short' %}">
 
                         {% if destination.image %}
-                            <img class="dest-img"
+                                <img class="dest-img"
                                  src="{{ destination.image.url }}"
+                                 srcset="{{ destination.image|srcset }}"
+                                 sizes="(max-width: 767px) 90vw, 45vw"
                                  alt="{{ destination.name }}"
                                  loading="lazy">
                         {% else %}
@@ -3836,7 +3838,7 @@
                 <article class="pk-card">
 
                     {% if package.main_image %}
-                    <img class="pk-img" src="{{ package.main_image.url }}" alt="{{ package.name }}" loading="lazy">
+                    <img class="pk-img" src="{{ package.main_image.url }}" srcset="{{ package.main_image|srcset }}" sizes="(max-width: 767px) 100vw, 62vw" alt="{{ package.name }}" loading="lazy">
                     {% else %}
                     <span class="pk-no-img"><i class="fa-regular fa-image"></i></span>
                     {% endif %}
@@ -4482,7 +4484,7 @@ window.addEventListener('load', function () {
                     <div class="col-xl-8 col-md-6">
                         <div class="gallery-item">
                             <div class="gallery-iamge">
-                                <img src="{{ gallery_images.0.image.url }}" alt="{{ gallery_images.0.title|default:'Gallery Image' }}">
+                                <img src="{{ gallery_images.0.image.url }}" srcset="{{ gallery_images.0.image|srcset }}" sizes="(max-width: 767px) 100vw, 45vw" alt="{{ gallery_images.0.title|default:'Gallery Image' }}">
                                 <a href="{{ gallery_images.0.image.url }}" class="icon img-popup2"><i class="fa-regular fa-eye"></i></a>
                             </div>
                         </div>
@@ -4724,7 +4726,7 @@ window.addEventListener('load', function () {
                 {% for testimonial in testimonials %}
                 <div class="tm-photo-slide{% if forloop.first %} is-active{% endif %}{% if not testimonial.image %} is-empty{% endif %}">
                     {% if testimonial.image %}
-                    <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" loading="lazy"
+                                        <img src="{{ testimonial.image.url }}" srcset="{{ testimonial.image|srcset }}" sizes="(max-width: 991px) 90vw, 560px" alt="{{ testimonial.name }}" loading="lazy"
                          onerror="this.style.display='none';this.parentNode.classList.add('is-empty');">
                     {% endif %}
                     <span class="tm-avatar" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
@@ -4737,7 +4739,7 @@ window.addEventListener('load', function () {
                 {% for testimonial in testimonials %}
                 <button type="button" class="tm-thumb{% if not testimonial.image %} is-empty{% endif %}" aria-label="{{ testimonial.name }}">
                     {% if testimonial.image %}
-                    <img src="{{ testimonial.image.url }}" alt="" loading="lazy"
+                                        <img src="{{ testimonial.image.url }}" srcset="{{ testimonial.image|srcset }}" sizes="64px" alt="" loading="lazy"
                          onerror="this.style.display='none';this.parentNode.classList.add('is-empty');">
                     {% endif %}
                     <span class="tm-avatar" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
@@ -5058,7 +5060,7 @@ window.addEventListener('load', function () {
             <article class="blog-card wow fadeInUp" data-wow-delay=".{{ forloop.counter }}s">
 
                 {% if blog.image %}
-                <img class="blog-card-img" src="{{ blog.image.url }}" alt="{{ blog.title }}" loading="lazy">
+                <img class="blog-card-img" src="{{ blog.image.url }}" srcset="{{ blog.image|srcset }}" sizes="(max-width: 767px) 86vw, 540px" alt="{{ blog.title }}" loading="lazy">
                 {% else %}
                 <img class="blog-card-img" src="{% static 'frontend/assets/img/default-blog.jpg' %}" alt="{{ blog.title }}" loading="lazy">
                 {% endif %}

@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
+{% load static image_tags %}
 
 
 {% block title %}
@@ -491,7 +491,8 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
 
         <img class="about-hero-bg"
              src="{% static 'frontend/assets/img/about hero.png' %}"
-             alt="Beautiful beach destination">
+             alt="Beautiful beach destination"
+             fetchpriority="high" decoding="async">
 
         <div class="about-hero-overlay"></div>
 
@@ -625,9 +626,12 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
 
                         <!-- IMAGE -->
                         {% if d.image %}
-                        <img src="{{ d.image.url }}" alt="{{ d.name }}" loading="lazy">
+                        <img src="{{ d.image.url }}"
+                             srcset="{{ d.image|srcset }}"
+                             sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 33vw"
+                             alt="{{ d.name }}" loading="lazy" decoding="async">
                         {% else %}
-                        <img src="{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}" alt="{{ d.name }}" loading="lazy">
+                        <img src="{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}" alt="{{ d.name }}" loading="lazy" decoding="async">
                         {% endif %}
 
 

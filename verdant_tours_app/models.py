@@ -2,6 +2,9 @@ from django.db import models
 from django.utils.text import slugify
 
 
+from .utils.image_utils import optimize_image_field
+
+
 class OptimizedImageModel(models.Model):
     image_fields = []
 
@@ -9,15 +12,13 @@ class OptimizedImageModel(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+        # convert new uploads to WebP (~150 KB) BEFORE the model is saved
         for field in self.image_fields:
-            image_field = getattr(self, field, None)
-            if image_field and hasattr(image_field, "path"):
-                try:
-                    from .utils.image_optimizer import optimize_image
-                    optimize_image(image_field.path)
-                except Exception:
-                    pass
+            try:
+                optimize_image_field(self, field)
+            except Exception:
+                pass
+        super().save(*args, **kwargs)
 
 
 

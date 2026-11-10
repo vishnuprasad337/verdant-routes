@@ -1,6 +1,5 @@
 {% extends 'frontend/base.html' %}
-
-{% load static %}
+{% load static image_tags %}
 
 
 
@@ -612,8 +611,9 @@
     <section class="about-hero">
 
         <img class="about-hero-bg"
-             src="{% static 'frontend/assets/img/about hero.png' %}"
-             alt="Beautiful beach destination">
+     src="{% static 'frontend/assets/img/about hero.png' %}"
+     alt="Beautiful beach destination"
+     fetchpriority="high" decoding="async">
 
         <div class="about-hero-overlay"></div>
 
@@ -696,7 +696,7 @@
 
     <!-- DECORATIVE FLOATING CAMERA -->
     <div class="package-camera-decoration" aria-hidden="true">
-        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="" loading="lazy" decoding="async">
     </div>
 
 
@@ -756,7 +756,11 @@
             <article class="pk-card">
 
                 {% if p.main_image %}
-                <img class="pk-img" src="{{ p.main_image.url }}" alt="{{ p.name }}" loading="lazy">
+                <img class="pk-img"
+     src="{{ p.main_image.url }}"
+     srcset="{{ p.main_image|srcset }}"
+     sizes="(max-width: 767px) 100vw, (max-width: 1199px) 45vw, 34vw"
+     alt="{{ p.name }}" loading="lazy" decoding="async">
                 {% else %}
                 <span class="pk-no-img"><i class="fa-regular fa-image"></i></span>
                 {% endif %}

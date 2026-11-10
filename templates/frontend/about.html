@@ -1,6 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
-
+{% load static image_tags %}
 
 {% block title %}
 Verdant Routes - Travel & Tour Booking Agency | About Us
@@ -1191,8 +1190,9 @@ Verdant Routes - Travel & Tour Booking Agency | About Us
 <section class="about-hero">
 
     <img class="about-hero-bg"
-         src="{% static 'frontend/assets/img/about hero.png' %}"
-         alt="Beautiful beach destination">
+     src="{% static 'frontend/assets/img/about hero.png' %}"
+     alt="Beautiful beach destination"
+     fetchpriority="high" decoding="async">
 
     <div class="about-hero-overlay"></div>
 
@@ -1404,7 +1404,11 @@ Verdant Routes - Travel & Tour Booking Agency | About Us
                 <article class="pk-card">
 
                     {% if package.main_image %}
-                    <img class="pk-img" src="{{ package.main_image.url }}" alt="{{ package.name }}" loading="lazy">
+                    <img class="pk-img"
+     src="{{ package.main_image.url }}"
+     srcset="{{ package.main_image|srcset }}"
+     sizes="(max-width: 767px) 100vw, (max-width: 1199px) 45vw, 34vw"
+     alt="{{ package.name }}" loading="lazy" decoding="async">
                     {% else %}
                     <span class="pk-no-img"><i class="fa-regular fa-image"></i></span>
                     {% endif %}
@@ -1712,8 +1716,11 @@ Verdant Routes - Travel & Tour Booking Agency | About Us
                 {% for testimonial in testimonials %}
                 <div class="tm-photo-slide{% if forloop.first %} is-active{% endif %}{% if not testimonial.image %} is-empty{% endif %}">
                     {% if testimonial.image %}
-                    <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" loading="lazy"
-                         onerror="this.style.display='none';this.parentNode.classList.add('is-empty');">
+                    <img src="{{ testimonial.image.url }}"
+     srcset="{{ testimonial.image|srcset }}"
+     sizes="(max-width: 991px) 100vw, 560px"
+     alt="{{ testimonial.name }}" loading="lazy" decoding="async"
+     onerror="this.style.display='none';this.parentNode.classList.add('is-empty');">
                     {% endif %}
                     <span class="tm-avatar" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
                 </div>
@@ -1741,7 +1748,7 @@ Verdant Routes - Travel & Tour Booking Agency | About Us
                     {% for testimonial in testimonials %}
                     <div class="tm-slide{% if forloop.first %} is-active{% endif %}">
                         <h3 class="tm-name">{{ testimonial.name }}</h3>
-                        <div class="tm-quote">{{ testimonial.review|safe }}</div>
+                        <div class="tm-quote">{{ testimonial.review|linebreaks }}</div>
                     </div>
                     {% endfor %}
                 </div>

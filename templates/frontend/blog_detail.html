@@ -1,5 +1,5 @@
 {% extends 'frontend/base.html' %}
-{% load static %}
+{% load static image_tags %}
 
 
 {% block title %}
@@ -599,9 +599,17 @@ Verdant Routes - Travel & Tour Booking Agency | {{ blog.title }}
     <section class="about-hero">
 
         {% if blog.image %}
-        <img class="about-hero-bg" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+        <img class="about-hero-bg"
+             src="{{ blog.image.url }}"
+             srcset="{{ blog.image|srcset }}"
+             sizes="100vw"
+             alt="{{ blog.title }}"
+             fetchpriority="high" decoding="async">
         {% else %}
-        <img class="about-hero-bg" src="{% static 'frontend/assets/img/about hero.png' %}" alt="{{ blog.title }}">
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="{{ blog.title }}"
+             fetchpriority="high" decoding="async">
         {% endif %}
 
         <div class="about-hero-overlay"></div>
@@ -687,7 +695,7 @@ Verdant Routes - Travel & Tour Booking Agency | {{ blog.title }}
 
         <!-- floating camera (decoration) -->
         <div class="bd-camera" aria-hidden="true">
-            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="" loading="lazy" decoding="async">
         </div>
 
 
@@ -710,7 +718,10 @@ Verdant Routes - Travel & Tour Booking Agency | {{ blog.title }}
 
                     {% if blog.image %}
                     <div class="bd-main-photo">
-                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                        <img src="{{ blog.image.url }}"
+                             srcset="{{ blog.image|srcset }}"
+                             sizes="(max-width: 991px) 100vw, 66vw"
+                             alt="{{ blog.title }}" decoding="async">
                     </div>
                     {% endif %}
 
@@ -750,7 +761,10 @@ Verdant Routes - Travel & Tour Booking Agency | {{ blog.title }}
 
                                 <a href="{% url 'blog_detail' slug=related.slug %}" class="bd-thumb">
                                     {% if related.image %}
-                                    <img src="{{ related.image.url }}" alt="{{ related.title }}" loading="lazy">
+                                    <img src="{{ related.image.url }}"
+                                         srcset="{{ related.image|srcset }}"
+                                         sizes="64px"
+                                         alt="{{ related.title }}" loading="lazy" decoding="async">
                                     {% endif %}
                                 </a>
 

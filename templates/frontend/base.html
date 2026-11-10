@@ -1,4 +1,5 @@
 {% load static %}
+{% load image_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -2811,6 +2812,8 @@ footer .footer-social-item .social-icon a:hover {
                                 <img
                                     class="fps-img"
                                     src="{{ package.main_image.url }}"
+                                    srcset="{{ package.main_image|srcset }}"
+                                    sizes="(max-width: 575px) 215px, 260px"
                                     alt="{{ package.name }}"
                                     loading="lazy"
                                 >
