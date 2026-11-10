@@ -5252,8 +5252,16 @@ window.addEventListener('load', function () {
         fly.style.display = 'none';
     }
 
-    function update() {
+        function update() {
         var sy = window.pageYOffset, vh = window.innerHeight;
+
+        /* MOBILE: no flying image, About keeps its own photo */
+        if (window.matchMedia('(max-width: 767px)').matches) {
+            release();
+            about.classList.remove('is-landed');
+            if (target.getAttribute('src') !== origSrc) target.src = origSrc;
+            return;
+        }
 
         /* keep the small image the same size when its picture is swapped */
         if (!sized) {
