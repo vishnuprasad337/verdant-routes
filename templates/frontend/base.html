@@ -2179,6 +2179,93 @@ footer .footer-social-item .social-icon a:hover {
 .offcanvas__content .mobile-menu {
     margin-bottom: 10px;
 }
+/* =========================================================
+   DESTINATION DROPDOWN (locations)
+========================================================= */
+
+/* the pinned header had overflow:hidden, which would cut the dropdown off */
+#header-sticky.sticky {
+    overflow: visible !important;
+}
+
+@media (min-width: 1200px) {
+
+    .header-2 .main-menu ul li.has-dropdown {
+        position: relative;
+    }
+
+    .header-2 .main-menu ul li.has-dropdown > a i {
+        font-size: 11px;
+        margin-left: 4px;
+    }
+
+    .header-2 .main-menu ul li.has-dropdown .submenu {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 999;
+        min-width: 220px;
+        max-height: 70vh;
+        overflow-y: auto;
+        display: block;
+        padding: 8px 0;
+        margin: 0;
+        list-style: none;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 18px 40px rgba(6, 32, 25, 0.16);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(12px);
+        transition: all .25s ease;
+    }
+
+    .header-2 .main-menu ul li.has-dropdown:hover > .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .header-2 .main-menu ul li.has-dropdown .submenu li {
+        display: block;
+        margin: 0;
+    }
+
+    /* #header-sticky is in the selector so it also beats the pinned-bar link rules */
+    #header-sticky .main-menu ul li.has-dropdown .submenu li a {
+        display: block;
+        padding: 10px 22px !important;
+        color: #09271f !important;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    #header-sticky .main-menu ul li.has-dropdown .submenu li a:hover {
+        background: #eaf7f0;
+        color: #00a651 !important;
+        padding-left: 22px !important;
+        transform: none !important;
+    }
+
+    /* ---------- remove the theme's orange from the dropdown ---------- */
+
+    #header-sticky .main-menu ul li.has-dropdown .submenu {
+        border: none !important;
+        box-shadow: 0 18px 40px rgba(6, 32, 25, 0.16) !important;
+    }
+
+    /* orange top bar, dash and bottom bar the theme adds */
+    #header-sticky .main-menu ul li.has-dropdown .submenu::before,
+    #header-sticky .main-menu ul li.has-dropdown .submenu::after,
+    #header-sticky .main-menu ul li.has-dropdown .submenu li::before,
+    #header-sticky .main-menu ul li.has-dropdown .submenu li::after,
+    #header-sticky .main-menu ul li.has-dropdown .submenu li a::before,
+    #header-sticky .main-menu ul li.has-dropdown .submenu li a::after {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+    }
+}
 </style>
 
 
@@ -2313,7 +2400,19 @@ footer .footer-social-item .social-icon a:hover {
                                         <li><a href="{% url 'home' %}">Home</a></li>
                                         <li><a href="{% url 'about' %}">About Us</a></li>
                                         <li><a href="{% url 'packages' %}">Packages</a></li>
-                                        <li><a href="{% url 'destination' %}">Destination</a></li>
+                                        <li class="has-dropdown">
+    <a href="{% url 'destination' %}">
+        Destination <i class="fa-solid fa-angle-down"></i>
+    </a>
+    <ul class="submenu">
+        
+        {% for loc in nav_locations %}
+        <li>
+            <a href="{% url 'destination' %}?location={{ loc|urlencode }}">{{ loc }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</li>
                                         <li><a href="{% url 'blogs' %}">Blogs</a></li>
                                         <li><a href="{% url 'gallery' %}">Gallery</a></li>
                                         <li><a href="{% url 'contact' %}">Contact Us</a></li>

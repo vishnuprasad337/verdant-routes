@@ -529,6 +529,21 @@ def admin_destination_list(request):
         },
     )
 
+def _location_map():
+    """{'wayanad': {'name': 'Wayanad', 'desc': '<p>...</p>'}, ...}
+    The newest destination of each location wins."""
+    data = {}
+    rows = (
+        Destination.objects
+        .exclude(location="")
+        .exclude(location_description="")
+        .order_by("created_at")
+        .values_list("location", "location_description")
+    )
+    for loc, desc in rows:
+        data[loc.strip().lower()] = {"name": loc.strip(), "desc": desc}
+    return data
+
 
 @admin_required
 def destination_create(request):
@@ -556,6 +571,7 @@ def destination_create(request):
         "admin_pages/create_destination.html",
         {
             "form": form,
+            "location_map": _location_map(),
         },
     )
 
@@ -593,10 +609,9 @@ def destination_update(request, pk):
         {
             "form": form,
             "destination": destination,
+            "location_map": _location_map(),
         },
     )
-
-
 @admin_required
 def destination_delete(request, pk):
 
@@ -1450,6 +1465,26 @@ def destination(request):
 
 
     # ==========================================================
+    # LOCATION FILTER (from the navbar dropdown)
+    # ==========================================================
+
+    current_location = request.GET.get("location", "").strip()
+    location_info = ""
+
+    if current_location:
+        qs = qs.filter(location__iexact=current_location)
+
+        location_info = (
+            Destination.objects
+            .filter(location__iexact=current_location)
+            .exclude(location_description="")
+            .order_by("-created_at")
+            .values_list("location_description", flat=True)
+            .first()
+        ) or ""
+
+
+    # ==========================================================
     # PAGINATION
     # 3 cards × 3 rows = 9
     # ==========================================================
@@ -1465,6 +1500,8 @@ def destination(request):
         "destinations": page_obj,
         "page_obj": page_obj,
         "search_query": search_query,
+        "current_location": current_location,
+        "location_info": location_info,
     }
 
 

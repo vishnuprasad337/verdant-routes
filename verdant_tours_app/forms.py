@@ -48,6 +48,7 @@ class DestinationForm(forms.ModelForm):
             "image",
             "location",
             "destination_type",
+            "location_description",
         ]
 
 

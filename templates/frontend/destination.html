@@ -3,7 +3,7 @@
 
 
 {% block title %}
-Verdant Routes - Travel & Tour Booking Agency | Destination
+{% if current_location %}{{ current_location }} Destinations | Verdant Routes{% else %}Verdant Routes - Travel & Tour Booking Agency | Destination{% endif %}
 {% endblock %}
 
 
@@ -306,61 +306,151 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
 
 
 /* ==========================================================
-   PAGE INTRO (same as Packages)
+   PAGE INTRO  (DESIGN 5 - frosted glass panel, outlined
+   ghost name in the background, info bar at the bottom)
    ========================================================== */
 
 .destination-listing-header {
     position: relative;
-    margin-bottom: 55px;
+    margin-bottom: 60px;
 }
 
-.destination-listing-title-area {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 40px;
+.dest-glass {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 60px 56px 0;
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .66);
+    -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+    box-shadow: 0 26px 64px rgba(10, 107, 58, .12);
 }
 
-.destination-listing-title { max-width: 720px; }
-.destination-listing-title .sub-title { margin-bottom: 12px; }
+/* outlined ghost name behind the text */
+.dest-ghost {
+    position: absolute;
+    right: -14px;
+    top: -10px;
+    z-index: -1;
+    max-width: 100%;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(0, 166, 81, .20);
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(100px, 15vw, 220px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
 
-.destination-listing-title h2 {
+.dest-glass h2 {
+    max-width: 14em;
+    margin: 0 0 20px;
     color: #0a6b3a;
-    font-size: 48px;
-    line-height: 1.15;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 58px;
     font-weight: 700;
-    margin: 0 0 15px;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
 }
 
-.destination-listing-title p {
-    max-width: 650px;
+/* description (plain text or CKEditor HTML) */
+.dest-glass-desc,
+.dest-glass-desc p {
     color: #3f5a50;
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 0;
+    font-size: 16.5px;
+    line-height: 1.8;
+}
+.dest-glass-desc { max-width: 66ch; }
+.dest-glass-desc p { margin: 0 0 10px; }
+.dest-glass-desc p:last-child { margin-bottom: 0; }
+.dest-glass-desc ul,
+.dest-glass-desc ol { margin: 8px 0 10px; padding-left: 22px; }
+.dest-glass-desc li { margin-bottom: 4px; color: #3f5a50; }
+.dest-glass-desc strong { color: #0a6b3a; }
+.dest-glass-desc a { color: #00a651; text-decoration: underline; }
+
+/* info bar */
+.dest-glass-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    margin: 44px -56px 0;
+    padding: 20px 56px;
+    border-top: 1px solid rgba(10, 107, 58, .14);
+    background: rgba(0, 166, 81, .08);
 }
 
-.destination-result-count {
-    flex-shrink: 0;
+.dest-glass-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     color: #3f5a50;
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
 }
-.destination-result-count strong {
-    color: #00a651;
-    font-size: 20px;
-    margin-right: 4px;
+.dest-glass-count i {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #00a651;
+    color: #fff;
+    font-size: 15px;
+}
+.dest-glass-count strong {
+    margin-right: 2px;
+    color: #0a6b3a;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
+.dest-glass-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #0a6b3a !important;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #00a651;
+    padding-bottom: 3px;
+    transition: color .3s ease, border-color .3s ease;
+}
+.dest-glass-back i { font-size: 12px; transition: transform .3s ease; }
+.dest-glass-back:hover { color: #00a651 !important; }
+.dest-glass-back:hover i { transform: translateX(-4px); }
+.dest-glass-back:focus-visible { outline: 3px solid rgba(0, 166, 81, .4); outline-offset: 4px; }
+
+/* ---------- responsive ---------- */
 @media (max-width: 991px) {
-    .destination-listing-title-area { align-items: flex-start; flex-direction: column; gap: 15px; }
-    .destination-listing-title h2 { font-size: 38px; }
+    .dest-glass { padding: 46px 36px 0; }
+    .dest-glass h2 { font-size: 46px; }
+    .dest-glass-bar { margin: 38px -36px 0; padding: 18px 36px; }
 }
 
 @media (max-width: 767px) {
     .destination-listing-header { margin-bottom: 40px; }
-    .destination-listing-title h2 { font-size: 32px; }
-    .destination-listing-title p { font-size: 14px; }
+    .dest-glass { padding: 32px 22px 0; border-radius: 22px; }
+    .dest-glass h2 { font-size: 34px; }
+    .dest-glass-desc,
+    .dest-glass-desc p { font-size: 15px; }
+    .dest-ghost { font-size: 90px; right: -8px; top: -4px; }
+    .dest-glass-bar { margin: 30px -22px 0; padding: 16px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dest-glass-back, .dest-glass-back i { transition: none; }
 }
 
 
@@ -511,10 +601,16 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
                 <ul class="breadcrumb-list">
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li>/</li>
+                    {% if current_location %}
+                    <li><a href="{% url 'destination' %}">Our Destinations</a></li>
+                    <li>/</li>
+                    <li>{{ current_location }}</li>
+                    {% else %}
                     <li>Our Destinations</li>
+                    {% endif %}
                 </ul>
 
-                <h1>Our Destinations</h1>
+                <h1>{% if current_location %}{{ current_location }}{% else %}Our Destinations{% endif %}</h1>
 
             </div>
         </div>
@@ -576,31 +672,62 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
     <div class="container">
 
         <!-- =====================================================
-             PAGE TITLE / INTRO
+             PAGE INTRO
+             - Normal page: "Explore Our Popular Destinations"
+             - Location page: location name + its description
         ====================================================== -->
 
         <div class="destination-listing-header">
 
-            <div class="destination-listing-title-area">
+            <div class="dest-glass wow fadeInUp">
 
-                <div class="destination-listing-title">
+                <!-- ghost watermark -->
+                <span class="dest-ghost" aria-hidden="true">{% if current_location %}{{ current_location }}{% else %}Destinations{% endif %}</span>
 
-                    <h6 class="sub-title wow fadeInUp">POPULAR DESTINATION</h6>
+                {% if current_location %}
 
-                    <h2 class="char-animation">Explore Our Popular Destinations</h2>
+                <h2>Explore {{ current_location }}</h2>
 
-                    <p class="wow fadeInUp" data-wow-delay=".2s">
+                <div class="dest-glass-desc">
+                    {% if location_info %}
+                        {{ location_info|safe }}
+                    {% else %}
+                        <p>Discover the best places to visit in {{ current_location }}.</p>
+                    {% endif %}
+                </div>
+
+                {% else %}
+
+                <h2>Explore Our Popular Destinations</h2>
+
+                <div class="dest-glass-desc">
+                    <p>
                         Discover beautiful destinations and find the
                         perfect place for your next unforgettable
                         journey.
                     </p>
-
                 </div>
 
-                <!-- RESULT COUNT -->
-                <div class="destination-result-count wow fadeInUp">
-                    <strong>{{ page_obj.paginator.count }}</strong>
-                    Destination{{ page_obj.paginator.count|pluralize }} Available
+                {% endif %}
+
+                <!-- INFO BAR -->
+                <div class="dest-glass-bar">
+
+                    <span class="dest-glass-count">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>
+                            <strong>{{ page_obj.paginator.count }}</strong>
+                            Destination{{ page_obj.paginator.count|pluralize }}
+                            {% if current_location %}in {{ current_location }}{% else %}available{% endif %}
+                        </span>
+                    </span>
+
+                    {% if current_location %}
+                    <a href="{% url 'destination' %}" class="dest-glass-back">
+                        <i class="fa-solid fa-arrow-left"></i> All destinations
+                    </a>
+                    {% endif %}
+
                 </div>
 
             </div>
@@ -642,10 +769,12 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
                                 <a href="{% url 'destination_details' d.slug %}">{{ d.name }}</a>
                             </h3>
 
+                            {% if d.listing_count %}
                             <p>
-                                {{ d.listing_count|default:0 }}
-                                Listing
+                                {{ d.listing_count }}
+                                Listing{{ d.listing_count|pluralize }}
                             </p>
+                            {% endif %}
 
                             <!-- VIEW MORE + BOOK NOW -->
                             <div class="dest-actions">
@@ -683,7 +812,19 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
 
                     <h3>No Destinations Found</h3>
 
-                    {% if search_query %}
+                    {% if current_location %}
+
+                    <p>
+                        We couldn't find any destinations in
+                        "{{ current_location }}".
+                    </p>
+
+                    <a href="{% url 'destination' %}" class="theme-btn mt-20">
+                        <i class="fa-regular fa-arrow-left"></i>
+                        View All Destinations
+                    </a>
+
+                    {% elif search_query %}
 
                     <p>
                         We couldn't find a destination matching
@@ -712,7 +853,7 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
 
 
         <!-- =====================================================
-             PAGINATION
+             PAGINATION (keeps the search + location filters)
         ====================================================== -->
 
         {% if page_obj.has_other_pages %}
@@ -725,7 +866,7 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
                 {% if page_obj.has_previous %}
                 <li>
                     <a class="page-numbers"
-                       href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}">
+                       href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}{% if current_location %}&location={{ current_location|urlencode }}{% endif %}">
                         <i class="fa-solid fa-arrow-left"></i>
                     </a>
                 </li>
@@ -735,7 +876,7 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
                 {% for n in page_obj.paginator.page_range %}
                 <li {% if n == page_obj.number %}class="active"{% endif %}>
                     <a class="page-numbers"
-                       href="?page={{ n }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}">
+                       href="?page={{ n }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}{% if current_location %}&location={{ current_location|urlencode }}{% endif %}">
                         {{ n|stringformat:"02d" }}
                     </a>
                 </li>
@@ -745,7 +886,7 @@ Verdant Routes - Travel & Tour Booking Agency | Destination
                 {% if page_obj.has_next %}
                 <li>
                     <a class="page-numbers"
-                       href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}">
+                       href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}{% if current_location %}&location={{ current_location|urlencode }}{% endif %}">
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </li>

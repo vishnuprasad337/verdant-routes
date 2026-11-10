@@ -16,34 +16,41 @@
                     <div class="col-12">
                         <form method="post" enctype="multipart/form-data" class="needs-validation form-wrapper" novalidate>
                             {% csrf_token %}
-                            
+
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <label for="name" class="form-label">Destination Name <span class="text-danger">*</span></label>
                                     <input type="text" name="name" id="name" class="form-control modern-input"
-                                        placeholder="e.g. Swiss Alps" 
+                                        placeholder="e.g. Edakkal Caves"
                                         value="{{ form.name.value|default_if_none:'' }}" required>
                                     <div class="invalid-feedback">Please provide a name.</div>
                                 </div>
 
+                                <!-- Location: suggestions come from locations already used -->
                                 <div class="col-md-6 mb-4">
                                     <label for="location" class="form-label">Location</label>
                                     <input type="text" name="location" id="location" class="form-control modern-input"
-                                        placeholder="e.g. Switzerland"
+                                        placeholder="e.g. Wayanad" list="locationList" autocomplete="off"
                                         value="{{ form.location.value|default_if_none:'' }}">
+                                    <datalist id="locationList">
+                                        {% for item in location_map.values %}
+                                        <option value="{{ item.name }}"></option>
+                                        {% endfor %}
+                                    </datalist>
+                                    <div class="form-text">Pick an existing location to auto-fill its description.</div>
                                 </div>
 
                                 <div class="col-md-6 mb-4">
-    <label for="destination_type" class="form-label">Destination Type <span class="text-danger">*</span></label>
-    <select name="destination_type" id="destination_type" class="form-select modern-input" required>
-        {% for value, label in form.fields.destination_type.choices %}
-        <option value="{{ value }}" {% if form.destination_type.value|stringformat:"s" == value %}selected{% endif %}>
-            {{ label }}
-        </option>
-        {% endfor %}
-    </select>
-    <div class="invalid-feedback">Please select a destination type.</div>
-</div>
+                                    <label for="destination_type" class="form-label">Destination Type <span class="text-danger">*</span></label>
+                                    <select name="destination_type" id="destination_type" class="form-select modern-input" required>
+                                        {% for value, label in form.fields.destination_type.choices %}
+                                        <option value="{{ value }}" {% if form.destination_type.value|stringformat:"s" == value %}selected{% endif %}>
+                                            {{ label }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="invalid-feedback">Please select a destination type.</div>
+                                </div>
 
                                 <div class="col-12 mb-4">
                                     <label for="image" class="form-label">Image</label>
@@ -53,7 +60,7 @@
                                     <div class="form-text">Recommended size: 800x600 pixels.</div>
                                     <div class="invalid-feedback">Please upload an image.</div>
 
-                                    <div id="imagePreview" class="activity-image-preview mt-3" 
+                                    <div id="imagePreview" class="activity-image-preview mt-3"
                                          style="{% if form.instance.image %}display:flex;{% else %}display:none;{% endif %}">
                                         {% if form.instance.image %}
                                             <img src="{{ form.instance.image.url }}" alt="Current Image">
@@ -69,6 +76,17 @@
                                     <div class="invalid-feedback">Please provide a description.</div>
                                 </div>
 
+                                <!-- Location Description (CKEditor, auto-filled for a known location) -->
+                                <div class="col-12 mb-4">
+                                    <label for="location_description" class="form-label">Location Description</label>
+                                    <textarea name="location_description" id="location_description"
+                                        class="form-control uni-description modern-input" rows="6"
+                                        placeholder="Describe the location...">{{ form.location_description.value|default_if_none:'' }}</textarea>
+                                    <div class="form-text" id="locFillNote" style="display:none;color:#16a34a;">
+                                        Filled automatically from an earlier destination in this location. You can edit it.
+                                    </div>
+                                </div>
+
                                 <div class="col-12 mt-4">
                                     <div class="dashboard__form__button">
                                         <button type="submit" class="default__button">
@@ -80,11 +98,14 @@
                             </div>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- {"wayanad": {"name": "Wayanad", "desc": "<p>...</p>"}, ...} sent from the view -->
+{{ location_map|json_script:"locationMap" }}
 {% endblock %}
 
 {% block extra_css %}
@@ -93,6 +114,7 @@
     .activity-image-preview img { max-width: 100%; height: auto; object-fit: cover; }
     .modern-input { border: 1px solid #d1d5db; border-radius: 8px; padding: 0.85rem 1rem; font-size: 1rem; }
     .default__button { background: #4f46e5; color: #fff; padding: 0.85rem 1.6rem; border-radius: 8px; font-weight: 500; border: none; }
+    .ck-editor__editable { min-height: 150px; }
 </style>
 {% endblock %}
 
@@ -100,10 +122,50 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        ClassicEditor.create(document.querySelector('#description'), {
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', '|', 'undo', 'redo']
-        }).catch(error => console.error(error));
+        const toolbar = ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', '|', 'undo', 'redo'];
 
+        const locInput = document.getElementById('location');
+        const locNote  = document.getElementById('locFillNote');
+        const locMap   = JSON.parse(document.getElementById('locationMap').textContent || '{}');
+
+        let locEditor = null;      // CKEditor of Location Description
+        let lastAuto  = '';        // last text we filled automatically
+
+        /* Fill Location Description from an earlier destination with the same location.
+           It only fills when the box is empty, or still holds the text we filled before,
+           so anything you typed yourself is never overwritten. */
+        function fillLocationDesc() {
+            if (!locEditor) return;
+            const match = locMap[locInput.value.trim().toLowerCase()];
+            if (!match) return;
+
+            const current = locEditor.getData().trim();
+            if (current === '' || current === lastAuto) {
+                locEditor.setData(match.desc);
+                lastAuto = locEditor.getData().trim();
+                locNote.style.display = 'block';
+            }
+        }
+
+        // Description editor
+        ClassicEditor.create(document.querySelector('#description'), { toolbar: toolbar })
+            .catch(error => console.error(error));
+
+        // Location Description editor
+        ClassicEditor.create(document.querySelector('#location_description'), { toolbar: toolbar })
+            .then(editor => {
+                locEditor = editor;
+                fillLocationDesc();                       // in case a location is already typed
+                editor.model.document.on('change:data', () => {
+                    // hide the note once the text no longer matches the auto-filled text
+                    if (editor.getData().trim() !== lastAuto) locNote.style.display = 'none';
+                });
+            })
+            .catch(error => console.error(error));
+
+        ['input', 'change', 'blur'].forEach(ev => locInput.addEventListener(ev, fillLocationDesc));
+
+        // Image preview
         document.querySelectorAll('.activity-image-input').forEach(input => {
             input.addEventListener('change', function () {
                 const previewId = this.getAttribute('data-preview-id');

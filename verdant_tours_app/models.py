@@ -175,6 +175,10 @@ class Destination(OptimizedImageModel):
         default=DOMESTIC,
         help_text="Select destination type"
     )
+    location_description = models.TextField(
+        blank=True,
+        help_text="Short description about the location"
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -244,7 +248,7 @@ class Blog(OptimizedImageModel):
     )
 
     description = models.TextField()
-
+    
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
