@@ -2112,6 +2112,39 @@ footer .footer-social-item .social-icon a:hover {
     font-size: 13px;
     font-weight: 600;
 }
+
+
+/* =========================================================
+   NAVBAR PILL: SIMPLE DIAGONAL LINE PATTERN (desktop, inside pill only)
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .header-2 .main-menu {
+        position: relative;
+    }
+
+    .header-2 .main-menu::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M-2 2L2 -2M0 16L16 0M14 18L18 14' stroke='white' stroke-opacity='0.28' stroke-width='1'/%3E%3C/svg%3E");
+        background-size: 16px 16px;
+    }
+
+    .header-2 .main-menu nav {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* pinned white bar: green dots */
+    #header-sticky.sticky .main-menu::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M-2 2L2 -2M0 16L16 0M14 18L18 14' stroke='%2300a651' stroke-opacity='0.2' stroke-width='1'/%3E%3C/svg%3E");
+    }
+}
 </style>
 
 

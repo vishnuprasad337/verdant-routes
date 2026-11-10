@@ -1,27 +1,18 @@
 {% load static %}
-{% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-55W43R75');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Admin Dashboard | WorldByArk{% endblock %}</title>
+    <title>{% block title %}Admin Dashboard | Verdant Routes in Kerala{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <!-- Favicon (same as frontend) -->
+    <link rel="shortcut icon" href="{% static 'frontend/assets/img/logo/verdant-logo-green.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'frontend/assets/img/logo/verdant-logo-green.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'frontend/assets/img/logo/verdant-logo-green.png' %}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -32,35 +23,6 @@
     <link rel="stylesheet" href="{% static 'admin-static/assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'admin-static/assets/css/icofont.min.css' %}">
     <link rel="stylesheet" href="{% static 'admin-static/assets/css/style.css' %}">
-
-
-
-     <!-- FAVICONS ICON -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{% static 'assets/images/favicon/apple-touch-icon.png' %}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{% static 'assets/images/favicon/favicon-32x32.png' %}"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{% static 'assets/images/favicon/favicon-16x16.png' %}"
-    />
-    <link
-      rel="manifest"
-      href="{% static 'assets/images/favicon/site.webmanifest' %}"
-    />
-    <link
-      rel="shortcut icon"
-      href="{% static 'assets/images/favicon/favicon.ico' %}"
-    />
 
 
     <!-- Professional Dashboard CSS -->
@@ -137,7 +99,7 @@
             --dark-blue: #1e40af;
             --light-blue: #dbeafe;
             --sidebar-width: 280px;
-            --header-height: 70px;
+            --header-height: 90px;
             --white: #ffffff;
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
@@ -215,11 +177,20 @@
             text-decoration: none;
         }
 
-        .logo img {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-        }
+        /* Verdant Routes logo (same green logo as the frontend sticky header) */
+.logo img {
+    height: 72px !important;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 575px) {
+    .logo img {
+        height: 52px !important;
+    }
+}
 
         .header-right {
             margin-left: auto;
@@ -371,7 +342,6 @@
 
 
 
-        /* Fix for dropdown arrow visibility */
         /* Replace dropdown arrow with a dot */
         .has-dropdown>a::after {
             content: '•';
@@ -785,7 +755,7 @@
     </style>
 
 
-    <!-- Add this CSS -->
+    <!-- Toast CSS -->
     <style>
         .global-toast {
             position: fixed;
@@ -924,7 +894,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Input field style */
         .search-box input {
             width: 100%;
             border-radius: 20px;
@@ -936,11 +905,9 @@
 
         .search-box input:focus {
             border-color: #198754;
-            /* Bootstrap success color */
             box-shadow: 0 0 4px rgba(25, 135, 84, 0.4);
         }
 
-        /* Small search icon inside input */
         .search-box::after {
             content: "\f002";
             font-family: "Font Awesome 5 Free";
@@ -954,13 +921,9 @@
             font-size: 13px;
         }
 
-        /* ✅ RESPONSIVE FIXES */
         @media (max-width: 992px) {
-
-            /* Tablets and below */
             .d-flex.justify-content-end {
                 justify-content: center !important;
-                /* Center search bar */
             }
 
             .search-box {
@@ -970,8 +933,6 @@
         }
 
         @media (max-width: 576px) {
-
-            /* Mobile screens */
             .search-box {
                 width: 100%;
                 max-width: 320px;
@@ -994,10 +955,6 @@
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55W43R75"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <div id="global-toast" class="global-toast">
         <div class="toast-content">
@@ -1013,17 +970,13 @@
                 <i class="icofont-navigation-menu"></i>
             </button>
 
+            <!-- Verdant Routes logo (green version, same as frontend) -->
             <a href="{% url 'admin_dashboard' %}" class="logo">
-                <img src="{% static 'assets/images/logo-dark.png' %}" alt="World By Ark Logo">
+                <img src="{% static 'frontend/assets/img/re-green.png' %}" alt="Verdant Routes in Kerala">
             </a>
         </div>
 
         <div class="header-right">
-
-
-
-
-
 
             <div class="user-profile-dropdown">
                 <div class="user-profile-toggle">
@@ -1035,7 +988,7 @@
                 </div>
                 <div class="user-profile-menu">
                     <div class="user-info">
-                        <div class="user-avatar">A</div>
+                        <div class="user-avatar">{{ request.user.username|first|upper }}</div>
                         <div class="user-details">
                             <div class="user-name">{{ request.user.username }}</div>
                             <div class="user-email">{{ request.user.email }}</div>
@@ -1203,15 +1156,15 @@
                                     Contact Messages
                                 </a>
                             </li>
-                           <li>
-    <a
-        href="{% url 'admin_enquiry_list' %}"
-        class="{% if request.resolver_match.url_name == 'admin_enquiry_list' %}active{% endif %}"
-    >
-        <i class="fas fa-calendar-check"></i>
-        <span>Booking Enquiries</span>
-    </a>
-</li>
+                            <li>
+                                <a
+                                    href="{% url 'admin_enquiry_list' %}"
+                                    class="{% if request.resolver_match.url_name == 'admin_enquiry_list' %}active{% endif %}"
+                                >
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Booking Enquiries</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -1224,13 +1177,6 @@
     <!-- Main Content -->
     <main class="dashboard-main">
         <div class="dashboard-content">
-            <!-- Dashboard Banner -->
-            {% comment %} <div class="dashboard-banner">
-                <div class="banner-content">
-                    <h1 class="banner-title">Welcome back! Admin</h1>
-                    <p class="banner-subtitle">Manage WorldByArk content and enquiries.</p>
-                </div>
-            </div> {% endcomment %}
 
             <!-- Content Area -->
 
@@ -1252,7 +1198,6 @@
     <script src="{% static 'admin-static/assets/js/bootstrap.min.js' %}"></script>
 
     <script>
-        // Mobile menu toggle
         // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function () {
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -1286,7 +1231,7 @@
                 }
             });
 
-            // Dropdown menu functionality - prevent closing when clicking submenu items
+            // Dropdown menu functionality
             const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
 
             dropdownToggles.forEach(toggle => {
@@ -1306,12 +1251,11 @@
                 });
             });
 
-            // Close dropdowns when clicking outside, but not when clicking on submenu items
+            // Close dropdowns when clicking outside, but not on submenu items
             document.addEventListener('click', function (e) {
                 const isDropdown = e.target.closest('.has-dropdown');
                 const isSubmenuLink = e.target.closest('.submenu a');
 
-                // Only close dropdowns if clicking outside both dropdowns and submenu links
                 if (!isDropdown && !isSubmenuLink) {
                     document.querySelectorAll('.has-dropdown').forEach(item => {
                         item.classList.remove('open');
@@ -1319,17 +1263,15 @@
                 }
             });
 
-            // Handle submenu link clicks - don't close the parent dropdown
+            // Submenu link clicks keep the parent dropdown open
             document.querySelectorAll('.submenu a').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    // Allow the link to work normally but keep the dropdown open
+                link.addEventListener('click', function () {
                     const dropdown = this.closest('.has-dropdown');
                     if (dropdown) {
                         dropdown.classList.add('open');
                     }
                 });
             });
-
 
         });
     </script>
@@ -1362,7 +1304,6 @@
                     e.preventDefault();
                     userProfileDropdown.classList.remove('open');
 
-                    // Show logout confirmation modal
                     const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
                     logoutModal.show();
                 });
@@ -1386,17 +1327,11 @@
             const toastMessage = toast.querySelector('.toast-message');
             const toastIcon = toast.querySelector('.toast-icon');
 
-            // Set message
             toastMessage.textContent = message;
 
-            // Remove all type classes
             toast.classList.remove('success', 'error', 'warning', 'info');
-
-            // Add the correct type class
             toast.classList.add(type);
 
-            // Set FontAwesome Icons
-            // 'fas' is solid style, 'fa-check-circle' is the icon name
             switch (type) {
                 case 'success':
                     toastIcon.className = 'toast-icon fas fa-check-circle';
@@ -1414,14 +1349,13 @@
                     toastIcon.className = 'toast-icon fas fa-info-circle';
             }
 
-            // Show toast
             toast.classList.add('show');
 
-            // Remove toast after 5 seconds
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 5000);
         }
+
         // Close toast when clicking on it
         document.getElementById('global-toast').addEventListener('click', function () {
             this.classList.remove('show');
@@ -1429,10 +1363,9 @@
 
         // Show Django messages on page load
         document.addEventListener('DOMContentLoaded', function () {
-            // Check for Django messages
             {% if messages %}
             {% for message in messages %}
-            showGlobalToast("{{ message }}", "{{ message.tags }}");
+            showGlobalToast("{{ message|escapejs }}", "{{ message.tags }}");
             {% endfor %}
             {% endif %}
         });
@@ -1446,90 +1379,6 @@
             }
         });
     </script>
-    {% comment %}
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const searchInput = document.getElementById("blogSearchInput");
-            const tableBody = document.querySelector(".custom-table-container table tbody");
-
-            if (!tableBody) return;
-
-            const rows = tableBody.querySelectorAll("tr");
-
-            searchInput.addEventListener("keyup", function () {
-                const searchText = this.value.toLowerCase().trim();
-
-                rows.forEach(row => {
-                    const title = row.querySelector("td:nth-child(2)")?.textContent.toLowerCase() || "";
-                    const description = row.querySelector("td:nth-child(3)")?.textContent.toLowerCase() || "";
-
-                    if (title.includes(searchText) || description.includes(searchText)) {
-                        row.style.display = "";
-                    } else {
-                        row.style.display = "none";
-                    }
-                });
-
-                // If no match found, show a “no results” message
-                const visibleRows = [...rows].filter(r => r.style.display !== "none");
-                let noResultRow = document.getElementById("noResultRow");
-
-                if (visibleRows.length === 0) {
-                    if (!noResultRow) {
-                        noResultRow = document.createElement("tr");
-                        noResultRow.id = "noResultRow";
-                        noResultRow.innerHTML = `
-                    <td colspan="5" class="text-center py-4 text-muted">
-                        No blogs found matching "<strong>${searchText}</strong>"
-                    </td>`;
-                        tableBody.appendChild(noResultRow);
-                    } else {
-                        noResultRow.querySelector("strong").textContent = searchText;
-                        noResultRow.style.display = "";
-                    }
-                } else if (noResultRow) {
-                    noResultRow.style.display = "none";
-                }
-            });
-        });
-    </script> {% endcomment %}
-    <!-- <script>
-        (function () {
-            var e = document;
-
-            // Disable right-click
-            e.addEventListener("contextmenu", function (event) {
-                event.preventDefault();
-            });
-
-            // Disable common DevTools & view-source shortcuts
-            e.addEventListener("keydown", function (event) {
-                if (event.key === "F12") event.preventDefault();
-
-                if (event.ctrlKey && event.shiftKey && ["I", "J", "C"].includes(event.key.toUpperCase())) {
-                    event.preventDefault();
-                }
-
-                if (event.ctrlKey && ["U", "S"].includes(event.key.toUpperCase())) {
-                    event.preventDefault();
-                }
-            });
-
-            // Detect if DevTools are open (based on window size difference)
-            setInterval(function () {
-                if (
-                    window.outerWidth - window.innerWidth > 200 ||
-                    window.outerHeight - window.innerHeight > 200
-                ) {
-                    document.body.innerHTML = `
-        <h1 style="text-align:center; color:red; margin-top:20%;">
-          Access Denied
-        </h1>
-      `;
-                }
-            }, 1000);
-        })();
-    </script> -->
 
     <style>
         body {
