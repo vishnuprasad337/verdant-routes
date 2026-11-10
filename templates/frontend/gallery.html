@@ -3,416 +3,600 @@
 
 
 {% block title %}
-Gallery | Touro Travel & Tour
+Verdant Routes - Travel & Tour Booking Agency | Gallery
 {% endblock %}
 
 
 {% block extra_css %}
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* ==========================================================
-   GALLERY PAGE
+   HEADER OVERLAYS THE HERO (same as the other pages)
+   ========================================================== */
+
+#header-sticky {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999 !important;
+    background: transparent !important;
+}
+
+#header-sticky .header-main,
+#header-sticky .mega-menu-wrapper,
+#header-sticky .container { background: transparent !important; }
+
+#header-sticky .header-left,
+#header-sticky .header-right { visibility: visible !important; opacity: 1 !important; }
+
+@media (max-width: 1199px) {
+    #header-sticky .header-main {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    #header-sticky .header-left { display: block !important; visibility: visible !important; }
+    #header-sticky .mean__menu-wrapper { display: none !important; }
+    #header-sticky .header__hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
+    #header-sticky .sidebar__toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
+}
+
+#header-sticky.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 99999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#header-sticky.sticky .mega-menu-wrapper,
+#header-sticky.sticky .header-main { background: #ffffff !important; }
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
+#header-sticky.sticky .header-search .search-trigger,
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
+
+
+/* ==========================================================
+   BRAND GREEN
+   ========================================================== */
+
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
+    --title-green-bright: #00a651;
+}
+
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
+}
+
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
+}
+
+.section-title h2:not(.text-white) { color: var(--title-green) !important; }
+.section-title .sub-title:not(.text-white) { color: var(--title-green-bright) !important; }
+
+
+/* ==========================================================
+   HERO (same image + style as the Packages page)
+   ========================================================== */
+
+.about-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 58vh;
+    min-height: 460px;
+    max-height: 560px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
+}
+
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .55) 0%, rgba(7, 28, 31, .45) 100%);
+}
+
+.about-hero .container { position: relative; z-index: 3; }
+
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* wave seam into the mint section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 420px; }
+    .about-hero h1 { font-size: 54px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 340px; height: 46vh; padding-top: 70px; }
+    .about-hero h1 { font-size: 38px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 15px; }
+}
+
+
+/* ==========================================================
+   GALLERY SECTION (mint background + pattern)
    ========================================================== */
 
 .gallery-page-section {
     position: relative;
-    background: #ffffff;
+    width: 100%;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #d7eee0 100%) !important;
+}
+
+.gallery-page-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-page-section .gl-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.gallery-page-section .gl-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* floating camera (decoration) */
+.gl-camera {
+    position: absolute;
+    top: 75px;
+    right: -55px;
+    width: 330px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
+}
+.gl-camera img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: glCameraFloat 4.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes glCameraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
+@media (max-width: 1199px) {
+    .gl-camera { width: 270px; top: 80px; right: -70px; opacity: 0.08; }
+}
+@media (max-width: 767px) {
+    .gl-camera { width: 190px; top: 45px; right: -65px; opacity: 0.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .gl-camera img { animation: none; }
 }
 
 
 /* ==========================================================
-   SECTION HEADING
+   INTRO + FILTER
    ========================================================== */
 
-.gallery-page-section .gallery-heading {
+.gl-header {
+    position: relative;
+    margin-bottom: 38px;
+}
+
+.gl-header .sub-title { margin-bottom: 12px; }
+
+.gl-header h2 {
     max-width: 720px;
-    margin: 0 auto 40px;
-    text-align: center;
+    margin: 0 0 15px;
+    color: #0a6b3a;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
 }
 
-.gallery-page-section .gallery-heading .sub-title {
-    margin-bottom: 10px;
+.gl-header p {
+    max-width: 650px;
+    margin: 0;
+    color: #3f5a50;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
-.gallery-page-section .gallery-heading p {
-    max-width: 620px;
-    margin: 15px auto 0;
-    color: #687179;
+@media (max-width: 991px) { .gl-header h2 { font-size: 38px; } }
+@media (max-width: 767px) {
+    .gl-header { margin-bottom: 28px; }
+    .gl-header h2 { font-size: 32px; }
+    .gl-header p { font-size: 14px; }
 }
 
-
-/* ==========================================================
-   FILTER BUTTONS
-   ========================================================== */
-
-.gallery-filter-wrapper {
+.gl-filter {
     display: flex;
     align-items: center;
-    justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 12px;
-
-    margin-bottom: 45px;
+    margin-bottom: 36px;
 }
 
-
-.gallery-filter-btn {
-    border: 1px solid #e8e8e8;
-
+.gl-filter-btn {
+    padding: 11px 24px;
     background: #ffffff;
-
-    color: #071c1f;
-
-    padding: 11px 25px;
-
+    border: 1px solid rgba(10, 107, 58, .14);
     border-radius: 50px;
-
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
     font-size: 15px;
     font-weight: 600;
-
     line-height: 1;
-
     cursor: pointer;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
 }
-
-
-.gallery-filter-btn:hover {
-    color: #ffffff;
-
-    background: #ff5a36;
-
-    border-color: #ff5a36;
-
-    transform: translateY(-2px);
-}
-
-
-.gallery-filter-btn.active {
-    color: #ffffff;
-
-    background: #ff5a36;
-
-    border-color: #ff5a36;
-
-    box-shadow: 0 8px 20px rgba(255, 90, 54, 0.20);
-}
-
-
-/* ==========================================================
-   GALLERY GRID
-   ========================================================== */
-
-.gallery-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 24px;
-}
-
-
-/* ==========================================================
-   GALLERY ITEM
-   ========================================================== */
-
-.gallery-item {
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 16px;
-
-    background: #f5f5f5;
-
-    height: 330px;
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
-}
-
-
-/* hidden during category filtering */
-.gallery-item.gallery-hidden {
-    display: none;
-}
-
-
-/* Image */
-.gallery-item .gallery-image {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-}
-
-
-.gallery-item .gallery-image img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    transition: transform 0.55s ease;
-}
-
-
-.gallery-item:hover .gallery-image img {
-    transform: scale(1.08);
-}
-
-
-/* ==========================================================
-   IMAGE OVERLAY
-   ========================================================== */
-
-.gallery-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
-
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(5, 28, 31, 0.85) 0%,
-            rgba(5, 28, 31, 0.35) 42%,
-            rgba(5, 28, 31, 0.00) 75%
-        );
-
-    opacity: 0;
-
-    transition: opacity 0.4s ease;
-}
-
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-
-/* Category badge */
-.gallery-category {
-    display: inline-flex;
-
-    align-items: center;
-
-    width: fit-content;
-
-    margin-bottom: 8px;
-
-    padding: 6px 13px;
-
-    border-radius: 30px;
-
-    background: #ff5a36;
-
-    color: #ffffff;
-
-    font-size: 12px;
-    font-weight: 600;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.5px;
-}
-
-
-/* Image title */
-.gallery-overlay h4 {
-    margin: 0;
-
-    color: #ffffff;
-
-    font-size: 21px;
-    line-height: 1.3;
-}
-
-
-/* ==========================================================
-   VIEW IMAGE BUTTON
-   ========================================================== */
-
-.gallery-view-btn {
-    position: absolute;
-
-    top: 20px;
-    right: 20px;
-
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #ffffff;
-
-    color: #ff5a36;
-
-    font-size: 17px;
-
-    transform: scale(0.7);
-
-    opacity: 0;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        background-color 0.3s ease,
-        color 0.3s ease;
-}
-
-
-.gallery-item:hover .gallery-view-btn {
-    opacity: 1;
-
-    transform: scale(1);
-}
-
-
-.gallery-view-btn:hover {
-    background: #ff5a36;
-
+.gl-filter-btn:hover,
+.gl-filter-btn.active {
+    background: #00a651;
+    border-color: #00a651;
     color: #ffffff;
 }
-
-
-/* ==========================================================
-   EMPTY GALLERY
-   ========================================================== */
-
-.gallery-empty {
-    grid-column: 1 / -1;
-
-    padding: 70px 20px;
-
-    text-align: center;
-
-    border-radius: 15px;
-
-    background: #f8f8f8;
-}
-
-
-.gallery-empty i {
-    display: block;
-
-    margin-bottom: 18px;
-
-    color: #ff5a36;
-
-    font-size: 50px;
-}
-
-
-.gallery-empty h4 {
-    margin-bottom: 8px;
-}
-
-
-.gallery-empty p {
-    margin: 0;
-
-    color: #687179;
-}
-
-
-/* ==========================================================
-   TABLET
-   ========================================================== */
-
-@media (max-width: 991px) {
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        gap: 20px;
-    }
-
-
-    .gallery-item {
-        height: 300px;
-    }
-
-}
-
-
-/* ==========================================================
-   MOBILE
-   ========================================================== */
+.gl-filter-btn:hover { transform: translateY(-2px); }
+.gl-filter-btn.active { box-shadow: 0 8px 20px rgba(0, 166, 81, .25); }
 
 @media (max-width: 575px) {
-
-    .gallery-filter-wrapper {
-        gap: 8px;
-
-        margin-bottom: 30px;
-    }
+    .gl-filter { gap: 8px; margin-bottom: 26px; }
+    .gl-filter-btn { padding: 10px 17px; font-size: 14px; }
+}
 
 
-    .gallery-filter-btn {
-        padding: 10px 17px;
+/* ==========================================================
+   COLLAGE LAYOUT (different card sizes)
+   Tall / wide / small photos packed together like a photo wall.
+   The pattern repeats every 8 photos (set by the script, so it
+   stays tidy when a category filter is used).
+   ========================================================== */
 
-        font-size: 14px;
-    }
+.gl-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 170px;
+    grid-auto-flow: dense;
+    gap: 16px;
+}
+
+.gl-item {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #0b3f2e;
+    border-radius: 20px;
+    box-shadow: 0 14px 32px rgba(7, 60, 35, .15);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1), box-shadow .5s ease;
+}
+
+/* 4 columns: block of 8 photos = 3 rows + 2 rows */
+.gl-item[data-pos="0"] { grid-column: span 2; grid-row: span 3; }
+.gl-item[data-pos="1"] { grid-row: span 2; }
+.gl-item[data-pos="2"] { grid-row: span 2; }
+/* data-pos 3 and 4: single small tiles */
+.gl-item[data-pos="5"] { grid-row: span 2; }
+.gl-item[data-pos="6"] { grid-column: span 2; grid-row: span 2; }
+.gl-item[data-pos="7"] { grid-row: span 2; }
+
+.gl-item.gl-hide { display: none; }
+
+/* not yet revealed (the script animates it in) */
+.gl-item.gl-pre { opacity: 0; }
+
+.gl-item:hover,
+.gl-item.is-touched {
+    z-index: 3;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 26px 48px rgba(7, 60, 35, .28);
+}
+
+.gl-item .gl-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .9s ease;
+}
+.gl-item:hover .gl-img,
+.gl-item.is-touched .gl-img { transform: scale(1.1); }
+
+/* light shine sweep on hover / touch */
+.gl-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, .35) 50%, transparent 100%);
+    transform: skewX(-18deg);
+}
+.gl-item:hover::before,
+.gl-item.is-touched::before {
+    left: 130%;
+    transition: left .9s ease;
+}
+
+/* dark fade + caption */
+.gl-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(4, 30, 20, 0) 45%, rgba(4, 30, 20, .88) 100%);
+    opacity: 0;
+    transition: opacity .45s ease;
+}
+.gl-item:hover::after,
+.gl-item.is-touched::after { opacity: 1; }
+
+.gl-caption {
+    position: absolute;
+    left: 20px;
+    right: 70px;
+    bottom: 18px;
+    z-index: 3;
+    transform: translateY(18px);
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1), opacity .4s ease;
+}
+.gl-item:hover .gl-caption,
+.gl-item.is-touched .gl-caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gl-cat {
+    display: inline-block;
+    margin-bottom: 7px;
+    padding: 5px 12px;
+    background: #00a651;
+    border-radius: 30px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.gl-caption h4 {
+    margin: 0;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* "+" open button */
+.gl-view {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 4;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 50%;
+    color: #00a651;
+    font-size: 16px;
+    opacity: 0;
+    transform: scale(.6) rotate(-90deg);
+    transition: opacity .35s ease, transform .5s cubic-bezier(.22, 1, .36, 1), background .3s ease, color .3s ease;
+}
+.gl-item:hover .gl-view,
+.gl-item.is-touched .gl-view {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+.gl-view:hover { background: #00a651; color: #fff; }
+
+/* 2 columns (tablet) */
+@media (max-width: 991px) {
+    .gl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 14px; }
+
+    .gl-item[data-pos] { grid-column: span 1; grid-row: span 2; }
+    .gl-item[data-pos="0"],
+    .gl-item[data-pos="5"] { grid-column: span 2; }
+}
+
+/* 1 column (phones) */
+@media (max-width: 575px) {
+    .gl-grid { grid-template-columns: 1fr; grid-auto-rows: 140px; gap: 14px; }
+
+    .gl-item[data-pos],
+    .gl-item[data-pos="0"],
+    .gl-item[data-pos="5"] { grid-column: span 1; grid-row: span 2; }
+    .gl-item { border-radius: 16px; }
+    .gl-caption { left: 16px; right: 62px; bottom: 14px; }
+    .gl-caption h4 { font-size: 17px; }
+    .gl-view { width: 40px; height: 40px; right: 12px; bottom: 12px; }
+}
+
+/* touch screens: "+" button always visible, tap shows caption */
+@media (hover: none) {
+    .gl-view { opacity: 1; transform: none; }
+    .gl-item:hover { transform: none; box-shadow: 0 14px 32px rgba(7, 60, 35, .15); }
+    .gl-item:hover .gl-img { transform: none; }
+    .gl-item:hover::after { opacity: 0; }
+    .gl-item:hover .gl-caption { opacity: 0; transform: translateY(18px); }
+    /* touched state wins */
+    .gl-item.is-touched { transform: translateY(-4px) scale(1.01); box-shadow: 0 22px 40px rgba(7, 60, 35, .26); }
+    .gl-item.is-touched .gl-img { transform: scale(1.1); }
+    .gl-item.is-touched::after { opacity: 1; }
+    .gl-item.is-touched .gl-caption { opacity: 1; transform: translateY(0); }
+}
+
+/* empty */
+.gl-empty {
+    grid-column: 1 / -1;
+    grid-row: span 3;
+    padding: 70px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 20px;
+}
+.gl-empty i { display: block; margin-bottom: 18px; color: #00a651; font-size: 50px; }
+.gl-empty h4 { margin-bottom: 8px; }
+.gl-empty p { margin: 0; color: #3f5a50; }
 
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
+/* ==========================================================
+   LIGHTBOX (popup) - EVERY PHOTO THE SAME SIZE
+   Overrides Magnific Popup so tall and wide photos all open
+   in the same fixed frame (photo is cropped to fill it).
+   ========================================================== */
 
-        gap: 18px;
-    }
+.mfp-figure:after { display: none !important; }      /* old shadow box was sized for auto-height photos */
 
+img.mfp-img {
+    width: 900px !important;
+    max-width: 92vw !important;
+    height: 560px !important;
+    max-height: none !important;                      /* the plugin sets this inline, so we override it */
+    padding: 0 !important;
+    object-fit: cover;
+    object-position: center;
+    background: #0b3f2e;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
 
-    .gallery-item {
-        height: 285px;
+.mfp-figure figcaption { padding-top: 10px; }
+.mfp-title { padding-right: 0; }
 
-        border-radius: 12px;
-    }
-
-
-    .gallery-overlay {
-        opacity: 1;
-
-        padding: 20px;
-    }
-
-
-    .gallery-view-btn {
-        opacity: 1;
-
-        transform: scale(1);
-
-        width: 42px;
-        height: 42px;
-    }
-
+@media (max-width: 991px) {
+    img.mfp-img { height: 440px !important; }
+}
+@media (max-width: 575px) {
+    img.mfp-img { height: 320px !important; border-radius: 10px; }
 }
 
 </style>
@@ -423,50 +607,39 @@ Gallery | Touro Travel & Tour
 
 {% block content %}
 
+    <!-- ==================== HERO (same image as the Packages page) ==================== -->
+    <section class="about-hero">
 
-<!-- =========================================================
-     BREADCRUMB
-========================================================= -->
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="Beautiful beach destination">
 
-<section
-    class="breadcrumb-wrapper parallaxie fix bg-cover"
-    style="background-image: url('{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}');"
->
+        <div class="about-hero-overlay"></div>
 
-    <div class="container">
-
-        <div class="page-heading">
-
-            <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-
-                <li class="text-white">
-
-                    <a href="{% url 'home' %}">
-                        Home
-                    </a>
-
-                </li>
-
-                <li class="text-white">
-                    /
-                </li>
-
-                <li class="text-white">
-                    Gallery
-                </li>
-
-            </ul>
-
-
-            <h1 class="breadcrumb-title text-white text-center">
-                Our Gallery
-            </h1>
-
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
         </div>
 
-    </div>
+        <div class="container">
+            <div class="about-hero-content">
 
-</section>
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Gallery</li>
+                </ul>
+
+                <h1>Our Gallery</h1>
+
+            </div>
+        </div>
+
+    </section>
 
 
 
@@ -476,175 +649,134 @@ Gallery | Touro Travel & Tour
 
 <section class="gallery-page-section section-padding">
 
+    <!-- background pattern (same family as the Packages page) -->
+    <div class="gl-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+                <pattern id="glHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                    <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                </pattern>
+                <radialGradient id="glFadeTR" cx="1" cy="0" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="glFadeBL" cx="0" cy="1" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <mask id="glMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#glFadeTR)"/></mask>
+                <mask id="glMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#glFadeBL)"/></mask>
+                <linearGradient id="glBlobL" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                </linearGradient>
+                <linearGradient id="glBlobR" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                </linearGradient>
+            </defs>
+
+            <path fill="url(#glBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+            <path fill="url(#glBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+            <rect x="860" y="0" width="580" height="520" fill="url(#glHalf)" mask="url(#glMaskTR)"/>
+            <rect x="0" y="420" width="640" height="480" fill="url(#glHalf)" mask="url(#glMaskBL)"/>
+
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+            <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+            <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+        </svg>
+    </div>
+
+    <!-- DECORATIVE FLOATING CAMERA -->
+    <div class="gl-camera" aria-hidden="true">
+        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+    </div>
+
+
     <div class="container">
 
+        <!-- INTRO -->
+        <div class="gl-header">
 
-        <!-- =================================================
-             SECTION HEADING
-        ================================================== -->
+            <h6 class="sub-title wow fadeInUp">TRAVEL MOMENTS</h6>
 
-        <div class="gallery-heading">
+            <h2 class="char-animation">Explore Our Travel Gallery</h2>
 
-            <div class="section-title">
-
-                <h6
-                    class="sub-title wow fadeInUp"
-                    data-wow-delay=".2s"
-                >
-                    TRAVEL MOMENTS
-                </h6>
-
-
-                <h2 class="char-animation">
-                    Explore Our Travel Gallery
-                </h2>
-
-
-                <p
-                    class="wow fadeInUp"
-                    data-wow-delay=".4s"
-                >
-                    Discover unforgettable destinations, beautiful
-                    experiences and inspiring travel moments from
-                    journeys around the world.
-                </p>
-
-            </div>
+            <p class="wow fadeInUp" data-wow-delay=".2s">
+                Discover unforgettable destinations, beautiful experiences
+                and inspiring travel moments from journeys around the world.
+            </p>
 
         </div>
 
 
-
-        <!-- =================================================
-             CATEGORY FILTER BUTTONS
-        ================================================== -->
-
+        <!-- CATEGORY FILTER -->
         {% if categories %}
+        <div class="gl-filter">
 
-        <div
-            class="gallery-filter-wrapper wow fadeInUp"
-            data-wow-delay=".3s"
-        >
+            <button type="button" class="gl-filter-btn active" data-filter="all">All</button>
 
-            <!-- ALL -->
-            <button
-                type="button"
-                class="gallery-filter-btn active"
-                data-filter="all"
-            >
-                All
-            </button>
-
-
-            <!-- DYNAMIC CATEGORIES -->
             {% for category in categories %}
-
-            <button
-                type="button"
-                class="gallery-filter-btn"
-                data-filter="category-{{ category.id }}"
-            >
+            <button type="button" class="gl-filter-btn" data-filter="category-{{ category.id }}">
                 {{ category.name }}
             </button>
-
             {% endfor %}
 
         </div>
-
         {% endif %}
 
 
-
-        <!-- =================================================
-             GALLERY IMAGES
-        ================================================== -->
-
-        <div class="gallery-grid" id="galleryGrid">
-
+        <!-- COLLAGE -->
+        <div class="gl-grid" id="galleryGrid">
 
             {% for item in gallery_images %}
 
-            <div
-                class="gallery-item wow fadeInUp"
-                data-category="category-{{ item.category.id }}"
-                data-wow-delay=".2s"
-            >
+            <div class="gl-item gl-pre" data-category="category-{{ item.category.id }}">
 
-                <div class="gallery-image">
+                <img
+                    class="gl-img"
+                    src="{{ item.image.url }}"
+                    alt="{{ item.title|default:item.category.name }}"
+                    loading="lazy"
+                >
 
-
-                    <!-- IMAGE -->
-                    <img
-                        src="{{ item.image.url }}"
-                        alt="{{ item.title|default:item.category.name }}"
-                        loading="lazy"
-                    >
-
-
-                    <!-- IMAGE OVERLAY -->
-                    <div class="gallery-overlay">
-
-
-                        <span class="gallery-category">
-                            {{ item.category.name }}
-                        </span>
-
-
-                        {% if item.title %}
-
-                        <h4>
-                            {{ item.title }}
-                        </h4>
-
-                        {% endif %}
-
-
-                    </div>
-
-
-                    <!-- OPEN FULL IMAGE -->
-                    <a
-                        href="{{ item.image.url }}"
-                        class="gallery-view-btn gallery-popup"
-                        title="{{ item.title|default:item.category.name }}"
-                        aria-label="View image"
-                    >
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
-
-
+                <div class="gl-caption">
+                    <span class="gl-cat">{{ item.category.name }}</span>
+                    {% if item.title %}<h4>{{ item.title }}</h4>{% endif %}
                 </div>
 
-            </div>
+                <a
+                    href="{{ item.image.url }}"
+                    class="gl-view gallery-popup"
+                    title="{{ item.title|default:item.category.name }}"
+                    aria-label="View image"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                </a>
 
+            </div>
 
             {% empty %}
 
-
-            <div class="gallery-empty">
-
+            <div class="gl-empty">
                 <i class="fa-regular fa-images"></i>
-
-                <h4>
-                    No Gallery Images Yet
-                </h4>
-
-                <p>
-                    Gallery images will appear here once they are added.
-                </p>
-
+                <h4>No Gallery Images Yet</h4>
+                <p>Gallery images will appear here once they are added.</p>
             </div>
 
-
             {% endfor %}
-
 
         </div>
 
     </div>
 
 </section>
-
 
 {% endblock %}
 
@@ -653,62 +785,139 @@ Gallery | Touro Travel & Tour
 {% block extra_js %}
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ======================================================
-       GALLERY CATEGORY FILTER
-       ====================================================== */
+    var grid = document.getElementById("galleryGrid");
+    if (!grid) return;
 
-    const filterButtons =
-        document.querySelectorAll(".gallery-filter-btn");
-
-    const galleryItems =
-        document.querySelectorAll(".gallery-item");
+    var items   = [].slice.call(grid.querySelectorAll(".gl-item"));
+    var buttons = [].slice.call(document.querySelectorAll(".gl-filter-btn"));
+    var reduce  = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 
-    filterButtons.forEach(function (button) {
+    /* ------------------------------------------------------
+       COLLAGE POSITIONS (repeat every 8 visible photos)
+    ------------------------------------------------------ */
+    function layout() {
+        var n = 0;
+        items.forEach(function (it) {
+            if (it.classList.contains("gl-hide")) return;
+            it.setAttribute("data-pos", n % 8);
+            n++;
+        });
+    }
+
+
+    /* ------------------------------------------------------
+       ENTRANCE: 3D flip-in
+       Each photo turns up from the side, un-blurs and settles.
+       The picture inside zooms out at the same time.
+    ------------------------------------------------------ */
+    function reveal(el, delay) {
+
+        var img = el.querySelector(".gl-img");
+
+        el.classList.remove("gl-pre");
+
+        if (reduce || !el.animate) return;
+
+        el.animate([
+            {
+                opacity: 0,
+                filter: "blur(10px)",
+                transform: "perspective(900px) rotateY(-75deg) translateY(50px) scale(.8)"
+            },
+            {
+                opacity: 1,
+                filter: "blur(0)",
+                transform: "perspective(900px) rotateY(8deg) translateY(-6px) scale(1.02)",
+                offset: .65
+            },
+            {
+                opacity: 1,
+                filter: "blur(0)",
+                transform: "perspective(900px) rotateY(0) translateY(0) scale(1)"
+            }
+        ], {
+            duration: 1000,
+            delay: delay,
+            easing: "cubic-bezier(.22, 1, .36, 1)",
+            fill: "backwards"
+        });
+
+        if (img) {
+            img.animate([
+                { transform: "scale(1.5)" },
+                { transform: "scale(1)" }
+            ], {
+                duration: 1400,
+                delay: delay,
+                easing: "cubic-bezier(.22, 1, .36, 1)",
+                fill: "backwards"
+            });
+        }
+    }
+
+
+    /* ------------------------------------------------------
+       WHEN PHOTOS SCROLL INTO VIEW (stagger inside each batch)
+    ------------------------------------------------------ */
+    var observer = null;
+
+    if ("IntersectionObserver" in window) {
+
+        observer = new IntersectionObserver(function (entries) {
+
+            var batch = entries.filter(function (e) { return e.isIntersecting; });
+
+            /* keep the page order inside a batch */
+            batch.sort(function (a, b) { return items.indexOf(a.target) - items.indexOf(b.target); });
+
+            batch.forEach(function (entry, i) {
+                observer.unobserve(entry.target);
+                reveal(entry.target, Math.min(i * 120, 960));
+            });
+
+        }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    }
+
+    function watch(el) {
+        el.classList.add("gl-pre");
+        if (observer) { observer.observe(el); }
+        else          { el.classList.remove("gl-pre"); }
+    }
+
+
+    /* start */
+    layout();
+    items.forEach(watch);
+
+
+    /* ------------------------------------------------------
+       CATEGORY FILTER (photos flip in again)
+    ------------------------------------------------------ */
+    buttons.forEach(function (button) {
 
         button.addEventListener("click", function () {
 
-            const selectedCategory =
-                this.getAttribute("data-filter");
+            var selected = this.getAttribute("data-filter");
 
-
-            /* ----------------------------------------------
-               ACTIVE BUTTON
-            ---------------------------------------------- */
-
-            filterButtons.forEach(function (btn) {
-                btn.classList.remove("active");
-            });
-
+            buttons.forEach(function (b) { b.classList.remove("active"); });
             this.classList.add("active");
 
+            items.forEach(function (it) {
 
-            /* ----------------------------------------------
-               FILTER IMAGES
-            ---------------------------------------------- */
+                if (observer) observer.unobserve(it);
+                it.classList.remove("is-touched");
 
-            galleryItems.forEach(function (item) {
+                var show = selected === "all" || it.getAttribute("data-category") === selected;
+                it.classList.toggle("gl-hide", !show);
+            });
 
-                const itemCategory =
-                    item.getAttribute("data-category");
+            layout();
 
-
-                if (
-                    selectedCategory === "all" ||
-                    selectedCategory === itemCategory
-                ) {
-
-                    item.classList.remove("gallery-hidden");
-
-                } else {
-
-                    item.classList.add("gallery-hidden");
-
-                }
-
+            items.forEach(function (it) {
+                if (!it.classList.contains("gl-hide")) watch(it);
             });
 
         });
@@ -716,35 +925,55 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    /* ------------------------------------------------------
+       TOUCH: first tap on a photo shows its caption,
+       the "+" button opens the lightbox
+    ------------------------------------------------------ */
+    var isTouch = window.matchMedia("(hover: none)").matches;
 
-    /* ======================================================
-       MAGNIFIC POPUP
-       Uses the Magnific Popup already included by Touro
-       ====================================================== */
+    items.forEach(function (it) {
 
-    if (
-        typeof jQuery !== "undefined" &&
-        typeof jQuery.fn.magnificPopup !== "undefined"
-    ) {
+        it.addEventListener("click", function (e) {
 
-        jQuery(".gallery-popup").magnificPopup({
+            if (!isTouch) return;                       /* desktop uses hover */
+            if (e.target.closest(".gl-view")) return;   /* "+" opens the lightbox */
 
+            var was = it.classList.contains("is-touched");
+
+            items.forEach(function (o) { o.classList.remove("is-touched"); });
+
+            if (!was) it.classList.add("is-touched");
+        });
+
+    });
+
+    /* tap outside the gallery clears the touched photo */
+    document.addEventListener("click", function (e) {
+        if (!isTouch) return;
+        if (e.target.closest(".gl-item")) return;
+        items.forEach(function (o) { o.classList.remove("is-touched"); });
+    });
+
+
+    /* ------------------------------------------------------
+       LIGHTBOX (Magnific Popup already included by the theme)
+       - delegate on the grid: only photos that are visible
+         (not filtered out) are part of the popup gallery
+       - the fixed photo size is set in the CSS above
+    ------------------------------------------------------ */
+    if (typeof jQuery !== "undefined" && typeof jQuery.fn.magnificPopup !== "undefined") {
+
+        jQuery("#galleryGrid").magnificPopup({
+            delegate: ".gl-item:not(.gl-hide) .gallery-popup",
             type: "image",
-
-            gallery: {
-                enabled: true
-            },
-
+            gallery: { enabled: true },
             closeOnContentClick: false,
-
             closeBtnInside: true
-
         });
 
     }
 
 });
-
 </script>
 
 {% endblock %}

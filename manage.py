@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'travel_agent_pro.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'verdant_tours.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

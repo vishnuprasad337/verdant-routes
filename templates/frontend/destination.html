@@ -3,50 +3,35 @@
 
 
 {% block title %}
-Touro - Travel & Tour Booking Agency | Destination
+Verdant Routes - Travel & Tour Booking Agency | Destination
 {% endblock %}
 
 
 {% block extra_css %}
 
-<link
-    rel="stylesheet"
-    href="{% static 'frontend/assets/css/datepickerboot.css' %}"
->
-
-<link
-    rel="stylesheet"
-    href="{% static 'frontend/assets/css/rtl.css' %}"
->
-
-<link
-    rel="stylesheet"
-    href="{% static 'frontend/assets/css/toastr.min.css' %}"
->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* ==========================================================
-   DESTINATION HEADER FIX
-   Header must overlay breadcrumb like About page
+   DESTINATION PAGE HEADER FIX
+   Keep header OVER the hero just like the Packages page
    ========================================================== */
 
 #header-sticky {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-
     position: absolute !important;
-
+    top: auto;
     left: 0;
     right: 0;
     width: 100%;
-
     z-index: 9999 !important;
-
     background: transparent !important;
 }
-
 
 #header-sticky .header-main,
 #header-sticky .mega-menu-wrapper,
@@ -54,64 +39,50 @@ Touro - Travel & Tour Booking Agency | Destination
     background: transparent !important;
 }
 
-
+#header-sticky .header-main,
 #header-sticky .header-left,
 #header-sticky .header-right {
     visibility: visible !important;
     opacity: 1 !important;
 }
 
-
-/* ==========================================================
-   BREADCRUMB
-   ========================================================== */
-
-.breadcrumb-wrapper {
-    position: relative !important;
-    z-index: 1 !important;
-    margin-top: 0 !important;
+@media (min-width: 1200px) {
+    #header-sticky {
+        position: absolute !important;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: transparent !important;
+    }
 }
 
-
-/* ==========================================================
-   TABLET / MOBILE
-   ========================================================== */
-
 @media (max-width: 1199px) {
-
     #header-sticky {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-
         position: absolute !important;
-
         left: 0;
         right: 0;
         width: 100%;
-
         z-index: 9999 !important;
-
         background: transparent !important;
     }
-
 
     #header-sticky .header-main {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
+        background: transparent !important;
     }
-
 
     #header-sticky .header-left {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
-
-    #header-sticky .mean__menu-wrapper {
-        display: none !important;
-    }
-
+    #header-sticky .mean__menu-wrapper { display: none !important; }
 
     #header-sticky .header__hamburger {
         display: block !important;
@@ -119,107 +90,284 @@ Touro - Travel & Tour Booking Agency | Destination
         opacity: 1 !important;
     }
 
-
     #header-sticky .sidebar__toggle {
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-
         align-items: center;
         justify-content: center;
     }
 }
 
-
-/* ==========================================================
-   MOBILE
-   ========================================================== */
-
 @media (max-width: 991px) {
-
-    .header-top-section {
-        display: none !important;
-    }
-
-    #header-sticky {
-        top: 0 !important;
-    }
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
 }
 
-
-/* ==========================================================
-   STICKY HEADER
-   ========================================================== */
-
-/* =========================================================
-   STICKY HEADER AFTER SCROLL
-   ========================================================= */
+/* STICKY HEADER AFTER SCROLL */
 
 #header-sticky.sticky {
     position: fixed !important;
-
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-
     width: 100% !important;
-
     z-index: 99999 !important;
-
-    /* IMPORTANT */
     background: #ffffff !important;
-
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-
-    transition:
-        background-color 0.3s ease,
-        box-shadow 0.3s ease !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
-
-
-/* The previous rules force these transparent.
-   Restore white when sticky. */
 
 #header-sticky.sticky .mega-menu-wrapper,
-#header-sticky.sticky .header-main {
-    background: #ffffff !important;
-}
+#header-sticky.sticky .header-main { background: #ffffff !important; }
 
-
-/* Keep navbar text visible on white background */
-
-#header-sticky.sticky .main-menu ul li a {
-    color: #0b1f1a !important;
-}
-
-
-/* Search icon */
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
 
 #header-sticky.sticky .header-search .search-trigger,
-#header-sticky.sticky .header-search .search-icon {
-    color: #0b1f1a !important;
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
+
+
+
+/* ==========================================================
+   HERO (same image + style as the About / Packages pages)
+   ========================================================== */
+
+.about-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 58vh;
+    min-height: 460px;
+    max-height: 560px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
+}
+
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .55) 0%, rgba(7, 28, 31, .45) 100%);
+}
+
+.about-hero .container { position: relative; z-index: 3; }
+
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* wave seam into the mint section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 420px; }
+    .about-hero h1 { font-size: 54px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 340px; height: 46vh; padding-top: 70px; }
+    .about-hero h1 { font-size: 38px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 15px; }
 }
 
 
-/* Hamburger */
+/* ==========================================================
+   BRAND GREEN (same as home / packages)
+   ========================================================== */
 
-#header-sticky.sticky .sidebar__toggle {
-    color: #0b1f1a !important;
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
+    --title-green-bright: #00a651;
+}
+
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
+}
+
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
+}
+
+.section-title h2:not(.text-white) { color: var(--title-green) !important; }
+.section-title .sub-title:not(.text-white) { color: var(--title-green-bright) !important; }
+
+
+/* ==========================================================
+   DESTINATION SECTION (mint background + pattern)
+   ========================================================== */
+
+.destination-section-decorated {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #d7eee0 100%) !important;
+}
+
+.destination-section-decorated > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.destination-section-decorated .dest-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.destination-section-decorated .dest-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* wider container so the cards in a row are bigger */
+@media (min-width: 1400px) {
+    .destination-section-decorated > .container { max-width: 1480px; }
+}
+@media (min-width: 1700px) {
+    .destination-section-decorated > .container { max-width: 1560px; }
 }
 
 
-/* Keep Discover button styling */
+/* ==========================================================
+   PAGE INTRO (same as Packages)
+   ========================================================== */
 
-#header-sticky.sticky .theme-btn {
-    color: #ffffff !important;
+.destination-listing-header {
+    position: relative;
+    margin-bottom: 55px;
+}
+
+.destination-listing-title-area {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.destination-listing-title { max-width: 720px; }
+.destination-listing-title .sub-title { margin-bottom: 12px; }
+
+.destination-listing-title h2 {
+    color: #0a6b3a;
+    font-size: 48px;
+    line-height: 1.15;
+    font-weight: 700;
+    margin: 0 0 15px;
+}
+
+.destination-listing-title p {
+    max-width: 650px;
+    color: #3f5a50;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.destination-result-count {
+    flex-shrink: 0;
+    color: #3f5a50;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.destination-result-count strong {
+    color: #00a651;
+    font-size: 20px;
+    margin-right: 4px;
+}
+
+@media (max-width: 991px) {
+    .destination-listing-title-area { align-items: flex-start; flex-direction: column; gap: 15px; }
+    .destination-listing-title h2 { font-size: 38px; }
+}
+
+@media (max-width: 767px) {
+    .destination-listing-header { margin-bottom: 40px; }
+    .destination-listing-title h2 { font-size: 32px; }
+    .destination-listing-title p { font-size: 14px; }
 }
 
 
+/* ==========================================================
+   DESTINATION CARDS (same design, bigger)
+   ========================================================== */
 
-
-{% comment %} pagination css start {% endcomment %}
-
-/* Destination cards: image always fills the card like the template */
 .popular-deatination-style-1 .popular-deatination-image {
     position: relative;
     width: 100%;
@@ -232,427 +380,227 @@ Touro - Travel & Tour Booking Agency | Destination
     border-radius: 16px;
     display: block;
 }
-{% comment %} pagination css end {% endcomment %}
 
-{% comment %} filteration and title css start {% endcomment %}
-
-
-/* ==========================================================
-   DESTINATION PAGE INTRO
-========================================================== */
-
-.destination-page-intro {
-    position: relative;
-    margin-bottom: 55px;
+/* bigger title text on the card */
+.popular-deatination-style-1 .popular-deatination-content h3 {
+    font-size: 30px;
+    line-height: 1.2;
 }
-
-
-.destination-page-title {
-    max-width: 760px;
-    margin-bottom: 35px;
-}
-
-
-.destination-page-title .sub-title {
-    margin-bottom: 12px;
-}
-
-
-.destination-page-title h2 {
-    margin: 0 0 15px;
-
-    color: #08251d;
-
-    font-size: 48px;
-    line-height: 1.15;
-    font-weight: 700;
-}
-
-
-.destination-page-title p {
-    max-width: 680px;
-
-    margin: 0;
-
-    color: #68736f;
-
+.popular-deatination-style-1 .popular-deatination-content p {
     font-size: 16px;
-    line-height: 1.7;
+}
+
+@media (max-width: 575px) {
+    .popular-deatination-style-1 .popular-deatination-content h3 { font-size: 24px; }
 }
 
 
-/* ==========================================================
-   DESTINATION FILTER BAR
-========================================================== */
-
-.destination-filter-bar {
+/* ---------- View More + Book Now buttons on the card ---------- */
+.popular-deatination-style-1 .popular-deatination-content .dest-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
-
-    display: flex;
-    align-items: center;
-
-    padding: 10px;
-
-    background: #ffffff;
-
-    border: 1px solid #eeeeee;
-    border-radius: 50px;
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.06);
+    margin-top: 14px;
 }
 
-
-/* ==========================================================
-   ALL DESTINATIONS
-========================================================== */
-
-.destination-filter-all {
-    min-width: 230px;
-    height: 62px;
-
-    display: flex;
+.popular-deatination-style-1 .popular-deatination-content .dest-btn {
+    display: inline-flex;
     align-items: center;
-
-    padding: 0 24px;
-
-    background: #f5f6f6;
-
+    gap: 8px;
+    margin: 0;
+    padding: 11px 22px;
     border-radius: 40px;
-
-    color: #10231d;
-
-    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
     font-weight: 600;
-
+    line-height: 1;
+    white-space: nowrap;
     text-decoration: none;
-
-    transition: all .3s ease;
+    transition: background .3s ease, border-color .3s ease, color .3s ease, transform .3s ease;
 }
-
-
-.destination-filter-all > i:first-child {
-    margin-right: 12px;
-
-    color: #ff5a36;
-
-    font-size: 18px;
-}
-
-
-.destination-filter-all .filter-arrow {
-    margin-left: auto;
-
-    color: #75807c;
-
+.popular-deatination-style-1 .popular-deatination-content .dest-btn i {
     font-size: 12px;
+    transition: transform .3s ease;
+}
+.popular-deatination-style-1 .popular-deatination-content .dest-btn:hover i {
+    transform: translateX(4px);
+}
+/* View More: green outline (the card box is white) */
+.popular-deatination-style-1 .popular-deatination-content .dest-view-btn {
+    background: #fff;
+    border: 1.5px solid #00a651;
+    color: #0a6b3a !important;
+}
+.popular-deatination-style-1 .popular-deatination-content .dest-view-btn:hover {
+    background: #00a651;
+    border-color: #00a651;
+    color: #fff !important;
+    transform: translateY(-2px);
 }
 
-
-.destination-filter-all:hover,
-.destination-filter-all.active {
-    color: #ff5a36;
+/* Book Now: solid green */
+.popular-deatination-style-1 .popular-deatination-content .dest-book-btn {
+    background: #00a651;
+    border: 1px solid #00a651;
+    color: #fff !important;
+    box-shadow: 0 10px 22px rgba(0, 166, 81, .30);
+}
+.popular-deatination-style-1 .popular-deatination-content .dest-book-btn:hover {
+    background: #008a43;
+    border-color: #008a43;
+    color: #fff !important;
+    transform: translateY(-2px);
 }
 
-
-/* ==========================================================
-   SEARCH FIELD
-========================================================== */
-
-.destination-search-field {
-    position: relative;
-
-    flex: 1;
-
-    height: 62px;
-
-    display: flex;
-    align-items: center;
-
-    margin-left: 12px;
-
-    padding: 0 24px;
-
-    background: #f5f6f6;
-
-    border-radius: 40px;
-}
-
-
-.destination-search-field > i {
-    flex-shrink: 0;
-
-    margin-right: 12px;
-
-    color: #ff5a36;
-
-    font-size: 17px;
-}
-
-
-.destination-search-field input {
-    width: 100%;
-    height: 100%;
-
-    padding: 0;
-
-    border: 0;
-    outline: 0;
-
-    background: transparent;
-
-    color: #10231d;
-
-    font-size: 16px;
-    font-weight: 500;
-}
-
-
-.destination-search-field input::placeholder {
-    color: #6f7975;
-    opacity: 1;
-}
-
-
-/* ==========================================================
-   SEARCH BUTTON
-========================================================== */
-
-.destination-search-btn {
-    min-width: 165px;
-    height: 62px;
-
-    margin-left: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    border: none;
-    outline: none;
-
-    border-radius: 40px;
-
-    background: #ff5a36;
-
-    color: #ffffff;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        background .3s ease,
-        transform .3s ease;
-}
-
-
-.destination-search-btn:hover {
-    background: #08251d;
-}
-
-
-.destination-search-btn i {
-    font-size: 17px;
-}
-
-
-/* ==========================================================
-   RESULTS INFORMATION
-========================================================== */
-
-.destination-results-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-top: 22px;
-}
-
-
-.destination-results-info p {
-    margin: 0;
-
-    color: #6f7975;
-
-    font-size: 14px;
-}
-
-
-.destination-results-info strong {
-    color: #08251d;
-}
-
-
-.destination-clear-search {
-    color: #ff5a36;
-
-    font-size: 14px;
-    font-weight: 600;
-}
-
-
-.destination-clear-search:hover {
-    color: #08251d;
-}
-
-
-/* ==========================================================
-   TABLET
-========================================================== */
-
-@media (max-width: 991px) {
-
-    .destination-page-title h2 {
-        font-size: 38px;
-    }
-
-
-    .destination-filter-all {
-        min-width: 190px;
-    }
-
-
-    .destination-search-btn {
-        min-width: 135px;
+@media (max-width: 575px) {
+    .popular-deatination-style-1 .popular-deatination-content .dest-btn {
+        padding: 10px 18px;
+        font-size: 13px;
     }
 }
 
 
 /* ==========================================================
-   MOBILE
-========================================================== */
+   PAGINATION (green)
+   ========================================================== */
 
-@media (max-width: 767px) {
+.destination-section-decorated .page-nav-wrap { margin-top: 60px; }
 
-    .destination-page-intro {
-        margin-bottom: 40px;
-    }
-
-
-    .destination-page-title {
-        margin-bottom: 25px;
-    }
-
-
-    .destination-page-title h2 {
-        font-size: 32px;
-    }
-
-
-    .destination-page-title p {
-        font-size: 14px;
-    }
-
-
-    .destination-filter-bar {
-        flex-direction: column;
-
-        padding: 10px;
-
-        border-radius: 24px;
-    }
-
-
-    .destination-filter-all,
-    .destination-search-field,
-    .destination-search-btn {
-        width: 100%;
-        min-width: 0;
-
-        height: 58px;
-
-        margin: 0;
-    }
-
-
-    .destination-filter-all,
-    .destination-search-field {
-        margin-bottom: 10px;
-    }
-
-
-    .destination-filter-all,
-    .destination-search-field,
-    .destination-search-btn {
-        border-radius: 18px;
-    }
-
-
-    .destination-results-info {
-        align-items: flex-start;
-        flex-direction: column;
-
-        gap: 8px;
-    }
+.destination-section-decorated .page-nav-wrap ul li a.page-numbers:hover,
+.destination-section-decorated .page-nav-wrap ul li.active a.page-numbers {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
 }
-{% comment %} filteration title css end  {% endcomment %}
+
+@media (max-width: 991px) { .destination-section-decorated .page-nav-wrap { margin-top: 45px; } }
+@media (max-width: 575px) { .destination-section-decorated .page-nav-wrap { margin-top: 35px; } }
+
 </style>
 
 {% endblock %}
 
 
 {% block content %}
-    <!-- Breadcrumb-Wrapper Section Start -->
-    <section class="breadcrumb-wrapper parallaxie fix bg-cover"
-        style="background-image: url('{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}');">
+
+    <!-- ==================== HERO (same image as About / Packages) ==================== -->
+    <section class="about-hero">
+
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="Beautiful beach destination">
+
+        <div class="about-hero-overlay"></div>
+
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
+        </div>
+
         <div class="container">
-            <div class="page-heading">
-                <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-                    <li class="text-white"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white">Our Destinations</li>
+            <div class="about-hero-content">
+
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Our Destinations</li>
                 </ul>
-                <h1 class="breadcrumb-title text-white text-center">Our Destinations</h1>
+
+                <h1>Our Destinations</h1>
+
             </div>
         </div>
+
     </section>
 
- <!-- =========================================================
+
+<!-- =========================================================
      DESTINATION LISTING SECTION
 ========================================================= -->
 
-<section class="popular-destination-section section-padding fix">
+<section class="popular-destination-section section-padding destination-section-decorated">
+
+    <!-- background pattern (same family as the Packages page) -->
+    <div class="dest-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+                <pattern id="destHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                    <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                </pattern>
+                <radialGradient id="destFadeTR" cx="1" cy="0" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="destFadeBL" cx="0" cy="1" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <mask id="destMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#destFadeTR)"/></mask>
+                <mask id="destMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#destFadeBL)"/></mask>
+                <linearGradient id="destBlobL" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                </linearGradient>
+                <linearGradient id="destBlobR" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                </linearGradient>
+            </defs>
+
+            <path fill="url(#destBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+            <path fill="url(#destBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+            <rect x="860" y="0" width="580" height="520" fill="url(#destHalf)" mask="url(#destMaskTR)"/>
+            <rect x="0" y="420" width="640" height="480" fill="url(#destHalf)" mask="url(#destMaskBL)"/>
+
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+            <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+            <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+        </svg>
+    </div>
+
 
     <div class="container">
 
-
         <!-- =====================================================
-             TITLE + FILTER AREA
+             PAGE TITLE / INTRO
         ====================================================== -->
 
-        <div class="destination-page-intro">
+        <div class="destination-listing-header">
 
+            <div class="destination-listing-title-area">
 
-            <!-- ===============================================
-                 TITLE
-            ================================================ -->
+                <div class="destination-listing-title">
 
-            <div class="destination-page-title">
+                    <h6 class="sub-title wow fadeInUp">POPULAR DESTINATION</h6>
 
-                <h6 class="sub-title wow fadeInUp">
-                    POPULAR DESTINATION
-                </h6>
+                    <h2 class="char-animation">Explore Our Popular Destinations</h2>
 
+                    <p class="wow fadeInUp" data-wow-delay=".2s">
+                        Discover beautiful destinations and find the
+                        perfect place for your next unforgettable
+                        journey.
+                    </p>
 
-                <h2 class="char-animation">
-                    Explore Our Popular Destinations
-                </h2>
+                </div>
 
-
-                <p
-                    class="wow fadeInUp"
-                    data-wow-delay=".2s"
-                >
-                    Discover beautiful destinations and find the
-                    perfect place for your next unforgettable
-                    journey.
-                </p>
+                <!-- RESULT COUNT -->
+                <div class="destination-result-count wow fadeInUp">
+                    <strong>{{ page_obj.paginator.count }}</strong>
+                    Destination{{ page_obj.paginator.count|pluralize }} Available
+                </div>
 
             </div>
 
@@ -669,77 +617,46 @@ Touro - Travel & Tour Booking Agency | Destination
 
             {% for d in destinations %}
 
+            <div class="col-xl-4 col-lg-4 col-md-6">
 
-            <div class="col-xl-4 col-lg-6 col-md-6">
-
-                <div
-                    class="
-                        popular-deatination-items
-                        popular-deatination-style-1
-                    "
-                >
+                <div class="popular-deatination-items popular-deatination-style-1">
 
                     <div class="popular-deatination-image">
 
-
                         <!-- IMAGE -->
-
                         {% if d.image %}
-
-                        <img
-                            src="{{ d.image.url }}"
-                            alt="{{ d.name }}"
-                            loading="lazy"
-                        >
-
+                        <img src="{{ d.image.url }}" alt="{{ d.name }}" loading="lazy">
                         {% else %}
-
-                        <img
-                            src="{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}"
-                            alt="{{ d.name }}"
-                            loading="lazy"
-                        >
-
+                        <img src="{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}" alt="{{ d.name }}" loading="lazy">
                         {% endif %}
 
 
-
-                        <!-- STAR -->
-
-                        <span class="star">
-
-                            <i class="fa-solid fa-star"></i>
-
-                            <span>
-                                {{ d.rating|default:"5" }}
-                            </span>
-
-                        </span>
-
-
-
                         <!-- CONTENT -->
-
                         <div class="popular-deatination-content">
 
                             <h3>
-
-                                <a
-                                    href="{% url 'destination_details' d.slug %}"
-                                >
-                                    {{ d.name }}
-                                </a>
-
+                                <a href="{% url 'destination_details' d.slug %}">{{ d.name }}</a>
                             </h3>
-
 
                             <p>
                                 {{ d.listing_count|default:0 }}
                                 Listing
                             </p>
 
-                        </div>
+                            <!-- VIEW MORE + BOOK NOW -->
+                            <div class="dest-actions">
 
+                                <a href="{% url 'destination_details' d.slug %}" class="dest-btn dest-view-btn">
+                                    View More <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                                <a href="#" class="dest-btn dest-book-btn open-booking-modal" data-package="{{ d.name }}">
+                                    Book Now <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -747,9 +664,7 @@ Touro - Travel & Tour Booking Agency | Destination
 
             </div>
 
-
             {% empty %}
-
 
             <!-- =================================================
                  NO RESULTS
@@ -759,20 +674,10 @@ Touro - Travel & Tour Booking Agency | Destination
 
                 <div class="text-center py-5">
 
-                    <i
-                        class="fa-regular fa-map-location-dot"
-                        style="
-                            font-size: 50px;
-                            color: #ff5a36;
-                            margin-bottom: 20px;
-                        "
-                    ></i>
+                    <i class="fa-regular fa-map-location-dot"
+                       style="font-size: 50px; color: #00a651; margin-bottom: 20px;"></i>
 
-
-                    <h3>
-                        No Destinations Found
-                    </h3>
-
+                    <h3>No Destinations Found</h3>
 
                     {% if search_query %}
 
@@ -781,23 +686,14 @@ Touro - Travel & Tour Booking Agency | Destination
                         "{{ search_query }}".
                     </p>
 
-
-                    <a
-                        href="{% url 'destination' %}"
-                        class="theme-btn mt-20"
-                    >
-
+                    <a href="{% url 'destination' %}" class="theme-btn mt-20">
                         <i class="fa-regular fa-arrow-left"></i>
-
                         View All Destinations
-
                     </a>
 
                     {% else %}
 
-                    <p>
-                        No destinations are available right now.
-                    </p>
+                    <p>No destinations are available right now.</p>
 
                     {% endif %}
 
@@ -805,9 +701,7 @@ Touro - Travel & Tour Booking Agency | Destination
 
             </div>
 
-
             {% endfor %}
-
 
         </div>
 
@@ -819,76 +713,39 @@ Touro - Travel & Tour Booking Agency | Destination
 
         {% if page_obj.has_other_pages %}
 
-        <div class="page-nav-wrap text-center mt-50">
+        <div class="page-nav-wrap text-center">
 
             <ul>
 
-
                 <!-- PREVIOUS -->
-
                 {% if page_obj.has_previous %}
-
                 <li>
-
-                    <a
-                        class="page-numbers"
-                        href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}"
-                    >
-
+                    <a class="page-numbers"
+                       href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}">
                         <i class="fa-solid fa-arrow-left"></i>
-
                     </a>
-
                 </li>
-
                 {% endif %}
-
-
 
                 <!-- PAGE NUMBERS -->
-
                 {% for n in page_obj.paginator.page_range %}
-
-                <li
-                    {% if n == page_obj.number %}
-                        class="active"
-                    {% endif %}
-                >
-
-                    <a
-                        class="page-numbers"
-                        href="?page={{ n }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}"
-                    >
-
+                <li {% if n == page_obj.number %}class="active"{% endif %}>
+                    <a class="page-numbers"
+                       href="?page={{ n }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}">
                         {{ n|stringformat:"02d" }}
-
                     </a>
-
                 </li>
-
                 {% endfor %}
 
-
-
                 <!-- NEXT -->
-
                 {% if page_obj.has_next %}
-
                 <li>
-
-                    <a
-                        class="page-numbers"
-                        href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}"
-                    >
-
+                    <a class="page-numbers"
+                       href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}">
                         <i class="fa-solid fa-arrow-right"></i>
-
                     </a>
-
                 </li>
-
                 {% endif %}
-
 
             </ul>
 
@@ -896,13 +753,9 @@ Touro - Travel & Tour Booking Agency | Destination
 
         {% endif %}
 
-
     </div>
 
 </section>
-
-
-
 
 {% endblock %}
 

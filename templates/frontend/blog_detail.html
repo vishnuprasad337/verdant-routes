@@ -3,7 +3,7 @@
 
 
 {% block title %}
-{{ blog.title }} | Touro
+Verdant Routes - Travel & Tour Booking Agency | {{ blog.title }}
 {% endblock %}
 
 
@@ -14,164 +14,348 @@
 
 {% block extra_css %}
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* ==========================================================
-   BLOG DETAILS PAGE
-========================================================== */
+   HEADER OVERLAYS THE HERO (same as the other pages)
+   ========================================================== */
 
-.blog-detail-page {
-    position: relative;
-}
-
-
-/*
-    Control overall content width.
-
-    Increase this slightly if you want the article/sidebar
-    to occupy more of the screen.
-*/
-.blog-detail-page .container {
-    max-width: 1280px;
-}
-
-
-/* ==========================================================
-   LEFT / RIGHT COLUMN GAP
-========================================================== */
-
-/*
-    IMPORTANT
-
-    Your HTML already has:
-
-        <div class="row blog-details-row">
-
-    Previously there was no CSS for it.
-
-    Bootstrap normally adds gutters between columns.
-    We make the gap smaller here.
-*/
-
-.blog-details-row {
-    --bs-gutter-x: 26px;
-    --bs-gutter-y: 30px;
-
-    align-items: flex-start;
-}
-
-
-/* ==========================================================
-   LEFT ARTICLE
-========================================================== */
-
-.news-details-post {
+#header-sticky {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: auto;
+    left: 0;
+    right: 0;
     width: 100%;
+    z-index: 9999 !important;
+    background: transparent !important;
 }
 
+#header-sticky .header-main,
+#header-sticky .mega-menu-wrapper,
+#header-sticky .container { background: transparent !important; }
 
-/* ==========================================================
-   MAIN BLOG IMAGE
-========================================================== */
+#header-sticky .header-left,
+#header-sticky .header-right { visibility: visible !important; opacity: 1 !important; }
 
-.blog-detail-page .news-details-image {
-    width: 100%;
-    height: 520px;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    margin-bottom: 35px;
-
-    background: #f5f5f5;
+@media (max-width: 1199px) {
+    #header-sticky .header-main {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    #header-sticky .header-left { display: block !important; visibility: visible !important; }
+    #header-sticky .mean__menu-wrapper { display: none !important; }
+    #header-sticky .header__hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
+    #header-sticky .sidebar__toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
+@media (max-width: 991px) {
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
+}
 
-.blog-detail-page .news-details-image img {
-    display: block;
-
+#header-sticky.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
-    height: 100% !important;
+    z-index: 99999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+#header-sticky.sticky .mega-menu-wrapper,
+#header-sticky.sticky .header-main { background: #ffffff !important; }
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
+#header-sticky.sticky .header-search .search-trigger,
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
 
+
+/* ==========================================================
+   BRAND GREEN
+   ========================================================== */
+
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
+}
+
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
+}
+
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
+}
+
+
+/* ==========================================================
+   HERO: blog image + title + short description
+   ========================================================== */
+
+.about-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62vh;
+    min-height: 480px;
+    max-height: 600px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
+}
+
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-
-    border-radius: 18px;
+    z-index: 0;
 }
 
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .60) 0%, rgba(7, 28, 31, .50) 100%);
+}
 
-/* ==========================================================
-   BLOG META
-========================================================== */
+.about-hero .container { position: relative; z-index: 3; }
 
-.blog-detail-page .news-list {
-    display: flex;
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+.about-hero .about-hero-content > :nth-child(3) { animation-delay: .6s; }
 
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
     align-items: center;
-
-    gap: 15px;
-
+    justify-content: center;
     flex-wrap: wrap;
-
+    gap: 8px;
+    margin: 0 0 8px;
     padding: 0;
-
-    margin: 0 0 18px;
-
     list-style: none;
 }
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0 auto;
+    max-width: 960px;
+    color: #fff;
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.about-hero .hero-desc {
+    max-width: 680px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, .92);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* wave seam into the mint section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 440px; }
+    .about-hero h1 { font-size: 42px; }
+    .about-hero .hero-desc { font-size: 16.5px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 380px; height: auto; padding: 100px 0 90px; }
+    .about-hero h1 { font-size: 30px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 14px; }
+    .about-hero .hero-desc { font-size: 15px; }
+}
 
 
-.blog-detail-page .news-list li {
+/* ==========================================================
+   DETAILS SECTION (mint background + pattern, same as the
+   Destination / Package details pages)
+   ========================================================== */
+
+.blog-details-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #eef8f2 100%) !important;
+}
+
+.blog-details-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.blog-details-section .bd-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.blog-details-section .bd-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* floating camera (decoration) */
+.blog-details-section .bd-camera {
+    position: absolute;
+    top: 75px;
+    right: -55px;
+    width: 330px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
+}
+.blog-details-section .bd-camera img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: bdCameraFloat 4.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes bdCameraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
+@media (max-width: 1199px) {
+    .blog-details-section .bd-camera { width: 270px; top: 80px; right: -70px; opacity: 0.08; }
+}
+@media (max-width: 767px) {
+    .blog-details-section .bd-camera { width: 190px; top: 45px; right: -65px; opacity: 0.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .blog-details-section .bd-camera img { animation: none; }
+}
+
+
+/* ---------- title + date ---------- */
+
+.blog-details-section .bd-title {
+    margin: 0 0 12px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.blog-details-section .bd-meta {
     display: flex;
-
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin: 0 0 36px;
+    padding: 0;
+    list-style: none;
+    color: #3f5a50;
+    font-size: 15px;
+}
+.blog-details-section .bd-meta i { margin-right: 7px; color: #0a8f45; }
 
-    gap: 8px;
+@media (max-width: 767px) {
+    .blog-details-section .bd-title { font-size: 28px; }
 }
 
 
-.blog-detail-page .news-list i {
-    color: var(--theme);
+/* ---------- main blog image ---------- */
+
+.blog-details-section .bd-main-photo {
+    overflow: hidden;
+    margin-bottom: 36px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(7, 60, 35, .10);
+}
+.blog-details-section .bd-main-photo img {
+    display: block;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+}
+@media (max-width: 767px) {
+    .blog-details-section .bd-main-photo img { height: 280px; }
 }
 
 
 /* ==========================================================
-   BLOG TITLE
-========================================================== */
-
-.blog-detail-page .news-details-content > h2 {
-    font-size: 42px;
-
-    line-height: 1.25;
-
-    margin-top: 5px;
-
-    margin-bottom: 25px;
-}
-
-
-/* ==========================================================
-   RICH TEXT DESCRIPTION
-========================================================== */
+   RICH TEXT (blog description from the admin editor)
+   ========================================================== */
 
 .blog-description {
-    font-size: 16px;
-
+    color: #3f5a50;
+    font-size: 16.5px;
     line-height: 1.85;
-
-    color: #5c6663;
 }
-
 
 .blog-description p {
     margin-bottom: 22px;
-
     line-height: 1.85;
 }
-
-
-/* HEADINGS FROM EDITOR */
 
 .blog-description h1,
 .blog-description h2,
@@ -179,574 +363,229 @@
 .blog-description h4,
 .blog-description h5,
 .blog-description h6 {
-    color: #071c16;
-
-    font-weight: 700;
-
-    line-height: 1.3;
-
     margin-top: 32px;
-
     margin-bottom: 16px;
+    color: #0a6b3a;
+    font-weight: 700;
+    line-height: 1.3;
 }
+.blog-description h1 { font-size: 36px; }
+.blog-description h2 { font-size: 32px; }
+.blog-description h3 { font-size: 27px; }
+.blog-description h4 { font-size: 23px; }
+.blog-description h5 { font-size: 20px; }
+.blog-description h6 { font-size: 18px; }
 
-
-.blog-description h1 {
-    font-size: 38px;
-}
-
-
-.blog-description h2 {
-    font-size: 34px;
-}
-
-
-.blog-description h3 {
-    font-size: 28px;
-}
-
-
-.blog-description h4 {
-    font-size: 24px;
-}
-
-
-.blog-description h5 {
-    font-size: 20px;
-}
-
-
-.blog-description h6 {
-    font-size: 18px;
-}
-
-
-/* ==========================================================
-   RICH TEXT LIST FIX
-========================================================== */
-
+/* lists */
 .blog-description ul,
 .blog-description ol {
     display: block !important;
-
     width: 100%;
-
     margin: 20px 0 25px !important;
-
     padding-left: 28px !important;
 }
-
-
-.blog-description ul {
-    list-style-type: disc !important;
-}
-
-
-.blog-description ol {
-    list-style-type: decimal !important;
-}
-
+.blog-description ul { list-style-type: disc !important; }
+.blog-description ol { list-style-type: decimal !important; }
 
 .blog-description ul li,
 .blog-description ol li {
     position: relative;
-
     display: list-item !important;
-
     width: auto !important;
     height: auto !important;
-
     min-height: 0 !important;
-
     margin: 0 0 10px 0 !important;
     padding: 0 !important;
-
     line-height: 1.7 !important;
-
     transform: none !important;
 }
 
-
-/*
-   Your editor content contains checkmark images inside LI elements.
-
-   The theme's general image/list styling is causing those checkmarks
-   to become separated from their text.
-*/
-
+/* small check-mark images inside list items stay inline with the text */
 .blog-description li img {
     display: inline-block !important;
-
     width: 18px !important;
     height: 18px !important;
-
     max-width: 18px !important;
-
     margin: 0 7px 0 0 !important;
-
     padding: 0 !important;
-
     border-radius: 0 !important;
-
     vertical-align: middle;
-
     object-fit: contain;
 }
 
-
-/*
-   Normal large article images should still be responsive.
-*/
-
-.blog-description > img,
-.blog-description > p > img {
-    display: block;
-
-    max-width: 100% !important;
-
-    width: auto;
-
-    height: auto !important;
-
-    margin: 30px auto;
-
-    border-radius: 14px;
-}
-
-
-/* ==========================================================
-   RICH TEXT IMAGES
-========================================================== */
-
+/* normal article images */
 .blog-description img {
     display: block;
-
     max-width: 100% !important;
-
     height: auto !important;
-
     margin: 30px auto;
-
     border-radius: 14px;
 }
 
-
-/* ==========================================================
-   RICH TEXT LINKS
-========================================================== */
-
 .blog-description a {
-    color: var(--theme);
-
+    color: #00a651;
     text-decoration: underline;
 }
 
-
-/* ==========================================================
-   BLOCKQUOTE
-========================================================== */
-
 .blog-description blockquote {
     margin: 30px 0;
-
     padding: 25px 30px;
-
-    background: #f7f7f7;
-
-    border-left: 4px solid var(--theme);
-
-    border-radius: 8px;
-
+    background: #ffffff;
+    border-left: 4px solid #00a651;
+    border-radius: 12px;
+    box-shadow: 0 10px 26px rgba(7, 60, 35, .08);
     font-size: 18px;
-
     line-height: 1.7;
 }
 
-
-/* ==========================================================
-   RIGHT SIDEBAR
-========================================================== */
-
-/*
-    IMPORTANT
-
-    This makes Search + Latest Blogs move down with the page
-    until they reach 110px from the top.
-
-    Then they stay fixed there while the left article continues
-    scrolling.
-*/
-
-.blog-sidebar {
-    position: -webkit-sticky;
-    position: sticky;
-
-    top: 110px;
-
-    width: 100%;
-
-    align-self: flex-start;
-}
-
-
-/*
-    Do NOT put:
-        overflow: hidden;
-        overflow: auto;
-        overflow: scroll;
-
-    on the sidebar parents because that can break sticky.
-*/
-
-.news-details-wrapper,
-.blog-details-row,
-.blog-details-row > [class*="col-"] {
-    overflow: visible !important;
+@media (max-width: 767px) {
+    .blog-description { font-size: 15px; }
+    .blog-description h1 { font-size: 28px; }
+    .blog-description h2 { font-size: 25px; }
+    .blog-description h3 { font-size: 22px; }
+    .blog-description h4 { font-size: 20px; }
 }
 
 
 /* ==========================================================
-   SIDEBAR CARD
-========================================================== */
+   STICKY SIDEBAR (moved by the script at the bottom of the page)
+   position is forced to "relative" so the theme cannot interfere
+   ========================================================== */
 
-.blog-sidebar-widget {
+.blog-details-section .sidebar-col { align-self: stretch; }
+
+.blog-details-section .bd-sidebar {
+    position: relative !important;
+    top: 0 !important;
+    will-change: transform;
+}
+
+.bd-card {
+    margin-bottom: 16px;
+    padding: 18px 18px 16px;
+    background: #fff;
+    border: 1px solid rgba(10, 107, 58, .08);
+    border-radius: 24px;
+    box-shadow: 0 14px 36px rgba(7, 60, 35, .10);
+}
+.bd-card:last-child { margin-bottom: 0; }
+
+.bd-card h3 {
+    margin: 0 0 12px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ---------- search ---------- */
+
+.bd-search { position: relative; }
+
+.bd-search input {
     width: 100%;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 16px;
-
-    padding: 24px;
-
-    margin-bottom: 22px;
-
-    background: #ffffff;
-}
-
-
-.blog-sidebar-widget:last-child {
-    margin-bottom: 0;
-}
-
-
-.blog-sidebar-title {
-    margin-bottom: 22px;
-}
-
-
-.blog-sidebar-title h3 {
-    margin: 0;
-
-    font-size: 24px;
-
-    line-height: 1.3;
-
-    color: #071c16;
-}
-
-
-/* ==========================================================
-   SEARCH
-========================================================== */
-
-.blog-search-form {
-    position: relative;
-}
-
-
-.blog-search-form input {
-    width: 100%;
-
-    height: 58px;
-
-    border: 1px solid #e5e5e5;
-
-    border-radius: 10px;
-
-    padding: 0 55px 0 18px;
-
+    height: 50px;
+    padding: 0 52px 0 18px;
+    background: #f3faf6;
+    border: 1px solid rgba(10, 107, 58, .12);
+    border-radius: 40px;
+    color: #0b3f2e;
+    font-size: 14.5px;
     outline: none;
-
-    background: #ffffff;
+    transition: border-color .3s ease, background .3s ease;
 }
+.bd-search input:focus { background: #fff; border-color: #00a651; }
 
-
-.blog-search-form input:focus {
-    border-color: var(--theme);
-}
-
-
-.blog-search-form button {
+.bd-search button {
     position: absolute;
-
-    right: 0;
-    top: 0;
-
-    width: 55px;
-    height: 58px;
-
-    border: 0;
-
-    background: transparent;
-
-    cursor: pointer;
-}
-
-
-/* ==========================================================
-   LATEST BLOGS
-========================================================== */
-
-.related-blog-item {
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
     display: flex;
-
     align-items: center;
+    justify-content: center;
+    background: #00a651;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+.bd-search button:hover { background: #008a43; }
 
-    gap: 13px;
+/* ---------- latest blogs ---------- */
 
-    padding-bottom: 18px;
-
-    margin-bottom: 18px;
-
-    border-bottom: 1px solid #eeeeee;
+.bd-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px;
+    margin-bottom: 8px;
+    background: #f3faf6;
+    border: 1px solid rgba(10, 107, 58, .06);
+    border-radius: 14px;
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.bd-item:last-child { margin-bottom: 0; }
+.bd-item:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    box-shadow: 0 12px 26px rgba(7, 60, 35, .12);
 }
 
-
-.related-blog-item:last-child {
-    padding-bottom: 0;
-
-    margin-bottom: 0;
-
-    border-bottom: 0;
-}
-
-
-/* IMAGE */
-
-.related-blog-image {
-    display: block;
-
-    width: 92px;
-    height: 78px;
-
-    flex: 0 0 92px;
-
+.bd-item .bd-thumb {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 68px;
     overflow: hidden;
-
     border-radius: 10px;
-
-    background: #f5f5f5;
+    background: #0b3f2e;
 }
-
-
-.related-blog-image img {
-    display: block;
-
+.bd-item .bd-thumb img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-}
-
-
-/* CONTENT */
-
-.related-blog-content {
-    flex: 1;
-
-    min-width: 0;
-}
-
-
-.related-blog-date {
     display: block;
+    transition: transform .5s ease;
+}
+.bd-item:hover .bd-thumb img { transform: scale(1.08); }
 
-    margin-bottom: 6px;
+.bd-item .bd-body { flex: 1; min-width: 0; }
 
-    font-size: 12px;
-
-    color: #0866ff;
-
+.bd-item .bd-date {
+    display: block;
+    margin-bottom: 2px;
+    color: #0a8f45;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
     text-transform: uppercase;
 }
 
-
-.related-blog-content h5 {
+.bd-item h6 {
     margin: 0;
-
-    font-size: 15px;
-
-    line-height: 1.4;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.3;
 }
+.bd-item h6 a { color: #0b3f2e; }
+.bd-item h6 a:hover { color: #00a651; }
 
-
-.related-blog-content h5 a {
-    color: #071c16;
-
-    transition: color 0.3s ease;
+.bd-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    color: #0a6b3a;
+    font-size: 14px;
+    font-weight: 700;
 }
-
-
-.related-blog-content h5 a:hover {
-    color: var(--theme);
-}
-
-
-/* ==========================================================
-   TABLET
-========================================================== */
-
-@media (max-width: 1199px) {
-
-    .blog-detail-page .container {
-        max-width: 960px;
-    }
-
-
-    .blog-details-row {
-        --bs-gutter-x: 22px;
-    }
-
-
-    .blog-detail-page .news-details-image {
-        height: 440px;
-    }
-
-
-    .blog-detail-page .news-details-content > h2 {
-        font-size: 36px;
-    }
-
-
-    .blog-sidebar-widget {
-        padding: 20px;
-    }
-
-
-    .related-blog-image {
-        width: 80px;
-        height: 72px;
-
-        flex-basis: 80px;
-    }
-
-
-    .related-blog-content h5 {
-        font-size: 14px;
-    }
-
-}
-
-
-/* ==========================================================
-   MOBILE / SMALL TABLET
-========================================================== */
-
-@media (max-width: 991px) {
-
-    /*
-       Columns stack here.
-
-       Sticky is disabled because sidebar is underneath
-       the article on mobile.
-    */
-
-    .blog-sidebar {
-        position: static;
-
-        top: auto;
-
-        margin-top: 20px;
-    }
-
-
-    .blog-details-row {
-        --bs-gutter-x: 20px;
-    }
-
-
-    .blog-detail-page .news-details-image {
-        height: 400px;
-    }
-
-}
-
-
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width: 767px) {
-
-    .blog-detail-page .news-details-image {
-        height: 300px;
-
-        border-radius: 12px;
-    }
-
-
-    .blog-detail-page .news-details-image img {
-        border-radius: 12px;
-    }
-
-
-    .blog-detail-page .news-details-content > h2 {
-        font-size: 28px;
-    }
-
-
-    .blog-sidebar-widget {
-        padding: 20px;
-    }
-
-
-    .blog-description {
-        font-size: 15px;
-    }
-
-
-    .blog-description h1 {
-        font-size: 30px;
-    }
-
-
-    .blog-description h2 {
-        font-size: 27px;
-    }
-
-
-    .blog-description h3 {
-        font-size: 24px;
-    }
-
-
-    .blog-description h4 {
-        font-size: 21px;
-    }
-
-}
-
-
-/* ==========================================================
-   SMALL MOBILE
-========================================================== */
-
-@media (max-width: 480px) {
-
-    .blog-detail-page .news-details-image {
-        height: 250px;
-    }
-
-
-    .related-blog-image {
-        width: 85px;
-
-        height: 75px;
-
-        flex-basis: 85px;
-    }
-
-}
+.bd-more i { transition: transform .3s ease; }
+.bd-more:hover { color: #00a651; }
+.bd-more:hover i { transform: translateX(5px); }
 
 </style>
 
@@ -756,326 +595,253 @@
 
 {% block content %}
 
+    <!-- ==================== HERO: blog image, title, description ==================== -->
+    <section class="about-hero">
 
-<!-- ============================================================
-     BREADCRUMB
-============================================================ -->
+        {% if blog.image %}
+        <img class="about-hero-bg" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+        {% else %}
+        <img class="about-hero-bg" src="{% static 'frontend/assets/img/about hero.png' %}" alt="{{ blog.title }}">
+        {% endif %}
 
-<section
-    class="breadcrumb-wrapper fix parallaxie bg-cover"
-    style="background-image: url('{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}');"
->
+        <div class="about-hero-overlay"></div>
 
-    <div class="container">
-
-        <div class="page-heading">
-
-            <ul
-                class="breadcrumb-list
-                       d-flex
-                       align-items-center
-                       justify-content-center"
-            >
-
-                <li class="text-white">
-
-                    <a href="{% url 'home' %}">
-                        Home
-                    </a>
-
-                </li>
-
-
-                <li class="text-white">
-                    /
-                </li>
-
-
-                <li class="text-white">
-
-                    <a href="{% url 'blogs' %}">
-                        Blogs
-                    </a>
-
-                </li>
-
-
-                <li class="text-white">
-                    /
-                </li>
-
-
-                <li class="text-white">
-                    Blog Details
-                </li>
-
-            </ul>
-
-
-            <h1 class="breadcrumb-title text-white text-center">
-                Blog Details
-            </h1>
-
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
         </div>
 
-    </div>
+        <div class="container">
+            <div class="about-hero-content">
 
-</section>
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li><a href="{% url 'blogs' %}">Blogs</a></li>
+                    <li>/</li>
+                    <li>Blog Details</li>
+                </ul>
 
+                <h1>{{ blog.title }}</h1>
 
+                {% if blog.description %}
+                <p class="hero-desc">{{ blog.description|striptags|truncatewords:26|safe }}</p>
+                {% endif %}
 
-<!-- ============================================================
-     BLOG DETAILS
-============================================================ -->
+            </div>
+        </div>
 
-<section
-    class="news-details-section section-padding blog-detail-page"
->
-
-    <div class="container">
-
-        <div class="news-details-wrapper">
-
-            <div class="row blog-details-row">
-
-
-                <!-- =================================================
-                     LEFT SIDE
-                ================================================== -->
-
-                <div class="col-lg-8 col-12">
-
-                    <article class="news-details-post">
+    </section>
 
 
-                        <!-- ===============================
-                             MAIN BLOG IMAGE
-                        ================================ -->
+    <!-- ==================== DETAILS SECTION ==================== -->
+    <section class="blog-details-section section-padding">
 
-                        {% if blog.image %}
+        <!-- background pattern (same family as the Packages page) -->
+        <div class="bd-bg" aria-hidden="true">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                    <pattern id="bdHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                        <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                    </pattern>
+                    <radialGradient id="bdFadeTR" cx="1" cy="0" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="bdFadeBL" cx="0" cy="1" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="bdMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#bdFadeTR)"/></mask>
+                    <mask id="bdMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#bdFadeBL)"/></mask>
+                    <linearGradient id="bdBlobL" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                    </linearGradient>
+                    <linearGradient id="bdBlobR" x1="1" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                    </linearGradient>
+                </defs>
 
-                        <div class="news-details-image">
+                <path fill="url(#bdBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+                <path fill="url(#bdBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
 
-                            <img
-                                src="{{ blog.image.url }}"
-                                alt="{{ blog.title }}"
-                            >
+                <rect x="860" y="0" width="580" height="520" fill="url(#bdHalf)" mask="url(#bdMaskTR)"/>
+                <rect x="0" y="420" width="640" height="480" fill="url(#bdHalf)" mask="url(#bdMaskBL)"/>
 
-                        </div>
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
 
-                        {% endif %}
+                <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+            </svg>
+        </div>
 
-
-
-                        <!-- ===============================
-                             BLOG CONTENT
-                        ================================ -->
-
-                        <div class="news-details-content">
-
-
-                            <!-- DATE -->
-
-                            <ul class="news-list">
-
-                                <li>
-
-                                    <i class="flaticon-date"></i>
-
-                                    {{ blog.created_at|date:"F d, Y"|upper }}
-
-                                </li>
-
-                            </ul>
-
-
-
-                            <!-- TITLE -->
-
-                            <h2>
-                                {{ blog.title }}
-                            </h2>
-
-
-
-                            <!-- =================================
-                                 RICH TEXT DESCRIPTION
-
-                                 safe is required because your
-                                 admin editor stores HTML.
-                            ================================== -->
-
-                            <div class="blog-description">
-
-                                {{ blog.description|safe }}
-
-                            </div>
+        <!-- floating camera (decoration) -->
+        <div class="bd-camera" aria-hidden="true">
+            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+        </div>
 
 
-                        </div>
+        <div class="container">
 
-                    </article>
+            <!-- Title + date -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="bd-title char-animation">{{ blog.title }}</h2>
+                    <ul class="bd-meta">
+                        <li><i class="fa-regular fa-calendar"></i>{{ blog.created_at|date:"F d, Y" }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- ================= LEFT: ARTICLE ================= -->
+                <div class="col-lg-8" id="mainCol">
+
+                    {% if blog.image %}
+                    <div class="bd-main-photo">
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                    </div>
+                    {% endif %}
+
+                    <!-- rich text from the admin editor -->
+                    <div class="blog-description">
+                        {{ blog.description|safe }}
+                    </div>
 
                 </div>
 
 
+                <!-- ================= RIGHT: STICKY SIDEBAR ================= -->
+                <div class="col-lg-4 sidebar-col">
+                    <div class="bd-sidebar" id="stickySidebar">
 
-                <!-- =================================================
-                     RIGHT SIDE
-                ================================================== -->
+                        <!-- Search -->
+                        <div class="bd-card">
 
-                <div class="col-lg-4 col-12">
+                            <h3>Search</h3>
 
-                    <!--
-                        Search + Latest Blogs are inside ONE
-                        sticky wrapper.
-                    -->
-
-                    <aside class="blog-sidebar">
-
-
-                        <!-- =========================================
-                             SEARCH
-                        ========================================== -->
-
-                        <div class="blog-sidebar-widget">
-
-                            <div class="blog-sidebar-title">
-
-                                <h3>
-                                    Search
-                                </h3>
-
-                            </div>
-
-
-                            <form
-                                action="{% url 'blogs' %}"
-                                method="get"
-                                class="blog-search-form"
-                            >
-
-                                <input
-                                    type="text"
-                                    name="q"
-                                    placeholder="Search blog"
-                                >
-
-
-                                <button
-                                    type="submit"
-                                    aria-label="Search"
-                                >
-
+                            <form action="{% url 'blogs' %}" method="get" class="bd-search">
+                                <input type="text" name="q" placeholder="Search blog">
+                                <button type="submit" aria-label="Search">
                                     <i class="fa-solid fa-magnifying-glass"></i>
-
                                 </button>
-
                             </form>
 
                         </div>
 
+                        <!-- Latest blogs -->
+                        <div class="bd-card">
 
-
-                        <!-- =========================================
-                             LATEST BLOGS
-                        ========================================== -->
-
-                        <div class="blog-sidebar-widget">
-
-                            <div class="blog-sidebar-title">
-
-                                <h3>
-                                    Latest Blogs
-                                </h3>
-
-                            </div>
-
+                            <h3>Latest Blogs</h3>
 
                             {% for related in related_blogs %}
+                            <div class="bd-item">
 
-                            <div class="related-blog-item">
-
-
-                                <!-- IMAGE -->
-
-                                {% if related.image %}
-
-                                <a
-                                    href="{% url 'blog_detail' slug=related.slug %}"
-                                    class="related-blog-image"
-                                >
-
-                                    <img
-                                        src="{{ related.image.url }}"
-                                        alt="{{ related.title }}"
-                                    >
-
+                                <a href="{% url 'blog_detail' slug=related.slug %}" class="bd-thumb">
+                                    {% if related.image %}
+                                    <img src="{{ related.image.url }}" alt="{{ related.title }}" loading="lazy">
+                                    {% endif %}
                                 </a>
 
-                                {% endif %}
-
-
-
-                                <!-- BLOG INFORMATION -->
-
-                                <div class="related-blog-content">
-
-
-                                    <span class="related-blog-date">
-
-                                        {{ related.created_at|date:"F d, Y" }}
-
-                                    </span>
-
-
-                                    <h5>
-
-                                        <a
-                                            href="{% url 'blog_detail' slug=related.slug %}"
-                                        >
-
-                                            {{ related.title|truncatechars:55 }}
-
-                                        </a>
-
-                                    </h5>
-
-
+                                <div class="bd-body">
+                                    <span class="bd-date">{{ related.created_at|date:"d M Y" }}</span>
+                                    <h6><a href="{% url 'blog_detail' slug=related.slug %}">{{ related.title|truncatechars:45 }}</a></h6>
                                 </div>
 
                             </div>
-
-
                             {% empty %}
-
-                            <p>
-                                No other blogs available.
-                            </p>
-
+                            <p class="mb-0">No other blogs available.</p>
                             {% endfor %}
 
+                            <a href="{% url 'blogs' %}" class="bd-more">
+                                View All Blogs <i class="fa-solid fa-arrow-right"></i>
+                            </a>
 
                         </div>
 
-
-                    </aside>
-
+                    </div>
                 </div>
 
-
             </div>
-
         </div>
-
-    </div>
-
-</section>
-
+    </section>
 
 {% endblock %}
 
 
-
 {% block extra_js %}
+
+<!-- Sticky right sidebar (works even when the theme breaks CSS sticky) -->
+<script>
+(function () {
+
+    var box = document.getElementById('stickySidebar');
+    if (!box) return;
+
+    var col      = box.parentNode;          /* .sidebar-col, as tall as the left column */
+    var main     = document.getElementById('mainCol');
+    var TOP      = 110;                     /* gap from the top of the screen */
+    var EXTRA    = 300;                     /* extra room (px) for the sidebar to travel when the article is short */
+    var desktop  = window.matchMedia('(min-width: 992px)');
+    var queued   = false;
+
+    /* the sidebar can only "stick" if the left column is taller than it,
+       so the left column is never allowed to be shorter than sidebar + EXTRA */
+    function sizeMain() {
+        if (!main) return;
+        var want = desktop.matches ? (box.offsetHeight + EXTRA) + 'px' : '';
+        if (main.style.minHeight !== want) main.style.minHeight = want;
+    }
+
+    function update() {
+        queued = false;
+
+        sizeMain();
+
+        /* phones / tablets: sidebar stacks below the content, no sticky */
+        if (!desktop.matches) {
+            box.style.transform = '';
+            return;
+        }
+
+        var maxShift = Math.max(0, col.offsetHeight - box.offsetHeight);
+
+        /* pin the START (top) of the sidebar just under the header */
+        var shift = TOP - col.getBoundingClientRect().top;
+
+        shift = Math.max(0, Math.min(shift, maxShift));
+        box.style.transform = 'translate3d(0,' + shift + 'px,0)';
+    }
+
+    function queue() {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    window.addEventListener('load',   queue);
+
+    /* page height changes when images finish loading */
+    if (window.ResizeObserver) {
+        new ResizeObserver(queue).observe(col);
+        new ResizeObserver(queue).observe(box);
+    }
+
+    update();
+})();
+</script>
+
 {% endblock %}

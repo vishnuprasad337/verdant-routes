@@ -3,669 +3,716 @@
 
 
 {% block title %}
-Touro - Travel & Tour Booking Agency | Contact Us
+Verdant Routes - Travel & Tour Booking Agency | Contact Us
 {% endblock %}
 
 
 {% block extra_css %}
 
-<link
-    rel="stylesheet"
-    href="{% static 'frontend/assets/css/datepickerboot.css' %}"
->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link
-    rel="stylesheet"
-    href="{% static 'frontend/assets/css/rtl.css' %}"
->
-
-<link
-    rel="stylesheet"
-    href="{% static 'frontend/assets/css/toastr.min.css' %}"
->
-
+<link rel="stylesheet" href="{% static 'frontend/assets/css/toastr.min.css' %}">
 
 <style>
 
-/* =========================================================
-   CONTACT PAGE — BASE HEADER FIX
-   ========================================================= */
+/* ==========================================================
+   HEADER OVERLAYS THE HERO (same as the other pages)
+   ========================================================== */
 
-
-/* Main navbar must sit over breadcrumb image */
 #header-sticky {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-
     position: absolute !important;
-
     top: auto;
     left: 0;
     right: 0;
-
     width: 100%;
-
     z-index: 9999 !important;
-
     background: transparent !important;
 }
 
-
-/* Don't allow inner header elements to create white background */
-#header-sticky .container,
+#header-sticky .header-main,
 #header-sticky .mega-menu-wrapper,
-#header-sticky .header-main {
-    background: transparent !important;
-}
+#header-sticky .container { background: transparent !important; }
 
-
-/* Ensure header itself remains visible */
 #header-sticky .header-left,
-#header-sticky .header-right {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-
-/* =========================================================
-   BREADCRUMB
-   ========================================================= */
-
-.breadcrumb-wrapper {
-    position: relative !important;
-
-    margin-top: 0 !important;
-
-    z-index: 1 !important;
-}
-
-
-/* =========================================================
-   TABLET / MOBILE
-   ========================================================= */
+#header-sticky .header-right { visibility: visible !important; opacity: 1 !important; }
 
 @media (max-width: 1199px) {
-
-    #header-sticky {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        position: absolute !important;
-
-        left: 0;
-        right: 0;
-
-        width: 100%;
-
-        z-index: 9999 !important;
-
-        background: transparent !important;
-    }
-
-
     #header-sticky .header-main {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
     }
-
-
-    /* logo */
-    #header-sticky .header-left {
-        display: block !important;
-        visibility: visible !important;
-    }
-
-
-    /* desktop menu hidden */
-    #header-sticky .mean__menu-wrapper {
-        display: none !important;
-    }
-
-
-    /* hamburger visible */
-    #header-sticky .header__hamburger {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-
+    #header-sticky .header-left { display: block !important; visibility: visible !important; }
+    #header-sticky .mean__menu-wrapper { display: none !important; }
+    #header-sticky .header__hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
     #header-sticky .sidebar__toggle {
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
-
         align-items: center;
         justify-content: center;
     }
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
 @media (max-width: 991px) {
-
-    /*
-       Hide only top information bar.
-       Navbar must remain.
-    */
-    .header-top-section {
-        display: none !important;
-    }
-
-
-    #header-sticky {
-        top: 0 !important;
-    }
-
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
 }
-
-
-/* =========================================================
-   STICKY STATE
-   ========================================================= */
-
-/* =========================================================
-   STICKY HEADER AFTER SCROLL
-   ========================================================= */
 
 #header-sticky.sticky {
     position: fixed !important;
-
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-
     width: 100% !important;
-
     z-index: 99999 !important;
-
-    /* IMPORTANT */
     background: #ffffff !important;
-
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-
-    transition:
-        background-color 0.3s ease,
-        box-shadow 0.3s ease !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
-
-
-/* The previous rules force these transparent.
-   Restore white when sticky. */
-
 #header-sticky.sticky .mega-menu-wrapper,
-#header-sticky.sticky .header-main {
-    background: #ffffff !important;
-}
-
-
-/* Keep navbar text visible on white background */
-
-#header-sticky.sticky .main-menu ul li a {
-    color: #0b1f1a !important;
-}
-
-
-/* Search icon */
-
+#header-sticky.sticky .header-main { background: #ffffff !important; }
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
 #header-sticky.sticky .header-search .search-trigger,
-#header-sticky.sticky .header-search .search-icon {
-    color: #0b1f1a !important;
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
+
+
+/* ==========================================================
+   BRAND GREEN
+   ========================================================== */
+
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
+    --title-green-bright: #00a651;
 }
 
-
-/* Hamburger */
-
-#header-sticky.sticky .sidebar__toggle {
-    color: #0b1f1a !important;
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
 }
 
-
-/* Keep Discover button styling */
-
-#header-sticky.sticky .theme-btn {
-    color: #ffffff !important;
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
 }
 
+.section-title h2:not(.text-white) { color: var(--title-green) !important; }
+.section-title .sub-title:not(.text-white) { color: var(--title-green-bright) !important; }
 
 
-{% comment %} contact form css start {% endcomment %}
-/* =========================================================
-   CONTACT FORM
-========================================================= */
+/* ==========================================================
+   HERO (same image + style as the Gallery / Packages pages)
+   ========================================================== */
 
-/* =========================================================
-   CONTACT FORM - COMPACT VERSION
-========================================================= */
-
-/* Form card */
-.contact-from-section .contact-from-box {
-    width: 100%;
-    padding: 28px 30px !important;
-}
-
-
-/* Reduce title area */
-.contact-from-section .section-title {
-    margin-bottom: 18px !important;
-}
-
-.contact-from-section .section-title .sub-title {
-    margin-bottom: 5px !important;
-}
-
-.contact-from-section .section-title h2 {
-    margin-bottom: 0 !important;
-}
-
-
-/* Reduce Bootstrap form row gaps */
-.contact-from-box form .row {
-    --bs-gutter-y: 16px;
-}
-
-
-/* Remove unnecessary field bottom spacing */
-.contact-from-box .form-clt {
-    margin-bottom: 0 !important;
-}
-
-
-/* Labels */
-.contact-from-box .form-clt > span {
-    display: block;
-    margin-bottom: 6px;
-
-    font-size: 14px;
-    line-height: 1.3;
-}
-
-
-/* Inputs */
-.contact-from-box .form-clt input {
-    width: 100%;
-
-    height: 50px !important;
-    min-height: 50px !important;
-
-    padding: 10px 18px !important;
-}
-
-
-/* Message */
-.contact-from-box .form-clt textarea {
-    width: 100%;
-
-    height: 105px !important;
-    min-height: 105px !important;
-
-    padding: 14px 18px !important;
-
-    resize: vertical;
-}
-
-
-/* =========================================================
-   ROBOT BOX - COMPACT
-========================================================= */
-
-.robot-check-wrapper {
-    margin: 0;
-}
-
-.robot-check-box {
-    width: 100%;
-    max-width: 360px;
-
-    min-height: 58px;
-
-    padding: 10px 14px;
-
+.about-hero {
+    position: relative;
     display: flex;
     align-items: center;
-
-    background: #ffffff;
-
-    border: 1px solid #dedede;
-    border-radius: 5px;
-
-    cursor: pointer;
-
-    transition: all .25s ease;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+    justify-content: center;
+    height: 58vh;
+    min-height: 460px;
+    max-height: 560px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
 }
 
-.robot-check-box:hover {
-    border-color: #63ab45;
-
-    box-shadow: 0 5px 18px rgba(0, 0, 0, .07);
-}
-
-
-/* Hide original checkbox */
-
-.robot-check-box input {
+.about-hero .about-hero-bg {
     position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
 
-    width: 1px;
-    height: 1px;
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .55) 0%, rgba(7, 28, 31, .45) 100%);
+}
 
+.about-hero .container { position: relative; z-index: 3; }
+
+.about-hero .about-hero-content > * {
     opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
     pointer-events: none;
 }
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 420px; }
+    .about-hero h1 { font-size: 54px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 340px; height: 46vh; padding-top: 70px; }
+    .about-hero h1 { font-size: 38px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 15px; }
+}
 
 
-/* Custom checkbox */
+/* ==========================================================
+   CONTACT SECTION (mint background + pattern)
+   ========================================================== */
 
-.robot-custom-check {
-    width: 24px;
-    height: 24px;
+.contact-page-section {
+    position: relative;
+    width: 100%;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #d7eee0 100%) !important;
+}
 
-    min-width: 24px;
+.contact-page-section > .container {
+    position: relative;
+    z-index: 2;
+}
 
-    border: 2px solid #8b8b8b;
-    border-radius: 3px;
+.contact-page-section .ct-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.contact-page-section .ct-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
+
+/* ==========================================================
+   INTRO
+   ========================================================== */
+
+.ct-header {
+    margin-bottom: 38px;
+    text-align: center;
+}
+.ct-header .sub-title { margin-bottom: 12px; }
+.ct-header h2 {
+    margin: 0 0 15px;
+    color: #0a6b3a;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+.ct-header p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: #3f5a50;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+@media (max-width: 991px) { .ct-header h2 { font-size: 38px; } }
+@media (max-width: 767px) {
+    .ct-header { margin-bottom: 28px; }
+    .ct-header h2 { font-size: 32px; }
+    .ct-header p { font-size: 14px; }
+}
+
+
+/* ==========================================================
+   INFO CARDS (phone / email / location)
+   ========================================================== */
+
+.ct-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.ct-info-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 26px;
+    background: #ffffff;
+    border: 1px solid rgba(10, 107, 58, .08);
+    border-radius: 20px;
+    box-shadow: 0 14px 32px rgba(7, 60, 35, .08);
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s ease;
+}
+.ct-info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 44px rgba(7, 60, 35, .16);
+}
+
+.ct-info-icon {
+    flex: 0 0 auto;
+    width: 62px;
+    height: 62px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #e8f6ee;
+    border-radius: 18px;
+    color: #00a651;
+    font-size: 24px;
+    transition: background .3s ease, color .3s ease;
+}
+.ct-info-card:hover .ct-info-icon { background: #00a651; color: #fff; }
 
-    margin-right: 12px;
+.ct-info-card h5 {
+    margin: 0 0 6px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+}
+.ct-info-card p {
+    margin: 0;
+    color: #3f5a50;
+    font-size: 15px;
+    line-height: 1.6;
+    word-break: break-word;
+}
+.ct-info-card p a { color: inherit; transition: color .3s ease; }
+.ct-info-card p a:hover { color: #00a651; }
 
+@media (max-width: 1199px) {
+    .ct-info-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+
+/* ==========================================================
+   IMAGE + FORM
+   ========================================================== */
+
+.ct-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+
+.ct-image {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #0b3f2e;
+    box-shadow: 0 18px 40px rgba(7, 60, 35, .18);
+}
+.ct-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.ct-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(4, 30, 20, 0) 45%, rgba(4, 30, 20, .75) 100%);
+}
+.ct-image-text {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 26px;
+    z-index: 2;
+    color: #fff;
+}
+.ct-image-text h4 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+.ct-image-text p { margin: 0; color: rgba(255, 255, 255, .9); font-size: 15px; line-height: 1.6; }
+
+.ct-form-box {
+    padding: 34px 34px;
     background: #ffffff;
-
-    transition: all .2s ease;
+    border: 1px solid rgba(10, 107, 58, .08);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(7, 60, 35, .10);
+}
+.ct-form-box .sub-title { margin-bottom: 8px; }
+.ct-form-box h3 {
+    margin: 0 0 22px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.robot-custom-check i {
-    font-size: 12px;
-
-    color: #ffffff;
-
-    opacity: 0;
-
-    transform: scale(.6);
-
-    transition: all .2s ease;
+.ct-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
 }
+.ct-field { margin-bottom: 16px; }
+.ct-row .ct-field { margin-bottom: 0; }
 
-
-/* Checked state */
-
-.robot-check-box input:checked + .robot-custom-check {
-    background: #63ab45;
-    border-color: #63ab45;
-}
-
-.robot-check-box input:checked + .robot-custom-check i {
-    opacity: 1;
-    transform: scale(1);
-}
-
-
-/* Robot text */
-
-.robot-text {
-    color: #1f2937;
-
+.ct-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
-}
-
-
-/* Shield */
-
-.robot-shield {
-    margin-left: auto;
-
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #f0f8ec;
-    color: #63ab45;
-
-    font-size: 16px;
-}
-
-
-/* =========================================================
-   SUBMIT BUTTON
-========================================================= */
-
-#contactSubmitBtn {
-    min-height: 50px !important;
-
-    padding: 12px 25px !important;
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   VALIDATION ERROR
-========================================================= */
-
-.contact-field-error {
-    margin-top: 5px;
-
-    color: #dc3545;
-
-    font-size: 12px;
     line-height: 1.3;
 }
 
+.ct-field input,
+.ct-field textarea {
+    width: 100%;
+    padding: 12px 18px;
+    background: #f4faf6;
+    border: 1px solid rgba(10, 107, 58, .14);
+    border-radius: 14px;
+    color: #0b1f1a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.ct-field input { height: 52px; }
+.ct-field textarea { height: 120px; resize: vertical; }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 767px) {
-
-    .contact-from-section .contact-from-box {
-        padding: 25px 20px !important;
-    }
-
-    .contact-from-box form .row {
-        --bs-gutter-y: 14px;
-    }
-
-    .contact-from-box .form-clt input {
-        height: 48px !important;
-        min-height: 48px !important;
-    }
-
-    .contact-from-box .form-clt textarea {
-        height: 100px !important;
-        min-height: 100px !important;
-    }
-
-    .robot-check-box {
-        max-width: 100%;
-        min-height: 56px;
-
-        padding: 9px 12px;
-    }
-
-    .robot-text {
-        font-size: 13px;
-    }
-
+.ct-field input:focus,
+.ct-field textarea:focus {
+    background: #ffffff;
+    border-color: #00a651;
+    box-shadow: 0 0 0 4px rgba(0, 166, 81, .12);
 }
 
-
-/* =========================================================
-   VALIDATION ERROR
-========================================================= */
-
 .contact-field-error {
-    margin-top: 7px;
+    margin-top: 6px;
     color: #dc3545;
     font-size: 13px;
     line-height: 1.4;
 }
 
 
-/* =========================================================
-   I'M NOT A ROBOT
-========================================================= */
+/* ==========================================================
+   GOOGLE reCAPTCHA (I'm not a robot)
+   ========================================================== */
 
 .robot-check-wrapper {
-    margin-top: 2px;
-    margin-bottom: 4px;
+    min-height: 78px;             /* keeps the space even before it loads */
+    margin: 4px 0 20px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
-.robot-check-box {
-    width: 100%;
-    max-width: 390px;
-    min-height: 74px;
-
-    padding: 15px 18px;
-
-    display: flex;
-    align-items: center;
-
-    background: #ffffff;
-
-    border: 1px solid #dedede;
-    border-radius: 5px;
-
-    cursor: pointer;
-
-    transition: all .25s ease;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+/* shown only if the key is missing or Google is blocked */
+.ct-captcha-note {
+    display: none;
+    padding: 12px 16px;
+    background: #fff4f4;
+    border: 1px solid #f3c2c2;
+    border-radius: 12px;
+    color: #b42318;
+    font-size: 13.5px;
+    line-height: 1.5;
 }
+.ct-captcha-note.is-visible { display: block; }
 
-.robot-check-box:hover {
-    border-color: #63ab45;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, .07);
+/* the widget is 304px wide: shrink it on very small phones */
+@media (max-width: 360px) {
+    .robot-check-wrapper #recaptchaBox {
+        transform: scale(.88);
+        transform-origin: 0 0;
+    }
 }
 
 
-/* Hide normal checkbox */
+/* ==========================================================
+   SUBMIT
+   ========================================================== */
 
-.robot-check-box input {
-    position: absolute;
-
-    width: 1px;
-    height: 1px;
-
-    opacity: 0;
-    pointer-events: none;
-}
-
-
-/* Custom checkbox */
-
-.robot-custom-check {
-    width: 28px;
-    height: 28px;
-
-    min-width: 28px;
-
-    border: 2px solid #8b8b8b;
-    border-radius: 3px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-right: 14px;
-
-    background: #ffffff;
-
-    transition: all .2s ease;
-}
-
-.robot-custom-check i {
-    font-size: 14px;
-
-    color: #ffffff;
-
-    opacity: 0;
-
-    transform: scale(.6);
-
-    transition: all .2s ease;
-}
-
-
-/* Checked */
-
-.robot-check-box input:checked + .robot-custom-check {
-    background: #63ab45;
-    border-color: #63ab45;
-}
-
-.robot-check-box input:checked + .robot-custom-check i {
-    opacity: 1;
-    transform: scale(1);
-}
-
-
-/* Text */
-
-.robot-text {
-    color: #1f2937;
-
+#contactSubmitBtn {
+    min-height: 52px;
+    padding: 12px 28px !important;
+    border-radius: 50px !important;
     font-size: 15px;
-    font-weight: 600;
+    cursor: pointer;
+}
+#contactSubmitBtn:disabled { opacity: .75; cursor: not-allowed; }
+
+
+/* ==========================================================
+   MAP
+   ========================================================== */
+
+.ct-map {
+    margin-top: 40px;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 6px solid #ffffff;
+    box-shadow: 0 18px 40px rgba(7, 60, 35, .14);
+    line-height: 0;
+}
+.ct-map iframe {
+    display: block;
+    width: 100%;
+    height: 400px;
+    border: 0;
 }
 
 
-/* Shield */
+/* ==========================================================
+   SUCCESS MODAL (opens after the email is sent)
+   ========================================================== */
 
-.robot-shield {
-    margin-left: auto;
-
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
+.ct-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: #f0f8ec;
-    color: #63ab45;
-
-    font-size: 19px;
+    padding: 20px;
+    background: rgba(4, 30, 20, .62);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+.ct-modal.is-open {
+    opacity: 1;
+    visibility: visible;
 }
 
+.ct-modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 44px 34px 34px;
+    background: #ffffff;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+    transform: translateY(30px) scale(.92);
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1), opacity .35s ease;
+}
+.ct-modal.is-open .ct-modal-card {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
 
-/* =========================================================
-   MOBILE
-========================================================= */
+.ct-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f7f3;
+    border: 0;
+    border-radius: 50%;
+    color: #3f5a50;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, transform .3s ease;
+}
+.ct-modal-close:hover {
+    background: #00a651;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.ct-modal-icon {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 22px;
+}
+.ct-modal-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #e8f6ee;
+    border-radius: 50%;
+}
+.ct-modal.is-open .ct-modal-icon::before {
+    animation: ctPulse 1.8s ease-out .5s 2;
+}
+@keyframes ctPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(0, 166, 81, .35); }
+    100% { box-shadow: 0 0 0 26px rgba(0, 166, 81, 0); }
+}
+
+.ct-modal-icon svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.ct-modal-icon .ct-tick-circle {
+    fill: none;
+    stroke: #00a651;
+    stroke-width: 3;
+    stroke-dasharray: 190;
+    stroke-dashoffset: 190;
+}
+.ct-modal-icon .ct-tick-mark {
+    fill: none;
+    stroke: #00a651;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+}
+.ct-modal.is-open .ct-tick-circle { animation: ctDraw .7s ease .25s forwards; }
+.ct-modal.is-open .ct-tick-mark   { animation: ctDraw .45s ease .8s forwards; }
+@keyframes ctDraw { to { stroke-dashoffset: 0; } }
+
+.ct-modal-card h3 {
+    margin: 0 0 10px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.ct-modal-card p {
+    margin: 0 0 26px;
+    color: #3f5a50;
+    font-size: 15.5px;
+    line-height: 1.7;
+}
+
+.ct-modal-btn {
+    min-width: 150px;
+    padding: 13px 34px;
+    background: #00a651;
+    border: 0;
+    border-radius: 50px;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .28);
+    transition: background .25s ease, transform .25s ease;
+}
+.ct-modal-btn:hover {
+    background: #008a43;
+    transform: translateY(-2px);
+}
+
+body.ct-modal-lock { overflow: hidden; }
 
 @media (max-width: 575px) {
-
-    .robot-check-box {
-        max-width: 100%;
-        min-height: 68px;
-
-        padding: 12px 14px;
-    }
-
-    .robot-text {
-        font-size: 14px;
-    }
-
+    .ct-modal-card { padding: 38px 22px 26px; border-radius: 22px; }
+    .ct-modal-card h3 { font-size: 24px; }
+    .ct-modal-icon { width: 84px; height: 84px; }
 }
-{% comment %} contact form css end  {% endcomment %}
+
+@media (prefers-reduced-motion: reduce) {
+    .ct-modal, .ct-modal-card { transition: none; }
+    .ct-modal.is-open .ct-tick-circle,
+    .ct-modal.is-open .ct-tick-mark { animation: none; stroke-dashoffset: 0; }
+    .ct-modal.is-open .ct-modal-icon::before { animation: none; }
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 991px) {
+    .ct-main { grid-template-columns: 1fr; }
+    .ct-image { min-height: 300px; }
+}
+
+@media (max-width: 575px) {
+    .ct-form-box { padding: 24px 18px; border-radius: 20px; }
+    .ct-form-box h3 { font-size: 27px; }
+    .ct-row { grid-template-columns: 1fr; gap: 16px; }
+    .ct-info-card { padding: 20px 18px; gap: 16px; }
+    .ct-info-icon { width: 54px; height: 54px; font-size: 21px; }
+    .ct-image-text h4 { font-size: 22px; }
+    .ct-map iframe { height: 300px; }
+}
+
 </style>
 
 {% endblock %}
@@ -673,540 +720,386 @@ Touro - Travel & Tour Booking Agency | Contact Us
 
 
 {% block content %}
-    <!-- Breadcrumb Section -->
-    <section class="breadcrumb-wrapper parallaxie fix bg-cover"
-        style="background-image: url('{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}')">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="about-hero">
+
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="Beautiful beach destination">
+
+        <div class="about-hero-overlay"></div>
+
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
+        </div>
+
         <div class="container">
-            <div class="page-heading">
-                <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-                    <li class="text-white"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white">Contact Us</li>
+            <div class="about-hero-content">
+
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Contact Us</li>
                 </ul>
-                <h1 class="breadcrumb-title text-white text-center">Contact Us</h1>
+
+                <h1>Contact Us</h1>
+
             </div>
         </div>
+
     </section>
 
-    <!-- Contact-Us Section Start -->
-    <section class="contact-us-section section-padding fix">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="contact-us-items d-flex align-items-center gap-28">
-                        <div class="icon">
-                            <i class="fa-regular fa-phone-volume"></i>
-                        </div>
-                        <div class="content">
-                            <h5 class="mb-10">Call me:</h5>
-                            <p>
-                                <a href="tel:+49030939900">+49 030 9399 00</a> <br />
-                                <a href="tel:+492119399067">+49 211 9399 067</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="contact-us-items d-flex align-items-center gap-28">
-                        <div class="icon">
-                            <i class="fa-regular fa-envelope"></i>
-                        </div>
-                        <div class="content">
-                            <h5 class="mb-10">Mail me:</h5>
-                            <p>
-                                <a href="mailto:hellotravelor@gmail.com">hellotravelor@gmail.com</a>
-                                <br />
-                                <a href="mailto:supporttravelor@gmail.com">supporttravelor@gmail.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="contact-us-items d-flex align-items-center gap-28">
-                        <div class="icon">
-                            <i class="fa-regular fa-location-dot"></i>
-                        </div>
-                        <div class="content">
-                            <h5 class="mb-10">Mail me:</h5>
-                            <p>
-                                Old Westbury 256, New York <br />
-                                11201, United States
-                            </p>
-                        </div>
-                    </div>
+
+
+<!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+
+<section class="contact-page-section section-padding">
+
+    <!-- background pattern (same family as the Gallery page) -->
+    <div class="ct-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+                <pattern id="ctHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                    <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                </pattern>
+                <radialGradient id="ctFadeTR" cx="1" cy="0" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="ctFadeBL" cx="0" cy="1" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <mask id="ctMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#ctFadeTR)"/></mask>
+                <mask id="ctMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#ctFadeBL)"/></mask>
+                <linearGradient id="ctBlobL" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                </linearGradient>
+                <linearGradient id="ctBlobR" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                </linearGradient>
+            </defs>
+
+            <path fill="url(#ctBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+            <path fill="url(#ctBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+            <rect x="860" y="0" width="580" height="520" fill="url(#ctHalf)" mask="url(#ctMaskTR)"/>
+            <rect x="0" y="420" width="640" height="480" fill="url(#ctHalf)" mask="url(#ctMaskBL)"/>
+
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+        </svg>
+    </div>
+
+
+    <div class="container">
+
+        <!-- INTRO -->
+        <div class="ct-header">
+
+            <h6 class="sub-title wow fadeInUp">GET IN TOUCH</h6>
+
+            <h2 class="char-animation">We'd Love To Hear From You</h2>
+
+            <p class="wow fadeInUp" data-wow-delay=".2s">
+                Planning a trip or have a question about a package?
+                Send us a message and our team will get back to you soon.
+            </p>
+
+        </div>
+
+
+        <!-- INFO CARDS -->
+        <div class="ct-info-grid">
+
+            <div class="ct-info-card wow fadeInUp" data-wow-delay=".2s">
+                <div class="ct-info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                <div>
+                    <h5>Call us:</h5>
+                    <p>
+                        <a href="tel:+49030939900">+49 030 9399 00</a><br>
+                        <a href="tel:+492119399067">+49 211 9399 067</a>
+                    </p>
                 </div>
             </div>
+
+            <div class="ct-info-card wow fadeInUp" data-wow-delay=".35s">
+                <div class="ct-info-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                    <h5>Mail us:</h5>
+                    <p>
+                        <a href="mailto:hellotravelor@gmail.com">hellotravelor@gmail.com</a><br>
+                        <a href="mailto:supporttravelor@gmail.com">supporttravelor@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ct-info-card wow fadeInUp" data-wow-delay=".5s">
+                <div class="ct-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                    <h5>Visit us:</h5>
+                    <p>
+                        Old Westbury 256, New York<br>
+                        11201, United States
+                    </p>
+                </div>
+            </div>
+
         </div>
-    </section>
 
-    <!-- Contact-From Section Start -->
-    <section class="contact-from-section section-padding pt-0 fix">
-        <div class="container">
-            <div class="row g-4 align-items-stretch">
 
-    <!-- LEFT IMAGE -->
-            <div class="col-lg-6 wow fadeInUp d-flex" data-wow-delay=".3s">
+        <!-- IMAGE + FORM -->
+        <div class="ct-main">
 
-               <div class="contact-image contact-inner-image1 contact-page-image contact-equal-image">
+            <!-- LEFT IMAGE -->
+            <div class="ct-image wow fadeInUp" data-wow-delay=".2s">
 
                 <img
-                src="{% static 'frontend/assets/img/inner-page/faq.jpg' %}"
-                alt="Contact Us"
-                />
-
-                    </div>
-
-            </div>
-
-
-    
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="contact-from-box contact-inner-box-1">
-                        <div class="section-title style-2">
-                            <h6 class="sub-title wow fadeInUp">GET A QUOTE</h6>
-                            <h2 class="char-animation">Contact With Us</h2>
-                        </div>
-                        <form
-    action="{% url 'contact' %}"
-    id="contact-form"
-    method="POST"
-    novalidate
->
-
-    {% csrf_token %}
-
-    <div class="row g-4">
-
-
-        <!-- ==================================================
-             FIRST NAME
-        =================================================== -->
-
-        <div class="col-lg-6">
-
-            <div class="form-clt mb-10">
-
-                <span>First name*</span>
-
-                <input
-                    type="text"
-                    name="first_name"
-                    id="first_name"
-                    placeholder="John"
-                    value="{{ form.first_name.value|default:'' }}"
-                    required
-                />
-
-                {% if form.first_name.errors %}
-
-                    <div class="contact-field-error">
-                        {{ form.first_name.errors.0 }}
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             LAST NAME
-        =================================================== -->
-
-        <div class="col-lg-6">
-
-            <div class="form-clt mb-10">
-
-                <span>Last name*</span>
-
-                <input
-                    type="text"
-                    name="last_name"
-                    id="last_name"
-                    placeholder="Smith"
-                    value="{{ form.last_name.value|default:'' }}"
-                    required
-                />
-
-                {% if form.last_name.errors %}
-
-                    <div class="contact-field-error">
-                        {{ form.last_name.errors.0 }}
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             PHONE
-        =================================================== -->
-
-        <div class="col-lg-12">
-
-            <div class="form-clt mb-10">
-
-                <span>Your phone*</span>
-
-                <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    placeholder="+91 98765 43210"
-                    value="{{ form.phone.value|default:'' }}"
-                    required
-                />
-
-                {% if form.phone.errors %}
-
-                    <div class="contact-field-error">
-                        {{ form.phone.errors.0 }}
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             EMAIL
-        =================================================== -->
-
-        <div class="col-lg-12">
-
-            <div class="form-clt mb-10">
-
-                <span>Your email</span>
-
-                <input
-                    type="email"
-                    name="email"
-                    id="contact_email"
-                    placeholder="john@example.com"
-                    value="{{ form.email.value|default:'' }}"
-                />
-
-                {% if form.email.errors %}
-
-                    <div class="contact-field-error">
-                        {{ form.email.errors.0 }}
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             MESSAGE
-        =================================================== -->
-
-        <div class="col-lg-12">
-
-            <div class="form-clt mb-10">
-
-                <span>Your message</span>
-
-                <textarea
-                    name="message"
-                    id="message"
-                    rows="5"
-                    placeholder="Tell us how we can help you..."
-                >{{ form.message.value|default:'' }}</textarea>
-
-                {% if form.message.errors %}
-
-                    <div class="contact-field-error">
-                        {{ form.message.errors.0 }}
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             NOT A ROBOT
-        =================================================== -->
-
-        <div class="col-lg-12">
-
-            <div class="robot-check-wrapper">
-
-                <label
-                    class="robot-check-box"
-                    for="not_robot"
+                    src="{% static 'frontend/assets/img/inner-page/faq.jpg' %}"
+                    alt="Contact Us"
+                    loading="lazy"
                 >
 
-                    <input
-                        type="checkbox"
-                        name="not_robot"
-                        id="not_robot"
-                        value="1"
-                        {% if form.not_robot.value %}checked{% endif %}
-                        required
-                    >
-
-                    <span class="robot-custom-check">
-
-                        <i class="fa-solid fa-check"></i>
-
-                    </span>
-
-
-                    <span class="robot-text">
-
-                        I'm not a robot
-
-                    </span>
-
-
-                    <span class="robot-shield">
-
-                        <i class="fa-solid fa-shield-halved"></i>
-
-                    </span>
-
-                </label>
-
-
-                {% if form.not_robot.errors %}
-
-                    <div class="contact-field-error mt-2">
-
-                        Please confirm that you are not a robot.
-
-                    </div>
-
-                {% endif %}
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             SUBMIT
-        =================================================== -->
-
-        <div class="col-lg-12">
-
-            <button
-                class="theme-btn"
-                id="contactSubmitBtn"
-                type="submit"
-            >
-
-                <i class="fa-sharp fa-regular fa-arrow-right"></i>
-
-                Send Message
-
-            </button>
-
-        </div>
-
-
-    </div>
-
-</form>
-                    </div>
+                <div class="ct-image-text">
+                    <h4>Let's plan your next journey</h4>
+                    <p>Tell us where you want to go and we will take care of the rest.</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Map Section Start -->
-    <div class="map-section section-padding fix pt-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="map-items">
-                        <div class="googpemap">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd"
-                                style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+
+            <!-- FORM -->
+            <div class="ct-form-box wow fadeInUp" data-wow-delay=".35s">
+
+                <h6 class="sub-title">GET A QUOTE</h6>
+                <h3>Contact With Us</h3>
+
+                <form
+                    action="{% url 'contact' %}"
+                    id="contact-form"
+                    method="POST"
+                    novalidate
+                >
+
+                    {% csrf_token %}
+
+                    <!-- FIRST + LAST NAME -->
+                    <div class="ct-row">
+
+                        <div class="ct-field">
+                            <label for="first_name">First name*</label>
+                            <input
+                                type="text"
+                                name="first_name"
+                                id="first_name"
+                                placeholder="John"
+                                value="{{ form.first_name.value|default:'' }}"
+                                required
+                            >
+                            {% if form.first_name.errors %}
+                                <div class="contact-field-error">{{ form.first_name.errors.0 }}</div>
+                            {% endif %}
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
 
-{# ========== Footer Three (replaces base footer) ========== #}
-{% block footer %}
-<footer class="footer-style2 footer-style3 pt-100 rounded-0 position-relative bg-cover bg-overlay"
-    style="background: url('{% static 'frontend/assets/img/home-3/footer-bg3.jpg' %}'); border-radius: 0 !important;">
-    <div class="position-absolute end-0 plan2 bottom-0 d-sm-block d-none mb-xxl-100 pb-50 me-100 float-bob-y">
-        <img src="{% static 'frontend/assets/img/home-2/bl.png' %}" alt="img">
-    </div>
-    <div class="position-absolute plan2 float-bob-y d-sm-block d-none">
-        <img src="{% static 'frontend/assets/img/home-2/plan2.png' %}" alt="img">
-    </div>
-    <div class="position-absolute trou-plan float-bob-y d-xl-block d-none">
-        <img src="{% static 'frontend/assets/img/home-2/tour-plan.png' %}" alt="img">
-    </div>
-    <div class="container">
-        <div class="footer-widget-wrapper pt-0">
-            <div class="row text-md-start text-center justify-content-md-start justify-content-center gy-3 pb-xxl-90 pb-xl-70 pb-lg-60 pb-md-40 pb-30">
-                <div class="col-md-6">
-                    <h2 class="text-white fw-semibold char-animation">Join our newsletter and get $20 discount</h2>
-                </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <p class="fs-16 text-white mb-xxl-30 mb-xl-25 mb-lg-20 mb-md-15 mb-10">Get E-mail updates about our latest shop and special offers.</p>
-                    <form action="#" class="rounded-2 footer-newsletter m-0">
-                        <div class="form-clt">
-                            <input type="text" name="email" id="email" placeholder="Enter your email" class="rounded-2">
-                            <button type="submit" class="theme-btn rounded-2 px-lg-4 px-3 d-flex gap-10 align-items-center">
-                                Subscribe <i class="fa-solid fa-paper-plane"></i>
-                            </button>
+                        <div class="ct-field">
+                            <label for="last_name">Last name*</label>
+                            <input
+                                type="text"
+                                name="last_name"
+                                id="last_name"
+                                placeholder="Smith"
+                                value="{{ form.last_name.value|default:'' }}"
+                                required
+                            >
+                            {% if form.last_name.errors %}
+                                <div class="contact-field-error">{{ form.last_name.errors.0 }}</div>
+                            {% endif %}
                         </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="single-footer-widget style-2 m-0">
-                        <div class="wid-title"><h4>Useful Links</h4></div>
-                        <ul class="list-items">
-                            <li><a href="destination.html">All Destination</a></li>
-                            <li><a href="{% url 'contact' %}">24/7 Support</a></li>
-                            <li><a href="news.html">Our Blog</a></li>
-                            <li><a href="tour.html">Tour Places</a></li>
-                            <li><a href="{% url 'contact' %}">Reviews</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="single-footer-widget style-2 m-0">
-                        <div class="wid-title"><h4>About Touro</h4></div>
-                        <ul class="list-items">
-                            <li><a href="{% url 'about' %}">About Us</a></li>
-                            <li><a href="{% url 'contact' %}">Legal Notice</a></li>
-                            <li><a href="{% url 'contact' %}">Terms & Condition</a></li>
-                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                            <li><a href="{% url 'contact' %}">Apple Store</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="single-footer-widget style-2 m-0">
-                        <div class="wid-title"><h4>Support</h4></div>
-                        <ul class="list-items">
-                            <li><a href="{% url 'contact' %}">Help Center</a></li>
-                            <li><a href="{% url 'contact' %}">24/7 Support</a></li>
-                            <li><a href="{% url 'contact' %}">Forum support</a></li>
-                            <li><a href="{% url 'contact' %}">Live Chat</a></li>
-                            <li><a href="{% url 'contact' %}">How Working</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-12 col-sm-8 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="wid-title mb-xxl-30 mb-xl-20 mb-15">
-                        <a href="{% url 'home' %}" class="footer-logo">
-                            <img src="{% static 'frontend/assets/img/logo/white-logo.svg' %}" alt="img">
-                        </a>
-                    </div>
-                    <p class="text-white mb-xxl-40 mb-xl-30 mb-20">
-                        We offer carefully curated destinations and tours that capture the true essence.
-                    </p>
-                    <div class="d-flex align-items-center flex-lg-nowrap flex-wrap gap-xxl-25 gap-xl-15 gap-10">
-                        <div>
-                            <h4 class="mb-xxl-15 mb-xl-15 mb-10 text-white">Contact us:</h4>
-                            <div class="d-flex flex-column gap-2">
-                                <a href="#0" class="fs-16 text-white">hellotravelor@gmail.com</a>
-                                <a href="#0" class="fs-16 text-white">+49 030 9399 00</a>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="mb-xxl-15 mb-xl-15 mb-10 text-white">Our Location:</h4>
-                            <div class="d-flex flex-column gap-2">
-                                <a href="#0" class="fs-16 text-white">Old Westbury 256, New York 11201, United States</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom3 theme-bg-2 py-2">
-        <div class="container">
-            <div class="row align-items-center justify-content-xl-between justify-content-center gx-lg-4 gy-xl-0 gy-2 wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-lg-6 col-md-6">
-                    <p class="text-md-start text-center mx-md-0 mx-auto text-white">&copy; 2025 TouroLLC All rights reserved.</p>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="social-icon2 social-icon3 d-flex justify-content-xl-end justify-content-center gap-md-10 gap-5 align-items-center">
-                        <a href="javascript:void(0)"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="javascript:void(0)"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="javascript:void(0)"><i class="fa-brands fa-pinterest-p"></i></a>
-                        <a href="javascript:void(0)"><i class="fa-brands fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-{% endblock %}
 
-{# ========== Colour switcher (demo widget from the original page) ========== #}
-{% block extra_body %}
-<div class="color-palate">
-    <button class="color-trigger"><i class="fa-solid fa-gear"></i></button>
-    <button class="close-color-trigger"><i class="fa-solid fa-xmark"></i></button>
-    <div class="color-palate-inner">
-        <a href="{% url 'home' %}" class="palate-logo">
-            <img src="{% static 'frontend/assets/img/logo/black-logo.svg' %}" alt="img">
-        </a>
-        <div class="various-color clearfix">
-            <h6>Multiple Colors</h6>
-            <h4 class="title-theme-color">Theme Color 1</h4>
-            <div class="color-picker-panel">
-                <label><input type="color" data-var="--theme" value="#FB5B32"></label>
-                <label><input type="color" data-var="--theme" value="#63AB45"></label>
-                <label><input type="color" data-var="--theme" value="#560ce3"></label>
-                <label><input type="color" data-var="--theme" value="#FF5956"></label>
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="ct-field">
+                        <label for="phone">Your phone*</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            placeholder="+91 98765 43210"
+                            value="{{ form.phone.value|default:'' }}"
+                            required
+                        >
+                        {% if form.phone.errors %}
+                            <div class="contact-field-error">{{ form.phone.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="ct-field">
+                        <label for="contact_email">Your email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="contact_email"
+                            placeholder="john@example.com"
+                            value="{{ form.email.value|default:'' }}"
+                        >
+                        {% if form.email.errors %}
+                            <div class="contact-field-error">{{ form.email.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div class="ct-field">
+                        <label for="message">Your message</label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            rows="5"
+                            placeholder="Tell us how we can help you..."
+                        >{{ form.message.value|default:'' }}</textarea>
+                        {% if form.message.errors %}
+                            <div class="contact-field-error">{{ form.message.errors.0 }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- ==================================================
+                         NOT A ROBOT (real Google reCAPTCHA v2)
+                         The script is right here, so it does not depend
+                         on base.html printing the extra_js block.
+                    =================================================== -->
+                    <div class="robot-check-wrapper">
+
+                        <div id="recaptchaBox"></div>
+
+                        <div class="ct-captcha-note" id="recaptchaNote">
+                            {% if recaptcha_site_key %}
+                                The "I'm not a robot" check could not load.
+                                Please check your internet connection, turn off any ad blocker
+                                for this page, and refresh.
+                            {% else %}
+                                reCAPTCHA site key is missing. Add RECAPTCHA_SITE_KEY in
+                                settings.py and restart the server.
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    <script>
+                        window.CT_RECAPTCHA_KEY = "{{ recaptcha_site_key|escapejs }}";
+
+                        window.onRecaptchaLoad = function () {
+                            if (!window.CT_RECAPTCHA_KEY) { return; }
+
+                            try {
+                                grecaptcha.render("recaptchaBox", {
+                                    sitekey: window.CT_RECAPTCHA_KEY
+                                });
+                            } catch (err) {
+                                console.error("reCAPTCHA render error:", err);
+                                var note = document.getElementById("recaptchaNote");
+                                if (note) { note.classList.add("is-visible"); }
+                            }
+                        };
+
+                        /* no key, or Google did not load in 8 seconds: show the note */
+                        setTimeout(function () {
+                            var box  = document.getElementById("recaptchaBox");
+                            var note = document.getElementById("recaptchaNote");
+
+                            if (!note || !box) { return; }
+
+                            if (!window.CT_RECAPTCHA_KEY || box.children.length === 0) {
+                                note.classList.add("is-visible");
+                            }
+                        }, 8000);
+                    </script>
+
+                    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+
+
+                    <!-- SUBMIT -->
+                    <button class="theme-btn" id="contactSubmitBtn" type="submit">
+                        <i class="fa-sharp fa-regular fa-arrow-right"></i>
+                        Send Message
+                    </button>
+
+                </form>
+
             </div>
-            <h4 class="title-theme-color">Theme Color 2</h4>
-            <div class="color-picker-panel">
-                <label><input type="color" data-var="--theme-2" value="#1ABC9C"></label>
-                <label><input type="color" data-var="--theme-2" value="#3498DB"></label>
-                <label><input type="color" data-var="--theme-2" value="#9B59B6"></label>
-                <label><input type="color" data-var="--theme-2" value="#E67E22"></label>
-            </div>
+
         </div>
-        <h6>RTL Version</h6>
-        <ul class="rtl-version option-box">
-            <li class="rtl">RTL Version</li>
-            <li>LTR Version</li>
-        </ul>
+
+
+        <!-- MAP -->
+        <div class="ct-map wow fadeInUp" data-wow-delay=".2s">
+            <iframe
+                src="https://www.google.com/maps?q=Kochi,+Kerala,+India&output=embed"
+                title="Our location"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
     </div>
+
+</section>
+
+
+<!-- =========================================================
+     SUCCESS MODAL (opens after the email is sent)
+========================================================= -->
+
+<div class="ct-modal" id="ctSuccessModal" role="dialog" aria-modal="true" aria-labelledby="ctModalTitle" aria-hidden="true">
+
+    <div class="ct-modal-card">
+
+        <button type="button" class="ct-modal-close" id="ctModalClose" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="ct-modal-icon" aria-hidden="true">
+            <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <circle class="ct-tick-circle" cx="48" cy="48" r="30"/>
+                <path class="ct-tick-mark" d="M34 49 L44 59 L63 38"/>
+            </svg>
+        </div>
+
+        <h3 id="ctModalTitle">Message Sent!</h3>
+
+        <p id="ctModalText">
+            Thank you! Your message has been sent successfully.
+            Our team will contact you soon.
+        </p>
+
+        <button type="button" class="ct-modal-btn" id="ctModalOk">OK</button>
+
+    </div>
+
 </div>
+
 {% endblock %}
+
+
 
 {% block extra_js %}
 
-<script src="{% static 'frontend/assets/js/bootstrap-datepicker.js' %}"></script>
 <script src="{% static 'frontend/assets/js/toastr.min.js' %}"></script>
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
 
     /* ========================================================
@@ -1227,79 +1120,129 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================================
-       DJANGO MESSAGES
+       SUCCESS MODAL
     ======================================================== */
 
-    {% if messages %}
+    var modal     = document.getElementById("ctSuccessModal");
+    var modalText = document.getElementById("ctModalText");
+    var closeBtn  = document.getElementById("ctModalClose");
+    var okBtn     = document.getElementById("ctModalOk");
+    var lastFocus = null;
 
+    function openModal(text) {
+
+        if (!modal) return;
+
+        if (text && modalText) { modalText.textContent = text; }
+
+        lastFocus = document.activeElement;
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("ct-modal-lock");
+
+        if (okBtn) { setTimeout(function () { okBtn.focus(); }, 250); }
+    }
+
+    function closeModal() {
+
+        if (!modal) return;
+
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("ct-modal-lock");
+
+        if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (okBtn)    okBtn.addEventListener("click", closeModal);
+
+    /* click on the dark area (outside the card) closes it */
+    if (modal) {
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    /* Esc key closes it */
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+            closeModal();
+        }
+    });
+
+
+    /* ========================================================
+       DJANGO MESSAGES
+       success -> popup modal (email was sent)
+       others  -> toast
+    ======================================================== */
+
+    var successMessage = null;
+
+    {% if messages %}
         {% for message in messages %}
 
             {% if message.tags == "success" %}
-
-                toastr.success(
-                    "{{ message|escapejs }}"
-                );
+                successMessage = "{{ message|escapejs }}";
 
             {% elif message.tags == "error" %}
-
-                toastr.error(
-                    "{{ message|escapejs }}"
-                );
+                if (typeof toastr !== "undefined") { toastr.error("{{ message|escapejs }}"); }
 
             {% elif message.tags == "warning" %}
-
-                toastr.warning(
-                    "{{ message|escapejs }}"
-                );
+                if (typeof toastr !== "undefined") { toastr.warning("{{ message|escapejs }}"); }
 
             {% else %}
-
-                toastr.info(
-                    "{{ message|escapejs }}"
-                );
+                if (typeof toastr !== "undefined") { toastr.info("{{ message|escapejs }}"); }
 
             {% endif %}
 
         {% endfor %}
-
     {% endif %}
+
+    if (successMessage) {
+        setTimeout(function () { openModal(successMessage); }, 300);
+    }
 
 
     /* ========================================================
-       SUBMIT BUTTON
+       SUBMIT BUTTON (disable + spinner, only when form is valid)
     ======================================================== */
 
-    const form =
-        document.getElementById("contact-form");
-
-    const submitButton =
-        document.getElementById("contactSubmitBtn");
-
+    var form         = document.getElementById("contact-form");
+    var submitButton = document.getElementById("contactSubmitBtn");
 
     if (form && submitButton) {
 
-        form.addEventListener(
-            "submit",
-            function () {
+        form.addEventListener("submit", function (e) {
 
-                if (!form.checkValidity()) {
+            if (!form.checkValidity()) {
+                return;
+            }
+
+            /* the robot box must be ticked before sending */
+            if (typeof grecaptcha !== "undefined" && window.CT_RECAPTCHA_KEY) {
+
+                if (!grecaptcha.getResponse()) {
+                    e.preventDefault();
+
+                    if (typeof toastr !== "undefined") {
+                        toastr.error("Please tick \"I'm not a robot\" and try again.");
+                    }
 
                     return;
-
                 }
-
-                submitButton.disabled = true;
-
-                submitButton.innerHTML =
-                    '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
             }
-        );
+
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+        });
 
     }
 
 });
-
 </script>
 
 {% endblock %}

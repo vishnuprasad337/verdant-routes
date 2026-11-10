@@ -3,7 +3,7 @@
 
 
 {% block title %}
-Touro - Travel & Tour Booking Agency | {{ package.name }}
+Verdant Routes - Travel & Tour Booking Agency | {{ package.name }}
 {% endblock %}
 
 
@@ -12,12 +12,14 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
 <link rel="stylesheet" href="{% static 'frontend/assets/css/datepickerboot.css' %}">
 <link rel="stylesheet" href="{% static 'frontend/assets/css/rtl.css' %}">
 <link rel="stylesheet" href="{% static 'frontend/assets/css/toastr.min.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* ==========================================================
-   PACKAGE DETAILS HEADER FIX
-   Header overlays the breadcrumb, same as the other pages
+   HEADER OVERLAYS THE HERO (same as the other pages)
    ========================================================== */
 
 #header-sticky {
@@ -35,60 +37,20 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
 
 #header-sticky .header-main,
 #header-sticky .mega-menu-wrapper,
-#header-sticky .container {
-    background: transparent !important;
-}
+#header-sticky .container { background: transparent !important; }
 
 #header-sticky .header-left,
-#header-sticky .header-right {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-.breadcrumb-wrapper {
-    position: relative !important;
-    z-index: 1 !important;
-    margin-top: 0 !important;
-}
-
-
-/* TABLET / MOBILE */
+#header-sticky .header-right { visibility: visible !important; opacity: 1 !important; }
 
 @media (max-width: 1199px) {
-
-    #header-sticky {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: absolute !important;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 9999 !important;
-        background: transparent !important;
-    }
-
     #header-sticky .header-main {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
     }
-
-    #header-sticky .header-left {
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    #header-sticky .mean__menu-wrapper {
-        display: none !important;
-    }
-
-    #header-sticky .header__hamburger {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
+    #header-sticky .header-left { display: block !important; visibility: visible !important; }
+    #header-sticky .mean__menu-wrapper { display: none !important; }
+    #header-sticky .header__hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
     #header-sticky .sidebar__toggle {
         display: flex !important;
         visibility: visible !important;
@@ -98,22 +60,10 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
     }
 }
 
-
-/* MOBILE: hide only the top info bar */
-
 @media (max-width: 991px) {
-
-    .header-top-section {
-        display: none !important;
-    }
-
-    #header-sticky {
-        top: 0 !important;
-    }
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
 }
-
-
-/* STICKY HEADER AFTER SCROLL */
 
 #header-sticky.sticky {
     position: fixed !important;
@@ -126,70 +76,402 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
-
 #header-sticky.sticky .mega-menu-wrapper,
-#header-sticky.sticky .header-main {
-    background: #ffffff !important;
-}
-
-#header-sticky.sticky .main-menu ul li a {
-    color: #0b1f1a !important;
-}
-
+#header-sticky.sticky .header-main { background: #ffffff !important; }
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
 #header-sticky.sticky .header-search .search-trigger,
-#header-sticky.sticky .header-search .search-icon {
-    color: #0b1f1a !important;
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
+
+
+/* ==========================================================
+   BRAND GREEN
+   ========================================================== */
+
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
 }
 
-#header-sticky.sticky .sidebar__toggle {
-    color: #0b1f1a !important;
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
 }
 
-#header-sticky.sticky .theme-btn {
-    color: #ffffff !important;
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
 }
 
 
 /* ==========================================================
-   IMAGE FIXES (any uploaded size fits the template layout)
+   HERO: package image + title + short description
    ========================================================== */
 
-.tour-gallery-image-style-1 img {
+.about-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62vh;
+    min-height: 480px;
+    max-height: 600px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
+}
+
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .60) 0%, rgba(7, 28, 31, .50) 100%);
+}
+
+.about-hero .container { position: relative; z-index: 3; }
+
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+.about-hero .about-hero-content > :nth-child(3) { animation-delay: .6s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0 auto;
+    max-width: 960px;
+    color: #fff;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.about-hero .hero-desc {
+    max-width: 680px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, .92);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* wave seam into the mint section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 440px; }
+    .about-hero h1 { font-size: 46px; }
+    .about-hero .hero-desc { font-size: 16.5px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 380px; height: auto; padding: 100px 0 90px; }
+    .about-hero h1 { font-size: 32px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 14px; }
+    .about-hero .hero-desc { font-size: 15px; }
+}
+
+
+/* ==========================================================
+   DETAILS SECTION (clean mint background)
+   ========================================================== */
+
+.tour-details-section {
+    position: relative;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #eef8f2 100%) !important;
+}
+
+.tour-details-section .activities-content h2,
+.tour-details-section .tour-detils-content h3,
+.tour-details-section .tour-detils-content h4 { color: #0a6b3a; }
+
+
+/* ---------- package photo ---------- */
+
+.tour-details-section .package-main-photo {
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(7, 60, 35, .10);
+}
+.tour-details-section .package-main-photo img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+@media (max-width: 575px) {
+    .tour-details-section .package-main-photo img { height: 240px; }
+}
+
+
+/* ==========================================================
+   BACKGROUND PATTERN (same as the Packages page)
+   ========================================================== */
+
+.tour-details-section {
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.tour-details-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.tour-details-section .pd-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.tour-details-section .pd-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* floating camera (decoration) */
+.tour-details-section .pd-camera {
+    position: absolute;
+    top: 75px;
+    right: -55px;
+    width: 330px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
+}
+.tour-details-section .pd-camera img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: pdCameraFloat 4.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes pdCameraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
+@media (max-width: 1199px) {
+    .tour-details-section .pd-camera { width: 270px; top: 80px; right: -70px; opacity: 0.08; }
+}
+@media (max-width: 767px) {
+    .tour-details-section .pd-camera { width: 190px; top: 45px; right: -65px; opacity: 0.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .tour-details-section .pd-camera img { animation: none; }
+}
+
+
+/* ==========================================================
+   BOOK NOW CTA (under the description): price + button
+   ========================================================== */
+
+.tour-details-section .pkg-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    margin: 6px 0 34px;
+}
+
+.tour-details-section .pkg-cta .pkg-cta-price small {
+    display: block;
+    margin-bottom: 2px;
+    color: #3f5a50;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tour-details-section .pkg-cta .pkg-cta-price strong {
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.tour-details-section .pkg-cta .pkg-cta-price strong span {
+    margin-left: 6px;
+    color: #3f5a50;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tour-details-section .pkg-cta .theme-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ==========================================================
+   STICKY SIDEBAR (moved by the script at the bottom of the page)
+   position is forced to "relative" so the theme cannot interfere
+   ========================================================== */
+
+.tour-details-section .sidebar-col {
+    align-self: stretch;
+}
+
+.tour-details-section .tour-sideber.sticky-style {
+    position: relative !important;
+    top: 0 !important;
+    will-change: transform;
+}
+
+.related-card {
+    background: #fff;
+    border: 1px solid rgba(10, 107, 58, .08);
+    border-radius: 24px;
+    box-shadow: 0 14px 36px rgba(7, 60, 35, .10);
+    padding: 18px 18px 16px;
+    margin-top: 0;
+}
+
+.related-card h3 {
+    margin: 0 0 12px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.related-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px;
+    margin-bottom: 8px;
+    background: #f3faf6;
+    border: 1px solid rgba(10, 107, 58, .06);
+    border-radius: 14px;
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.related-item:last-child { margin-bottom: 0; }
+.related-item:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    box-shadow: 0 12px 26px rgba(7, 60, 35, .12);
+}
+
+.related-item .r-thumb {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 68px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #0b3f2e;
+}
+.related-item .r-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform .5s ease;
 }
+.related-item:hover .r-thumb img { transform: scale(1.08); }
 
-/* Sidebar "Top Packages" list */
-.tour-single-sideber-box .recent-post-item .post-thumb {
-    flex: 0 0 90px;
-    width: 90px;
-}
+.related-item .r-body { flex: 1; min-width: 0; }
 
-.tour-single-sideber-box .recent-post-item .post-thumb img {
-    width: 90px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
+.related-item .r-dur {
     display: block;
+    margin-bottom: 2px;
+    color: #0a8f45;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
 }
 
-.tour-single-sideber-box .recent-post-item .content {
-    flex: 1;
-    min-width: 0;
+.related-item h6 {
+    margin: 0 0 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.3;
 }
+.related-item h6 a { color: #0b3f2e; }
+.related-item h6 a:hover { color: #00a651; }
 
-.tour-single-sideber-box .recent-post-item .star {
-    white-space: nowrap;
-    display: flex;
-    gap: 2px;
+.related-item .r-price {
+    margin: 0;
+    color: #3f5a50;
+    font-size: 13px;
 }
+.related-item .r-price strong { color: #0a6b3a; font-size: 14.5px; }
 
-.tour-single-sideber-box .recent-post-item .content p {
-    white-space: normal;
-    line-height: 1.4;
+.related-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    color: #0a6b3a;
+    font-size: 14px;
+    font-weight: 700;
 }
+.related-more i { transition: transform .3s ease; }
+.related-more:hover { color: #00a651; }
+.related-more:hover i { transform: translateX(5px); }
 
 </style>
 
@@ -199,78 +481,117 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
 
 {% block content %}
 
-    <!-- Breadcrumb-Wrapper Section Start -->
-    <section class="breadcrumb-wrapper parallaxie fix bg-cover"
-        style="background-image: url('{{ package.main_image.url }}');">
+    <!-- ==================== HERO: package image, title, description ==================== -->
+    <section class="about-hero">
+
+        {% if package.main_image %}
+        <img class="about-hero-bg" src="{{ package.main_image.url }}" alt="{{ package.name }}">
+        {% else %}
+        <img class="about-hero-bg" src="{% static 'frontend/assets/img/about hero.png' %}" alt="{{ package.name }}">
+        {% endif %}
+
+        <div class="about-hero-overlay"></div>
+
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
+        </div>
+
         <div class="container">
-            <div class="page-heading">
-                <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-                    <li class="text-white"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white"><a href="{% url 'packages' %}">Packages</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white">{{ package.name }}</li>
+            <div class="about-hero-content">
+
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li><a href="{% url 'packages' %}">Packages</a></li>
+                    <li>/</li>
+                    <li>{{ package.name }}</li>
                 </ul>
-                <h1 class="breadcrumb-title text-white text-center">{{ package.name }}</h1>
+
+                <h1>{{ package.name }}</h1>
+
+                {% if package.description %}
+                <p class="hero-desc">{{ package.description|striptags|truncatewords:26 }}</p>
+                {% endif %}
+
             </div>
         </div>
+
     </section>
 
-    <!-- Tour-gallery Section Start -->
-    {% comment %} <div class="tour-gallery-section mt-15 fix">
-        <div class="row g-4">
-            <div class="col-xl-3 col-lg-3 col-md-3">
-                <div class="tour-gallery-image tour-gallery-image-style-1">
-                    <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-1.jpg" alt="img">
-                </div>
-                <div class="tour-gallery-image tour-gallery-image-style-1 mt-20">
-                    <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-2.jpg" alt="img">
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="tour-gallery-image tour-gallery-image-style-1">
-                    <img src="{{ package.main_image.url }}" alt="{{ package.name }}">
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3">
-                <div class="tour-gallery-image tour-gallery-image-style-1">
-                    <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-4.jpg" alt="img">
-                </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
 
     <!-- Tour-Details Section Start -->
     <section class="tour-details-section section-padding">
+
+        <!-- background pattern (same family as the Packages page) -->
+        <div class="pd-bg" aria-hidden="true">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                    <pattern id="pdHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                        <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                    </pattern>
+                    <radialGradient id="pdFadeTR" cx="1" cy="0" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="pdFadeBL" cx="0" cy="1" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="pdMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#pdFadeTR)"/></mask>
+                    <mask id="pdMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#pdFadeBL)"/></mask>
+                    <linearGradient id="pdBlobL" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                    </linearGradient>
+                    <linearGradient id="pdBlobR" x1="1" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                    </linearGradient>
+                </defs>
+
+                <path fill="url(#pdBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+                <path fill="url(#pdBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+                <rect x="860" y="0" width="580" height="520" fill="url(#pdHalf)" mask="url(#pdMaskTR)"/>
+                <rect x="0" y="420" width="640" height="480" fill="url(#pdHalf)" mask="url(#pdMaskBL)"/>
+
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+                <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+            </svg>
+        </div>
+
+        <!-- floating camera (decoration) -->
+        <div class="pd-camera" aria-hidden="true">
+            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+        </div>
+
         <div class="container">
 
-            <!-- Title + rating -->
+            <!-- Title + duration -->
             <div class="row">
                 <div class="col-xl-12">
                     <div class="activities-rating activities-rating-style-1 d-flex align-items-center justify-content-between mb-40">
                         <div class="activities-content">
                             <h2 class="mb-15 char-animation">{{ package.name }}</h2>
                             <ul class="rating">
-                                <li class="text-muted">(16 Review)</li>
-                                <li class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </li>
                                 <li>
                                     <i class="fa-regular fa-clock"></i>
                                     {{ package.duration|default:package.get_package_type_display }}
                                 </li>
                             </ul>
                         </div>
-                        <ul class="share">
-                            <li>
-                                <a href="javascript:void(0)">Share</a>
-                                <i class="fa-sharp fa-regular fa-share-nodes"></i>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -278,110 +599,15 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
             <div class="row g-4">
 
                 <!-- ================= LEFT: MAIN CONTENT ================= -->
-                <div class="col-lg-8">
+                <div class="col-lg-8" id="mainCol">
                     <div class="tour-details-post tour-details-post-style-1">
 
-                        <!-- Info boxes -->
-                        <div class="tour-box-wrap mb-50">
-                            <div class="tour-box-area d-flex align-items-center justify-content-between">
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/17.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Package Type</h6>
-                                        <span>{{ package.get_package_type_display }}</span>
-                                    </div>
-                                </div>
-                                {% comment %} <div class="tour-box-item style-2">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/18.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Activities Type</h6>
-                                        <span>Adventure</span>
-                                    </div>
-                                </div> {% endcomment %}
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/19.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Duration</h6>
-                                        <span>{{ package.duration|default:"On request" }}</span>
-                                    </div>
-                                </div> 
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/19.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Tour Availability</h6>
-                                        <span>Available</span>
-                                    </div>
-                                </div>
-                                 <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/18.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Price From</h6>
-                                        <span>
-                                            {% if package.price_from %}₹{{ package.price_from|floatformat:0 }}{% else %}On request{% endif %}
-                                        </span>
-                                    </div>
-                                </div>
-                                {% comment %} <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/20.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Traveler</h6>
-                                        <span>02</span>
-                                    </div>
-                                </div> {% endcomment %}
-                            </div>
-                            {% comment %} <div class="tour-box-area mb-0 d-flex align-items-center justify-content-between">
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/21.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Max People</h6>
-                                        <span>12</span>
-                                    </div>
-                                </div>
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/19.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Tour Availability</h6>
-                                        <span>Available</span>
-                                    </div>
-                                </div>
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/20.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Transportation</h6>
-                                        <span>Bus, Taxi</span>
-                                    </div>
-                                </div>
-                                <div class="tour-box-item">
-                                    <div class="icon">
-                                        <img src="https://touro.template.wowtheme7.com/assets/img/home-1/icon/18.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h6>Price From</h6>
-                                        <span>
-                                            {% if package.price_from %}₹{{ package.price_from|floatformat:0 }}{% else %}On request{% endif %}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div> {% endcomment %}
+                        <!-- Package photo -->
+                        {% if package.main_image %}
+                        <div class="package-main-photo mb-40">
+                            <img src="{{ package.main_image.url }}" alt="{{ package.name }}">
                         </div>
+                        {% endif %}
 
                         <div class="tour-detils-content">
 
@@ -389,6 +615,26 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
                             <h3 class="mb-15">Overview</h3>
                             <div class="mb-25">
                                 {{ package.description|safe }}
+                            </div>
+
+                            <!-- Book Now (price + button) under the description -->
+                            <div class="pkg-cta">
+
+                                <div class="pkg-cta-price">
+                                    <small>Starting From</small>
+                                    <strong>
+                                        {% if package.price_from %}
+                                            ₹{{ package.price_from|floatformat:0 }}<span>/ Per Person</span>
+                                        {% else %}
+                                            On request
+                                        {% endif %}
+                                    </strong>
+                                </div>
+
+                                <a href="#" class="theme-btn open-booking-modal" data-package="{{ package.name }}">
+                                    <i class="fa-sharp fa-regular fa-arrow-right"></i> Book Now
+                                </a>
+
                             </div>
 
                             <!-- Highlights (dynamic) -->
@@ -421,536 +667,45 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
                             </ul>
                             {% endif %}
 
-                            <!-- Cost excludes (static) -->
-                            <h4 class="mb-20">The Cost Excludes</h4>
-                            <ul class="list style-2">
-                                <li>
-                                    <i class="fa-solid fa-xmark"></i>
-                                    Hotel Expenses (some packages do include hotel expenses)
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-xmark"></i>
-                                    International Airfare
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-xmark"></i>
-                                    Your travel and medical insurance
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-xmark"></i>
-                                    Personal expenses such as shopping, bar bills, hot shower, telephone, laundry, titbits etc
-                                </li>
-                            </ul>
-
-                            <!-- Tour timeline (static) -->
-                            <h3 class="text mb-10">Tour Timeline</h3>
-                            <p>
-                                On the North Island, you’ll find the vibrant city of Auckland, known as the "City of Sails"
-                                for its bustling harbors, as well as the geothermal wonders of Rotorua.
-                            </p>
-                            <div class="faq-items-2">
-                                <div class="faq-accordion">
-                                    <div class="accordion" id="accordion">
-
-                                        <div class="accordion-item style-inner-page">
-                                            <h5 class="accordion-header">
-                                                <button class="accordion-button d-flex align-items-center collapsed"
-                                                    type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
-                                                    aria-expanded="false" aria-controls="faq1">
-                                                    <span>Day 01:</span>
-                                                    6:30 AM – Departure from Queenstown
-                                                </button>
-                                            </h5>
-                                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                                <div class="content">
-                                                    <div class="accordion-body">
-                                                        <p>
-                                                            Adventure enthusiasts flock to Queenstown, the "Adventure
-                                                            Capital of the World," for activities like bungee jumping,
-                                                            skydiving, and jet boating, while nearby Wanaka offers stunning
-                                                            lake views and hiking trails.
-                                                        </p>
-                                                        <p class="mt-10">
-                                                            Whether exploring the Hobbiton Movie Set in Matamata, skiing in
-                                                            the Remarkables, or enjoying the Maori culture and hospitality,
-                                                            New Zealand offers a rich tapestry.
-                                                        </p>
-                                                    </div>
-                                                    <div class="thumb">
-                                                        <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-5.jpg" alt="img">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="accordion-item style-inner-page">
-                                            <h5 class="accordion-header">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#faq2" aria-expanded="true" aria-controls="faq2">
-                                                    <span>Day 02:</span>
-                                                    10:30 AM – Arrive at Milford Sound
-                                                </button>
-                                            </h5>
-                                            <div id="faq2" class="accordion-collapse collapse show" data-bs-parent="#accordion">
-                                                <div class="content">
-                                                    <div class="accordion-body">
-                                                        <p>
-                                                            Adventure enthusiasts flock to Queenstown, the "Adventure
-                                                            Capital of the World," for activities like bungee jumping,
-                                                            skydiving, and jet boating, while nearby Wanaka offers stunning
-                                                            lake views and hiking trails.
-                                                        </p>
-                                                        <p class="mt-10">
-                                                            Whether exploring the Hobbiton Movie Set in Matamata, skiing in
-                                                            the Remarkables, or enjoying the Maori culture and hospitality,
-                                                            New Zealand offers a rich tapestry.
-                                                        </p>
-                                                    </div>
-                                                    <div class="thumb">
-                                                        <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-5.jpg" alt="img">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="accordion-item style-inner-page">
-                                            <h5 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#faq3"
-                                                    aria-expanded="false" aria-controls="faq3">
-                                                    <span>Day 03:</span>
-                                                    11:00 AM – Milford Sound Cruise
-                                                </button>
-                                            </h5>
-                                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                                <div class="content">
-                                                    <div class="accordion-body">
-                                                        <p>
-                                                            Adventure enthusiasts flock to Queenstown, the "Adventure
-                                                            Capital of the World," for activities like bungee jumping,
-                                                            skydiving, and jet boating, while nearby Wanaka offers stunning
-                                                            lake views and hiking trails.
-                                                        </p>
-                                                        <p class="mt-10">
-                                                            Whether exploring the Hobbiton Movie Set in Matamata, skiing in
-                                                            the Remarkables, or enjoying the Maori culture and hospitality,
-                                                            New Zealand offers a rich tapestry.
-                                                        </p>
-                                                    </div>
-                                                    <div class="thumb">
-                                                        <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-5.jpg" alt="img">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="accordion-item style-inner-page">
-                                            <h5 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#faq4"
-                                                    aria-expanded="false" aria-controls="faq4">
-                                                    <span>Day 04:</span>
-                                                    1:00 PM – Lunch at Milford Sound Lodge
-                                                </button>
-                                            </h5>
-                                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                                <div class="content">
-                                                    <div class="accordion-body">
-                                                        <p>
-                                                            Adventure enthusiasts flock to Queenstown, the "Adventure
-                                                            Capital of the World," for activities like bungee jumping,
-                                                            skydiving, and jet boating, while nearby Wanaka offers stunning
-                                                            lake views and hiking trails.
-                                                        </p>
-                                                        <p class="mt-10">
-                                                            Whether exploring the Hobbiton Movie Set in Matamata, skiing in
-                                                            the Remarkables, or enjoying the Maori culture and hospitality,
-                                                            New Zealand offers a rich tapestry.
-                                                        </p>
-                                                    </div>
-                                                    <div class="thumb">
-                                                        <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-5.jpg" alt="img">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="accordion-item style-inner-page">
-                                            <h5 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#faq5"
-                                                    aria-expanded="false" aria-controls="faq5">
-                                                    <span>Day 05:</span>
-                                                    2:00 PM – Return Journey
-                                                </button>
-                                            </h5>
-                                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                                                <div class="content">
-                                                    <div class="accordion-body">
-                                                        <p>
-                                                            Adventure enthusiasts flock to Queenstown, the "Adventure
-                                                            Capital of the World," for activities like bungee jumping,
-                                                            skydiving, and jet boating, while nearby Wanaka offers stunning
-                                                            lake views and hiking trails.
-                                                        </p>
-                                                        <p class="mt-10">
-                                                            Whether exploring the Hobbiton Movie Set in Matamata, skiing in
-                                                            the Remarkables, or enjoying the Maori culture and hospitality,
-                                                            New Zealand offers a rich tapestry.
-                                                        </p>
-                                                    </div>
-                                                    <div class="thumb">
-                                                        <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/tour-details/details-5.jpg" alt="img">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Map -->
-                            {% comment %} <div class="map-items">
-                                <div class="googpemap">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd"
-                                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                </div>
-                            </div> {% endcomment %}
-
-                            <!-- Customer reviews summary (static) -->
-                            <div class="review-area">
-                                <h3>Customer Reviews</h3>
-                                <div class="courses-reviews-box-items">
-                                    <div class="courses-reviews-box">
-                                        <div class="reviews-box">
-                                            <h2><span class="count">4.9</span></h2>
-                                            <div class="star">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <p>856+ Reviews</p>
-                                        </div>
-                                        <div class="reviews-ratting-right">
-                                            <div class="reviews-ratting-item">
-                                                <div class="star">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                </div>
-                                                <div class="progress"><div class="progress-value style-two"></div></div>
-                                                <span>Services</span>
-                                            </div>
-                                            <div class="reviews-ratting-item">
-                                                <div class="star">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                                </div>
-                                                <div class="progress"><div class="progress-value style-three"></div></div>
-                                                <span>Safety</span>
-                                            </div>
-                                            <div class="reviews-ratting-item">
-                                                <div class="star">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                </div>
-                                                <div class="progress"><div class="progress-value style-three"></div></div>
-                                                <span>Guides</span>
-                                            </div>
-                                            <div class="reviews-ratting-item">
-                                                <div class="star">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                                </div>
-                                                <div class="progress"><div class="progress-value style-four"></div></div>
-                                                <span>Foods</span>
-                                            </div>
-                                            <div class="reviews-ratting-item">
-                                                <div class="star">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                </div>
-                                                <div class="progress"><div class="progress-value style-five"></div></div>
-                                                <span>Hotels</span>
-                                            </div>
-                                            <div class="reviews-ratting-item">
-                                                <div class="star">
-                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                                </div>
-                                                <div class="progress"><div class="progress-value style-five"></div></div>
-                                                <span>Places</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Client reviews (static) -->
-                            {% comment %} <div class="client-review-items">
-                                <h3>Clients Reviews</h3>
-                                <div class="clinet-box-items">
-                                    <div class="clinet-box">
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                        </div>
-                                        <h5>
-                                            "Our family trip was amazing from start to finish! The itinerary was perfect,
-                                            the guides were knowledgeable, and the service was excellent. I can’t wait to
-                                            book our next adventure!"
-                                        </h5>
-                                        <div class="review-wrap-area d-flex gap-4 align-items-center">
-                                            <div class="review-thumb">
-                                                <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/client.png" alt="img">
-                                            </div>
-                                            <div class="review-content">
-                                                <div class="head-area d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                                    <div class="cont">
-                                                        <h5>Smith Thomas</h5>
-                                                        <span>from New York, USA</span>
-                                                    </div>
-                                                    <h6><a href="javascript:void(0)">Reply</a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clinet-box style-2">
-                                        <div class="star">
-                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                        </div>
-                                        <h5>
-                                            The itinerary was perfect, the guides were knowledgeable, and the service was
-                                            excellent. I can’t wait to book our next adventure!"
-                                        </h5>
-                                        <div class="review-wrap-area d-flex gap-4 align-items-center">
-                                            <div class="review-thumb">
-                                                <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/client.png" alt="img">
-                                            </div>
-                                            <div class="review-content">
-                                                <div class="head-area d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                                    <div class="cont">
-                                                        <h5>Smith Thomas</h5>
-                                                        <span>from New York, USA</span>
-                                                    </div>
-                                                    <h6><a href="javascript:void(0)">Reply</a></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clinet-box-3">
-                                    <div class="star">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <h5>
-                                        "Our family trip was amazing from start to finish! The itinerary was perfect, the
-                                        guides were knowledgeable, and the service was excellent. I can’t wait to book our
-                                        next adventure!"
-                                    </h5>
-                                    <div class="review-wrap-area d-flex gap-4 align-items-center">
-                                        <div class="review-thumb">
-                                            <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/client.png" alt="img">
-                                        </div>
-                                        <div class="review-content">
-                                            <div class="head-area d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                                <div class="cont">
-                                                    <h5>Smith Thomas</h5>
-                                                    <span>from New York, USA</span>
-                                                </div>
-                                                <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/quote.png" alt="img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> {% endcomment %}
-
-                            <!-- Add review form -->
-                            {% comment %} <div class="review-comment-items">
-                                <h3>Add Your Reviews</h3>
-                                <ul>
-                                    <li>Services
-                                        <div class="star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                                    </li>
-                                    <li>Hotel
-                                        <div class="star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                                    </li>
-                                    <li>Places
-                                        <div class="star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                                    </li>
-                                </ul>
-                                <ul class="mb-0">
-                                    <li>Safety
-                                        <div class="star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                                    </li>
-                                    <li>Foods
-                                        <div class="star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                                    </li>
-                                    <li>Guides
-                                        <div class="star"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
-                                    </li>
-                                </ul>
-                                <h4>Leave Feedback</h4>
-                                <form action="#" id="contact-form" method="POST">
-                                    {% csrf_token %}
-                                    <div class="row g-4">
-                                        <div class="col-lg-6">
-                                            <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Your name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-clt">
-                                                <input type="text" name="phone" id="phone" placeholder="Your phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-clt">
-                                                <input type="text" name="email2" id="email21" placeholder="Your email">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-clt">
-                                                <textarea name="message" id="message" placeholder="Your comments..."></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <button class="theme-btn" type="submit">
-                                                <i class="fa-sharp fa-regular fa-arrow-right"></i>Submit Reviews
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div> {% endcomment %}
-
                         </div>
                     </div>
                 </div>
 
 
-                <!-- ================= RIGHT: SIDEBAR ================= -->
-                <div class="col-lg-4">
-                    <div class="tour-sideber tour-sideber-style-1 sticky-style">
+                <!-- ================= RIGHT: STICKY SIDEBAR ================= -->
+                <div class="col-lg-4 sidebar-col">
+                    <div class="tour-sideber tour-sideber-style-1 sticky-style" id="stickySidebar">
 
-                        <!-- Booking box -->
-                        <div class="tour-sidebar-items">
-                            <h3>Tour Booking</h3>
-                            <ul class="form-list">
-                                <li>
-                                    From Date:
-                                    <div class="form-clt">
-                                        <input type="date" id="calendar" name="calendar">
-                                    </div>
-                                </li>
-                                <li>
-                                    Time:
-                                    <div class="form-clt d-flex gap-10">
-                                        <label class="checkbox-single">
-                                            <span class="d-flex gap-xl-4 gap-2 align-items-center">
-                                                <span class="checkbox-area d-center">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark d-center"></span>
-                                                </span>
-                                                <span class="text-color">12:00</span>
-                                            </span>
-                                        </label>
-                                        <label class="checkbox-single">
-                                            <span class="d-flex gap-xl-3 gap-2 align-items-center">
-                                                <span class="checkbox-area d-center">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark d-center"></span>
-                                                </span>
-                                                <span class="text-color">10:00</span>
-                                            </span>
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="tickets-list">
-                                <p>Tickets</p>
-                                <ul>
-                                    <li>
-                                        18+ Years: <b>{% if package.price_from %}₹{{ package.price_from|floatformat:0 }}{% else %}On request{% endif %}</b>
-                                        <div class="form-clt">
-                                            <div class="form">
-                                                <select class="single-select w-100">
-                                                    <option> 01</option>
-                                                    <option> 02</option>
-                                                    <option> 03</option>
-                                                    <option> 04</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        18- Years:
-                                        <div class="form-clt">
-                                            <div class="form">
-                                                <select class="single-select w-100">
-                                                    <option> 01</option>
-                                                    <option> 02</option>
-                                                    <option> 03</option>
-                                                    <option> 04</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="extra-items">
-                                <p>Add Extra:</p>
-                                <label class="checkbox-single d-flex justify-content-between align-items-center">
-                                    <span class="d-flex gap-xl-3 gap-2 align-items-center">
-                                        <span class="checkbox-area d-center">
-                                            <input type="checkbox">
-                                            <span class="checkmark d-center"></span>
-                                        </span>
-                                        <span class="text-color">Add service per booking</span>
-                                    </span>
-                                    <span class="text-color">$45</span>
-                                </label>
-                                <label class="checkbox-single d-flex justify-content-between align-items-center">
-                                    <span class="d-flex gap-xl-3 gap-2 align-items-center">
-                                        <span class="checkbox-area d-center">
-                                            <input type="checkbox">
-                                            <span class="checkmark d-center"></span>
-                                        </span>
-                                        <span class="text-color">Add service per personal</span>
-                                    </span>
-                                    <span class="text-color">$35</span>
-                                </label>
-                            </div>
-                            <ul class="total-list">
-                                <li>Total:</li>
-                                <li>{% if package.price_from %}₹{{ package.price_from|floatformat:0 }}{% else %}On request{% endif %}</li>
-                            </ul>
-                            <a href="{% url 'contact' %}" class="theme-btn">
-                                <i class="fa-sharp fa-regular fa-arrow-right"></i> Book Now
-                            </a>
-                            <p class="text">Need any help?</p>
-                        </div>
-
-                        <!-- Top packages (dynamic) -->
+                        <!-- Other related packages -->
                         {% if top_packages %}
-                        <div class="tour-single-sideber-box pt-30 pb-30 ps-25 pe-25 mt-25">
-                            <h3 class="mb-15">Top Packages</h3>
+                        <div class="related-card">
+
+                            <h3>Other Related Packages</h3>
 
                             {% for p in top_packages %}
-                            <div class="recent-post-item d-flex align-items-center gap-20 {% if not forloop.last %}mb-20{% endif %}">
-                                <div class="post-thumb">
-                                    <a href="{% url 'package_details' p.slug %}">
-                                        <img src="{{ p.main_image.url }}" alt="{{ p.name }}">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="star">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <h6><a href="{% url 'package_details' p.slug %}">{{ p.name|truncatechars:24 }}</a></h6>
+                            <div class="related-item">
+
+                                <a href="{% url 'package_details' p.slug %}" class="r-thumb">
+                                    {% if p.main_image %}
+                                    <img src="{{ p.main_image.url }}" alt="{{ p.name }}" loading="lazy">
+                                    {% endif %}
+                                </a>
+
+                                <div class="r-body">
+                                    {% if p.duration %}<span class="r-dur">{{ p.duration }}</span>{% endif %}
+                                    <h6><a href="{% url 'package_details' p.slug %}">{{ p.name|truncatechars:28 }}</a></h6>
                                     {% if p.price_from %}
-                                        <p><span>From </span>₹{{ p.price_from|floatformat:0 }}</p>
-                                    {% else %}
-                                        <p>{{ p.duration|default:"Price on request" }}</p>
+                                    <p class="r-price">From <strong>₹{{ p.price_from|floatformat:0 }}</strong></p>
                                     {% endif %}
                                 </div>
+
                             </div>
                             {% endfor %}
+
+                            <a href="{% url 'packages' %}" class="related-more">
+                                View All Packages <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
                         </div>
                         {% endif %}
 
@@ -967,4 +722,66 @@ Touro - Travel & Tour Booking Agency | {{ package.name }}
 {% block extra_js %}
 <script src="https://touro.template.wowtheme7.com/assets/js/bootstrap-datepicker.js"></script>
 <script src="https://touro.template.wowtheme7.com/assets/js/toastr.min.js"></script>
+
+<!-- Sticky right sidebar (works even when the theme breaks CSS sticky) -->
+<script>
+(function () {
+
+    var box = document.getElementById('stickySidebar');
+    if (!box) return;
+
+    var col      = box.parentNode;          /* .sidebar-col, as tall as the left column */
+    var main     = document.getElementById('mainCol');
+    var TOP      = 110;                     /* gap from the top of the screen */
+    var EXTRA    = 300;                     /* extra room (px) for the sidebar to travel when the left content is short */
+    var desktop  = window.matchMedia('(min-width: 992px)');
+    var queued   = false;
+
+    /* the sidebar can only "stick" if the left column is taller than it,
+       so the left column is never allowed to be shorter than sidebar + EXTRA */
+    function sizeMain() {
+        if (!main) return;
+        var want = desktop.matches ? (box.offsetHeight + EXTRA) + 'px' : '';
+        if (main.style.minHeight !== want) main.style.minHeight = want;
+    }
+
+    function update() {
+        queued = false;
+
+        sizeMain();
+
+        /* phones / tablets: sidebar stacks below the content, no sticky */
+        if (!desktop.matches) {
+            box.style.transform = '';
+            return;
+        }
+
+        var maxShift = Math.max(0, col.offsetHeight - box.offsetHeight);
+
+        /* always pin the START (top) of the sidebar just under the header */
+        var shift = TOP - col.getBoundingClientRect().top;
+
+        shift = Math.max(0, Math.min(shift, maxShift));
+        box.style.transform = 'translate3d(0,' + shift + 'px,0)';
+    }
+
+    function queue() {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    window.addEventListener('load',   queue);
+
+    /* page height changes when images finish loading */
+    if (window.ResizeObserver) {
+        new ResizeObserver(queue).observe(col);
+        new ResizeObserver(queue).observe(box);
+    }
+
+    update();
+})();
+</script>
 {% endblock %}

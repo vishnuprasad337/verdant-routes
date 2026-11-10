@@ -6,79 +6,44 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="description"
-     content="{% block meta_description %}Touro - Travel & Tour Booking Agency{% endblock %}">
+     content="{% block meta_description %}Verdant Routes in Kerala - Travel & Tour Booking Agency{% endblock %}">
 
 
-    <!-- =========================================================
-         PAGE TITLE
-    ========================================================== -->
+    <!-- PAGE TITLE -->
 
     <title>
         {% block title %}
-        Touro - Travel & Tour Booking Agency
+        Verdant Routes in Kerala - Travel & Tour Booking Agency
         {% endblock %}
     </title>
 
 
-    <!-- =========================================================
-         FAVICON
-    ========================================================== -->
+    <!-- FAVICON -->
 
-    <link
-        rel="shortcut icon"
-        href="{% static 'frontend/assets/img/favicon.svg' %}"
-    >
+    <link rel="shortcut icon" href="{% static 'frontend/assets/img/logo/verdant-logo-green.png' %}">
 
-
-    <!-- =========================================================
-         COMMON CSS
-    ========================================================== -->
 
     <!-- COMMON CSS -->
 
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/bootstrap.min.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/all.min.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/animate.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/magnific-popup.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/meanmenu.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/swiper-bundle.min.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/nice-select.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/datepickerboot.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/rtl.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/main.css' %}">
-
-<link rel="stylesheet"
-      href="{% static 'frontend/assets/css/toastr.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/datepickerboot.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/rtl.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/assets/css/toastr.min.css' %}">
 
 
-      <style>
+<style>
 /* ==========================================================
-   SMALL / COMPACT TOP BLUE HEADER
+   SMALL / COMPACT TOP HEADER
 ========================================================== */
 
 .header-top-section {
@@ -103,7 +68,6 @@
     justify-content: space-between !important;
 }
 
-/* Left side */
 .header-top-section .contact-list {
     margin: 0 !important;
     padding: 0 !important;
@@ -112,14 +76,12 @@
     align-items: center !important;
 }
 
-/* Right side */
 .header-top-section .top-right {
     height: 100%;
     display: flex !important;
     align-items: center !important;
 }
 
-/* FAQ / Support */
 .header-top-section .top-list {
     margin: 0 !important;
     padding: 0 !important;
@@ -127,15 +89,72 @@
     align-items: center !important;
 }
 
-/* Social icons */
 .header-top-section .social-icon {
     display: flex !important;
     align-items: center !important;
 }
 
 
+{% comment %} site logo css start {% endcomment %}
+/* =========================================================
+   SITE LOGO  (Verdant Routes in Kerala)
+========================================================= */
+
+#header-sticky .logo img,
+#header-sticky .logo-2 img {
+    height: 62px;
+    width: auto;
+    max-width: none;
+    display: block;
+}
+
+.offcanvas__logo img.site-logo-img {
+    height: 55px;
+    width: auto;
+}
+
+.footer-logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+    #header-sticky .logo img,
+    #header-sticky .logo-2 img {
+        height: 50px;
+    }
+}
+
+@media (max-width: 575px) {
+    #header-sticky .logo img,
+    #header-sticky .logo-2 img {
+        height: 44px;
+    }
+}
+{% comment %} site logo css end {% endcomment %}
+
+
 
 {% comment %} enquire modal css start {% endcomment %}
+/* ==========================================================
+   BRAND COLOURS FOR THE MODALS (change here only)
+========================================================== */
+
+:root {
+    --vr-green:        #00a651;
+    --vr-green-dark:   #008a43;
+    --vr-green-deeper: #06713a;
+    --vr-green-soft:   #eaf7f0;
+    --vr-green-line:   #cfeadb;
+    --vr-ink:          #09271f;
+    --vr-ink-2:        #17342c;
+    --vr-border:       #dde5e2;
+    --vr-muted:        #8a9591;
+}
+
+
 /* ==========================================================
    BOOKING ENQUIRY MODAL
 ========================================================== */
@@ -148,13 +167,13 @@
     border: none !important;
     border-radius: 22px !important;
     overflow: hidden;
-    box-shadow: 0 30px 80px rgba(6, 32, 25, 0.18);
+    box-shadow: 0 30px 80px rgba(6, 32, 25, 0.22);
 }
 
 
-/* ==========================================================
-   BOOKING MODAL - BLUE BRUSH HEADER
-========================================================== */
+/* ----------------------------------------------------------
+   HEADER (brand green + soft wave bottom edge)
+---------------------------------------------------------- */
 
 .booking-modal-header {
     position: relative;
@@ -163,45 +182,34 @@
     align-items: flex-start;
     gap: 16px;
 
-    /*
-       IMPORTANT:
-       extra bottom space is intentional because the PNG
-       contains the irregular brush/paint bottom edge.
-    */
-    padding: 28px 30px 52px;
-
-    /*
-       Your exact image:
-       static/frontend/assets/img/home-1/adventure/bg-shape.png
-    */
-    background-image:
-        url("{% static 'frontend/assets/img/home-1/adventure/bg-shape.png' %}");
-
-    background-repeat: no-repeat;
-
-    /*
-       Stretch the artwork across the entire modal header.
-    */
-    background-size: 100% 100%;
-
-    background-position: center bottom;
-
-    /*
-       The image itself provides the blue background.
-    */
-    background-color: #0867cc;
-
+    padding: 28px 30px 58px;
     min-height: 165px;
 
-    overflow: hidden;
+    background:
+        radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0) 38%),
+        radial-gradient(circle at 8% 110%, rgba(255, 255, 255, 0.12) 0, rgba(255, 255, 255, 0) 40%),
+        linear-gradient(135deg, var(--vr-green) 0%, var(--vr-green-dark) 60%, var(--vr-green-deeper) 100%);
 
+    overflow: hidden;
     z-index: 2;
 }
 
+/* wave edge between header and white body */
+.booking-modal-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 36px;
+    z-index: 1;
+    pointer-events: none;
 
-/* ==========================================================
-   ORANGE ICON
-========================================================== */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V20C150 2 300 38 450 24S750 2 900 22s200 14 300 -2V40z' fill='white'/%3E%3C/svg%3E");
+}
+
 
 .booking-modal-icon {
     position: relative;
@@ -217,83 +225,55 @@
 
     border-radius: 14px;
 
-    background: #ff5a36;
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--vr-green);
 
     font-size: 20px;
 
-    box-shadow: 0 10px 25px rgba(255, 90, 54, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
-
-
-/* ==========================================================
-   HEADER TITLE
-========================================================== */
 
 .booking-modal-title {
     position: relative;
     z-index: 3;
-
     padding-right: 55px;
 }
 
-
-/* PLAN YOUR JOURNEY */
-
 .booking-modal-title > span {
     display: block;
-
     color: #ffffff;
-
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 1.6px;
-
     margin-bottom: 5px;
-
     text-transform: uppercase;
 }
 
-
-/* MAIN TITLE */
-
 .booking-modal-title h3 {
     color: #ffffff;
-
     font-size: 25px;
     font-weight: 700;
-
     line-height: 1.25;
-
     margin: 0 0 6px;
 }
 
-
-/* DESCRIPTION */
-
 .booking-modal-title p {
-    color: rgba(255, 255, 255, 0.88);
-
+    color: rgba(255, 255, 255, 0.9);
     font-size: 13px;
     line-height: 1.6;
-
     margin: 0;
-
     max-width: 480px;
 }
 
 
-/* ==========================================================
+/* ----------------------------------------------------------
    CLOSE BUTTON
-========================================================== */
+---------------------------------------------------------- */
 
 .booking-modal-close {
     position: absolute;
-
     top: 20px;
     right: 20px;
-
     z-index: 5;
 
     width: 38px;
@@ -303,146 +283,52 @@
     align-items: center;
     justify-content: center;
 
-    border: 1px solid rgba(255, 255, 255, 0.30);
-
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 50%;
 
     background: rgba(255, 255, 255, 0.15);
-
     color: #ffffff;
-
     font-size: 16px;
-
     cursor: pointer;
 
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-
 .booking-modal-close:hover {
-    background: #ff5a36;
-
-    border-color: #ff5a36;
-
-    color: #ffffff;
-
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--vr-green-dark);
     transform: rotate(90deg);
 }
 
 
-/* ==========================================================
-   BODY MUST COME SLIGHTLY UNDER BRUSH EDGE
-========================================================== */
+/* ----------------------------------------------------------
+   BODY
+---------------------------------------------------------- */
 
 .booking-modal-body {
     position: relative;
-
-    padding: 20px 30px 30px;
-
+    padding: 18px 30px 30px;
     background: #ffffff;
-
     z-index: 1;
 }
 
 
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width: 575px) {
-
-    .booking-modal-header {
-        gap: 12px;
-
-        padding:
-            20px
-            20px
-            45px;
-
-        min-height: 140px;
-
-        background-size: auto 100%;
-        background-position: center bottom;
-    }
-
-
-    .booking-modal-icon {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-
-        border-radius: 12px;
-
-        font-size: 17px;
-    }
-
-
-    .booking-modal-title {
-        padding-right: 35px;
-    }
-
-
-    .booking-modal-title > span {
-        font-size: 9px;
-        letter-spacing: 1.2px;
-    }
-
-
-    .booking-modal-title h3 {
-        font-size: 20px;
-    }
-
-
-    .booking-modal-title p {
-        display: none;
-    }
-
-
-    .booking-modal-close {
-        top: 15px;
-        right: 15px;
-
-        width: 34px;
-        height: 34px;
-    }
-
-
-    .booking-modal-body {
-        padding: 18px 20px 24px;
-    }
-}
-
-
-/* ==========================================================
-   BODY
-========================================================== */
-
-.booking-modal-body {
-    padding: 28px 30px 30px;
-    background: #ffffff;
-}
-
-
-/* ==========================================================
-   SELECTED PACKAGE
-========================================================== */
+/* ----------------------------------------------------------
+   SELECTED PACKAGE (kept for compatibility)
+---------------------------------------------------------- */
 
 .selected-package-box {
     display: flex;
     align-items: center;
     gap: 12px;
-
     padding: 14px 16px;
-
     margin-bottom: 24px;
-
-    background: #f5f9f7;
-    border: 1px solid #e5eeea;
+    background: var(--vr-green-soft);
+    border: 1px solid var(--vr-green-line);
     border-radius: 12px;
 }
 
@@ -450,20 +336,17 @@
     width: 40px;
     height: 40px;
     min-width: 40px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: rgba(255, 90, 54, 0.1);
-    color: #ff5a36;
-
+    background: rgba(0, 166, 81, 0.12);
+    color: var(--vr-green);
     border-radius: 10px;
 }
 
 .selected-package-box span {
     display: block;
-    color: #8a9591;
+    color: var(--vr-muted);
     font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
@@ -471,95 +354,80 @@
 }
 
 .selected-package-box h5 {
-    color: #09271f;
+    color: var(--vr-ink);
     font-size: 15px;
     font-weight: 700;
     margin: 1px 0 0;
 }
 
 
-/* ==========================================================
+/* ----------------------------------------------------------
    FORM
-========================================================== */
+---------------------------------------------------------- */
 
 .booking-form-group label {
     display: flex;
     align-items: center;
     gap: 6px;
-
-    color: #17342c;
-
+    color: var(--vr-ink-2);
     font-size: 12px;
     font-weight: 700;
-
     margin-bottom: 7px;
 }
 
 .booking-form-group label i {
-    color: #ff5a36;
+    color: var(--vr-green);
 }
 
 .booking-form-group label span {
-    color: #ff5a36;
+    color: #e5484d;
 }
 
 .booking-form-group .form-control {
     width: 100%;
     height: 50px;
 
-    border: 1px solid #dde5e2;
+    border: 1px solid var(--vr-border);
     border-radius: 10px;
 
     background: #ffffff;
-
-    color: #17342c;
-
+    color: var(--vr-ink-2);
     font-size: 13px;
 
     padding: 0 14px;
-
     box-shadow: none !important;
-
     transition: 0.25s ease;
 }
 
 .booking-form-group .form-control:focus {
-    border-color: #ff5a36;
+    border-color: var(--vr-green);
+    box-shadow: 0 0 0 4px rgba(0, 166, 81, 0.12) !important;
 }
 
 
-/* ==========================================================
+/* ----------------------------------------------------------
    TRAVELLER COUNTER
-========================================================== */
+---------------------------------------------------------- */
 
 .traveller-counter {
     height: 50px;
-
     display: flex;
     align-items: center;
-
-    border: 1px solid #dde5e2;
+    border: 1px solid var(--vr-border);
     border-radius: 10px;
-
     overflow: hidden;
 }
 
 .traveller-counter input {
     flex: 1;
     width: 100%;
-
     border: none;
     outline: none;
-
     background: transparent;
-
-    color: #17342c;
-
+    color: var(--vr-ink-2);
     font-size: 14px;
     font-weight: 700;
-
     text-align: center;
-
     appearance: textfield;
     -moz-appearance: textfield;
 }
@@ -573,26 +441,22 @@
 .counter-button {
     width: 45px;
     height: 100%;
-
     border: none;
-
-    background: #f5f8f7;
-    color: #17342c;
-
+    background: #f3f8f5;
+    color: var(--vr-ink-2);
     font-size: 11px;
-
     transition: 0.25s ease;
 }
 
 .counter-button:hover {
-    background: #ff5a36;
+    background: var(--vr-green);
     color: #ffffff;
 }
 
 
-/* ==========================================================
-   SUBMIT
-========================================================== */
+/* ----------------------------------------------------------
+   SUBMIT BUTTON
+---------------------------------------------------------- */
 
 .booking-submit-button {
     width: 100%;
@@ -607,30 +471,24 @@
     border: none;
     border-radius: 11px;
 
-    background: #ff5a36;
+    background: linear-gradient(135deg, var(--vr-green) 0%, var(--vr-green-dark) 100%);
     color: #ffffff;
 
     font-size: 14px;
     font-weight: 700;
 
-    box-shadow: 0 10px 25px rgba(255, 90, 54, 0.20);
-
+    box-shadow: 0 10px 25px rgba(0, 166, 81, 0.25);
     transition: 0.3s ease;
 }
 
-
 .booking-submit-button:hover {
-    background: #e94a29;
-
     color: #ffffff;
-
     transform: translateY(-2px);
-
-    box-shadow: 0 14px 30px rgba(255, 90, 54, 0.28);
+    box-shadow: 0 14px 30px rgba(0, 166, 81, 0.34);
 }
 
 .booking-submit-button:disabled {
-    opacity: 0.7;
+    opacity: 0.85;
     cursor: not-allowed;
     transform: none;
 }
@@ -642,30 +500,60 @@
 
 .booking-security-text {
     margin: 12px 0 0;
-
     text-align: center;
-
-    color: #8a9591;
-
+    color: var(--vr-muted);
     font-size: 11px;
 }
 
 .booking-security-text i {
-    color: #23a55a;
+    color: var(--vr-green);
     margin-right: 4px;
 }
 
 
-/* ==========================================================
-   MESSAGE
-========================================================== */
+/* ----------------------------------------------------------
+   BUTTON LOADING ANIMATION (3 bouncing dots)
+---------------------------------------------------------- */
+
+.button-loading-content {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-dots i {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 0 !important;
+    border-radius: 50%;
+    background: #ffffff;
+    animation: btnDotBounce 1s ease-in-out infinite;
+}
+
+.btn-dots i:nth-child(2) { animation-delay: .15s; }
+.btn-dots i:nth-child(3) { animation-delay: .30s; }
+
+@keyframes btnDotBounce {
+    0%, 80%, 100% { transform: scale(.55); opacity: .45; }
+    40%           { transform: scale(1.15); opacity: 1; }
+}
+
+
+/* ----------------------------------------------------------
+   INLINE MESSAGE
+---------------------------------------------------------- */
 
 .booking-form-message {
     margin-bottom: 18px;
     padding: 11px 14px;
-
     border-radius: 8px;
-
     font-size: 12px;
     line-height: 1.5;
 }
@@ -677,51 +565,15 @@
 }
 
 .booking-form-message.success {
-    background: #eafaf0;
-    border: 1px solid #c9eed6;
+    background: var(--vr-green-soft);
+    border: 1px solid var(--vr-green-line);
     color: #17763a;
 }
 
 
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width: 575px) {
-
-    .booking-modal-dialog {
-        margin: 12px;
-    }
-
-    .booking-modal-header {
-        padding: 22px 20px;
-    }
-
-    .booking-modal-icon {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-    }
-
-    .booking-modal-title h3 {
-        font-size: 20px;
-    }
-
-    .booking-modal-title p {
-        display: none;
-    }
-
-    .booking-modal-body {
-        padding: 22px 20px;
-    }
-
-}
-
-
-
-/* ==========================================================
+/* ----------------------------------------------------------
    PACKAGE DROPDOWN
-========================================================== */
+---------------------------------------------------------- */
 
 .booking-package-select {
     margin-bottom: 20px;
@@ -730,31 +582,24 @@
 .booking-package-select select.form-control {
     width: 100%;
     height: 50px;
-
-    border: 1px solid #dde5e2;
+    border: 1px solid var(--vr-border);
     border-radius: 10px;
-
     background-color: #ffffff;
-
-    color: #17342c;
-
+    color: var(--vr-ink-2);
     font-size: 13px;
-
     padding: 0 42px 0 14px;
-
     cursor: pointer;
-
     box-shadow: none !important;
 }
 
 .booking-package-select select.form-control:focus {
-    border-color: #ff5a36;
+    border-color: var(--vr-green);
 }
 
 
-/* ==========================================================
-   MESSAGE
-========================================================== */
+/* ----------------------------------------------------------
+   MESSAGE FIELD
+---------------------------------------------------------- */
 
 .booking-message-group {
     margin-top: 20px;
@@ -762,23 +607,15 @@
 
 .booking-form-group .booking-message-textarea {
     width: 100%;
-
     height: 105px;
     min-height: 105px;
-
     padding: 13px 14px;
-
     line-height: 1.6;
-
     resize: vertical;
-
-    border: 1px solid #dde5e2;
+    border: 1px solid var(--vr-border);
     border-radius: 10px;
-
     font-size: 13px;
-
-    color: #17342c;
-
+    color: var(--vr-ink-2);
     background: #ffffff;
 }
 
@@ -787,7 +624,7 @@
 }
 
 .booking-form-group .booking-message-textarea:focus {
-    border-color: #ff5a36;
+    border-color: var(--vr-green);
     outline: none;
 }
 
@@ -795,19 +632,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-top: 6px;
-
     color: #97a19e;
-
     font-size: 10px;
 }
 
 
-/* ==========================================================
-   MODAL SCROLL
-   Important now that we have extra fields
-========================================================== */
+/* ----------------------------------------------------------
+   MODAL SCROLL + STACKING
+   (modals + dark overlay always above the sticky header)
+---------------------------------------------------------- */
+
+#bookingEnquiryModal,
+#bookingSuccessModal {
+    z-index: 100000 !important;
+}
+
+.modal-backdrop {
+    z-index: 99990 !important;
+}
 
 #bookingEnquiryModal .modal-dialog {
     margin-top: 20px;
@@ -822,9 +665,6 @@
     overflow-y: auto;
 }
 
-
-/* scrollbar */
-
 #bookingEnquiryModal .booking-modal-body::-webkit-scrollbar {
     width: 5px;
 }
@@ -838,11 +678,333 @@
     border-radius: 10px;
 }
 
+
+/* ----------------------------------------------------------
+   MOBILE (enquiry modal)
+---------------------------------------------------------- */
+
+@media (max-width: 575px) {
+
+    .booking-modal-dialog {
+        margin: 12px;
+    }
+
+    .booking-modal-header {
+        gap: 12px;
+        padding: 20px 20px 46px;
+        min-height: 140px;
+    }
+
+    .booking-modal-header::after {
+        height: 26px;
+    }
+
+    .booking-modal-icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 12px;
+        font-size: 17px;
+    }
+
+    .booking-modal-title {
+        padding-right: 35px;
+    }
+
+    .booking-modal-title > span {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
+
+    .booking-modal-title h3 {
+        font-size: 20px;
+    }
+
+    .booking-modal-title p {
+        display: none;
+    }
+
+    .booking-modal-close {
+        top: 15px;
+        right: 15px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .booking-modal-body {
+        padding: 16px 20px 24px;
+    }
+}
+
+
+/* ==========================================================
+   SUCCESS MODAL
+========================================================== */
+
+.success-modal-dialog {
+    max-width: 440px;
+}
+
+.success-modal-content {
+    position: relative;
+    border: none !important;
+    border-radius: 24px !important;
+    overflow: hidden;
+    text-align: center;
+    background: #ffffff;
+    box-shadow: 0 30px 80px rgba(6, 32, 25, 0.28);
+}
+
+/* green top band */
+.success-modal-top {
+    position: relative;
+    padding: 38px 20px 64px;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0) 40%),
+        linear-gradient(135deg, var(--vr-green) 0%, var(--vr-green-dark) 60%, var(--vr-green-deeper) 100%);
+    overflow: hidden;
+}
+
+.success-modal-top::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V20C150 2 300 38 450 24S750 2 900 22s200 14 300 -2V40z' fill='white'/%3E%3C/svg%3E");
+}
+
+/* animated tick */
+.success-check {
+    position: relative;
+    z-index: 2;
+    width: 92px;
+    height: 92px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    animation: successPop .55s cubic-bezier(.2, 1.4, .4, 1) both,
+               successPulse 1.8s ease-out .6s infinite;
+}
+
+.success-check svg {
+    width: 56px;
+    height: 56px;
+}
+
+.success-check .sc-circle {
+    fill: none;
+    stroke: var(--vr-green);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    animation: successDraw .6s ease-out .2s forwards;
+}
+
+.success-check .sc-tick {
+    fill: none;
+    stroke: var(--vr-green);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: successDraw .4s ease-out .65s forwards;
+}
+
+@keyframes successPop {
+    0%   { transform: scale(.3); opacity: 0; }
+    100% { transform: scale(1);  opacity: 1; }
+}
+
+@keyframes successDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes successPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, .55); }
+    100% { box-shadow: 0 0 0 26px rgba(255, 255, 255, 0); }
+}
+
+/* floating dots in the green band */
+.success-confetti i {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .55);
+    animation: successFloat 3s ease-in-out infinite;
+}
+
+.success-confetti i:nth-child(1) { width: 10px; height: 10px; left: 14%; top: 28%; }
+.success-confetti i:nth-child(2) { width: 7px;  height: 7px;  left: 24%; top: 66%; animation-delay: .5s; }
+.success-confetti i:nth-child(3) { width: 12px; height: 12px; right: 16%; top: 34%; animation-delay: 1s; }
+.success-confetti i:nth-child(4) { width: 8px;  height: 8px;  right: 26%; top: 70%; animation-delay: 1.5s; }
+
+@keyframes successFloat {
+    0%, 100% { transform: translateY(0);    opacity: .5; }
+    50%      { transform: translateY(-10px); opacity: 1; }
+}
+
+.success-modal-body {
+    padding: 4px 30px 30px;
+}
+
+.success-modal-body h3 {
+    color: var(--vr-ink);
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.success-modal-body > p {
+    color: #5d6b66;
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0 0 18px;
+}
+
+/* summary box */
+.success-summary {
+    text-align: left;
+    background: var(--vr-green-soft);
+    border: 1px solid var(--vr-green-line);
+    border-radius: 14px;
+    padding: 6px 16px;
+    margin-bottom: 20px;
+}
+
+.success-summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--vr-green-line);
+    font-size: 13px;
+}
+
+.success-summary-row:last-child {
+    border-bottom: none;
+}
+
+.success-summary-row span {
+    color: var(--vr-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.success-summary-row strong {
+    color: var(--vr-ink);
+    font-weight: 700;
+    text-align: right;
+    word-break: break-word;
+}
+
+/* loading bar: opening WhatsApp */
+.success-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--vr-ink-2);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.success-loading .travel-dot-loader {
+    height: auto;
+    gap: 6px;
+}
+
+.success-loading .travel-loader-dot {
+    width: 8px;
+    height: 8px;
+    animation-duration: 1.2s;
+}
+
+.success-progress {
+    height: 6px;
+    background: #e3efe8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.success-progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--vr-green), #3ed17f);
+}
+
+.success-progress.running span {
+    animation: successProgress 3.2s linear forwards;
+}
+
+@keyframes successProgress {
+    to { width: 100%; }
+}
+
+.success-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 50px;
+    border-radius: 11px;
+    background: #25d366;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28);
+    transition: .3s ease;
+}
+
+.success-whatsapp-btn:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+}
+
+.success-whatsapp-btn i {
+    font-size: 19px;
+}
+
+.success-close-link {
+    display: inline-block;
+    margin-top: 14px;
+    background: none;
+    border: none;
+    color: var(--vr-muted);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.success-close-link:hover {
+    color: var(--vr-green-dark);
+}
+
+@media (max-width: 575px) {
+    .success-modal-dialog { margin: 14px; }
+    .success-modal-body   { padding: 4px 20px 24px; }
+    .success-modal-body h3 { font-size: 21px; }
+}
+
 {% comment %} enquire modal css end {% endcomment %}
 
 
 
-{% comment %} header toper blue color css start {% endcomment %}
+{% comment %} header toper css start {% endcomment %}
 /* ==========================================================
    HEADER TOP - GLASS / FROSTED TRANSPARENT
 ========================================================== */
@@ -855,24 +1017,16 @@
     min-height: 44px !important;
     height: 44px !important;
 
-    /* GLASS BACKGROUND */
     background: rgba(255, 255, 255, 0.35) !important;
 
-    /* FROSTED GLASS */
     -webkit-backdrop-filter: blur(14px) saturate(160%);
     backdrop-filter: blur(14px) saturate(160%);
 
-    /* subtle glass border */
     border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 
-    /* very light depth */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
-
-/* IMPORTANT:
-   Do not give wrapper another solid background
-*/
 .header-top-section .header-top-wrapper {
     height: 44px !important;
     min-height: 44px !important;
@@ -887,31 +1041,19 @@
     background: transparent !important;
 }
 
-
-/* LEFT TEXT */
-
 .header-top-section .contact-list li,
 .header-top-section .contact-list li a {
     color: #09271f !important;
 }
 
-
-/* LEFT ICONS */
-
 .header-top-section .contact-list li i {
-    color: #ff5a36 !important;
+    color: #00a651 !important;
 }
-
-
-/* FAQ + SUPPORT */
 
 .header-top-section .top-list li,
 .header-top-section .top-list li a {
     color: #09271f !important;
 }
-
-
-/* SOCIAL ICONS */
 
 .header-top-section .social-icon a {
     color: #09271f !important;
@@ -919,9 +1061,9 @@
 }
 
 .header-top-section .social-icon a:hover {
-    color: #ff5a36 !important;
+    color: #00a651 !important;
 }
-{% comment %} header topper blue color css end  {% endcomment %}
+{% comment %} header toper css end  {% endcomment %}
 
 
 
@@ -950,11 +1092,6 @@
     z-index: 999999 !important;
 }
 
-
-/* ----------------------------------------------------------
-   DOT CONTAINER
----------------------------------------------------------- */
-
 .travel-dot-loader {
     display: flex;
     align-items: center;
@@ -965,11 +1102,6 @@
     height: 50px;
 }
 
-
-/* ----------------------------------------------------------
-   DEFAULT DOT
----------------------------------------------------------- */
-
 .travel-loader-dot {
     display: block;
 
@@ -978,7 +1110,7 @@
 
     border-radius: 50%;
 
-    background: #ff5a36;
+    background: #00a651;
 
     opacity: 0.18;
 
@@ -989,57 +1121,18 @@
     animation-iteration-count: infinite;
 }
 
-
-/* ==========================================================
-   DOT 1
-   Active at:
-   start
-   and again near the end
-========================================================== */
-
-.travel-loader-dot.dot-1 {
-    animation-name: travelDotOne;
-}
-
-
-/* ==========================================================
-   DOT 2
-   Active while travelling both directions
-========================================================== */
-
-.travel-loader-dot.dot-2 {
-    animation-name: travelDotTwo;
-}
-
-
-/* ==========================================================
-   DOT 3
-   Active in the middle
-========================================================== */
-
-.travel-loader-dot.dot-3 {
-    animation-name: travelDotThree;
-}
-
-
-/* ==========================================================
-   DOT 1 ANIMATION
-========================================================== */
+.travel-loader-dot.dot-1 { animation-name: travelDotOne; }
+.travel-loader-dot.dot-2 { animation-name: travelDotTwo; }
+.travel-loader-dot.dot-3 { animation-name: travelDotThree; }
 
 @keyframes travelDotOne {
-
-    /* 1 active */
 
     0%,
     10% {
         opacity: 1;
         transform: scale(1.35);
-        box-shadow:
-            0 0 0 6px rgba(255, 90, 54, 0.10);
+        box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.14);
     }
-
-
-    /* hidden while moving right */
 
     20%,
     70% {
@@ -1048,30 +1141,19 @@
         box-shadow: none;
     }
 
-
-    /* 1 active again */
-
     80%,
     90% {
         opacity: 1;
         transform: scale(1.35);
-        box-shadow:
-            0 0 0 6px rgba(255, 90, 54, 0.10);
+        box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.14);
     }
-
 
     100% {
         opacity: 1;
         transform: scale(1.35);
-        box-shadow:
-            0 0 0 6px rgba(255, 90, 54, 0.10);
+        box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.14);
     }
 }
-
-
-/* ==========================================================
-   DOT 2 ANIMATION
-========================================================== */
 
 @keyframes travelDotTwo {
 
@@ -1082,17 +1164,12 @@
         box-shadow: none;
     }
 
-
-    /* moving left → right */
-
     20%,
     30% {
         opacity: 1;
         transform: scale(1.35);
-        box-shadow:
-            0 0 0 6px rgba(255, 90, 54, 0.10);
+        box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.14);
     }
-
 
     40%,
     50% {
@@ -1101,17 +1178,12 @@
         box-shadow: none;
     }
 
-
-    /* moving right → left */
-
     60%,
     70% {
         opacity: 1;
         transform: scale(1.35);
-        box-shadow:
-            0 0 0 6px rgba(255, 90, 54, 0.10);
+        box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.14);
     }
-
 
     80%,
     100% {
@@ -1120,11 +1192,6 @@
         box-shadow: none;
     }
 }
-
-
-/* ==========================================================
-   DOT 3 ANIMATION
-========================================================== */
 
 @keyframes travelDotThree {
 
@@ -1135,17 +1202,12 @@
         box-shadow: none;
     }
 
-
-    /* 3 active */
-
     40%,
     50% {
         opacity: 1;
         transform: scale(1.35);
-        box-shadow:
-            0 0 0 6px rgba(255, 90, 54, 0.10);
+        box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.14);
     }
-
 
     60%,
     100% {
@@ -1154,11 +1216,6 @@
         box-shadow: none;
     }
 }
-
-
-/* ==========================================================
-   MOBILE
-========================================================== */
 
 @media (max-width: 575px) {
 
@@ -1170,17 +1227,896 @@
         width: 11px;
         height: 11px;
     }
-
 }
 
+
+/* ==========================================================
+   BRAND GREEN OVERRIDES (Verdant Routes)
+========================================================== */
+
+.theme-btn,
+.mobile-book-now-btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #ffffff !important;
+}
+
+.theme-btn:hover,
+.mobile-book-now-btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+}
+
+.back-to-top {
+    background-color: #00a651 !important;
+}
+
+.main-menu ul li a:hover,
+.header-2 .main-menu ul li:hover > a {
+    color: #00a651 !important;
+}
+
+
+/* ==========================================================
+   MOVE LOGO + NAVBAR DOWN (only when not sticky)
+========================================================== */
+
+#header-sticky:not(.sticky) {
+    margin-top: 25px;
+}
+
+@media (max-width: 991px) {
+    #header-sticky:not(.sticky) {
+        margin-top: 12px;
+    }
+}
+
+
+/* ==========================================================
+   NAVBAR PILL: LONGER, TALLER, NO TEXT WRAPPING
+========================================================== */
+
+@media (min-width: 1200px) {
+
+    #header-sticky .container {
+        max-width: 1600px;
+    }
+
+    .header-2 .main-menu ul li a,
+    .header-2 .header-button .theme-btn {
+        white-space: nowrap !important;
+    }
+
+    .header-2 .mean__menu-wrapper {
+        display: flex;
+        align-items: center;
+        min-height: 78px;
+        margin-left: 0;
+        padding: 0 25px;
+    }
+
+    .header-2 .main-menu,
+    .header-2 .main-menu nav,
+    .header-2 .main-menu ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .header-2 .main-menu ul li a {
+        padding: 25px 22px;
+    }
+
+    .header-2 .header-button .theme-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 18px 28px;
+    }
+}
+
+
+/* ==========================================================
+   STICKY NAVBAR (when scrolling)
+========================================================== */
+
+@media (min-width: 1200px) {
+
+    #header-sticky.sticky {
+        margin-top: 0;
+    }
+
+    #header-sticky.sticky .mean__menu-wrapper {
+        min-height: 70px;
+    }
+
+    #header-sticky.sticky .main-menu ul li a {
+        color: #09271f !important;
+        padding: 22px 22px;
+    }
+
+    #header-sticky.sticky .main-menu ul li a:hover {
+        color: #00a651 !important;
+    }
+}
+
+
+/* ==========================================================
+   MOVE NAVBAR PILL TOWARDS LOGO
+========================================================== */
+
+@media (min-width: 1200px) {
+
+    .header-2 .mean__menu-wrapper {
+        transform: translateX(-60px);
+    }
+}
+
+
+/* ==========================================================
+   STICKY HEADER: TALLER + ROUNDED BOTTOM CORNERS
+========================================================== */
+
+#header-sticky.sticky {
+    border-radius: 0 0 35px 35px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+}
+
+#header-sticky.sticky .header-main {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+@media (max-width: 991px) {
+    #header-sticky.sticky {
+        border-radius: 0 0 22px 22px;
+    }
+
+    #header-sticky.sticky .header-main {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
 {% comment %} pre loader css end {% endcomment %}
+
+
+/* =========================================================
+   HEADER LOGO SIZE (overrides theme + earlier rules)
+========================================================= */
+
+header#header-sticky.header-2 .header-left .logo img,
+header#header-sticky.header-2 .header-left .logo-2 img,
+#header-sticky .logo a img {
+    height: 96px !important;
+    width: auto !important;
+    max-height: none !important;
+    max-width: none !important;
+}
+
+header#header-sticky .header-left,
+header#header-sticky .header-left .logo {
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+header#header-sticky.sticky .header-left .logo img,
+header#header-sticky.sticky .header-left .logo-2 img {
+    height: 66px !important;
+}
+
+@media (max-width: 1399px) {
+    header#header-sticky.header-2 .header-left .logo img,
+    header#header-sticky.header-2 .header-left .logo-2 img { height: 82px !important; }
+}
+
+@media (max-width: 991px) {
+    header#header-sticky.header-2 .header-left .logo img,
+    header#header-sticky.header-2 .header-left .logo-2 img { height: 64px !important; }
+    header#header-sticky.sticky .header-left .logo img,
+    header#header-sticky.sticky .header-left .logo-2 img { height: 52px !important; }
+}
+
+@media (max-width: 575px) {
+    header#header-sticky.header-2 .header-left .logo img,
+    header#header-sticky.header-2 .header-left .logo-2 img { height: 52px !important; }
+}
+
+
+/* =========================================================
+   MENU LINKS CLOSER TO EACH OTHER  (sticky bar ONLY)
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    header#header-sticky.sticky .main-menu ul li a {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    header#header-sticky.sticky .main-menu ul li {
+        margin: 0 !important;
+    }
+}
+
+
+/* =========================================================
+   STICKY BAR ONLY: menu centered between logo and Book Now
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    header#header-sticky.sticky .header-main {
+        display: flex;
+        align-items: center;
+    }
+
+    header#header-sticky.sticky .header-left {
+        flex: 0 0 auto;
+    }
+
+    header#header-sticky.sticky .header-right {
+        flex: 1 1 auto;
+        justify-content: flex-start !important;
+    }
+
+    header#header-sticky.sticky .mean__menu-wrapper {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        transform: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    header#header-sticky.sticky .main-menu,
+    header#header-sticky.sticky .main-menu nav,
+    header#header-sticky.sticky .main-menu ul {
+        justify-content: center;
+    }
+
+    header#header-sticky.sticky .header-search {
+        flex: 0 0 auto;
+    }
+}
+
+
+/* =========================================================
+   FOOTER LOGO SIZE
+========================================================= */
+
+footer .footer-logo-img,
+.footer-newsletter-content-7 .footer-social-item img.footer-logo-img {
+    height: 90px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 575px) {
+    footer .footer-logo-img,
+    .footer-newsletter-content-7 .footer-social-item img.footer-logo-img {
+        height: 72px !important;
+    }
+}
+
+
+/* =========================================================
+   FOOTER BACKGROUND IMAGE (Kerala) + READABILITY OVERLAY
+========================================================= */
+
+footer.footer-section-7 {
+    position: relative;
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+}
+
+footer.footer-section-7::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(4, 30, 20, .55) 0%, rgba(4, 36, 24, .78) 45%, rgba(4, 30, 20, .88) 100%) !important;
+}
+
+footer.footer-section-7 > * {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-about-text {
+    max-width: 340px;
+    margin: 0 0 24px;
+    color: rgba(255, 255, 255, .88);
+    font-size: 15.5px;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   FOOTER LAYOUT: aligned columns + centered copyright
+========================================================= */
+
+.footer-main-row { align-items: flex-start; }
+
+.footer-widget-wrapper-7 .wid-title { margin-bottom: 26px; }
+
+.footer-widget-wrapper-7 .wid-title h4 {
+    color: #fff !important;
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.footer-widget-wrapper-7 .list-items-7 li { margin-bottom: 14px; }
+.footer-widget-wrapper-7 .list-items-7 li:last-child { margin-bottom: 0; }
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .content span { display: block; margin-bottom: 2px; }
+.footer-widget-wrapper-7 .footer-contact-item-7 .content h6 { margin: 0; }
+
+.footer-bootom-6 .footer-wrapper-6 {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px;
+    padding: 22px 0;
+    text-align: center;
+}
+
+.footer-bootom-6 .footer-wrapper-6 ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-bootom-6 .footer-wrapper-6 p { margin: 0; }
+
+@media (max-width: 767px) {
+    .footer-widget-wrapper-7 .wid-title { margin-bottom: 18px; }
+}
+
+/* =========================================================
+   FOOTER STRIP: PACKAGE CARDS (image + title)
+========================================================= */
+
+.footer-pkg-strip {
+    padding: 0 0 10px;
+}
+
+.footer-pkg-strip .footer-pkg-slider {
+    overflow: hidden;
+    padding: 6px 0;
+}
+
+.footer-pkg-strip .footer-pkg-slider .swiper-slide {
+    width: 260px !important;
+    height: auto;
+}
+
+.footer-pkg-strip .footer-pkg-slider .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+.footer-pkg-strip .fps-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 18px;
+    background: #0b3f2e;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
+}
+
+.footer-pkg-strip .fps-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .7s ease;
+}
+
+.footer-pkg-strip .fps-card:hover .fps-img {
+    transform: scale(1.08);
+}
+
+.footer-pkg-strip .fps-noimg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a9bfae;
+    font-size: 40px;
+}
+
+.footer-pkg-strip .fps-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(4, 30, 20, 0) 40%, rgba(4, 30, 20, .88) 100%);
+    transition: background .4s ease;
+}
+
+.footer-pkg-strip .fps-card:hover::after {
+    background: linear-gradient(180deg, rgba(10, 154, 74, .15) 20%, rgba(8, 80, 44, .92) 100%);
+}
+
+.footer-pkg-strip .fps-body {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.footer-pkg-strip .fps-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .45);
+}
+
+.footer-pkg-strip .fps-arrow {
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00a651;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    transition: background .3s ease, color .3s ease, transform .3s ease;
+}
+
+.footer-pkg-strip .fps-card:hover .fps-arrow {
+    background: #fff;
+    color: #0a6b3a;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 575px) {
+    .footer-pkg-strip .footer-pkg-slider .swiper-slide { width: 215px !important; }
+    .footer-pkg-strip .fps-title { font-size: 14px; }
+}
+
+/* =========================================================
+   MOBILE / TABLET HEADER: bigger logo + Book Now beside hamburger
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    header#header-sticky .header-right {
+        display: flex !important;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    header#header-sticky .header-search {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+    }
+
+    header#header-sticky .header-search .header-button {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    header#header-sticky.header-2 .header-left .logo img,
+    header#header-sticky.header-2 .header-left .logo-2 img { height: 74px !important; }
+    header#header-sticky.sticky .header-left .logo img,
+    header#header-sticky.sticky .header-left .logo-2 img { height: 60px !important; }
+}
+
+@media (max-width: 575px) {
+    header#header-sticky.header-2 .header-left .logo img,
+    header#header-sticky.header-2 .header-left .logo-2 img { height: 64px !important; }
+    header#header-sticky.sticky .header-left .logo img,
+    header#header-sticky.sticky .header-left .logo-2 img { height: 52px !important; }
+}
+
+/* =========================================================
+   MOBILE / TABLET: pinned (scrolled) navbar moved slightly left
+========================================================= */
+
+@media (max-width: 1199px) {
+    header#header-sticky.sticky .header-main {
+        transform: translateX(-22px);
+    }
+}
+
+@media (max-width: 575px) {
+    header#header-sticky.sticky .header-main {
+        transform: translateX(-18px);
+    }
+}
+
+/* =========================================================
+   MOBILE / TABLET: green logo (pinned navbar) moved further left
+========================================================= */
+
+@media (max-width: 1199px) {
+    header#header-sticky.sticky .header-left {
+        transform: translateX(-40px);
+    }
+}
+
+@media (max-width: 575px) {
+    header#header-sticky.sticky .header-left {
+        transform: translateX(-38px);
+    }
+}
+
+
+/* =========================================================
+   FOOTER: COMPACT LAYOUT + GREEN (no orange)
+========================================================= */
+
+/* --- remove the big empty space --- */
+footer.footer-section-7 {
+    padding: 0 !important;
+}
+
+.footer-pkg-strip {
+    padding: 28px 0 0 !important;
+    margin: 0 !important;
+}
+
+.footer-widget-wrapper-7 {
+    padding: 34px 0 26px !important;
+    margin: 0 !important;
+}
+
+.footer-widget-wrapper-7 .row {
+    --bs-gutter-y: 1.5rem;
+}
+
+.footer-widget-wrapper-7 .wid-title {
+    margin-bottom: 16px !important;
+}
+
+.footer-widget-wrapper-7 .wid-title h4 {
+    font-size: 19px !important;
+}
+
+.footer-widget-wrapper-7 .list-items-7 li {
+    margin-bottom: 9px !important;
+}
+
+.footer-widget-wrapper-7 .list-items-7 li:last-child {
+    margin-bottom: 0 !important;
+}
+
+footer .footer-logo-img,
+.footer-newsletter-content-7 .footer-social-item img.footer-logo-img {
+    height: 66px !important;
+    margin-bottom: 12px !important;
+}
+
+.footer-about-text {
+    margin: 0 0 14px !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+}
+
+/* contact rows closer together */
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7 {
+    gap: 14px !important;
+    margin-bottom: 14px !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+/* --- ORANGE -> BRAND GREEN: contact icons --- */
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7 .icon {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1.5px solid #00a651 !important;
+    border-radius: 50% !important;
+    background: rgba(0, 166, 81, 0.12) !important;
+    transition: .3s ease;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7 .icon i {
+    color: #3ed17f !important;
+    font-size: 15px !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7:hover .icon {
+    background: #00a651 !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .contact-item-7:hover .icon i {
+    color: #ffffff !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .content span {
+    font-size: 13px !important;
+    margin-bottom: 0 !important;
+}
+
+.footer-widget-wrapper-7 .footer-contact-item-7 .content h6 {
+    font-size: 15px !important;
+}
+
+/* --- ORANGE -> GREEN: hover colours of footer links + social icons --- */
+footer .list-items-7 li a:hover,
+footer .footer-contact-item-7 a:hover,
+.footer-bootom-6 a:hover {
+    color: #3ed17f !important;
+}
+
+footer .footer-social-item .social-icon a {
+    transition: .3s ease;
+}
+
+footer .footer-social-item .social-icon a:hover {
+    background: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #ffffff !important;
+}
+
+/* --- bottom bar: tight + truly centered --- */
+.footer-bootom-6 {
+    border-top: 1px solid rgba(255, 255, 255, .14) !important;
+    margin: 0 !important;
+}
+
+.footer-bootom-6 .footer-wrapper-6 {
+    width: 100%;
+    gap: 6px !important;
+    padding: 14px 0 !important;
+}
+
+.footer-bootom-6 .footer-wrapper-6 ul {
+    width: 100%;
+    justify-content: center !important;
+    gap: 22px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.footer-bootom-6 .footer-wrapper-6 ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-bootom-6 .footer-wrapper-6 p {
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .footer-pkg-strip { padding-top: 22px !important; }
+    .footer-widget-wrapper-7 { padding: 26px 0 18px !important; }
+    .footer-bootom-6 .footer-wrapper-6 ul { gap: 16px !important; }
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM ACTION BAR  (Call / WhatsApp / Email)
+   Shown on phones + small tablets only
+========================================================= */
+
+.mobile-action-bar {
+    display: none;
+}
+
+@media (max-width: 767px) {
+
+    .mobile-action-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+
+        display: flex;
+        align-items: stretch;
+
+        background: #ffffff;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -6px 24px rgba(6, 32, 25, 0.16);
+
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .mobile-action-bar a {
+        flex: 1 1 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        padding: 11px 6px 10px;
+
+        color: #09271f;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+
+        border-right: 1px solid #e8efec;
+
+        -webkit-tap-highlight-color: transparent;
+        transition: background .25s ease;
+    }
+
+    .mobile-action-bar a:last-child {
+        border-right: none;
+    }
+
+    .mobile-action-bar a:active {
+        background: #eaf7f0;
+    }
+
+    .mobile-action-bar a i {
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .mobile-action-bar .mab-call i     { color: #00a651; }
+    .mobile-action-bar .mab-whatsapp i { color: #25d366; }
+    .mobile-action-bar .mab-email i    { color: #008a43; }
+
+    /* keep the footer + back-to-top clear of the bar */
+    body {
+        padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .back-to-top {
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+
+
+/* =========================================================
+   SUCCESS MODAL: PLANE FLYING ALONG A ROUTE (loading)
+========================================================= */
+
+.success-route {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 4px 8px;
+}
+
+.success-route .sr-start {
+    font-size: 9px;
+    color: var(--vr-green);
+}
+
+.success-route .sr-end {
+    font-size: 24px;
+    color: var(--vr-green);
+    transform-origin: 50% 100%;
+}
+
+/* dashed route */
+.sr-track {
+    position: relative;
+    flex: 1;
+    height: 26px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        #b9d9c8 0, #b9d9c8 7px,
+        transparent 7px, transparent 13px
+    );
+    background-size: 100% 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* green line that is "drawn" behind the plane */
+.sr-line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 3px;
+    width: 0;
+    margin-top: -1.5px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--vr-green), #3ed17f);
+}
+
+.sr-plane {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-size: 20px;
+    color: var(--vr-green-dark);
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 3px 3px rgba(0, 120, 60, .25));
+}
+
+.success-route.running .sr-line {
+    animation: srLine 3.2s linear forwards;
+}
+
+.success-route.running .sr-plane {
+    animation: srPlane 3.2s linear forwards,
+               srBob 0.9s ease-in-out infinite;
+}
+
+.success-route.running .sr-end {
+    animation: srPin 3.2s ease-out forwards;
+}
+
+@keyframes srLine  { to { width: 100%; } }
+
+@keyframes srPlane {
+    0%   { left: 0; }
+    100% { left: 100%; }
+}
+
+/* small up/down wobble while flying */
+@keyframes srBob {
+    0%, 100% { margin-top: -2px; }
+    50%      { margin-top: 2px; }
+}
+
+/* pin pops when the plane arrives */
+@keyframes srPin {
+    0%, 85% { transform: scale(1); }
+    93%     { transform: scale(1.35); }
+    100%    { transform: scale(1); }
+}
+
+.success-route-text {
+    margin: 0 0 16px;
+    color: var(--vr-ink-2);
+    font-size: 13px;
+    font-weight: 600;
+}
 </style>
 
 
 
-    <!-- =========================================================
-         PAGE-SPECIFIC CSS
-    ========================================================== -->
+    <!-- PAGE-SPECIFIC CSS -->
 
     {% block extra_css %}
     {% endblock %}
@@ -1194,12 +2130,9 @@
 <div class="page-wrapper">
 
 
-    <!-- =========================================================
-         MOUSE CURSOR
-    ========================================================== -->
+    <!-- MOUSE CURSOR -->
 
     <div class="mouseCursor cursor-outer"></div>
-
     <div class="mouseCursor cursor-inner"></div>
 
 
@@ -1216,1646 +2149,467 @@
 
                 <div class="offcanvas__content">
 
-
-                    <!-- OFFCANVAS TOP -->
-
-                    <div
-                        class="offcanvas__top mb-5 d-flex justify-content-between align-items-center"
-                    >
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
 
                         <div class="offcanvas__logo">
-
                             <a href="{% url 'home' %}">
-
                                 <img
-                                    src="{% static 'frontend/assets/img/logo/black-logo.svg' %}"
-                                    alt="logo"
+                                    src="{% static 'frontend/assets/img/re-green.png' %}"
+                                    alt="Verdant Routes in Kerala"
+                                    class="site-logo-img"
                                 >
-
                             </a>
-
                         </div>
 
-
                         <div class="offcanvas__close">
-
                             <button type="button">
-
                                 <i class="fas fa-times"></i>
-
                             </button>
-
                         </div>
 
                     </div>
-
-
-                    <!-- OFFCANVAS CONTENT -->
-
-                    <h3 class="offcanvas-title">
-                        Hello There!
-                    </h3>
-
-
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Animi natus quasi sunt eum ducimus.
-                    </p>
-
-
-                    <!--
-                        IMPORTANT:
-                        MeanMenu/main.js will populate this area from
-                        #mobile-menu.
-                    -->
 
                     <div class="mobile-menu fix mt-15"></div>
 
-
-                    <!-- SOCIAL -->
-
-                    <div class="social-icon d-flex align-items-center">
-
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-
-                    </div>
-
-
-                    <!-- CONTACT -->
-
-                    <div class="offcanvas__contact">
-
-                        <h3>
-                            Information
-                        </h3>
-
-
-                        <ul class="contact-list">
-
-                            <li>
-
-                                <span>
-                                    Address:
-                                </span>
-
-                                Graaf Floriss 22A CH NY
-
-                            </li>
-
-
-                            <li>
-
-                                <span>
-                                    Call Us:
-                                </span>
-
-                                <a href="tel:+00012345688">
-                                    +000 123 456 88
-                                </a>
-
-                            </li>
-
-
-                            <li>
-
-                                <span>
-                                    Email:
-                                </span>
-
-                                <a href="mailto:support@gmail.com">
-                                    support@gmail.com
-                                </a>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                    <a
-                         href="#"
-                         id="mobileSidebarBookNow"
-                         class="theme-btn mobile-book-now-btn"
-                    >
-
-                        <i class="fa-regular fa-calendar-check"></i>
-
-                        Book Now
-
-                    </a>
-
-
                 </div>
+
+                <a
+                     href="#"
+                     id="mobileSidebarBookNow"
+                     class="theme-btn mobile-book-now-btn"
+                >
+                    <i class="fa-regular fa-calendar-check"></i>
+                    Book Now
+                </a>
 
             </div>
 
         </div>
 
     </div>
-
 
     <div class="offcanvas__overlay"></div>
 
 
 
     <!-- =========================================================
-         HEADER TOP
-         THIS HEADER IS SHARED BY EVERY FRONTEND PAGE
+         MAIN HEADER / NAVBAR (SHARED BY EVERY PAGE)
     ========================================================== -->
 
-    <div class="header-top-section">
+    <header id="header-sticky" class="header-2">
 
         <div class="container">
-
-            <div class="header-top-wrapper">
-
-
-                <!-- LEFT -->
-
-                <ul class="contact-list">
-
-
-                    <li>
-
-                        <i class="fa-regular fa-envelope"></i>
-
-                        <a href="mailto:support@gmail.com">
-                            support@gmail.com
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-regular fa-location-dot"></i>
-
-                        2972 Westheimer Rd. Santa Ana, Illinois 85486
-
-                    </li>
-
-
-                </ul>
-
-
-
-                <!-- RIGHT -->
-
-                <div class="top-right">
-
-
-                    <div class="flag-item">
-
-                        <ul class="top-list">
-
-
-                            <li>
-                                <a href="#">
-                                    FAQs
-                                </a>
-                            </li>
-
-
-                            <li class="style-2">
-
-                                <a href="{% url 'contact' %}">
-                                    Support
-                                </a>
-
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-
-
-                    <div class="social-icon d-flex align-items-center">
-
-
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-
-
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-
-
-                        <a href="#">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =========================================================
-         MAIN HEADER / NAVBAR
-         THIS HEADER IS ALSO SHARED BY EVERY PAGE
-    ========================================================== -->
-
-    <header
-        id="header-sticky"
-        class="header-2"
-    >
-
-
-        <div class="container">
-
 
             <div class="mega-menu-wrapper">
-
 
                 <div class="header-main">
 
 
-
-                    <!-- =================================================
-                         LOGO
-                    ================================================== -->
+                    <!-- LOGO -->
 
                     <div class="header-left">
 
-
                         <div class="logo">
 
-
-                            <!-- WHITE LOGO -->
-
-                            <a
-                                href="{% url 'home' %}"
-                                class="logo"
-                            >
-
+                            <!-- WHITE LOGO (over hero image) -->
+                            <a href="{% url 'home' %}" class="logo">
                                 <img
-                                    src="{% static 'frontend/assets/img/logo/white-logo.svg' %}"
-                                    alt="Touro"
+                                    src="{% static 'frontend/assets/img/re-white.png' %}"
+                                    alt="Verdant Routes in Kerala"
                                 >
-
                             </a>
 
-
-
-                            <!-- BLACK LOGO -->
-
-                            <a
-                                href="{% url 'home' %}"
-                                class="logo-2"
-                            >
-
+                            <!-- GREEN LOGO (sticky header, white background) -->
+                            <a href="{% url 'home' %}" class="logo-2">
                                 <img
-                                    src="{% static 'frontend/assets/img/logo/black-logo.svg' %}"
-                                    alt="Touro"
+                                    src="{% static 'frontend/assets/img/re-green.png' %}"
+                                    alt="Verdant Routes in Kerala"
                                 >
-
                             </a>
-
 
                         </div>
-
 
                     </div>
 
 
+                    <!-- NAVIGATION -->
 
-                    <!-- =================================================
-                         NAVIGATION
-                    ================================================== -->
-
-                    <div
-                        class="header-right d-flex justify-content-end align-items-center"
-                    >
-
+                    <div class="header-right d-flex justify-content-end align-items-center">
 
                         <div class="mean__menu-wrapper">
 
-
                             <div class="main-menu">
-
 
                                 <nav id="mobile-menu">
 
-
                                     <ul>
-
-
-                                        <!-- HOME -->
-
-                                        <li>
-
-                                            <a href="{% url 'home' %}">
-
-                                                Home
-
-                                            </a>
-
-                                        </li>
-
-
-
-                                        <!-- ABOUT -->
-
-                                        <li>
-
-                                            <a href="{% url 'about' %}">
-
-                                                About Us
-
-                                            </a>
-
-                                        </li>
-
-
-
-                                        <!-- Packages -->
-
-                                        <li>
-
-                                            <a href="{% url 'packages' %}">
-
-                                                Packages
-
-                                            </a>
-
-                                        </li>
-
-
-
-                                        <!-- DESTINATION -->
-
-                                        <li>
-
-                                            <a href="{% url 'destination' %}">
-
-                                                Destination
-
-                                            </a>
-
-                                        </li>
-
-
-
-                                        <!-- Blogs -->
-
-                                        <li>
-
-                                            <a href="{% url 'blogs' %}">
-
-                                                Blogs
-
-                                            </a>
-
-                                        </li>
-                                       
-                                                <!-- Gallery -->
-
-                                        <li>
-
-                                            <a href="{% url 'gallery' %}">
-
-                                                Gallery
-
-                                            </a>
-
-                                        </li>
-
-
-                                        <!-- CONTACT -->
-
-                                        <li>
-
-                                            <a href="{% url 'contact' %}">
-
-                                                Contact Us
-
-                                            </a>
-
-                                        </li>
-
-
+                                        <li><a href="{% url 'home' %}">Home</a></li>
+                                        <li><a href="{% url 'about' %}">About Us</a></li>
+                                        <li><a href="{% url 'packages' %}">Packages</a></li>
+                                        <li><a href="{% url 'destination' %}">Destination</a></li>
+                                        <li><a href="{% url 'blogs' %}">Blogs</a></li>
+                                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                     </ul>
-
 
                                 </nav>
 
-
                             </div>
-
 
                         </div>
 
 
-
-                        <!-- =================================================
-                             SEARCH / DISCOVER / MOBILE MENU
-                        ================================================== -->
+                        <!-- BOOK NOW / MOBILE MENU -->
 
                         <div class="header-search">
 
-                            <!-- DISCOVER -->
-
                             <div class="header-button">
-
-
                                 <a
                                  href="#"
                                  class="theme-btn open-booking-modal"
                                  data-package="{{ p.name }}"
                                 >
-
                                     <i class="fa-solid fa-arrow-right"></i>
-
                                     Book Now
-
                                 </a>
-
-
                             </div>
-
-
 
                             <!-- MOBILE / TABLET HAMBURGER -->
 
                             <div class="header__hamburger d-xl-none my-auto">
-
-
                                 <div class="sidebar__toggle">
-
                                     <i class="fas fa-bars"></i>
-
                                 </div>
-
-
                             </div>
-
 
                         </div>
 
-
                     </div>
-
 
                 </div>
 
-
             </div>
 
-
         </div>
-
 
     </header>
 
 
 
-    <!-- =========================================================
-         SEARCH OVERLAY
-    ========================================================== -->
+    <!-- SEARCH OVERLAY -->
 
     <div class="search-wrap">
 
-
         <div class="search-inner">
 
-
-            <i
-                class="fas fa-times search-close"
-                id="search-close"
-            ></i>
-
+            <i class="fas fa-times search-close" id="search-close"></i>
 
             <div class="search-cell">
 
-
                 <form method="get">
 
-
                     <div class="search-field-holder">
-
-
                         <input
                             type="search"
                             name="q"
                             class="main-search-input"
                             placeholder="Search..."
                         >
-
-
                     </div>
-
 
                 </form>
 
-
             </div>
 
-
         </div>
-
 
     </div>
 
 
 
-    <!-- =========================================================
-         PAGE CONTENT
-
-         home.html
-         about.html
-         tour.html
-         destination.html
-         contact.html
-
-         are inserted ONLY here.
-    ========================================================== -->
+    <!-- PAGE CONTENT -->
 
     {% block content %}
     {% endblock %}
-  
+
 
     <!-- ==========================================================
      BOOKING ENQUIRY MODAL
-========================================================== -->
-
-<div
-    class="modal fade"
-    id="bookingEnquiryModal"
-    tabindex="-1"
-    aria-labelledby="bookingEnquiryModalLabel"
-    aria-hidden="true"
->
-
-    <div class="modal-dialog modal-dialog-centered booking-modal-dialog">
-
-        <div class="modal-content booking-modal-content">
-
-
-            <!-- ================= HEADER ================= -->
-
-             <!-- ==========================================================
-     BLUE BRUSH MODAL HEADER
-========================================================== -->
-
-<div class="booking-modal-header">
-
-    <!-- ICON -->
-
-    <div class="booking-modal-icon">
-
-        <i class="fa-regular fa-paper-plane"></i>
-
-    </div>
-
-
-    <!-- TITLE -->
-
-    <div class="booking-modal-title">
-
-        <span>
-            PLAN YOUR JOURNEY
-        </span>
-
-        <h3 id="bookingEnquiryModalLabel">
-            Enquire This Package
-        </h3>
-
-        <p>
-            Send us your travel details and our team
-            will assist you with your trip.
-        </p>
-
-    </div>
-
-
-    <!-- CLOSE -->
-
-    <button
-        type="button"
-        class="booking-modal-close"
-        data-bs-dismiss="modal"
-        aria-label="Close"
-    >
-
-        <i class="fa-solid fa-xmark"></i>
-
-    </button>
-
-</div>
-
-
-
-            <!-- ================= BODY ================= -->
-
-            <div class="modal-body booking-modal-body">
-
-
-                <!-- SELECTED PACKAGE -->
-
-                <!-- ERROR -->
-
-                <div
-                    id="bookingFormMessage"
-                    class="booking-form-message"
-                    style="display:none;"
-                ></div>
-
-
-
-                <!-- FORM -->
-
-                <form
-                    id="bookingEnquiryForm"
-                    method="POST"
-                >
-
-                    {% csrf_token %}
-
-
-                    <!-- ==========================================================
-     PACKAGE SELECTION
-========================================================== -->
-
-<div class="booking-form-group booking-package-select">
-
-    <label for="bookingPackage">
-
-        <i class="fa-regular fa-suitcase-rolling"></i>
-
-        Select Package
-
-        <span>*</span>
-
-    </label>
-
-
-    <select
-        name="package"
-        id="bookingPackage"
-        class="form-control"
-        required
-    >
-
-        <option value="">
-            Select your travel package
-        </option>
-
-
-        {% for package in booking_packages %}
-
-            <option value="{{ package.name }}">
-                {{ package.name }}
-            </option>
-
-        {% endfor %}
-
-
-        <option value="Custom Travel Package">
-            Custom / Other Package
-        </option>
-
-    </select>
-
-</div>
-
-
-                    <div class="row g-3">
-
-
-                        <!-- NAME -->
-
-                        <div class="col-md-6">
-
-                            <div class="booking-form-group">
-
-                                <label for="bookingName">
-
-                                    <i class="fa-regular fa-user"></i>
-
-                                    Your Name
-
-                                    <span>*</span>
-
-                                </label>
-
-
-                                <input
-                                    type="text"
-                                    id="bookingName"
-                                    name="name"
-                                    class="form-control"
-                                    placeholder="Enter your full name"
-                                    maxlength="150"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- PHONE -->
-
-                        <div class="col-md-6">
-
-                            <div class="booking-form-group">
-
-                                <label for="bookingPhone">
-
-                                    <i class="fa-regular fa-phone"></i>
-
-                                    WhatsApp Number
-
-                                    <span>*</span>
-
-                                </label>
-
-
-                                <input
-                                    type="tel"
-                                    id="bookingPhone"
-                                    name="phone"
-                                    class="form-control"
-                                    placeholder="+91 98765 43210"
-                                    maxlength="20"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- START DATE -->
-
-                        <div class="col-md-6">
-
-                            <div class="booking-form-group">
-
-                                <label for="bookingStartDate">
-
-                                    <i class="fa-regular fa-calendar"></i>
-
-                                    Start Date
-
-                                    <span>*</span>
-
-                                </label>
-
-
-                                <input
-                                    type="date"
-                                    id="bookingStartDate"
-                                    name="start_date"
-                                    class="form-control"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- END DATE -->
-
-                        <div class="col-md-6">
-
-                            <div class="booking-form-group">
-
-                                <label for="bookingEndDate">
-
-                                    <i class="fa-regular fa-calendar-check"></i>
-
-                                    End Date
-
-                                    <span>*</span>
-
-                                </label>
-
-
-                                <input
-                                    type="date"
-                                    id="bookingEndDate"
-                                    name="end_date"
-                                    class="form-control"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- ADULTS -->
-
-                        <div class="col-md-6">
-
-                            <div class="booking-form-group">
-
-                                <label for="bookingAdults">
-
-                                    <i class="fa-regular fa-users"></i>
-
-                                    Adults
-
-                                    <span>*</span>
-
-                                </label>
-
-
-                                <div class="traveller-counter">
-
-                                    <button
-                                        type="button"
-                                        class="counter-button"
-                                        data-target="bookingAdults"
-                                        data-action="minus"
-                                    >
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button>
-
-
-                                    <input
-                                        type="number"
-                                        id="bookingAdults"
-                                        name="adults"
-                                        value="1"
-                                        min="1"
-                                        required
-                                    >
-
-
-                                    <button
-                                        type="button"
-                                        class="counter-button"
-                                        data-target="bookingAdults"
-                                        data-action="plus"
-                                    >
-                                        <i class="fa-solid fa-plus"></i>
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- CHILDREN -->
-
-                        <div class="col-md-6">
-
-                            <div class="booking-form-group">
-
-                                <label for="bookingChildren">
-
-                                    <i class="fa-regular fa-child-reaching"></i>
-
-                                    Children
-
-                                </label>
-
-
-                                <div class="traveller-counter">
-
-                                    <button
-                                        type="button"
-                                        class="counter-button"
-                                        data-target="bookingChildren"
-                                        data-action="minus"
-                                    >
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button>
-
-
-                                    <input
-                                        type="number"
-                                        id="bookingChildren"
-                                        name="children"
-                                        value="0"
-                                        min="0"
-                                        required
-                                    >
-
-
-                                    <button
-                                        type="button"
-                                        class="counter-button"
-                                        data-target="bookingChildren"
-                                        data-action="plus"
-                                    >
-                                        <i class="fa-solid fa-plus"></i>
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- ==========================================================
-     MESSAGE / SPECIAL REQUEST
-========================================================== -->
-
-<div class="booking-form-group booking-message-group">
-
-    <label for="bookingMessage">
-
-        <i class="fa-regular fa-message-lines"></i>
-
-        Message / Special Request
-
-    </label>
-
-
-    <textarea
-        id="bookingMessage"
-        name="message"
-        class="form-control booking-message-textarea"
-        rows="4"
-        maxlength="1000"
-        placeholder="Tell us about your travel requirements, preferred places, hotel preference, pickup location or any special requests..."
-    ></textarea>
-
-
-    <div class="booking-message-footer">
-
-        <span>
-            Optional
-        </span>
-
-        <span id="bookingMessageCount">
-            0 / 1000
-        </span>
-
-    </div>
-
-</div>
-
-
-                    </div>
-
-
-
-                    <!-- SUBMIT -->
-
-                    <button
-                        type="submit"
-                        id="bookingSubmitButton"
-                        class="booking-submit-button"
-                    >
-
-                        <span class="button-normal-content">
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                            Send Enquiry on WhatsApp
-
-                        </span>
-
-
-                        <span
-                            class="button-loading-content"
-                            style="display:none;"
-                        >
-
-                            <i class="fa-solid fa-spinner fa-spin"></i>
-
-                            Sending...
-
-                        </span>
-
-                    </button>
-
-
-                    <p class="booking-security-text">
-
-                        <i class="fa-regular fa-shield-check"></i>
-
-                        Your details are securely sent to our travel team.
-
-                    </p>
-
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-    <!-- =========================================================
-         FOOTER
-         SHARED BY EVERY FRONTEND PAGE
     ========================================================== -->
 
-   <!-- ==========================================================
-     FOOTER START
-========================================================== -->
+    <div
+        class="modal fade"
+        id="bookingEnquiryModal"
+        tabindex="-1"
+        aria-labelledby="bookingEnquiryModalLabel"
+        aria-hidden="true"
+    >
 
-<footer
-    class="footer-section-7 fix bg-cover"
-    style="background-image: url('{% static 'frontend/assets/img/home-6/footer-bg.jpg' %}');"
->
+        <div class="modal-dialog modal-dialog-centered booking-modal-dialog">
 
-    <!-- ======================================================
-         INSTAGRAM IMAGE STRIP
-    ======================================================= -->
-
-    <div class="instagram-wrapper">
-
-        <div class="swiper instagram-slider">
-
-            <div class="swiper-wrapper">
+            <div class="modal-content booking-modal-content">
 
 
-                <!-- IMAGE 1 -->
+                <!-- MODAL HEADER -->
 
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
+                <div class="booking-modal-header">
 
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/17.jpg' %}"
-                            alt="Travel Gallery"
-                        >
+                    <div class="booking-modal-icon">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </div>
 
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
+                    <div class="booking-modal-title">
+
+                        <span>PLAN YOUR JOURNEY</span>
+
+                        <h3 id="bookingEnquiryModalLabel">Enquire This Package</h3>
+
+                        <p>
+                            Send us your travel details and our team
+                            will assist you with your trip.
+                        </p>
 
                     </div>
+
+                    <button
+                        type="button"
+                        class="booking-modal-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
                 </div>
 
 
-                <!-- IMAGE 2 -->
+                <!-- MODAL BODY -->
 
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
+                <div class="modal-body booking-modal-body">
 
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/18.jpg' %}"
-                            alt="Travel Gallery"
-                        >
+                    <div
+                        id="bookingFormMessage"
+                        class="booking-form-message"
+                        style="display:none;"
+                    ></div>
 
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
+                    <form id="bookingEnquiryForm" method="POST">
 
-                    </div>
-                </div>
+                        {% csrf_token %}
 
+                        <!-- PACKAGE SELECTION -->
 
-                <!-- IMAGE 3 -->
+                        <div class="booking-form-group booking-package-select">
 
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
+                            <label for="bookingPackage">
+                                <i class="fa-regular fa-suitcase-rolling"></i>
+                                Select Package
+                                <span>*</span>
+                            </label>
 
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/19.jpg' %}"
-                            alt="Travel Gallery"
-                        >
+                            <select
+                                name="package"
+                                id="bookingPackage"
+                                class="form-control"
+                                required
+                            >
 
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
+                                <option value="">Select your travel package</option>
 
-                    </div>
-                </div>
+                                {% for package in booking_packages %}
+                                    <option value="{{ package.name }}">{{ package.name }}</option>
+                                {% endfor %}
 
+                                <option value="Custom Travel Package">Custom / Other Package</option>
 
-                <!-- IMAGE 4 -->
+                            </select>
 
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
+                        </div>
 
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/20.jpg' %}"
-                            alt="Travel Gallery"
-                        >
 
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
+                        <div class="row g-3">
 
-                    </div>
-                </div>
+                            <!-- NAME -->
 
-
-                <!-- IMAGE 5 -->
-
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
-
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/21.jpg' %}"
-                            alt="Travel Gallery"
-                        >
-
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-
-                <!-- IMAGE 6 -->
-
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
-
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/22.jpg' %}"
-                            alt="Travel Gallery"
-                        >
-
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-
-                <!-- IMAGE 7 -->
-
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
-
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/23.jpg' %}"
-                            alt="Travel Gallery"
-                        >
-
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-
-                <!-- IMAGE 8 -->
-
-                <div class="swiper-slide">
-                    <div class="instagram-image-6">
-
-                        <img
-                            src="{% static 'frontend/assets/img/home-6/instagram/24.jpg' %}"
-                            alt="Travel Gallery"
-                        >
-
-                        <a href="#" class="icon">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ======================================================
-         MAIN FOOTER CONTENT
-    ======================================================= -->
-
-    <div class="container">
-
-        <div class="footer-widget-wrapper-7">
-
-            <div class="row gy-5">
-
-
-                <!-- ==================================================
-                     COLUMN 1
-                     LOGO / SOCIAL / NEWSLETTER
-                =================================================== -->
-
-                <div class="col-xl-3 col-lg-3 col-md-6">
-
-                    <div class="footer-newsletter-content-7">
-
-                        <div class="footer-social-item">
-
-
-                            <!-- LOGO -->
-
-                            <a href="{% url 'home' %}">
-
-                                <img
-                                    src="{% static 'frontend/assets/img/logo/white-logo-2.svg' %}"
-                                    alt="Touro"
-                                >
-
-                            </a>
-
-
-                            <!-- SOCIAL -->
-
-                            <div class="social-icon d-flex align-items-center">
-
-                                <a href="#" aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-
-                                <a href="#" aria-label="Twitter">
-                                    <i class="fa-brands fa-twitter"></i>
-                                </a>
-
-                                <a href="#" aria-label="Pinterest">
-                                    <i class="fa-brands fa-pinterest-p"></i>
-                                </a>
-
-                                <a href="#" aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-
-                            </div>
-
-
-                            <!-- NEWSLETTER -->
-
-                            <form action="#" method="post">
-
-                                {% csrf_token %}
-
-                                <div class="form-clt">
-
+                            <div class="col-md-6">
+                                <div class="booking-form-group">
+                                    <label for="bookingName">
+                                        <i class="fa-regular fa-user"></i>
+                                        Your Name
+                                        <span>*</span>
+                                    </label>
                                     <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Enter your email"
+                                        type="text"
+                                        id="bookingName"
+                                        name="name"
+                                        class="form-control"
+                                        placeholder="Enter your full name"
+                                        maxlength="150"
                                         required
                                     >
+                                </div>
+                            </div>
 
-                                    <button
-                                        type="submit"
-                                        class="icon"
-                                        aria-label="Subscribe"
+                            <!-- PHONE -->
+
+                            <div class="col-md-6">
+                                <div class="booking-form-group">
+                                    <label for="bookingPhone">
+                                        <i class="fa-regular fa-phone"></i>
+                                        WhatsApp Number
+                                        <span>*</span>
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        id="bookingPhone"
+                                        name="phone"
+                                        class="form-control"
+                                        placeholder="+91 98765 43210"
+                                        maxlength="20"
+                                        required
                                     >
+                                </div>
+                            </div>
 
-                                        <i class="fa-solid fa-paper-plane"></i>
+                            <!-- START DATE -->
 
-                                    </button>
+                            <div class="col-md-6">
+                                <div class="booking-form-group">
+                                    <label for="bookingStartDate">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        Start Date
+                                        <span>*</span>
+                                    </label>
+                                    <input
+                                        type="date"
+                                        id="bookingStartDate"
+                                        name="start_date"
+                                        class="form-control"
+                                        required
+                                    >
+                                </div>
+                            </div>
 
+                            <!-- END DATE -->
+
+                            <div class="col-md-6">
+                                <div class="booking-form-group">
+                                    <label for="bookingEndDate">
+                                        <i class="fa-regular fa-calendar-check"></i>
+                                        End Date
+                                        <span>*</span>
+                                    </label>
+                                    <input
+                                        type="date"
+                                        id="bookingEndDate"
+                                        name="end_date"
+                                        class="form-control"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- ADULTS -->
+
+                            <div class="col-md-6">
+                                <div class="booking-form-group">
+                                    <label for="bookingAdults">
+                                        <i class="fa-regular fa-users"></i>
+                                        Adults
+                                        <span>*</span>
+                                    </label>
+
+                                    <div class="traveller-counter">
+                                        <button type="button" class="counter-button" data-target="bookingAdults" data-action="minus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+
+                                        <input type="number" id="bookingAdults" name="adults" value="1" min="1" required>
+
+                                        <button type="button" class="counter-button" data-target="bookingAdults" data-action="plus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CHILDREN -->
+
+                            <div class="col-md-6">
+                                <div class="booking-form-group">
+                                    <label for="bookingChildren">
+                                        <i class="fa-regular fa-child-reaching"></i>
+                                        Children
+                                    </label>
+
+                                    <div class="traveller-counter">
+                                        <button type="button" class="counter-button" data-target="bookingChildren" data-action="minus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+
+                                        <input type="number" id="bookingChildren" name="children" value="0" min="0" required>
+
+                                        <button type="button" class="counter-button" data-target="bookingChildren" data-action="plus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MESSAGE / SPECIAL REQUEST -->
+
+                            <div class="booking-form-group booking-message-group">
+
+                                <label for="bookingMessage">
+                                    <i class="fa-regular fa-message-lines"></i>
+                                    Message / Special Request
+                                </label>
+
+                                <textarea
+                                    id="bookingMessage"
+                                    name="message"
+                                    class="form-control booking-message-textarea"
+                                    rows="4"
+                                    maxlength="1000"
+                                    placeholder="Tell us about your travel requirements, preferred places, hotel preference, pickup location or any special requests..."
+                                ></textarea>
+
+                                <div class="booking-message-footer">
+                                    <span>Optional</span>
+                                    <span id="bookingMessageCount">0 / 1000</span>
                                 </div>
 
-                            </form>
-
-
-                            <h6>
-                                Get E-mail updates about our latest
-                                packages and special offers.
-                            </h6>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ==================================================
-                     COLUMN 2
-                     USEFUL LINKS
-                =================================================== -->
-
-                <div class="col-xl-2 col-lg-2 col-md-6">
-
-                    <div class="single-sideber-widget-7 style-7">
-
-                        <div class="wid-title">
-
-                            <h4>
-                                Useful Links
-                            </h4>
-
-                        </div>
-
-
-                        <ul class="list-items-7">
-
-
-                            <li>
-                                <a href="{% url 'destination' %}">
-                                    All Destination
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    24/7 Support
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'blogs' %}">
-                                    Our Blog
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'packages' %}">
-                                    Tour Packages
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'gallery' %}">
-                                    Gallery
-                                </a>
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ==================================================
-                     COLUMN 3
-                     ABOUT
-                =================================================== -->
-
-                <div class="col-xl-2 col-lg-2 col-md-6">
-
-                    <div class="single-sideber-widget-7">
-
-                        <div class="wid-title">
-
-                            <h4>
-                                About Touro
-                            </h4>
-
-                        </div>
-
-
-                        <ul class="list-items-7">
-
-
-                            <li>
-                                <a href="{% url 'about' %}">
-                                    About Us
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    Legal Notice
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'terms_conditions' %}">
-                                    Terms & Conditions
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    Contact Us
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'packages' %}">
-                                    Packages
-                                </a>
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ==================================================
-                     COLUMN 4
-                     SUPPORT
-                =================================================== -->
-
-                <div class="col-xl-2 col-lg-2 col-md-6">
-
-                    <div class="single-sideber-widget-7">
-
-                        <div class="wid-title">
-
-                            <h4>
-                                Support
-                            </h4>
-
-                        </div>
-
-
-                        <ul class="list-items-7">
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    Help Center
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    24/7 Support
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    Travel Support
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    Live Chat
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="{% url 'contact' %}">
-                                    How It Works
-                                </a>
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ==================================================
-                     COLUMN 5
-                     CONTACT INFORMATION
-                =================================================== -->
-
-                <div class="col-xl-3 col-lg-3 col-md-6">
-
-                    <div class="footer-contact-item-7">
-
-
-                        <!-- PHONE -->
-
-                        <div class="contact-item-7">
-
-                            <div class="icon">
-
-                                <i class="fa-solid fa-phone"></i>
-
                             </div>
 
+                        </div>
 
-                            <div class="content">
 
-                                <span>
-                                    Have any questions?
+                        <!-- SUBMIT -->
+
+                        <button type="submit" id="bookingSubmitButton" class="booking-submit-button">
+
+                            <span class="button-normal-content">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                Send Enquiry on WhatsApp
+                            </span>
+
+                            <span class="button-loading-content">
+                                <span class="btn-dots">
+                                    <i></i><i></i><i></i>
                                 </span>
+                                Sending your enquiry...
+                            </span>
 
+                        </button>
 
-                                <h6>
+                        <p class="booking-security-text">
+                            <i class="fa-regular fa-shield-check"></i>
+                            Your details are securely sent to our travel team.
+                        </p>
 
-                                    <a href="tel:+919633390345">
-                                        +91 96333 90345
-                                    </a>
-
-                                </h6>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- EMAIL -->
-
-                        <div class="contact-item-7">
-
-                            <div class="icon">
-
-                                <i class="fa-solid fa-paper-plane"></i>
-
-                            </div>
-
-
-                            <div class="content">
-
-                                <span>
-                                    Send Message
-                                </span>
-
-
-                                <h6>
-
-                                    <a href="mailto:support@gmail.com">
-                                        support@gmail.com
-                                    </a>
-
-                                </h6>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- LOCATION -->
-
-                        <div class="contact-item-7 mb-0">
-
-                            <div class="icon">
-
-                                <i class="fa-solid fa-location-dot"></i>
-
-                            </div>
-
-
-                            <div class="content">
-
-                                <span>
-                                    Our Location
-                                </span>
-
-
-                                <h6>
-
-                                    <a href="{% url 'contact' %}">
-                                        Kerala, India
-                                    </a>
-
-                                </h6>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
+                    </form>
 
                 </div>
-
 
             </div>
 
@@ -2864,241 +2618,421 @@
     </div>
 
 
-    <!-- ======================================================
-         FOOTER BOTTOM
-    ======================================================= -->
+    <!-- ==========================================================
+     BOOKING SUCCESS MODAL
+    ========================================================== -->
 
-    <div class="footer-bootom-6">
+    <div
+        class="modal fade"
+        id="bookingSuccessModal"
+        tabindex="-1"
+        aria-labelledby="bookingSuccessModalLabel"
+        aria-hidden="true"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+    >
+
+        <div class="modal-dialog modal-dialog-centered success-modal-dialog">
+
+            <div class="modal-content success-modal-content">
+
+                <!-- GREEN TOP WITH ANIMATED TICK -->
+
+                <div class="success-modal-top">
+
+                    <div class="success-confetti">
+                        <i></i><i></i><i></i><i></i>
+                    </div>
+
+                    <div class="success-check">
+                        <svg viewBox="0 0 56 56" aria-hidden="true">
+                            <circle class="sc-circle" cx="28" cy="28" r="25"></circle>
+                            <path class="sc-tick" d="M17 29.5 L25 37 L39 20"></path>
+                        </svg>
+                    </div>
+
+                </div>
+
+                <!-- BODY -->
+
+                <div class="success-modal-body">
+
+                    <h3 id="bookingSuccessModalLabel">Enquiry Sent Successfully!</h3>
+
+                    <p>
+                        Thank you<span id="successName"></span>! Your enquiry has been
+                        saved. Our travel team will contact you very soon.
+                    </p>
+
+                    <div class="success-summary">
+
+                        <div class="success-summary-row">
+                            <span>Package</span>
+                            <strong id="successPackage">-</strong>
+                        </div>
+
+                        <div class="success-summary-row">
+                            <span>Travel Dates</span>
+                            <strong id="successDates">-</strong>
+                        </div>
+
+                        <div class="success-summary-row">
+                            <span>Travellers</span>
+                            <strong id="successTravellers">-</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="success-route" id="successProgress" aria-hidden="true">
+                        <i class="fa-solid fa-circle sr-start"></i>
+                        <div class="sr-track">
+                            <span class="sr-line"></span>
+                            <i class="fa-solid fa-plane sr-plane"></i>
+                        </div>
+                        <i class="fa-solid fa-location-dot sr-end"></i>
+                    </div>
+
+                    <p class="success-route-text">Taking you to WhatsApp...</p>
+
+                    <a href="#" id="successWhatsAppBtn" class="success-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Open WhatsApp Now
+                    </a>
+
+                    <button type="button" class="success-close-link" id="successCloseBtn">
+                        Close
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================================
+         FOOTER START
+    ========================================================== -->
+
+    <footer
+        class="footer-section-7 fix bg-cover"
+        style="background-image: url('{% static 'frontend/assets/img/footer.png' %}');"
+    >
+
+        <!-- PACKAGE CARD STRIP -->
+
+        {% if booking_packages %}
+
+        <div class="instagram-wrapper footer-pkg-strip">
+
+            <div class="swiper instagram-slider footer-pkg-slider">
+
+                <div class="swiper-wrapper">
+
+                    {% for package in booking_packages %}
+
+                    <div class="swiper-slide">
+
+                        <a
+                            href="{% if package.slug %}{% url 'package_details' package.slug %}{% else %}{% url 'packages' %}{% endif %}"
+                            class="fps-card"
+                            aria-label="{{ package.name }}"
+                        >
+
+                            {% if package.main_image %}
+                                <img
+                                    class="fps-img"
+                                    src="{{ package.main_image.url }}"
+                                    alt="{{ package.name }}"
+                                    loading="lazy"
+                                >
+                            {% else %}
+                                <span class="fps-noimg"><i class="fa-regular fa-image"></i></span>
+                            {% endif %}
+
+                            <span class="fps-body">
+                                <span class="fps-title">{{ package.name }}</span>
+                                <span class="fps-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- MAIN FOOTER CONTENT -->
 
         <div class="container">
 
-            <div
-                class="footer-wrapper-6 d-flex align-items-center justify-content-between wow fadeInUp"
-                data-wow-delay=".3s"
-            >
+            <div class="footer-widget-wrapper-7">
+
+                <div class="row gy-5 footer-main-row">
 
 
-                <!-- COPYRIGHT -->
+                    <!-- COLUMN 1: LOGO / DESCRIPTION / SOCIAL -->
 
-                <p>
-                    &copy; {% now "Y" %} Touro. All Rights Reserved.
-                </p>
+                    <div class="col-xl-4 col-lg-4 col-md-12">
 
+                        <div class="footer-newsletter-content-7">
 
-                <!-- LEGAL LINKS -->
+                            <div class="footer-social-item">
 
-                <ul class="social-icon d-flex align-items-center">
+                                <a href="{% url 'home' %}">
+                                    <img
+                                        src="{% static 'frontend/assets/img/re-white.png' %}"
+                                        alt="Verdant Routes in Kerala"
+                                        class="footer-logo-img"
+                                    >
+                                </a>
 
+                                <p class="footer-about-text">
+                                    Verdant Routes is a Kerala-based travel agency offering
+                                    handpicked tour packages, customised itineraries, hotels
+                                    and transport, so you can enjoy every journey without
+                                    the stress of planning.
+                                </p>
 
-                    <li>
+                                <div class="social-icon d-flex align-items-center">
+                                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                                    <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                </div>
 
-                        <a href="{% url 'contact' %}">
-                            Privacy Policy
-                        </a>
+                            </div>
 
-                    </li>
+                        </div>
 
-
-                    <li>
-
-                        <a href="{% url 'terms_conditions' %}">
-                            Terms of Service
-                        </a>
-
-                    </li>
-
-
-                    <li>
-
-                        <a href="{% url 'contact' %}">
-                            Legal Info
-                        </a>
-
-                    </li>
+                    </div>
 
 
-                </ul>
+                    <!-- COLUMN 2: QUICK LINKS -->
 
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-12 offset-xl-1">
+
+                        <div class="single-sideber-widget-7 style-7">
+
+                            <div class="wid-title">
+                                <h4>Quick Links</h4>
+                            </div>
+
+                            <ul class="list-items-7">
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <li><a href="{% url 'packages' %}">Packages</a></li>
+                                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COLUMN 3: CONTACT -->
+
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+
+                        <div class="footer-contact-item-7">
+
+                            <div class="wid-title">
+                                <h4>Contact Us</h4>
+                            </div>
+
+                            <div class="contact-item-7">
+                                <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="content">
+                                    <span>Address</span>
+                                    <h6><a href="{% url 'contact' %}">Kerala, India</a></h6>
+                                </div>
+                            </div>
+
+                            <div class="contact-item-7">
+                                <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="content">
+                                    <span>Phone</span>
+                                    <h6><a href="tel:+919633390345">+91 96333 90345</a></h6>
+                                </div>
+                            </div>
+
+                            <div class="contact-item-7 mb-0">
+                                <div class="icon"><i class="fa-solid fa-paper-plane"></i></div>
+                                <div class="content">
+                                    <span>Email</span>
+                                    <h6><a href="mailto:support@gmail.com">support@gmail.com</a></h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
 
+        <!-- FOOTER BOTTOM -->
 
-</footer>
+        <div class="footer-bootom-6">
 
-<!-- ==========================================================
-     FOOTER END
-========================================================== -->
+            <div class="container">
 
-
-
-    <!-- =========================================================
-         PRELOADER
-    ========================================================== -->
-
-    {% comment %} <div
-        class="loading-screen"
-        id="loading-screen" >
-
-
-        <span class="bar top-bar"></span>
-
-        <span class="bar down-bar"></span>
-
-
-        <div class="animation-preloader">
-
-
-            <div class="spinner">
-
-                <img
-                    src="{% static 'frontend/assets/img/loader.gif' %}"
-                    alt="Loader"
+                <div
+                    class="footer-wrapper-6 d-flex align-items-center justify-content-between wow fadeInUp"
+                    data-wow-delay=".3s"
                 >
+
+                    <p>
+                        &copy; {% now "Y" %} Verdant Routes in Kerala. All Rights Reserved.
+                    </p>
+
+                </div>
 
             </div>
-
-
-            <div class="txt-loading">
-
-
-                <span
-                    data-text-preloader="T"
-                    class="letters-loading"
-                >
-                    T
-                </span>
-
-
-                <span
-                    data-text-preloader="O"
-                    class="letters-loading"
-                >
-                    O
-                </span>
-
-
-                <span
-                    data-text-preloader="U"
-                    class="letters-loading"
-                >
-                    U
-                </span>
-
-
-                <span
-                    data-text-preloader="R"
-                    class="letters-loading"
-                >
-                    R
-                </span>
-
-
-                <span
-                    data-text-preloader="O"
-                    class="letters-loading"
-                >
-                    O
-                </span>
-
-
-            </div>
-
 
         </div>
 
 
-    </div> {% endcomment %}
+    </footer>
+
+    <!-- FOOTER END -->
 
 
-<!-- =========================================================
-     CUSTOM 3 DOT PRELOADER
-     SEQUENCE: 1 → 2 → 3 → 2 → 1
-========================================================== -->
 
-<div class="loading-screen" id="loading-screen">
+    <!-- CUSTOM 3 DOT PRELOADER -->
 
-    <div class="travel-dot-loader">
+    <div class="loading-screen" id="loading-screen">
 
-        <span class="travel-loader-dot dot-1"></span>
-
-        <span class="travel-loader-dot dot-2"></span>
-
-        <span class="travel-loader-dot dot-3"></span>
+        <div class="travel-dot-loader">
+            <span class="travel-loader-dot dot-1"></span>
+            <span class="travel-loader-dot dot-2"></span>
+            <span class="travel-loader-dot dot-3"></span>
+        </div>
 
     </div>
 
-</div>
 
 
+    <!-- BACK TO TOP -->
 
-    <!-- =========================================================
-         BACK TO TOP
-    ========================================================== -->
-
-    <button
-        id="back-top"
-        class="back-to-top"
-        type="button"
-    >
-
+    <button id="back-top" class="back-to-top" type="button">
         <i class="fa-regular fa-arrow-up"></i>
-
     </button>
 
 
 
     <!-- =========================================================
-         COMMON JAVASCRIPT
+         MOBILE BOTTOM ACTION BAR (Call / WhatsApp / Email)
+         Visible on mobile only (see CSS)
     ========================================================== -->
 
+    <nav class="mobile-action-bar" aria-label="Quick contact">
+
+        <a href="tel:+919633390345" class="mab-call">
+            <i class="fa-solid fa-phone-volume"></i>
+            <span>Call</span>
+        </a>
+
+        <a href="https://wa.me/919633390345" target="_blank" rel="noopener" class="mab-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+
+        <a href="mailto:support@gmail.com" class="mab-email">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email</span>
+        </a>
+
+    </nav>
+
+
+
+    <!-- COMMON JAVASCRIPT -->
+
     <script src="{% static 'frontend/assets/js/jquery-3.7.1.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/viewport.jquery.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/bootstrap.bundle.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/jquery.nice-select.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/jquery.waypoints.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/jquery.counterup.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/swiper-bundle.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/jquery.meanmenu.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/parallaxie.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/jquery.magnific-popup.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/wow.min.js' %}"></script>
-
-<script src="{% static 'frontend/assets/js/bootstrap-datepicker.js' %}"></script>
-
-<script src="{% static 'frontend/assets/js/gsap.min.js' %}"></script>
-
+    <script src="{% static 'frontend/assets/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'frontend/assets/js/gsap.min.js' %}"></script>
     <script src="{% static 'frontend/assets/js/ScrollTrigger.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/SplitText.min.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/splitType.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/script-gsap.js' %}"></script>
-
     <script src="{% static 'frontend/assets/js/main.js' %}"></script>
 
 
 
-    <!-- =========================================================
-         PAGE-SPECIFIC JAVASCRIPT
-    ========================================================== -->
+    <!-- PAGE-SPECIFIC JAVASCRIPT -->
 
     {% block extra_js %}
     {% endblock %}
+
+
+    <!-- FOOTER PACKAGE STRIP SLIDER -->
+
+    <script>
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+
+            if (typeof Swiper === 'undefined') return;
+
+            var el = document.querySelector('.footer-pkg-slider');
+            if (!el) return;
+
+            if (el.swiper) el.swiper.destroy(true, true);
+
+            var wrap  = el.querySelector('.swiper-wrapper');
+            var items = [].slice.call(wrap.children);
+            if (!items.length) return;
+
+            while (wrap.children.length < 12) {
+                items.forEach(function (it) {
+                    var c = it.cloneNode(true);
+                    c.setAttribute('aria-hidden', 'true');
+                    wrap.appendChild(c);
+                });
+            }
+
+            new Swiper(el, {
+                slidesPerView: 'auto',
+                spaceBetween: 18,
+                loop: true,
+                speed: 6000,
+                allowTouchMove: false,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false
+                }
+            });
+
+        }, 0);
+    });
+    </script>
+
+
+    <!-- BOOKING ENQUIRY + SUCCESS MODAL SCRIPT -->
 
     <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -3110,240 +3044,153 @@ document.addEventListener("DOMContentLoaded", function () {
     const enquiryUrl = "{% url 'booking_enquiry' %}";
 
     /*
-     * IMPORTANT:
-     * Put YOUR COMPANY WhatsApp number here.
-     *
-     * Country code + number only.
-     * NO +
-     * NO spaces
-     * NO dashes
-     *
-     * Example India:
-     * 919876543210
+     * Company WhatsApp number: country code + number only.
+     * NO +, NO spaces, NO dashes.  Example India: 919876543210
      */
 
     const companyWhatsAppNumber = "9633390345";
+
+    /* how long the success popup stays before WhatsApp opens (ms) */
+    const redirectDelay = 3200;
 
 
     /* ==========================================================
        ELEMENTS
     ========================================================== */
 
-    const modalElement =
-        document.getElementById("bookingEnquiryModal");
+    const modalElement   = document.getElementById("bookingEnquiryModal");
+    const successElement = document.getElementById("bookingSuccessModal");
 
-    const bookingModal =
-        modalElement
-            ? new bootstrap.Modal(modalElement)
-            : null;
+    const bookingModal = modalElement   ? new bootstrap.Modal(modalElement)   : null;
+    const successModal = successElement ? new bootstrap.Modal(successElement) : null;
 
-    const form =
-        document.getElementById("bookingEnquiryForm");
+    const form          = document.getElementById("bookingEnquiryForm");
+    const packageInput  = document.getElementById("bookingPackage");
+    const messageBox    = document.getElementById("bookingFormMessage");
+    const submitButton  = document.getElementById("bookingSubmitButton");
 
-    const packageInput =
-        document.getElementById("bookingPackage");
+    const successName       = document.getElementById("successName");
+    const successPackage    = document.getElementById("successPackage");
+    const successDates      = document.getElementById("successDates");
+    const successTravellers = document.getElementById("successTravellers");
+    const successProgress   = document.getElementById("successProgress");
+    const successWhatsApp   = document.getElementById("successWhatsAppBtn");
+    const successCloseBtn   = document.getElementById("successCloseBtn");
 
-    const messageBox =
-        document.getElementById("bookingFormMessage");
-
-    const submitButton =
-        document.getElementById("bookingSubmitButton");
+    let redirectTimer = null;
 
 
     /* ==========================================================
        OPEN MODAL
     ========================================================== */
 
-    document.addEventListener(
-        "click",
-        function (event) {
+    document.addEventListener("click", function (event) {
 
-            const button =
-                event.target.closest(".open-booking-modal");
+        const button = event.target.closest(".open-booking-modal");
 
-            if (!button) {
-                return;
-            }
-
-            event.preventDefault();
-
-
- const selectedPackage =
-    button.dataset.package || "";
-
-if (packageInput) {
-
-    let packageExists = false;
-
-    Array.from(packageInput.options).forEach(
-        function (option) {
-
-            if (option.value === selectedPackage) {
-                packageExists = true;
-            }
-
+        if (!button) {
+            return;
         }
-    );
 
-    if (packageExists) {
+        event.preventDefault();
 
-        packageInput.value = selectedPackage;
+        const selectedPackage = button.dataset.package || "";
 
-    } else {
+        if (packageInput) {
 
-        packageInput.value = "";
+            let packageExists = false;
 
-    }
-}
+            Array.from(packageInput.options).forEach(function (option) {
+                if (option.value === selectedPackage) {
+                    packageExists = true;
+                }
+            });
 
-hideMessage();
-
-bookingModal.show();
-
-
+            packageInput.value = packageExists ? selectedPackage : "";
         }
-    );
- 
+
+        hideMessage();
+
+        bookingModal.show();
+
+    });
+
 
     /* ==========================================================
-   MESSAGE CHARACTER COUNTER
-========================================================== */
+       MESSAGE CHARACTER COUNTER
+    ========================================================== */
 
-const bookingMessage =
-    document.getElementById("bookingMessage");
+    const bookingMessage      = document.getElementById("bookingMessage");
+    const bookingMessageCount = document.getElementById("bookingMessageCount");
 
-const bookingMessageCount =
-    document.getElementById(
-        "bookingMessageCount"
-    );
+    if (bookingMessage && bookingMessageCount) {
 
+        bookingMessage.addEventListener("input", function () {
+            bookingMessageCount.textContent = bookingMessage.value.length + " / 1000";
+        });
 
-if (
-    bookingMessage
-    &&
-    bookingMessageCount
-) {
+    }
 
-    bookingMessage.addEventListener(
-        "input",
-        function () {
-
-            bookingMessageCount.textContent =
-                bookingMessage.value.length
-                + " / 1000";
-
-        }
-    );
-
-}
 
     /* ==========================================================
        COUNTERS
     ========================================================== */
 
-    document.addEventListener(
-        "click",
-        function (event) {
+    document.addEventListener("click", function (event) {
 
-            const button =
-                event.target.closest(".counter-button");
+        const button = event.target.closest(".counter-button");
 
-            if (!button) {
-                return;
-            }
-
-
-            const input =
-                document.getElementById(
-                    button.dataset.target
-                );
-
-
-            if (!input) {
-                return;
-            }
-
-
-            const action =
-                button.dataset.action;
-
-
-            const minimum =
-                parseInt(
-                    input.getAttribute("min") || "0"
-                );
-
-
-            let value =
-                parseInt(input.value || minimum);
-
-
-            if (action === "plus") {
-
-                value += 1;
-
-            }
-
-
-            if (
-                action === "minus"
-                &&
-                value > minimum
-            ) {
-
-                value -= 1;
-
-            }
-
-
-            input.value = value;
-
+        if (!button) {
+            return;
         }
-    );
+
+        const input = document.getElementById(button.dataset.target);
+
+        if (!input) {
+            return;
+        }
+
+        const action  = button.dataset.action;
+        const minimum = parseInt(input.getAttribute("min") || "0");
+
+        let value = parseInt(input.value || minimum);
+
+        if (action === "plus") {
+            value += 1;
+        }
+
+        if (action === "minus" && value > minimum) {
+            value -= 1;
+        }
+
+        input.value = value;
+
+    });
 
 
     /* ==========================================================
        DATE VALIDATION
     ========================================================== */
 
-    const startDate =
-        document.getElementById("bookingStartDate");
-
-    const endDate =
-        document.getElementById("bookingEndDate");
-
+    const startDate = document.getElementById("bookingStartDate");
+    const endDate   = document.getElementById("bookingEndDate");
 
     if (startDate && endDate) {
 
-        const today =
-            new Date().toISOString().split("T")[0];
-
+        const today = new Date().toISOString().split("T")[0];
 
         startDate.min = today;
+        endDate.min   = today;
 
-        endDate.min = today;
+        startDate.addEventListener("change", function () {
 
+            endDate.min = startDate.value || today;
 
-        startDate.addEventListener(
-            "change",
-            function () {
-
-                endDate.min =
-                    startDate.value || today;
-
-
-                if (
-                    endDate.value
-                    &&
-                    endDate.value < startDate.value
-                ) {
-
-                    endDate.value = "";
-
-                }
-
+            if (endDate.value && endDate.value < startDate.value) {
+                endDate.value = "";
             }
-        );
+
+        });
 
     }
 
@@ -3354,127 +3201,68 @@ if (
 
     if (form) {
 
-        form.addEventListener(
-            "submit",
-            async function (event) {
+        form.addEventListener("submit", async function (event) {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                hideMessage();
+            hideMessage();
 
-                setLoading(true);
+            setLoading(true);
 
+            const formData = new FormData(form);
 
-                const formData =
-                    new FormData(form);
+            try {
 
+                const response = await fetch(enquiryUrl, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                });
 
-                try {
+                const data = await response.json();
 
-                    const response =
-                        await fetch(
-                            enquiryUrl,
-                            {
-                                method: "POST",
+                if (!response.ok || !data.success) {
 
-                                body: formData,
+                    let errorMessage = data.message || "Please check the form.";
 
-                                headers: {
-                                    "X-Requested-With":
-                                        "XMLHttpRequest"
-                                }
-                            }
-                        );
+                    if (data.errors) {
 
+                        const messages = [];
 
-                    const data =
-                        await response.json();
+                        Object.keys(data.errors).forEach(function (field) {
+                            data.errors[field].forEach(function (error) {
+                                messages.push(error);
+                            });
+                        });
 
-
-                    if (
-                        !response.ok
-                        ||
-                        !data.success
-                    ) {
-
-                        let errorMessage =
-                            data.message ||
-                            "Please check the form.";
-
-
-                        if (data.errors) {
-
-                            const messages = [];
-
-
-                            Object.keys(
-                                data.errors
-                            ).forEach(
-                                function (field) {
-
-                                    data.errors[field]
-                                        .forEach(
-                                            function (error) {
-
-                                                messages.push(
-                                                    error
-                                                );
-
-                                            }
-                                        );
-
-                                }
-                            );
-
-
-                            if (messages.length) {
-
-                                errorMessage =
-                                    messages.join(" ");
-
-                            }
-
+                        if (messages.length) {
+                            errorMessage = messages.join(" ");
                         }
-
-
-                        showMessage(
-                            errorMessage,
-                            "error"
-                        );
-
-
-                        setLoading(false);
-
-                        return;
 
                     }
 
+                    showMessage(errorMessage, "error");
 
-                    /* ==========================================
-                       DATABASE SAVE SUCCESS
-                    ========================================== */
+                    setLoading(false);
 
-                    showMessage(
-                        "Enquiry saved. Opening WhatsApp...",
-                        "success"
-                    );
+                    return;
+
+                }
 
 
-                    const enquiry =
-                        data.enquiry;
+                /* ==========================================
+                   DATABASE SAVE SUCCESS
+                ========================================== */
 
+                const enquiry = data.enquiry;
 
-                    /* ==========================================
-                       WHATSAPP MESSAGE
-                    ========================================== */
+                const customerMessage = enquiry.message
+                    ? enquiry.message
+                    : "No special request";
 
-const customerMessage =
-    enquiry.message
-        ? enquiry.message
-        : "No special request";
-
-
-const whatsappMessage =
+                const whatsappMessage =
 `Hello,
 
 I would like to enquire about the following travel package.
@@ -3499,57 +3287,140 @@ Please share the package availability, final price and further details.
 
 Thank you.`;
 
+                const whatsappUrl =
+                    "https://wa.me/"
+                    + companyWhatsAppNumber
+                    + "?text="
+                    + encodeURIComponent(whatsappMessage);
 
-                    const whatsappUrl =
-                        "https://wa.me/"
-                        + companyWhatsAppNumber
-                        + "?text="
-                        + encodeURIComponent(
-                            whatsappMessage
-                        );
-
-
-                    /*
-                     * IMPORTANT:
-                     * Opening synchronously after await can be
-                     * blocked by some browsers.
-                     *
-                     * We use location.href here so it reliably
-                     * opens WhatsApp.
-                     */
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                whatsappUrl;
-
-                        },
-                        500
-                    );
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Booking enquiry error:",
-                        error
-                    );
-
-
-                    showMessage(
-                        "Something went wrong. Please try again.",
-                        "error"
-                    );
-
-
-                    setLoading(false);
-
-                }
+                showSuccess(enquiry, whatsappUrl);
 
             }
-        );
+
+            catch (error) {
+
+                console.error("Booking enquiry error:", error);
+
+                showMessage("Something went wrong. Please try again.", "error");
+
+                setLoading(false);
+
+            }
+
+        });
+
+    }
+
+
+    /* ==========================================================
+       SUCCESS POPUP
+       1. Close enquiry modal
+       2. Show success modal (animated tick + loading bar)
+       3. After the delay, open WhatsApp
+    ========================================================== */
+
+    function showSuccess(enquiry, whatsappUrl) {
+
+        /* fill the summary */
+
+        const firstName = (enquiry.name || "").trim().split(" ")[0];
+
+        if (successName)       successName.textContent       = firstName ? ", " + firstName : "";
+        if (successPackage)    successPackage.textContent    = enquiry.package || "-";
+        if (successDates)      successDates.textContent      = (enquiry.start_date || "") + "  →  " + (enquiry.end_date || "");
+        if (successTravellers) {
+            const adults   = parseInt(enquiry.adults || 0);
+            const children = parseInt(enquiry.children || 0);
+            successTravellers.textContent =
+                adults + (adults === 1 ? " Adult" : " Adults")
+                + (children ? ", " + children + (children === 1 ? " Child" : " Children") : "");
+        }
+
+        if (successWhatsApp) {
+            successWhatsApp.href = whatsappUrl;
+        }
+
+        /* reset the form for next time */
+
+        form.reset();
+
+        if (bookingMessageCount) {
+            bookingMessageCount.textContent = "0 / 1000";
+        }
+
+        setLoading(false);
+
+        /* swap modals */
+
+        function openSuccess() {
+
+            if (!successModal) {
+                window.location.href = whatsappUrl;
+                return;
+            }
+
+            /* restart the progress bar animation */
+
+            if (successProgress) {
+                successProgress.classList.remove("running");
+                void successProgress.offsetWidth;
+                successProgress.classList.add("running");
+            }
+
+            successModal.show();
+
+            clearTimeout(redirectTimer);
+
+            /*
+             * location.href is used so WhatsApp opens reliably
+             * (window.open after an await can be blocked).
+             */
+
+            redirectTimer = setTimeout(function () {
+                window.location.href = whatsappUrl;
+            }, redirectDelay);
+
+        }
+
+        if (modalElement && modalElement.classList.contains("show")) {
+
+            modalElement.addEventListener("hidden.bs.modal", openSuccess, { once: true });
+
+            bookingModal.hide();
+
+        } else {
+
+            openSuccess();
+
+        }
+
+    }
+
+    /* "Close" link: stop the auto redirect and close popup */
+
+    if (successCloseBtn) {
+
+        successCloseBtn.addEventListener("click", function () {
+
+            clearTimeout(redirectTimer);
+
+            if (successProgress) {
+                successProgress.classList.remove("running");
+            }
+
+            successModal.hide();
+
+        });
+
+    }
+
+    /* manual WhatsApp button: cancel the timer so it does not fire twice */
+
+    if (successWhatsApp) {
+
+        successWhatsApp.addEventListener("click", function () {
+            clearTimeout(redirectTimer);
+        });
 
     }
 
@@ -3564,68 +3435,32 @@ Thank you.`;
             return;
         }
 
+        const normal  = submitButton.querySelector(".button-normal-content");
+        const loading = submitButton.querySelector(".button-loading-content");
 
-        const normal =
-            submitButton.querySelector(
-                ".button-normal-content"
-            );
-
-
-        const loading =
-            submitButton.querySelector(
-                ".button-loading-content"
-            );
-
-
-        submitButton.disabled =
-            isLoading;
-
+        submitButton.disabled = isLoading;
 
         if (normal) {
-
-            normal.style.display =
-                isLoading
-                    ? "none"
-                    : "inline";
-
+            normal.style.display = isLoading ? "none" : "inline";
         }
 
-
         if (loading) {
-
-            loading.style.display =
-                isLoading
-                    ? "inline"
-                    : "none";
-
+            loading.style.display = isLoading ? "inline-flex" : "none";
         }
 
     }
 
-
-    function showMessage(
-        message,
-        type
-    ) {
+    function showMessage(message, type) {
 
         if (!messageBox) {
             return;
         }
 
-
-        messageBox.textContent =
-            message;
-
-
-        messageBox.className =
-            "booking-form-message " + type;
-
-
-        messageBox.style.display =
-            "block";
+        messageBox.textContent = message;
+        messageBox.className   = "booking-form-message " + type;
+        messageBox.style.display = "block";
 
     }
-
 
     function hideMessage() {
 
@@ -3633,83 +3468,52 @@ Thank you.`;
             return;
         }
 
-
-        messageBox.style.display =
-            "none";
-
-        messageBox.textContent =
-            "";
+        messageBox.style.display = "none";
+        messageBox.textContent   = "";
 
     }
 
 
-
     /* ==========================================================
-   MOBILE SIDEBAR BOOK NOW
-   1. Close mobile sidebar
-   2. Wait for sidebar animation
-   3. Open booking modal
-========================================================== */
+       MOBILE SIDEBAR BOOK NOW
+       1. Close mobile sidebar
+       2. Clear package selection
+       3. Open booking modal after the sidebar animation
+    ========================================================== */
 
-const mobileSidebarBookNow =
-    document.getElementById("mobileSidebarBookNow");
+    const mobileSidebarBookNow = document.getElementById("mobileSidebarBookNow");
 
-if (mobileSidebarBookNow) {
+    if (mobileSidebarBookNow) {
 
-    mobileSidebarBookNow.addEventListener("click", function (event) {
+        mobileSidebarBookNow.addEventListener("click", function (event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
+            const offcanvasCloseButton = document.querySelector(".offcanvas__close button");
 
-        /* ==================================================
-           STEP 1: CLOSE THE EXISTING TOURO MOBILE MENU
-        ================================================== */
-
-        const offcanvasCloseButton =
-            document.querySelector(".offcanvas__close button");
-
-        if (offcanvasCloseButton) {
-            offcanvasCloseButton.click();
-        }
-
-
-        /* ==================================================
-           STEP 2: CLEAR PACKAGE SELECTION
-
-           Because this button is general "Book Now",
-           customer should choose a package from dropdown.
-        ================================================== */
-
-        if (packageInput) {
-
-            packageInput.value = "";
-
-            packageInput.dispatchEvent(
-                new Event("change", {
-                    bubbles: true
-                })
-            );
-
-        }
-
-
-        /* ==================================================
-           STEP 3: OPEN BOOKING MODAL
-
-           Wait until mobile menu closing animation finishes.
-        ================================================== */
-
-        setTimeout(function () {
-
-            if (bookingModal) {
-                bookingModal.show();
+            if (offcanvasCloseButton) {
+                offcanvasCloseButton.click();
             }
 
-        }, 350);
+            if (packageInput) {
 
-    });
+                packageInput.value = "";
 
-}
+                packageInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+            }
+
+            setTimeout(function () {
+
+                if (bookingModal) {
+                    bookingModal.show();
+                }
+
+            }, 350);
+
+        });
+
+    }
 
 });
 </script>

@@ -1,23 +1,24 @@
 {% extends 'frontend/base.html' %}
+
 {% load static %}
 
 
-{% block title %}
-Touro - Travel & Tour Booking Agency | Blogs & News
-{% endblock %}
+
+{% block title %}Verdant Routes - Travel & Tour Booking Agency | Blogs & News{% endblock %}
+
 
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'frontend/assets/css/datepickerboot.css' %}">
-<link rel="stylesheet" href="{% static 'frontend/assets/css/rtl.css' %}">
-<link rel="stylesheet" href="{% static 'frontend/assets/css/toastr.min.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   BLOGS PAGE — HEADER FIX (same as contact page)
-   ========================================================= */
+/* ==========================================================
+   HEADER OVERLAYS THE HERO (same as the Packages page)
+   ========================================================== */
 
 #header-sticky {
     display: block !important;
@@ -32,65 +33,28 @@ Touro - Travel & Tour Booking Agency | Blogs & News
     background: transparent !important;
 }
 
-#header-sticky .container,
+#header-sticky .header-main,
 #header-sticky .mega-menu-wrapper,
-#header-sticky .header-main {
+#header-sticky .container {
     background: transparent !important;
 }
 
+#header-sticky .header-main,
 #header-sticky .header-left,
 #header-sticky .header-right {
     visibility: visible !important;
     opacity: 1 !important;
 }
 
-
-/* BREADCRUMB */
-
-.breadcrumb-wrapper {
-    position: relative !important;
-    margin-top: 0 !important;
-    z-index: 1 !important;
-}
-
-
-/* TABLET / MOBILE */
-
 @media (max-width: 1199px) {
-
-    #header-sticky {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: absolute !important;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 9999 !important;
-        background: transparent !important;
-    }
-
     #header-sticky .header-main {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
     }
-
-    #header-sticky .header-left {
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    #header-sticky .mean__menu-wrapper {
-        display: none !important;
-    }
-
-    #header-sticky .header__hamburger {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
+    #header-sticky .header-left { display: block !important; visibility: visible !important; }
+    #header-sticky .mean__menu-wrapper { display: none !important; }
+    #header-sticky .header__hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
     #header-sticky .sidebar__toggle {
         display: flex !important;
         visibility: visible !important;
@@ -100,20 +64,10 @@ Touro - Travel & Tour Booking Agency | Blogs & News
     }
 }
 
-
-/* MOBILE — hide only the top info bar */
-
 @media (max-width: 991px) {
-
-    .header-top-section {
-        display: none !important;
-    }
-
-    #header-sticky {
-        top: 0 !important;
-    }
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
 }
-
 
 /* STICKY HEADER AFTER SCROLL */
 
@@ -128,237 +82,387 @@ Touro - Travel & Tour Booking Agency | Blogs & News
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
-
 #header-sticky.sticky .mega-menu-wrapper,
-#header-sticky.sticky .header-main {
-    background: #ffffff !important;
-}
-
-#header-sticky.sticky .main-menu ul li a {
-    color: #0b1f1a !important;
-}
-
+#header-sticky.sticky .header-main { background: #ffffff !important; }
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
 #header-sticky.sticky .header-search .search-trigger,
-#header-sticky.sticky .header-search .search-icon {
-    color: #0b1f1a !important;
-}
-
-#header-sticky.sticky .sidebar__toggle {
-    color: #0b1f1a !important;
-}
-
-#header-sticky.sticky .theme-btn {
-    color: #ffffff !important;
-}
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
 
 
-
-{% comment %} blog card css start {% endcomment %}
 /* ==========================================================
-   BLOG CARD — SAME HEIGHT FIX
-========================================================== */
+   BRAND GREEN
+   ========================================================== */
 
-/* Make Bootstrap columns stretch equally */
-.news-section .row {
-    align-items: stretch;
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
+    --title-green-bright: #00a651;
 }
 
-.news-section .row > [class*="col-"] {
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
+}
+
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
+}
+
+.section-title h2:not(.text-white) { color: var(--title-green) !important; }
+.section-title .sub-title:not(.text-white) { color: var(--title-green-bright) !important; }
+
+
+/* ==========================================================
+   HERO (same image + style as the Packages page)
+   ========================================================== */
+
+.about-hero {
+    position: relative;
     display: flex;
-}
-
-
-/* Entire blog card */
-.news-section .news-card-item {
-    display: flex !important;
-    flex-direction: column !important;
-
-    width: 100%;
-    height: 100%;
-
-    margin-top: 0 !important;
-}
-
-
-/* ==========================================================
-   SAME IMAGE SIZE
-========================================================== */
-
-.news-section .news-card-item .news-image {
-    width: 100%;
-    height: 290px !important;
-
+    align-items: center;
+    justify-content: center;
+    height: 58vh;
+    min-height: 460px;
+    max-height: 560px;
+    padding-top: 90px;
     overflow: hidden;
-
-    border-radius: 12px 12px 0 0;
+    background: #071c1f;
+    text-align: center;
 }
 
-
-.news-section .news-card-item .news-image > a {
-    display: block;
-
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-}
-
-
-.news-section .news-card-item .news-image img {
-    display: block;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
+    object-fit: cover;
     object-position: center;
-
-    transition: transform 0.4s ease;
+    z-index: 0;
 }
 
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .55) 0%, rgba(7, 28, 31, .45) 100%);
+}
 
-.news-section .news-card-item:hover .news-image img {
-    transform: scale(1.04);
+.about-hero .container { position: relative; z-index: 3; }
+
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* wave seam into the mint section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 420px; }
+    .about-hero h1 { font-size: 54px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 340px; height: 46vh; padding-top: 70px; }
+    .about-hero h1 { font-size: 38px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 15px; }
 }
 
 
 /* ==========================================================
-   CONTENT
-========================================================== */
+   BLOG SECTION (mint background + pattern, same as Packages)
+   ========================================================== */
 
-.news-section .news-card-item .news-content {
-    display: flex !important;
-    flex-direction: column !important;
-
-    flex: 1;
-
+.blog-section-decorated {
+    position: relative;
     width: 100%;
-
-    padding-top: 0;
-}
-
-
-/* ==========================================================
-   META
-========================================================== */
-
-.news-section .news-meta {
-    flex-shrink: 0;
-
-    min-height: 46px;
-
-    margin-bottom: 20px;
-}
-
-
-/* ==========================================================
-   TITLE — SAME HEIGHT
-========================================================== */
-
-.news-section .news-content h4 {
-    min-height: 58px;
-
-    margin-bottom: 12px;
-
-    line-height: 1.4;
-}
-
-
-/*
-    Maximum two title lines.
-
-    Long titles get ...
-*/
-.news-section .news-content h4 a {
-    display: -webkit-box;
-
+    margin: 0 !important;
+    border-radius: 0 !important;
     overflow: hidden;
-
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-
-    line-clamp: 2;
+    isolation: isolate;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #d7eee0 100%) !important;
 }
 
+.blog-section-decorated > .container {
+    position: relative;
+    z-index: 2;
+}
 
-/* ==========================================================
-   DESCRIPTION — SAME HEIGHT
-========================================================== */
-
-.news-section .news-content > p {
-    display: -webkit-box;
-
+.blog-section-decorated .blog-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     overflow: hidden;
-
-    min-height: 78px;
-    max-height: 78px;
-
-    margin-bottom: 25px;
-
-    line-height: 26px;
-
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-
-    line-clamp: 3;
+}
+.blog-section-decorated .blog-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-
-/* ==========================================================
-   BUTTON ALWAYS AT BOTTOM
-========================================================== */
-
-.news-section .news-content > .theme-btn {
-    align-self: flex-start;
-
-    margin-top: auto !important;
+/* floating camera (decoration) */
+.blog-camera-decoration {
+    position: absolute;
+    top: 75px;
+    right: -55px;
+    width: 330px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
 }
-
-
-/* ==========================================================
-   TABLET
-========================================================== */
-
+.blog-camera-decoration img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: blogCameraFloat 4.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes blogCameraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
 @media (max-width: 1199px) {
-
-    .news-section .news-card-item .news-image {
-        height: 270px !important;
-    }
-
+    .blog-camera-decoration { width: 270px; top: 80px; right: -70px; opacity: 0.08; }
+}
+@media (max-width: 767px) {
+    .blog-camera-decoration { width: 190px; top: 45px; right: -65px; opacity: 0.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .blog-camera-decoration img { animation: none; }
 }
 
 
 /* ==========================================================
-   MOBILE
-========================================================== */
+   INTRO
+   ========================================================== */
 
-@media (max-width: 767px) {
-
-    .news-section .row > [class*="col-"] {
-        display: block;
-    }
-
-
-    .news-section .news-card-item {
-        height: auto;
-    }
-
-
-    .news-section .news-card-item .news-image {
-        height: 260px !important;
-    }
-
-
-    .news-section .news-content h4 {
-        min-height: auto;
-    }
-
-
-    .news-section .news-content > p {
-        min-height: auto;
-        max-height: none;
-    }
-
+.blog-listing-header {
+    position: relative;
+    margin-bottom: 55px;
 }
-{% comment %} blog card css end  {% endcomment %}
+
+.blog-listing-header .sub-title { margin-bottom: 12px; }
+
+.blog-listing-header h2 {
+    max-width: 720px;
+    margin: 0 0 15px;
+    color: #0a6b3a;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.blog-listing-header p {
+    max-width: 650px;
+    margin: 0;
+    color: #3f5a50;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+    .blog-listing-header h2 { font-size: 38px; }
+}
+@media (max-width: 767px) {
+    .blog-listing-header { margin-bottom: 40px; }
+    .blog-listing-header h2 { font-size: 32px; }
+    .blog-listing-header p { font-size: 14px; }
+}
+
+
+/* ==========================================================
+   BLOG CARDS: full image, date badge, title + Read More
+   2 cards per row
+   ========================================================== */
+
+.bl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.bl-card {
+    position: relative;
+    height: clamp(380px, 36vw, 450px);
+    overflow: hidden;
+    isolation: isolate;
+    background: #0b3f2e;
+    border-radius: 22px;
+    box-shadow: 0 16px 38px rgba(7, 60, 35, .16);
+}
+
+.bl-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .8s ease;
+}
+.bl-card:hover .bl-img { transform: scale(1.05); }
+
+/* dark fade so the title is readable */
+.bl-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(4, 30, 20, 0) 35%, rgba(4, 30, 20, .55) 65%, rgba(4, 30, 20, .92) 100%);
+}
+
+/* date badge (top right) */
+.bl-date {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    padding: 12px 20px;
+    background: #00a651;
+    border-radius: 14px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+}
+
+.bl-body {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 2;
+    min-width: 0;
+}
+
+.bl-title {
+    margin: 0 0 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(22px, 2.1vw, 30px);
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+.bl-title a {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #fff !important;
+}
+.bl-title a:hover { color: #62c68c !important; }
+
+.bl-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0 0 18px;
+    color: rgba(255, 255, 255, .9);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.bl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 26px;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 40px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background .3s ease, border-color .3s ease, color .3s ease;
+}
+.bl-btn i { font-size: 12px; transition: transform .3s ease; }
+.bl-btn:hover { background: #00a651; border-color: #00a651; color: #fff; }
+.bl-btn:hover i { transform: translateX(4px); }
+
+/* phones: one card per row */
+@media (max-width: 767px) {
+    .bl-grid { grid-template-columns: 1fr; gap: 20px; }
+    .bl-card { height: 430px; border-radius: 20px; }
+    .bl-body { left: 20px; right: 20px; bottom: 22px; }
+    .bl-title { font-size: 22px; margin-bottom: 8px; }
+    .bl-desc { font-size: 14px; margin-bottom: 14px; }
+    .bl-date { top: 14px; right: 14px; padding: 10px 16px; font-size: 13px; }
+    .bl-btn { padding: 12px 22px; font-size: 13px; }
+}
 
 </style>
 
@@ -368,130 +472,165 @@ Touro - Travel & Tour Booking Agency | Blogs & News
 
 {% block content %}
 
-    <!-- Breadcrumb-Wrapper Section Start -->
-    <section class="breadcrumb-wrapper parallaxie fix bg-cover"
-        style="background-image: url('{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}');">
+    <!-- ==================== HERO (same image as the Packages page) ==================== -->
+    <section class="about-hero">
+
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="Beautiful beach destination">
+
+        <div class="about-hero-overlay"></div>
+
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
+        </div>
+
         <div class="container">
-            <div class="page-heading">
-                <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-                    <li class="text-white"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white">Blog & News</li>
+            <div class="about-hero-content">
+
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Blog &amp; News</li>
                 </ul>
-                <h1 class="breadcrumb-title text-white text-center">Blog & News</h1>
+
+                <h1>Blog &amp; News</h1>
+
             </div>
         </div>
+
     </section>
 
-    <!-- News Section Start -->
-<section class="news-section section-padding fix">
+
+
+<!-- =========================================================
+     BLOG SECTION
+========================================================= -->
+
+<section class="tour-section section-padding blog-section-decorated">
+
+    <!-- background pattern (same family as the Packages page) -->
+    <div class="blog-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+                <pattern id="blogHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                    <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                </pattern>
+                <radialGradient id="blogFadeTR" cx="1" cy="0" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="blogFadeBL" cx="0" cy="1" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <mask id="blogMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#blogFadeTR)"/></mask>
+                <mask id="blogMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#blogFadeBL)"/></mask>
+                <linearGradient id="blogBlobL" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                </linearGradient>
+                <linearGradient id="blogBlobR" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                </linearGradient>
+            </defs>
+
+            <path fill="url(#blogBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+            <path fill="url(#blogBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+            <rect x="860" y="0" width="580" height="520" fill="url(#blogHalf)" mask="url(#blogMaskTR)"/>
+            <rect x="0" y="420" width="640" height="480" fill="url(#blogHalf)" mask="url(#blogMaskBL)"/>
+
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+            <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+            <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+        </svg>
+    </div>
+
+    <!-- DECORATIVE FLOATING CAMERA -->
+    <div class="blog-camera-decoration" aria-hidden="true">
+        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+    </div>
+
 
     <div class="container">
 
-        <div class="row g-4">
+        <!-- =====================================================
+             PAGE TITLE / INTRO
+        ====================================================== -->
+
+        <div class="blog-listing-header">
+
+            <h6 class="sub-title wow fadeInUp">OUR BLOG &amp; NEWS</h6>
+
+            <h2 class="char-animation">Travel Stories, Tips &amp; Updates</h2>
+
+            <p class="wow fadeInUp" data-wow-delay=".2s">
+                Read our latest travel guides, destination ideas and
+                helpful tips to plan your next trip with confidence.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             BLOG GRID (2 cards per row)
+        ====================================================== -->
+
+        <div class="bl-grid">
 
             {% for blog in blogs %}
 
-            <div class="col-xl-4 col-lg-6 col-md-6">
+            <article class="bl-card">
 
-                <div class="news-card-item news-card-item-style-1 mt-0">
+                {% if blog.image %}
+                <img class="bl-img" src="{{ blog.image.url }}" alt="{{ blog.title }}" loading="lazy">
+                {% else %}
+                <img class="bl-img" src="{% static 'frontend/assets/img/home-1/news/news-1.jpg' %}" alt="{{ blog.title }}" loading="lazy">
+                {% endif %}
 
-                    <!-- BLOG IMAGE -->
-                    <div class="news-image">
+                <span class="bl-date">{{ blog.created_at|date:"M Y" }}</span>
 
-                        <a href="{% url 'blog_detail' slug=blog.slug %}">
+                <div class="bl-body">
 
-                            {% if blog.image %}
+                    <h3 class="bl-title">
+                        <a href="{% url 'blog_detail' slug=blog.slug %}">{{ blog.title }}</a>
+                    </h3>
 
-                                <img
-                                    src="{{ blog.image.url }}"
-                                    alt="{{ blog.title }}"
-                                >
+                    {% if blog.description %}
+                    <p class="bl-desc">{{ blog.description|striptags|truncatewords:22|safe }}</p>
+                    {% endif %}
 
-                            {% else %}
-
-                                <img
-                                    src="{% static 'frontend/assets/img/home-1/news/news-1.jpg' %}"
-                                    alt="{{ blog.title }}"
-                                >
-
-                            {% endif %}
-
-                        </a>
-
-                    </div>
-
-
-                    <!-- BLOG CONTENT -->
-                    <div class="news-content">
-
-                        <ul class="news-meta d-flex align-items-center">
-
-                            <li>
-
-                                <i class="fa-light fa-calendar"></i>
-
-                                {{ blog.created_at|date:"d F, Y" }}
-
-                            </li>
-
-                            <li class="style-2">
-                                Travel
-                            </li>
-
-                        </ul>
-
-
-                        <!-- BLOG TITLE -->
-                        <h4>
-
-                            <a href="{% url 'blog_detail' slug=blog.slug %}">
-                                {{ blog.title }}
-                            </a>
-
-                        </h4>
-
-
-                        <!-- DESCRIPTION -->
-                        <p>
-                            {{ blog.description|striptags|truncatewords:20 }}
-                        </p>
-
-
-                        <!-- READ MORE -->
-                        <a
-                            href="{% url 'blog_detail' slug=blog.slug %}"
-                            class="theme-btn"
-                        >
-
-                            <i class="fa-sharp fa-regular fa-arrow-right"></i>
-
-                            Continue Reading
-
-                        </a>
-
-                    </div>
+                    <a href="{% url 'blog_detail' slug=blog.slug %}" class="bl-btn">
+                        Read More <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
                 </div>
 
-            </div>
-
+            </article>
 
             {% empty %}
 
-            <div class="col-12">
+            <!-- EMPTY RESULT -->
+            <div class="text-center py-5" style="grid-column: 1 / -1;">
 
-                <div class="text-center py-5">
+                <i class="fa-regular fa-newspaper"
+                   style="font-size: 50px; color: #00a651; margin-bottom: 20px;"></i>
 
-                    <h3>
-                        No blogs available
-                    </h3>
+                <h3>No blogs available</h3>
 
-                    <p class="mt-2">
-                        New articles will be published soon.
-                    </p>
-
-                </div>
+                <p class="mt-2">New articles will be published soon.</p>
 
             </div>
 
@@ -502,165 +641,5 @@ Touro - Travel & Tour Booking Agency | Blogs & News
     </div>
 
 </section>
-<!-- News Section End -->
 
-{% endblock %}
-
-
-{# ========== Footer Three (replaces base footer) ========== #}
-{% block footer %}
-<footer class="footer-style2 footer-style3 pt-100 rounded-0 position-relative bg-cover bg-overlay"
-    style="background: url('{% static 'frontend/assets/img/home-3/footer-bg3.jpg' %}'); border-radius: 0 !important;">
-    <div class="position-absolute end-0 plan2 bottom-0 d-sm-block d-none mb-xxl-100 pb-50 me-100 float-bob-y">
-        <img src="https://touro.template.wowtheme7.com/assets/img/home-2/bl.png" alt="img">
-    </div>
-    <div class="position-absolute plan2 float-bob-y d-sm-block d-none">
-        <img src="https://touro.template.wowtheme7.com/assets/img/home-2/plan2.png" alt="img">
-    </div>
-    <div class="position-absolute trou-plan float-bob-y d-xl-block d-none">
-        <img src="https://touro.template.wowtheme7.com/assets/img/home-2/tour-plan.png" alt="img">
-    </div>
-    <div class="container">
-        <div class="footer-widget-wrapper pt-0">
-            <div class="row text-md-start text-center justify-content-md-start justify-content-center gy-3 pb-xxl-90 pb-xl-70 pb-lg-60 pb-md-40 pb-30">
-                <div class="col-md-6">
-                    <h2 class="text-white fw-semibold char-animation">Join our newsletter and get $20 discount</h2>
-                </div>
-                <div class="col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <p class="fs-16 text-white mb-xxl-30 mb-xl-25 mb-lg-20 mb-md-15 mb-10">Get E-mail updates about our latest shop and special offers.</p>
-                    <form action="#" class="rounded-2 footer-newsletter m-0">
-                        <div class="form-clt">
-                            <input type="text" name="email" id="email" placeholder="Enter your email" class="rounded-2">
-                            <button type="submit" class="theme-btn rounded-2 px-lg-4 px-3 d-flex gap-10 align-items-center">
-                                Subscribe <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-2 col-md-3 col-sm-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="single-footer-widget style-2 m-0">
-                        <div class="wid-title"><h4>Useful Links</h4></div>
-                        <ul class="list-items">
-                            <li><a href="{% url 'destination' %}">All Destination</a></li>
-                            <li><a href="{% url 'contact' %}">24/7 Support</a></li>
-                            <li><a href="{% url 'blogs' %}">Our Blog</a></li>
-                            <li><a href="{% url 'packages' %}">Tour Places</a></li>
-                            <li><a href="{% url 'contact' %}">Reviews</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="single-footer-widget style-2 m-0">
-                        <div class="wid-title"><h4>About Touro</h4></div>
-                        <ul class="list-items">
-                            <li><a href="{% url 'about' %}">About Us</a></li>
-                            <li><a href="{% url 'contact' %}">Legal Notice</a></li>
-                            <li><a href="{% url 'contact' %}">Terms & Condition</a></li>
-                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                            <li><a href="{% url 'contact' %}">Apple Store</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="single-footer-widget style-2 m-0">
-                        <div class="wid-title"><h4>Support</h4></div>
-                        <ul class="list-items">
-                            <li><a href="{% url 'contact' %}">Help Center</a></li>
-                            <li><a href="{% url 'contact' %}">24/7 Support</a></li>
-                            <li><a href="{% url 'contact' %}">Forum support</a></li>
-                            <li><a href="{% url 'contact' %}">Live Chat</a></li>
-                            <li><a href="{% url 'contact' %}">How Working</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-12 col-sm-8 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="wid-title mb-xxl-30 mb-xl-20 mb-15">
-                        <a href="{% url 'home' %}" class="footer-logo">
-                            <img src="https://touro.template.wowtheme7.com/assets/img/logo/white-logo.svg" alt="img">
-                        </a>
-                    </div>
-                    <p class="text-white mb-xxl-40 mb-xl-30 mb-20">
-                        We offer carefully curated destinations and tours that capture the true essence.
-                    </p>
-                    <div class="d-flex align-items-center flex-lg-nowrap flex-wrap gap-xxl-25 gap-xl-15 gap-10">
-                        <div>
-                            <h4 class="mb-xxl-15 mb-xl-15 mb-10 text-white">Contact us:</h4>
-                            <div class="d-flex flex-column gap-2">
-                                <a href="#0" class="fs-16 text-white">hellotravelor@gmail.com</a>
-                                <a href="#0" class="fs-16 text-white">+49 030 9399 00</a>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="mb-xxl-15 mb-xl-15 mb-10 text-white">Our Location:</h4>
-                            <div class="d-flex flex-column gap-2">
-                                <a href="#0" class="fs-16 text-white">Old Westbury 256, New York 11201, United States</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom3 theme-bg-2 py-2">
-        <div class="container">
-            <div class="row align-items-center justify-content-xl-between justify-content-center gx-lg-4 gy-xl-0 gy-2 wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-lg-6 col-md-6">
-                    <p class="text-md-start text-center mx-md-0 mx-auto text-white">&copy; 2025 TouroLLC All rights reserved.</p>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="social-icon2 social-icon3 d-flex justify-content-xl-end justify-content-center gap-md-10 gap-5 align-items-center">
-                        <a href="javascript:void(0)"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="javascript:void(0)"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="javascript:void(0)"><i class="fa-brands fa-pinterest-p"></i></a>
-                        <a href="javascript:void(0)"><i class="fa-brands fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-{% endblock %}
-
-
-{# ========== Colour switcher (demo widget from the original page) ========== #}
-{% block extra_body %}
-<div class="color-palate">
-    <button class="color-trigger"><i class="fa-solid fa-gear"></i></button>
-    <button class="close-color-trigger"><i class="fa-solid fa-xmark"></i></button>
-    <div class="color-palate-inner">
-        <a href="{% url 'home' %}" class="palate-logo">
-            <img src="https://touro.template.wowtheme7.com/assets/img/logo/black-logo.svg" alt="img">
-        </a>
-        <div class="various-color clearfix">
-            <h6>Multiple Colors</h6>
-            <h4 class="title-theme-color">Theme Color 1</h4>
-            <div class="color-picker-panel">
-                <label><input type="color" data-var="--theme" value="#FB5B32"></label>
-                <label><input type="color" data-var="--theme" value="#63AB45"></label>
-                <label><input type="color" data-var="--theme" value="#560ce3"></label>
-                <label><input type="color" data-var="--theme" value="#FF5956"></label>
-            </div>
-            <h4 class="title-theme-color">Theme Color 2</h4>
-            <div class="color-picker-panel">
-                <label><input type="color" data-var="--theme-2" value="#1ABC9C"></label>
-                <label><input type="color" data-var="--theme-2" value="#3498DB"></label>
-                <label><input type="color" data-var="--theme-2" value="#9B59B6"></label>
-                <label><input type="color" data-var="--theme-2" value="#E67E22"></label>
-            </div>
-        </div>
-        <h6>RTL Version</h6>
-        <ul class="rtl-version option-box">
-            <li class="rtl">RTL Version</li>
-            <li>LTR Version</li>
-        </ul>
-    </div>
-</div>
-{% endblock %}
-
-
-{% block extra_js %}
-<script src="https://touro.template.wowtheme7.com/assets/js/bootstrap-datepicker.js"></script>
-<script src="https://touro.template.wowtheme7.com/assets/js/toastr.min.js"></script>
 {% endblock %}

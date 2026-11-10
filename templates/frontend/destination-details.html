@@ -3,7 +3,7 @@
 
 
 {% block title %}
-Touro - Travel & Tour Booking Agency | {{ destination.name }}
+Verdant Routes - Travel & Tour Booking Agency | {{ destination.name }}
 {% endblock %}
 
 
@@ -12,12 +12,14 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
 <link rel="stylesheet" href="{% static 'frontend/assets/css/datepickerboot.css' %}">
 <link rel="stylesheet" href="{% static 'frontend/assets/css/rtl.css' %}">
 <link rel="stylesheet" href="{% static 'frontend/assets/css/toastr.min.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 /* ==========================================================
-   DESTINATION DETAILS HEADER FIX
-   Header overlays the breadcrumb, same as the other pages
+   HEADER OVERLAYS THE HERO (same as the other pages)
    ========================================================== */
 
 #header-sticky {
@@ -25,6 +27,7 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
     visibility: visible !important;
     opacity: 1 !important;
     position: absolute !important;
+    top: auto;
     left: 0;
     right: 0;
     width: 100%;
@@ -34,59 +37,20 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
 
 #header-sticky .header-main,
 #header-sticky .mega-menu-wrapper,
-#header-sticky .container {
-    background: transparent !important;
-}
+#header-sticky .container { background: transparent !important; }
 
 #header-sticky .header-left,
-#header-sticky .header-right {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-.breadcrumb-wrapper {
-    position: relative !important;
-    z-index: 1 !important;
-    margin-top: 0 !important;
-}
-
-
-/* TABLET / MOBILE */
+#header-sticky .header-right { visibility: visible !important; opacity: 1 !important; }
 
 @media (max-width: 1199px) {
-
-    #header-sticky {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: absolute !important;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 9999 !important;
-        background: transparent !important;
-    }
-
     #header-sticky .header-main {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
     }
-
-    #header-sticky .header-left {
-        display: block !important;
-    }
-
-    #header-sticky .mean__menu-wrapper {
-        display: none !important;
-    }
-
-    #header-sticky .header__hamburger {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
+    #header-sticky .header-left { display: block !important; visibility: visible !important; }
+    #header-sticky .mean__menu-wrapper { display: none !important; }
+    #header-sticky .header__hamburger { display: block !important; visibility: visible !important; opacity: 1 !important; }
     #header-sticky .sidebar__toggle {
         display: flex !important;
         visibility: visible !important;
@@ -96,22 +60,10 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
     }
 }
 
-
-/* MOBILE: hide only the top info bar */
-
 @media (max-width: 991px) {
-
-    .header-top-section {
-        display: none !important;
-    }
-
-    #header-sticky {
-        top: 0 !important;
-    }
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
 }
-
-
-/* STICKY HEADER AFTER SCROLL */
 
 #header-sticky.sticky {
     position: fixed !important;
@@ -124,54 +76,476 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
-
 #header-sticky.sticky .mega-menu-wrapper,
-#header-sticky.sticky .header-main {
-    background: #ffffff !important;
-}
-
-#header-sticky.sticky .main-menu ul li a {
-    color: #0b1f1a !important;
-}
-
+#header-sticky.sticky .header-main { background: #ffffff !important; }
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
 #header-sticky.sticky .header-search .search-trigger,
-#header-sticky.sticky .header-search .search-icon {
-    color: #0b1f1a !important;
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
+
+
+/* ==========================================================
+   BRAND GREEN
+   ========================================================== */
+
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
 }
 
-#header-sticky.sticky .sidebar__toggle {
-    color: #0b1f1a !important;
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
 }
 
-#header-sticky.sticky .theme-btn {
-    color: #ffffff !important;
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
 }
 
 
 /* ==========================================================
-   CARD IMAGE FIX (used by "More Destinations" cards)
+   HERO: destination image + name + short description
    ========================================================== */
 
-.popular-deatination-style-1 .popular-deatination-image {
+.about-hero {
     position: relative;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62vh;
+    min-height: 480px;
+    max-height: 600px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
 }
 
-.popular-deatination-style-1 .popular-deatination-image > img {
-    width: 100%;
-    aspect-ratio: 478 / 583;
-    object-fit: cover;
-    border-radius: 16px;
-    display: block;
-}
-
-
-/* Main gallery image: fill its box whatever the uploaded size */
-
-.destination-details-image-style-1 img {
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .60) 0%, rgba(7, 28, 31, .50) 100%);
+}
+
+.about-hero .container { position: relative; z-index: 3; }
+
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+.about-hero .about-hero-content > :nth-child(3) { animation-delay: .6s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0 auto;
+    max-width: 960px;
+    color: #fff;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.about-hero .hero-desc {
+    max-width: 680px;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, .92);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* wave seam into the mint section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
+
+@media (max-width: 991px) {
+    .about-hero { min-height: 440px; }
+    .about-hero h1 { font-size: 46px; }
+    .about-hero .hero-desc { font-size: 16.5px; }
+}
+@media (max-width: 575px) {
+    .about-hero { min-height: 380px; height: auto; padding: 100px 0 90px; }
+    .about-hero h1 { font-size: 32px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 14px; }
+    .about-hero .hero-desc { font-size: 15px; }
+}
+
+
+/* ==========================================================
+   DETAILS SECTION (clean mint background)
+   ========================================================== */
+
+.dest-details-section {
+    position: relative;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #eef8f2 100%) !important;
+}
+
+.dest-details-section .dd-title {
+    margin: 0 0 12px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.dest-details-section .dd-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin: 0 0 36px;
+    padding: 0;
+    list-style: none;
+    color: #3f5a50;
+    font-size: 15px;
+}
+.dest-details-section .dd-meta i { margin-right: 7px; color: #0a8f45; }
+
+.dest-details-section .dd-overview h3 {
+    margin: 0 0 15px;
+    color: #0a6b3a;
+}
+.dest-details-section .dd-overview .dd-text {
+    color: #3f5a50;
+    font-size: 16.5px;
+    line-height: 1.85;
+}
+
+@media (max-width: 767px) {
+    .dest-details-section .dd-title { font-size: 32px; }
+}
+
+
+/* ---------- destination photo ---------- */
+
+.dest-details-section .dest-main-photo {
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(7, 60, 35, .10);
+}
+.dest-details-section .dest-main-photo img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+@media (max-width: 575px) {
+    .dest-details-section .dest-main-photo img { height: 240px; }
+}
+
+
+/* ==========================================================
+   STICKY SIDEBAR (moved by the script at the bottom of the page)
+   position is forced to "relative" so the theme cannot interfere
+   ========================================================== */
+
+.dest-details-section .sidebar-col { align-self: stretch; }
+
+.dest-details-section .dd-sidebar {
+    position: relative !important;
+    top: 0 !important;
+    will-change: transform;
+}
+
+.side-book-card,
+.related-card {
+    background: #fff;
+    border: 1px solid rgba(10, 107, 58, .08);
+    border-radius: 24px;
+    box-shadow: 0 14px 36px rgba(7, 60, 35, .10);
+}
+
+.side-book-card { padding: 26px 26px 28px; }
+
+.side-book-card .side-label {
+    margin: 0 0 4px;
+    color: #3f5a50;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.side-book-card .side-name {
+    margin: 0 0 18px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.side-book-card .side-meta {
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+}
+.side-book-card .side-meta li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px dashed #d5e6d9;
+    color: #1d3b30;
+    font-size: 15px;
+}
+.side-book-card .side-meta li:last-child { border-bottom: none; }
+.side-book-card .side-meta i { color: #0a8f45; width: 18px; text-align: center; }
+
+.side-book-card .theme-btn { width: 100%; justify-content: center; }
+
+.related-card { padding: 26px 24px 24px; }
+
+.related-card h3 {
+    margin: 0 0 18px;
+    color: #0a6b3a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.related-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px;
+    margin-bottom: 14px;
+    background: #f3faf6;
+    border: 1px solid rgba(10, 107, 58, .06);
+    border-radius: 18px;
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.related-item:last-child { margin-bottom: 0; }
+.related-item:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    box-shadow: 0 12px 26px rgba(7, 60, 35, .12);
+}
+
+.related-item .r-thumb {
+    flex: 0 0 92px;
+    width: 92px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #0b3f2e;
+}
+.related-item .r-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+.related-item:hover .r-thumb img { transform: scale(1.08); }
+
+.related-item .r-body { flex: 1; min-width: 0; }
+
+.related-item .r-loc {
+    display: block;
+    margin-bottom: 4px;
+    color: #0a8f45;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.related-item h6 {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.related-item h6 a { color: #0b3f2e; }
+.related-item h6 a:hover { color: #00a651; }
+
+.related-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: #0a6b3a;
+    font-size: 15px;
+    font-weight: 700;
+}
+.related-more i { transition: transform .3s ease; }
+.related-more:hover { color: #00a651; }
+.related-more:hover i { transform: translateX(5px); }
+
+
+/* Other Destinations inside the sidebar, under the Book card */
+.dest-details-section .dd-sidebar .related-card {
+    margin-top: 24px;
+}
+
+/* compact destination rows inside the sidebar */
+.dest-details-section .dd-sidebar .related-card { padding: 22px 20px 20px; }
+.dest-details-section .dd-sidebar .related-item { gap: 14px; padding: 8px; margin-bottom: 10px; }
+.dest-details-section .dd-sidebar .related-item .r-thumb { flex: 0 0 72px; width: 72px; height: 76px; border-radius: 12px; }
+/* slim sidebar so the whole thing fits on one screen */
+.dest-details-section .dd-sidebar .side-book-card { padding: 20px 22px 22px; }
+.dest-details-section .dd-sidebar .side-book-card .side-name { font-size: 24px; margin-bottom: 10px; }
+.dest-details-section .dd-sidebar .side-book-card .side-meta { margin-bottom: 14px; }
+.dest-details-section .dd-sidebar .side-book-card .side-meta li { padding: 6px 0; font-size: 14px; }
+.dest-details-section .dd-sidebar .related-card { margin-top: 16px; padding: 18px 18px 16px; }
+.dest-details-section .dd-sidebar .related-card h3 { font-size: 20px; margin-bottom: 12px; }
+.dest-details-section .dd-sidebar .related-item { gap: 12px; padding: 6px; margin-bottom: 8px; border-radius: 14px; }
+.dest-details-section .dd-sidebar .related-item .r-thumb { flex: 0 0 54px; width: 54px; height: 54px; border-radius: 10px; }
+.dest-details-section .dd-sidebar .related-item .r-loc { font-size: 11px; margin-bottom: 2px; }
+.dest-details-section .dd-sidebar .related-item h6 { font-size: 14.5px; }
+.dest-details-section .dd-sidebar .related-more { margin-top: 10px; font-size: 14px; }
+
+/* background pattern behind the details (same as the Packages page) */
+.dest-details-section { overflow: hidden; isolation: isolate; }
+.dest-details-section > .container { position: relative; z-index: 2; }
+.dest-details-section .pkg-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.dest-details-section .pkg-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ==========================================================
+   BACKGROUND PATTERN (same as the Packages page)
+   ========================================================== */
+
+.dest-details-section {
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.dest-details-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.dest-details-section .dd-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.dest-details-section .dd-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* floating camera (decoration) */
+.dest-details-section .dd-camera {
+    position: absolute;
+    top: 75px;
+    right: -55px;
+    width: 330px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
+}
+.dest-details-section .dd-camera img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: ddCameraFloat 4.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes ddCameraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
+@media (max-width: 1199px) {
+    .dest-details-section .dd-camera { width: 270px; top: 80px; right: -70px; opacity: 0.08; }
+}
+@media (max-width: 767px) {
+    .dest-details-section .dd-camera { width: 190px; top: 45px; right: -65px; opacity: 0.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .dest-details-section .dd-camera img { animation: none; }
+}
+
+
+/* Book Now button under the description */
+.dest-details-section .dd-cta { margin-top: 28px; }
+.dest-details-section .dd-cta .theme-btn { display: inline-flex; align-items: center; gap: 8px; }
+
+/* Other Destinations is now the only sidebar card */
+.dest-details-section .dd-sidebar .related-card { margin-top: 0; }
+
+/* all destinations are shown in full, no inner scrollbar */
+.dest-details-section .related-list {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
 }
 
 </style>
@@ -182,239 +556,228 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
 
 {% block content %}
 
-    <!-- Breadcrumb-Wrapper Section Start -->
-    <section class="breadcrumb-wrapper parallaxie fix bg-cover"
-        style="background-image: url('{{ destination.image.url }}');">
+    <!-- ==================== HERO: destination image, name, description ==================== -->
+    <section class="about-hero">
+
+        {% if destination.image %}
+        <img class="about-hero-bg" src="{{ destination.image.url }}" alt="{{ destination.name }}">
+        {% else %}
+        <img class="about-hero-bg" src="{% static 'frontend/assets/img/about hero.png' %}" alt="{{ destination.name }}">
+        {% endif %}
+
+        <div class="about-hero-overlay"></div>
+
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
+        </div>
+
         <div class="container">
-            <div class="page-heading">
-                <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-                    <li class="text-white"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white"><a href="{% url 'destination' %}">Destinations</a></li>
-                    <li class="text-white">/</li>
-                    <li class="text-white">{{ destination.name }}</li>
+            <div class="about-hero-content">
+
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li><a href="{% url 'destination' %}">Destinations</a></li>
+                    <li>/</li>
+                    <li>{{ destination.name }}</li>
                 </ul>
-                <h1 class="breadcrumb-title text-white text-center">Destinations: {{ destination.name }}</h1>
+
+                <h1>{{ destination.name }}</h1>
+
+                {% if destination.description %}
+                <p class="hero-desc">{{ destination.description|striptags|truncatewords:26 }}</p>
+                {% endif %}
+
             </div>
         </div>
+
     </section>
 
-    <!-- Destination-Details Section Start -->
-    <section class="destination-details-section section-padding pt-0">
 
-        <!-- Gallery -->
-        {% comment %} <div class="row g-2">
-            <div class="col-lg-6 col-md-6">
-                <div class="destination-details-image destination-details-image-style-1">
-                    {% if destination.image %}
-                        <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+    <!-- ==================== DETAILS SECTION ==================== -->
+    <section class="dest-details-section section-padding">
+
+        <!-- background pattern (same family as the Packages page) -->
+        <div class="dd-bg" aria-hidden="true">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                    <pattern id="ddHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                        <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                    </pattern>
+                    <radialGradient id="ddFadeTR" cx="1" cy="0" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="ddFadeBL" cx="0" cy="1" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="ddMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#ddFadeTR)"/></mask>
+                    <mask id="ddMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#ddFadeBL)"/></mask>
+                    <linearGradient id="ddBlobL" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                    </linearGradient>
+                    <linearGradient id="ddBlobR" x1="1" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                    </linearGradient>
+                </defs>
+
+                <path fill="url(#ddBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+                <path fill="url(#ddBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+                <rect x="860" y="0" width="580" height="520" fill="url(#ddHalf)" mask="url(#ddMaskTR)"/>
+                <rect x="0" y="420" width="640" height="480" fill="url(#ddHalf)" mask="url(#ddMaskBL)"/>
+
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+                <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+            </svg>
+        </div>
+
+        <!-- floating camera (decoration) -->
+        <div class="dd-camera" aria-hidden="true">
+            <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
+        </div>
+
+        <!-- background pattern (same as the Packages page) -->
+        <div class="pkg-bg" aria-hidden="true">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                    <pattern id="pkgHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                        <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                    </pattern>
+                    <radialGradient id="pkgFadeTR" cx="1" cy="0" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="pkgFadeBL" cx="0" cy="1" r="1">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="pkgMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#pkgFadeTR)"/></mask>
+                    <mask id="pkgMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#pkgFadeBL)"/></mask>
+                    <linearGradient id="pkgBlobL" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                    </linearGradient>
+                    <linearGradient id="pkgBlobR" x1="1" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                        <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                    </linearGradient>
+                </defs>
+
+                <path fill="url(#pkgBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+                <path fill="url(#pkgBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+                <rect x="860" y="0" width="580" height="520" fill="url(#pkgHalf)" mask="url(#pkgMaskTR)"/>
+                <rect x="0" y="420" width="640" height="480" fill="url(#pkgHalf)" mask="url(#pkgMaskBL)"/>
+
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+                <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                      d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+                <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+            </svg>
+        </div>
+
+        <div class="container">
+
+            <!-- Title + location -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="dd-title char-animation">{{ destination.name }}</h2>
+                    {% if destination.location %}
+                    <ul class="dd-meta">
+                        <li><i class="fa-solid fa-location-dot"></i>{{ destination.location }}</li>
+                    </ul>
                     {% endif %}
                 </div>
             </div>
-        </div> {% endcomment %}
 
-        <div class="container">
-            <div class="row g-4 mt-35">
+            <div class="row g-4">
 
                 <!-- ================= LEFT: MAIN CONTENT ================= -->
-                <div class="col-lg-8 col-12">
-                    <div class="destination-details-post destination-details-post-style-1">
-                        <div class="destination-details-content">
+                <div class="col-lg-8" id="mainCol">
 
-                            <h3>Overview</h3>
-                            <p class="mt-15 mb-25">
-                                {% if destination.description %}
-                                    {{ destination.description|safe }}
-                                {% else %}
-                                    Consectetur adipisicing elit sed do eiusmod tempor is incididunt ut labore et dolore of
-                                    magna aliqua. ut enim ad minim veniam made of owl the quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea dolor commodo consequat duis aute irure and dolor in
-                                    reprehenderit. Nullam semper quam mauris nec mollis felis aliquam eu ut non gravida mi
-                                    phasellus.
-                                {% endif %}
-                            </p>
+                    <!-- Destination photo -->
+                    {% if destination.image %}
+                    <div class="dest-main-photo mb-40">
+                        <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+                    </div>
+                    {% endif %}
 
-                            <div class="row g-4">
-
-                                <div class="col-lg-6">
-                                    <div class="destination-details-box ps-30 pe-30 pt-30 pb-30">
-                                        <div class="details-icon-item mb-20 d-flex align-items-center gap-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M3.05534 9.25979C2.71016 9.26076 2.37232 9.35944 2.08089 9.5444C1.78945 9.72937 1.55634 9.99307 1.40853 10.305C1.26071 10.6169 1.20422 10.9643 1.24561 11.307C1.28699 11.6497 1.42455 11.9736 1.64238 12.2414L6.28584 17.9296C6.4514 18.1352 6.66362 18.2983 6.90488 18.4054C7.14614 18.5125 7.40947 18.5605 7.67299 18.5454C8.23661 18.5151 8.74545 18.2136 9.06987 17.7179L18.7155 2.18356C18.7171 2.18099 18.7188 2.17841 18.7205 2.17587C18.811 2.03691 18.7816 1.76152 18.5948 1.58852C18.5435 1.54102 18.483 1.50452 18.417 1.48127C18.3511 1.45803 18.281 1.44854 18.2113 1.45338C18.1415 1.45822 18.0735 1.47729 18.0114 1.50941C17.9493 1.54154 17.8944 1.58604 17.8501 1.64018C17.8466 1.64444 17.8431 1.64863 17.8394 1.65276L8.11164 12.6437C8.07463 12.6855 8.02967 12.7196 7.97939 12.7439C7.9291 12.7682 7.87448 12.7822 7.81871 12.7852C7.76294 12.7883 7.70713 12.7802 7.65451 12.7614C7.6019 12.7427 7.55353 12.7137 7.51222 12.6761L4.28376 9.73818C3.94846 9.43081 3.51021 9.26014 3.05534 9.25979Z" fill="#015FC9" />
-                                            </svg>
-                                            <h6>Best Time to Visit</h6>
-                                        </div>
-                                        <p>
-                                            Plan your trip perfectly with seasonal insights — find out when weather,
-                                            events, and activities are at their very best.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="destination-details-box ps-30 pe-30 pt-30 pb-30">
-                                        <div class="details-icon-item mb-20 d-flex align-items-center gap-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M3.05534 9.25979C2.71016 9.26076 2.37232 9.35944 2.08089 9.5444C1.78945 9.72937 1.55634 9.99307 1.40853 10.305C1.26071 10.6169 1.20422 10.9643 1.24561 11.307C1.28699 11.6497 1.42455 11.9736 1.64238 12.2414L6.28584 17.9296C6.4514 18.1352 6.66362 18.2983 6.90488 18.4054C7.14614 18.5125 7.40947 18.5605 7.67299 18.5454C8.23661 18.5151 8.74545 18.2136 9.06987 17.7179L18.7155 2.18356C18.7171 2.18099 18.7188 2.17841 18.7205 2.17587C18.811 2.03691 18.7816 1.76152 18.5948 1.58852C18.5435 1.54102 18.483 1.50452 18.417 1.48127C18.3511 1.45803 18.281 1.44854 18.2113 1.45338C18.1415 1.45822 18.0735 1.47729 18.0114 1.50941C17.9493 1.54154 17.8944 1.58604 17.8501 1.64018C17.8466 1.64444 17.8431 1.64863 17.8394 1.65276L8.11164 12.6437C8.07463 12.6855 8.02967 12.7196 7.97939 12.7439C7.9291 12.7682 7.87448 12.7822 7.81871 12.7852C7.76294 12.7883 7.70713 12.7802 7.65451 12.7614C7.6019 12.7427 7.55353 12.7137 7.51222 12.6761L4.28376 9.73818C3.94846 9.43081 3.51021 9.26014 3.05534 9.25979Z" fill="#015FC9" />
-                                            </svg>
-                                            <h6>Top Attractions</h6>
-                                        </div>
-                                        <p>
-                                            Discover the must-see sights, famous landmarks, natural wonders, and local
-                                            experiences that will make.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="destination-details-box ps-30 pe-30 pt-30 pb-30">
-                                        <div class="details-icon-item mb-20 d-flex align-items-center gap-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M3.05534 9.25979C2.71016 9.26076 2.37232 9.35944 2.08089 9.5444C1.78945 9.72937 1.55634 9.99307 1.40853 10.305C1.26071 10.6169 1.20422 10.9643 1.24561 11.307C1.28699 11.6497 1.42455 11.9736 1.64238 12.2414L6.28584 17.9296C6.4514 18.1352 6.66362 18.2983 6.90488 18.4054C7.14614 18.5125 7.40947 18.5605 7.67299 18.5454C8.23661 18.5151 8.74545 18.2136 9.06987 17.7179L18.7155 2.18356C18.7171 2.18099 18.7188 2.17841 18.7205 2.17587C18.811 2.03691 18.7816 1.76152 18.5948 1.58852C18.5435 1.54102 18.483 1.50452 18.417 1.48127C18.3511 1.45803 18.281 1.44854 18.2113 1.45338C18.1415 1.45822 18.0735 1.47729 18.0114 1.50941C17.9493 1.54154 17.8944 1.58604 17.8501 1.64018C17.8466 1.64444 17.8431 1.64863 17.8394 1.65276L8.11164 12.6437C8.07463 12.6855 8.02967 12.7196 7.97939 12.7439C7.9291 12.7682 7.87448 12.7822 7.81871 12.7852C7.76294 12.7883 7.70713 12.7802 7.65451 12.7614C7.6019 12.7427 7.55353 12.7137 7.51222 12.6761L4.28376 9.73818C3.94846 9.43081 3.51021 9.26014 3.05534 9.25979Z" fill="#015FC9" />
-                                            </svg>
-                                            <h6>Accommodation Options</h6>
-                                        </div>
-                                        <p>
-                                            Explore a range of handpicked hotels, resorts, and unique stays that fit
-                                            every style and budget.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="destination-details-box ps-30 pe-30 pt-30 pb-30">
-                                        <div class="details-icon-item mb-20 d-flex align-items-center gap-5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M3.05534 9.25979C2.71016 9.26076 2.37232 9.35944 2.08089 9.5444C1.78945 9.72937 1.55634 9.99307 1.40853 10.305C1.26071 10.6169 1.20422 10.9643 1.24561 11.307C1.28699 11.6497 1.42455 11.9736 1.64238 12.2414L6.28584 17.9296C6.4514 18.1352 6.66362 18.2983 6.90488 18.4054C7.14614 18.5125 7.40947 18.5605 7.67299 18.5454C8.23661 18.5151 8.74545 18.2136 9.06987 17.7179L18.7155 2.18356C18.7171 2.18099 18.7188 2.17841 18.7205 2.17587C18.811 2.03691 18.7816 1.76152 18.5948 1.58852C18.5435 1.54102 18.483 1.50452 18.417 1.48127C18.3511 1.45803 18.281 1.44854 18.2113 1.45338C18.1415 1.45822 18.0735 1.47729 18.0114 1.50941C17.9493 1.54154 17.8944 1.58604 17.8501 1.64018C17.8466 1.64444 17.8431 1.64863 17.8394 1.65276L8.11164 12.6437C8.07463 12.6855 8.02967 12.7196 7.97939 12.7439C7.9291 12.7682 7.87448 12.7822 7.81871 12.7852C7.76294 12.7883 7.70713 12.7802 7.65451 12.7614C7.6019 12.7427 7.55353 12.7137 7.51222 12.6761L4.28376 9.73818C3.94846 9.43081 3.51021 9.26014 3.05534 9.25979Z" fill="#015FC9" />
-                                            </svg>
-                                            <h6>Adventure Activities</h6>
-                                        </div>
-                                        <p>
-                                            For thrill-seekers and nature lovers alike — find exciting outdoor
-                                            adventures, tours, and experiences.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <p class="texts mt-35 mb-15">Top Feature Highlights</p>
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <ul class="list">
-                                        <li><i class="fa-regular fa-badge-check"></i> Duis ultricies sapien a volutpat varius. Maecenas</li>
-                                        <li><i class="fa-regular fa-badge-check"></i> Blandit enim. Pellentesque ultrices, justo non</li>
-                                        <li><i class="fa-regular fa-badge-check"></i> Nunc in quam in quam placerat rhoncus quis</li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-6">
-                                    <ul class="list">
-                                        <li><i class="fa-regular fa-badge-check"></i> Duis ultricies sapien a volutpat varius</li>
-                                        <li><i class="fa-regular fa-badge-check"></i> Blandit enim. Pellentesque ultrices</li>
-                                        <li><i class="fa-regular fa-badge-check"></i> Nunc in quam in quam placerat rhoncus</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="details-rafing-item">
-                                <div class="row g-4">
-                                    <div class="col-lg-6">
-                                        <div class="rafting-item d-flex gap-25">
-                                            <div class="icon">
-                                                <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/destination-details/rafting.png" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="mb-10">Rafting Whitewater</h4>
-                                                <p>We are experienced in bringing adventures to their journey, with all outdoor.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="rafting-item d-flex gap-25">
-                                            <div class="icon">
-                                                <img src="https://touro.template.wowtheme7.com/assets/img/inner-page/destination-details/booking.png" alt="img">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="mb-10">Easy & Quick Booking</h4>
-                                                <p>We are experienced in bringing adventures to their journey, with all outdoor.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- More destinations (dynamic) -->
-                            {% if other_destinations %}
-                            <div class="section-title style-2">
-                                <h6 class="sub-title">ABOUT TOURO</h6>
-                                <h2 class="char-animation">More Destinations of Like your</h2>
-                            </div>
-                            <div class="row g-4">
-                                {% for d in other_destinations %}
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="popular-deatination-items popular-deatination-style-1">
-                                        <div class="popular-deatination-image">
-                                            {% if d.image %}
-                                                <img src="{{ d.image.url }}" alt="{{ d.name }}">
-                                            {% else %}
-                                                <img src="{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}" alt="{{ d.name }}">
-                                            {% endif %}
-                                            <span class="star">
-                                                <i class="fa-solid fa-star"></i>
-                                                <span>{{ d.rating|default:"5" }}</span>
-                                            </span>
-                                            <div class="popular-deatination-content">
-                                                <h3>
-                                                    <a href="{% url 'destination_details' d.slug %}">{{ d.name }}</a>
-                                                </h3>
-                                                <p>{{ d.listing_count|default:0 }} Listing</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
+                    <!-- Overview -->
+                    <div class="dd-overview">
+                        <h3>Overview</h3>
+                        <div class="dd-text">
+                            {% if destination.description %}
+                                {{ destination.description|safe }}
+                            {% else %}
+                                <p>More details about {{ destination.name }} will be added soon.</p>
                             {% endif %}
+                        </div>
 
+                        <div class="dd-cta">
+                            <a href="#" class="theme-btn open-booking-modal" data-package="{{ destination.name }}">
+                                <i class="fa-sharp fa-regular fa-arrow-right"></i> Book Now
+                            </a>
                         </div>
                     </div>
+
                 </div>
 
 
-                <!-- ================= RIGHT: SIDEBAR ================= -->
-                <div class="col-lg-4 col-12">
-                    <div class="destination-sideber-card destination-sideber-card-style-1 sticky-style">
+                <!-- ================= RIGHT: STICKY SIDEBAR ================= -->
+                <div class="col-lg-4 sidebar-col">
+                    <div class="dd-sidebar" id="stickySidebar">
 
-                        {% comment %} <div class="map-items">
-                            <div class="googpemap">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd"
-                                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <!-- Other destinations -->
+                        {% if top_destinations %}
+                        <div class="related-card">
+
+                            <h3>Other Destinations</h3>
+
+                            <div class="related-list" id="relatedList">
+                                {% for d in top_destinations %}
+                                <div class="related-item">
+
+                                    <a href="{% url 'destination_details' d.slug %}" class="r-thumb">
+                                        {% if d.image %}
+                                        <img src="{{ d.image.url }}" alt="{{ d.name }}" loading="lazy">
+                                        {% endif %}
+                                    </a>
+
+                                    <div class="r-body">
+                                        {% if d.location %}<span class="r-loc">{{ d.location }}</span>{% endif %}
+                                        <h6><a href="{% url 'destination_details' d.slug %}">{{ d.name|truncatechars:28 }}</a></h6>
+                                    </div>
+
+                                </div>
+                                {% endfor %}
                             </div>
-                        </div> {% endcomment %}
 
-{% if top_destinations %}
-<div class="details-single-sideber-box pt-30 pb-30 ps-25 pe-25 mt-25">
-    <h3 class="mb-15">Top {{ top_destinations|length }} Destination</h3>
+                            <a href="{% url 'destination' %}" class="related-more">
+                                View All Destinations <i class="fa-solid fa-arrow-right"></i>
+                            </a>
 
-    {% for d in top_destinations %}
-    <div class="recent-post-item d-flex align-items-center gap-20 {% if not forloop.last %}mb-20{% endif %}">
-        <div class="post-thumb">
-            <a href="{% url 'destination_details' d.slug %}">
-                <img src="{{ d.image.url }}" alt="{{ d.name }}">
-            </a>
-        </div>
-        <div class="content">
-            <div class="star">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <h6><a href="{% url 'destination_details' d.slug %}">{{ d.name|truncatechars:24 }}</a></h6>
-            <p>{{ d.location|default:d.get_destination_type_display }}</p>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
+                        </div>
+                        {% endif %}
+
                     </div>
                 </div>
 
@@ -428,4 +791,69 @@ Touro - Travel & Tour Booking Agency | {{ destination.name }}
 {% block extra_js %}
 <script src="https://touro.template.wowtheme7.com/assets/js/bootstrap-datepicker.js"></script>
 <script src="https://touro.template.wowtheme7.com/assets/js/toastr.min.js"></script>
+
+<!-- Sticky right sidebar (works even when the theme breaks CSS sticky) -->
+<script>
+(function () {
+
+    var box = document.getElementById('stickySidebar');
+    if (!box) return;
+
+    var col      = box.parentNode;          /* .sidebar-col, as tall as the left column */
+    var TOP      = 110;                     /* gap from the top of the screen */
+    var desktop  = window.matchMedia('(min-width: 992px)');
+    var queued   = false;
+    var BOTTOM   = 24;                      /* gap from the bottom of the screen */
+    var main     = document.getElementById('mainCol');
+    var EXTRA    = 300;                     /* extra room (px) for the sidebar to travel when the left content is short */
+
+    /* the sidebar can only "stick" if the left column is taller than it,
+       so the left column is never allowed to be shorter than sidebar + EXTRA */
+    function sizeMain() {
+        if (!main) return;
+        var want = desktop.matches ? (box.offsetHeight + EXTRA) + 'px' : '';
+        if (main.style.minHeight !== want) main.style.minHeight = want;
+    }
+
+    function update() {
+        queued = false;
+
+        /* phones / tablets: sidebar stacks below the content, no sticky */
+        sizeMain();
+
+        if (!desktop.matches) {
+            box.style.transform = '';
+            return;
+        }
+
+        var boxH     = box.offsetHeight;
+        var colTop   = col.getBoundingClientRect().top;
+        var maxShift = Math.max(0, col.offsetHeight - boxH);
+        var shift;
+
+        /* always pin the START (top) of the sidebar just under the header */
+        shift = TOP - colTop;
+
+        shift = Math.max(0, Math.min(shift, maxShift));
+        box.style.transform = 'translate3d(0,' + shift + 'px,0)';
+    }
+
+    function queue() {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    window.addEventListener('load',   queue);
+
+    if (window.ResizeObserver) {
+        new ResizeObserver(queue).observe(col);
+        new ResizeObserver(queue).observe(box);
+    }
+
+    update();
+})();
+</script>
 {% endblock %}

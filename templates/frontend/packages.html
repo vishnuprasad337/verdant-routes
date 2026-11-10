@@ -4,11 +4,15 @@
 
 
 
-{% block title %}Touro - Travel & Tour Booking Agency | Tour{% endblock %}
+{% block title %}Verdant Routes - Travel & Tour Booking Agency | Packages{% endblock %}
 
 
 
 {% block extra_css %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,44 +25,26 @@
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-
-    /* IMPORTANT: don't use relative here */
     position: absolute !important;
-
     top: auto;
     left: 0;
     right: 0;
     width: 100%;
-
     z-index: 9999 !important;
-
-    /* remove the white header strip */
     background: transparent !important;
 }
 
-
-/* Header inner areas must also stay transparent */
 #header-sticky .header-main,
 #header-sticky .mega-menu-wrapper,
 #header-sticky .container {
     background: transparent !important;
 }
 
-
-/* ==========================================================
-   BREADCRUMB
-   ========================================================== */
-
 .breadcrumb-wrapper {
     position: relative !important;
     z-index: 1 !important;
     margin-top: 0 !important;
 }
-
-
-/* ==========================================================
-   HEADER CONTENT
-   ========================================================== */
 
 #header-sticky .header-main,
 #header-sticky .header-left,
@@ -67,13 +53,7 @@
     opacity: 1 !important;
 }
 
-
-/* ==========================================================
-   DESKTOP
-   ========================================================== */
-
 @media (min-width: 1200px) {
-
     #header-sticky {
         position: absolute !important;
         left: 0;
@@ -81,32 +61,20 @@
         width: 100%;
         background: transparent !important;
     }
-
 }
 
-
-/* ==========================================================
-   TABLET + MOBILE
-   ========================================================== */
-
 @media (max-width: 1199px) {
-
     #header-sticky {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-
         position: absolute !important;
-
         left: 0;
         right: 0;
         width: 100%;
-
         z-index: 9999 !important;
-
         background: transparent !important;
     }
-
 
     #header-sticky .header-main {
         display: flex !important;
@@ -115,28 +83,19 @@
         background: transparent !important;
     }
 
-
-    /* Logo */
     #header-sticky .header-left {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
 
+    #header-sticky .mean__menu-wrapper { display: none !important; }
 
-    /* Hide desktop navigation */
-    #header-sticky .mean__menu-wrapper {
-        display: none !important;
-    }
-
-
-    /* Hamburger */
     #header-sticky .header__hamburger {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
-
 
     #header-sticky .sidebar__toggle {
         display: flex !important;
@@ -145,240 +104,259 @@
         align-items: center;
         justify-content: center;
     }
-
 }
-
-
-/* ==========================================================
-   MOBILE
-   ========================================================== */
 
 @media (max-width: 991px) {
-
-    /* About page also doesn't need desktop top bar on mobile */
-    .header-top-section {
-        display: none !important;
-    }
-
-    #header-sticky {
-        top: 0 !important;
-    }
-
+    .header-top-section { display: none !important; }
+    #header-sticky { top: 0 !important; }
 }
 
-
-/* ==========================================================
-   STICKY HEADER AFTER SCROLL
-   ========================================================== */
-
-/* =========================================================
-   STICKY HEADER AFTER SCROLL
-   ========================================================= */
+/* STICKY HEADER AFTER SCROLL */
 
 #header-sticky.sticky {
     position: fixed !important;
-
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-
     width: 100% !important;
-
     z-index: 99999 !important;
-
-    /* IMPORTANT */
     background: #ffffff !important;
-
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-
-    transition:
-        background-color 0.3s ease,
-        box-shadow 0.3s ease !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
 }
-
-
-/* The previous rules force these transparent.
-   Restore white when sticky. */
 
 #header-sticky.sticky .mega-menu-wrapper,
-#header-sticky.sticky .header-main {
-    background: #ffffff !important;
-}
+#header-sticky.sticky .header-main { background: #ffffff !important; }
 
-
-/* Keep navbar text visible on white background */
-
-#header-sticky.sticky .main-menu ul li a {
-    color: #0b1f1a !important;
-}
-
-
-/* Search icon */
+#header-sticky.sticky .main-menu ul li a { color: #0b1f1a !important; }
 
 #header-sticky.sticky .header-search .search-trigger,
-#header-sticky.sticky .header-search .search-icon {
-    color: #0b1f1a !important;
-}
+#header-sticky.sticky .header-search .search-icon { color: #0b1f1a !important; }
 
+#header-sticky.sticky .sidebar__toggle { color: #0b1f1a !important; }
 
-/* Hamburger */
-
-#header-sticky.sticky .sidebar__toggle {
-    color: #0b1f1a !important;
-}
-
-
-/* Keep Discover button styling */
-
-#header-sticky.sticky .theme-btn {
-    color: #ffffff !important;
-}
-
-
-
-{% comment %} card css start {% endcomment %}
-/* Tour cards: same tall card as the template, whatever size you upload */
-.tours-image-itmes-style-1 .tour-image {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 16px;
-}
-
-.tours-image-itmes-style-1 .tour-image > img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 478 / 685;   /* the template card's proportion */
-    object-fit: cover;         /* crops instead of stretching */
-}
-
-   .tour-single-sideber-box .post-thumb img {
-       width: 90px;
-       height: 100px;
-       object-fit: cover;
-       border-radius: 8px;
-   }
-
-
-   /* Sidebar "Top Packages" list */
-.tour-single-sideber-box .recent-post-item .post-thumb {
-    flex: 0 0 90px;          /* fixed width, never grows or shrinks */
-    width: 90px;
-}
-
-.tour-single-sideber-box .recent-post-item .post-thumb img {
-    width: 90px;
-    height: 100px;
-    object-fit: cover;       /* crops the photo instead of stretching */
-    border-radius: 8px;
-    display: block;
-}
-
-.tour-single-sideber-box .recent-post-item .content {
-    flex: 1;
-    min-width: 0;            /* lets the text use the remaining space */
-}
-
-.tour-single-sideber-box .recent-post-item .star {
-    white-space: nowrap;     /* keeps all 5 stars on one line */
-    display: flex;
-    gap: 2px;
-}
-
-.tour-single-sideber-box .recent-post-item .content p {
-    white-space: normal;
-    line-height: 1.4;
-}
+#header-sticky.sticky .theme-btn { color: #ffffff !important; }
 
 
 
 /* ==========================================================
-   3 PACKAGE GRID
-========================================================== */
+   HERO (same image + style as the About page)
+   ========================================================== */
 
-.tour-section .row > [class*="col-"] {
+.about-hero {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 58vh;
+    min-height: 460px;
+    max-height: 560px;
+    padding-top: 90px;
+    overflow: hidden;
+    background: #071c1f;
+    text-align: center;
 }
 
-.tour-section .tours-image-itmes {
+.about-hero .about-hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
-}
-
-
-/* Image consistency */
-
-.tour-section .tours-image-itmes-style-1 .tour-image > img {
-    width: 100%;
-    aspect-ratio: 478 / 685;
+    height: 100%;
     object-fit: cover;
     object-position: center;
+    z-index: 0;
 }
 
-
-/* Pagination spacing */
-
-.tour-section .page-nav-wrap {
-    margin-top: 60px;
+.about-hero .about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(7, 28, 31, .55) 0%, rgba(7, 28, 31, .45) 100%);
 }
 
+.about-hero .container { position: relative; z-index: 3; }
 
-/* Tablet */
+.about-hero .about-hero-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroUp .9s ease forwards;
+}
+.about-hero .about-hero-content > :nth-child(1) { animation-delay: .2s; }
+.about-hero .about-hero-content > :nth-child(2) { animation-delay: .4s; }
+
+@keyframes aboutHeroUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about-hero .breadcrumb-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding: 0;
+    list-style: none;
+}
+.about-hero .breadcrumb-list li,
+.about-hero .breadcrumb-list li a { color: #fff; font-size: 17px; font-weight: 500; }
+
+.about-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* wave seam into the mint package section */
+.about-hero .hero-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    line-height: 0;
+    pointer-events: none;
+}
+.about-hero .hero-seam svg { display: block; width: 100%; height: clamp(60px, 9vw, 140px); }
 
 @media (max-width: 991px) {
-
-    .tour-section .page-nav-wrap {
-        margin-top: 45px;
-    }
-
+    .about-hero { min-height: 420px; }
+    .about-hero h1 { font-size: 54px; }
 }
-
-
-/* Mobile */
-
 @media (max-width: 575px) {
-
-    .tour-section .page-nav-wrap {
-        margin-top: 35px;
-    }
-
+    .about-hero { min-height: 340px; height: 46vh; padding-top: 70px; }
+    .about-hero h1 { font-size: 38px; }
+    .about-hero .breadcrumb-list li,
+    .about-hero .breadcrumb-list li a { font-size: 15px; }
 }
-{% comment %} card css end {% endcomment %}
+
+/* ==========================================================
+   BRAND GREEN (same as home page)
+   ========================================================== */
+
+:root {
+    --theme: #00a651;
+    --theme2: #00a651;
+    --theme-color: #00a651;
+    --theme-color2: #00a651;
+    --primary: #00a651;
+    --bs-primary: #00a651;
+    --title-green: #0a6b3a;
+    --title-green-bright: #00a651;
+}
+
+.theme-btn,
+.theme_btn {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 25px rgba(0, 166, 81, .25) !important;
+}
+.theme-btn:hover,
+.theme_btn:hover {
+    background-color: #008a43 !important;
+    border-color: #008a43 !important;
+    color: #fff !important;
+}
+
+.mouseCursor.cursor-inner { background-color: #00a651 !important; }
+.mouseCursor.cursor-outer {
+    border-color: #00a651 !important;
+    background-color: rgba(0, 166, 81, .2) !important;
+}
+
+.section-title h2:not(.text-white) { color: var(--title-green) !important; }
+.section-title .sub-title:not(.text-white) { color: var(--title-green-bright) !important; }
 
 
-{% comment %} fitration css start {% endcomment %}
+/* ==========================================================
+   PACKAGE SECTION (mint background, same family as home)
+   ========================================================== */
+
+.package-section-decorated {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #e8f6ee 0%, #dff2e7 55%, #d7eee0 100%) !important;
+}
+
+.package-section-decorated > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.package-section-decorated .pkg-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.package-section-decorated .pkg-bg svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* floating camera (decoration) */
+.package-camera-decoration {
+    position: absolute;
+    top: 75px;
+    right: -55px;
+    width: 330px;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
+}
+.package-camera-decoration img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: packageCameraFloat 4.5s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes packageCameraFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
+@media (max-width: 1199px) {
+    .package-camera-decoration { width: 270px; top: 80px; right: -70px; opacity: 0.08; }
+}
+@media (max-width: 767px) {
+    .package-camera-decoration { width: 190px; top: 45px; right: -65px; opacity: 0.06; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .package-camera-decoration img { animation: none; }
+}
+
 
 /* ==========================================================
    PACKAGE PAGE INTRO + FILTER
-========================================================== */
+   ========================================================== */
 
 .package-listing-header {
     position: relative;
     margin-bottom: 55px;
 }
 
-
-/* ==========================================================
-   TITLE AREA
-========================================================== */
-
 .package-listing-title-area {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 40px;
-    margin-bottom: 35px;
+    margin-bottom: 0;
 }
 
-.package-listing-title {
-    max-width: 720px;
-}
-
-.package-listing-title .sub-title {
-    margin-bottom: 12px;
-}
+.package-listing-title { max-width: 720px; }
+.package-listing-title .sub-title { margin-bottom: 12px; }
 
 .package-listing-title h2 {
-    color: #08251d;
+    color: #0a6b3a;
     font-size: 48px;
     line-height: 1.15;
     font-weight: 700;
@@ -387,412 +365,240 @@
 
 .package-listing-title p {
     max-width: 650px;
-    color: #68736f;
+    color: #3f5a50;
     font-size: 16px;
     line-height: 1.7;
     margin: 0;
 }
 
-
-/* PACKAGE COUNT */
-
 .package-result-count {
     flex-shrink: 0;
-    color: #6f7975;
+    color: #3f5a50;
     font-size: 14px;
     margin-bottom: 5px;
 }
-
 .package-result-count strong {
-    color: #ff5a36;
+    color: #00a651;
     font-size: 20px;
     margin-right: 4px;
 }
 
-
-/* ==========================================================
-   FILTER WRAPPER
-========================================================== */
-
-.package-filter-bar {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-
-    padding: 10px;
-
-    background: #ffffff;
-
-    border: 1px solid #edf0ef;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 40px rgba(16, 40, 32, 0.07);
-}
-
-
-/* ==========================================================
-   FILTER ITEMS
-========================================================== */
-
-.package-filter-options {
-    flex: 1;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    align-items: center;
-}
-
-
-/* INDIVIDUAL FILTER */
-
-.package-filter-option {
-    position: relative;
-
-    min-height: 62px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 28px;
-
-    color: #122720;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    border-right: 1px solid #e9edeb;
-
-    transition: all 0.3s ease;
-}
-
-
-/* ICON */
-
-.package-filter-option i {
-    width: 38px;
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-right: 12px;
-
-    border-radius: 50%;
-
-    background: #f5f7f6;
-
-    color: #ff5a36;
-
-    font-size: 15px;
-
-    transition: all 0.3s ease;
-}
-
-
-/* ARROW */
-
-.package-filter-option .filter-arrow {
-    margin-left: auto;
-
-    width: auto;
-    height: auto;
-
-    background: transparent;
-
-    color: #8b9490;
-
-    font-size: 12px;
-}
-
-
-/* HOVER */
-
-.package-filter-option:hover {
-    color: #ff5a36;
-}
-
-
-/* ACTIVE */
-
-.package-filter-option.active {
-    color: #ff5a36;
-}
-
-.package-filter-option.active > i:first-child {
-    background: rgba(255, 90, 54, 0.10);
-    color: #ff5a36;
-}
-
-
-/* ==========================================================
-   SEARCH / VIEW BUTTON
-========================================================== */
-
-.package-filter-submit {
-    min-width: 175px;
-    height: 62px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    border: none;
-    border-radius: 14px;
-
-    background: #ff5a36;
-
-    color: #ffffff;
-
-    font-size: 15px;
-    font-weight: 700;
-
-    transition: all 0.3s ease;
-}
-
-.package-filter-submit:hover {
-    background: #08251d;
-    color: #ffffff;
-}
-
-.package-filter-submit i {
-    font-size: 14px;
-}
-
-
-/* ==========================================================
-   PACKAGE GRID SPACING
-========================================================== */
-
-.package-grid-wrapper {
-    margin-top: 0;
-}
-
-
-/* ==========================================================
-   TABLET
-========================================================== */
-
 @media (max-width: 991px) {
-
-    .package-listing-title-area {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .package-listing-title h2 {
-        font-size: 38px;
-    }
-
-    .package-filter-bar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .package-filter-options {
-        width: 100%;
-    }
-
-    .package-filter-option {
-        padding: 0 18px;
-    }
-
-    .package-filter-submit {
-        width: 100%;
-    }
+    .package-listing-title-area { align-items: flex-start; flex-direction: column; gap: 15px; }
+    .package-listing-title h2 { font-size: 38px; }
 }
-
-
-/* ==========================================================
-   MOBILE
-========================================================== */
 
 @media (max-width: 767px) {
-
-    .package-listing-header {
-        margin-bottom: 40px;
-    }
-
-    .package-listing-title h2 {
-        font-size: 32px;
-    }
-
-    .package-listing-title p {
-        font-size: 14px;
-    }
-
-    .package-filter-options {
-        grid-template-columns: 1fr;
-    }
-
-    .package-filter-option {
-        width: 100%;
-
-        min-height: 58px;
-
-        border-right: none;
-
-        border-bottom: 1px solid #edf0ef;
-    }
-
-    .package-filter-option:last-child {
-        border-bottom: none;
-    }
-
-    .package-filter-submit {
-        height: 58px;
-    }
+    .package-listing-header { margin-bottom: 40px; }
+    .package-listing-title h2 { font-size: 32px; }
+    .package-listing-title p { font-size: 14px; }
 }
-{% comment %} filtration css end {% endcomment %}
 
 
-{% comment %} camera shape css start {% endcomment %}
 /* ==========================================================
-   PACKAGE SECTION DECORATION
+   PACKAGE CARDS: exact home page design (expanding cards),
+   3 per row. Hover a card = it becomes the big one.
    ========================================================== */
 
-.package-section-decorated {
-    position: relative;
+.pk-grid { display: block; }
 
-    /* Needed so decoration does not create horizontal scroll */
+.pk-stage {
+    display: flex;
+    height: clamp(420px, 60vh, 500px);
+    margin: 0 0 26px;
+}
+
+.pk-card,
+.pk-ghost {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    margin-right: 16px;
+}
+.pk-card:last-child,
+.pk-ghost:last-child { margin-right: 0; }
+.pk-ghost { visibility: hidden; pointer-events: none; }
+
+.pk-card {
     overflow: hidden;
-
-    /* Keep normal section background */
-    background-color: #ffffff;
-
     isolation: isolate;
+    background: #0b3f2e;
+    border-radius: 22px;
+    box-shadow: 0 16px 38px rgba(7, 60, 35, .16);
+    cursor: pointer;
+    transition: flex-grow .6s cubic-bezier(.22, 1, .36, 1);
 }
 
+.pk-card.is-active { flex-grow: 2.2; cursor: default; }
 
-/* ==========================================================
-   KEEP REAL CONTENT ABOVE DECORATION
-   ========================================================== */
-
-.package-section-decorated > .container {
-    position: relative;
-    z-index: 2;
-}
-
-
-/* ==========================================================
-   FLOATING CAMERA
-   ========================================================== */
-
-.package-camera-decoration {
+.pk-img {
     position: absolute;
-
-    /*
-       Position on upper-right side of package section
-    */
-    top: 75px;
-    right: -55px;
-
-    width: 330px;
-
-    z-index: 0;
-
-    pointer-events: none;
-    user-select: none;
-
-    /*
-       Overall transparency.
-       Keeps it decorative instead of competing with content.
-    */
-    opacity: 0.10;
-}
-
-
-.package-camera-decoration img {
-    display: block;
-
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .8s ease;
+}
+.pk-card:hover .pk-img { transform: scale(1.05); }
 
-    /*
-       Only move up/down.
-    */
-    animation: packageCameraFloat 4.5s ease-in-out infinite;
-
-    will-change: transform;
+.pk-no-img {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a9bfae;
+    font-size: 48px;
 }
 
-
-/* ==========================================================
-   UP / DOWN ANIMATION
-   ========================================================== */
-
-@keyframes packageCameraFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-22px);
-    }
-
+.pk-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(4, 30, 20, 0) 35%, rgba(4, 30, 20, .55) 65%, rgba(4, 30, 20, .92) 100%);
 }
 
+.pk-dur {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, .22);
+    -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 30px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+}
+.pk-dur i { margin-right: 5px; }
 
-/* ==========================================================
-   TABLET
-   ========================================================== */
-
-@media (max-width: 1199px) {
-
-    .package-camera-decoration {
-        width: 270px;
-
-        top: 80px;
-        right: -70px;
-
-        opacity: 0.08;
-    }
-
+.pk-body {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+    z-index: 2;
+    min-width: 0;
 }
 
+.pk-title {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+.pk-title a { color: #fff !important; }
+.pk-title a:hover { color: #62c68c !important; }
 
-/* ==========================================================
-   MOBILE
-   ========================================================== */
+.pk-extra {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .6s ease, opacity .5s ease .1s;
+}
+.pk-card.is-active .pk-extra { max-height: 150px; opacity: 1; }
 
+.pk-desc {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, .9);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.pk-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.pk-price { margin-right: auto; color: #fff; font-family: 'DM Sans', sans-serif; }
+.pk-price strong { font-size: 22px; font-weight: 700; }
+.pk-price span { margin-left: 6px; color: rgba(255, 255, 255, .75); font-size: 13px; }
+
+.pk-card:not(.is-active) .pk-price,
+.pk-card:not(.is-active) .pk-view { display: none; }
+
+.pk-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 40px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background .3s ease, border-color .3s ease, color .3s ease;
+}
+.pk-btn i { font-size: 11px; transition: transform .3s ease; }
+.pk-btn:hover { background: #00a651; border-color: #00a651; color: #fff; }
+.pk-btn:hover i { transform: translateX(4px); }
+
+/* phones: one card per row, everything visible (same as the home swipe card) */
 @media (max-width: 767px) {
-
-    .package-camera-decoration {
-        width: 190px;
-
-        top: 45px;
-        right: -65px;
-
-        opacity: 0.06;
+    .pk-stage {
+        flex-direction: column;
+        height: auto;
+        margin: 0;
     }
-
+    .pk-card,
+    .pk-card.is-active {
+        flex: none;
+        width: 100%;
+        height: 430px;
+        margin: 0 0 20px;
+        border-radius: 20px;
+    }
+    .pk-ghost { display: none; }
+    .pk-card .pk-extra { max-height: 150px !important; opacity: 1 !important; }
+    .pk-card .pk-price { display: block !important; width: 100%; margin-bottom: 4px; }
+    .pk-card .pk-view { display: inline-flex !important; }
+    .pk-card .pk-title { font-size: 22px; }
+    .pk-body { left: 18px; right: 18px; bottom: 18px; }
+    .pk-actions { justify-content: flex-start; }
+    .pk-dur { top: 12px; right: 12px; }
 }
 
 
 /* ==========================================================
-   ACCESSIBILITY
-   Stop decorative animation if user requests reduced motion
+   PAGINATION (green)
    ========================================================== */
 
-@media (prefers-reduced-motion: reduce) {
+.package-section-decorated .page-nav-wrap { margin-top: 60px; }
 
-    .package-camera-decoration img {
-        animation: none;
-    }
-
+.package-section-decorated .page-nav-wrap ul li a.page-numbers:hover,
+.package-section-decorated .page-nav-wrap ul li.active a.page-numbers {
+    background-color: #00a651 !important;
+    border-color: #00a651 !important;
+    color: #fff !important;
 }
-{% comment %} camera shape css end  {% endcomment %}
+
+@media (max-width: 991px) { .package-section-decorated .page-nav-wrap { margin-top: 45px; } }
+@media (max-width: 575px) { .package-section-decorated .page-nav-wrap { margin-top: 35px; } }
 
 </style>
 
@@ -802,69 +608,40 @@
 
 {% block content %}
 
+    <!-- ==================== HERO (same image as About) ==================== -->
+    <section class="about-hero">
 
+        <img class="about-hero-bg"
+             src="{% static 'frontend/assets/img/about hero.png' %}"
+             alt="Beautiful beach destination">
 
-    <!-- Breadcrumb-Wrapper Section Start -->
+        <div class="about-hero-overlay"></div>
 
-
-
-    <section class="breadcrumb-wrapper parallaxie fix bg-cover"
-
-
-
-        style="background-image: url('{% static 'frontend/assets/img/inner-page/breadcrumb.jpg' %}');">
-
-
-
-        <div class="container">
-
-
-
-            <div class="page-heading">
-
-
-
-                <ul class="breadcrumb-list d-flex align-items-center justify-content-center">
-
-
-
-                    <li class="text-white"><a href="{% url 'home' %}">Home</a></li>
-
-
-
-                    <li class="text-white">/</li>
-
-
-
-                    <li class="text-white">Our Packages</li>
-
-
-
-                </ul>
-
-
-
-                <h1 class="breadcrumb-title text-white text-center">Our Packages</h1>
-
-
-
-            </div>
-
-
-
+        <div class="hero-seam" aria-hidden="true">
+            <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path fill="#e8f6ee" fill-opacity=".28" d="M0 70 C 280 30 520 32 780 62 S 1200 96 1440 60 L1440 141 L0 141Z"/>
+                <path fill="#e8f6ee" fill-opacity=".6"  d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76 L1440 141 L0 141Z"/>
+                <path fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke" d="M0 86 C 280 46 520 48 780 78 S 1200 112 1440 76"/>
+                <path fill="#e8f6ee" d="M0 101 C 280 61 520 63 780 93 S 1200 127 1440 91 L1440 141 L0 141Z"/>
+            </svg>
         </div>
 
+        <div class="container">
+            <div class="about-hero-content">
 
+                <ul class="breadcrumb-list">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li>/</li>
+                    <li>Our Packages</li>
+                </ul>
+
+                <h1>Our Packages</h1>
+
+            </div>
+        </div>
 
     </section>
 
-
-
-
-
-
-
-    <!-- Tour Section Start -->
 
 
 <!-- =========================================================
@@ -873,17 +650,53 @@
 
 <section class="tour-section section-padding package-section-decorated">
 
-    <!-- ================================================
-         DECORATIVE FLOATING CAMERA
-    ================================================= -->
+    <!-- background pattern (same family as the home page) -->
+    <div class="pkg-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+                <pattern id="pkgHalf" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="4" cy="4" r="1.5" fill="#0a6b3a" fill-opacity=".30"/>
+                    <circle cx="12" cy="12" r="1.1" fill="#0a6b3a" fill-opacity=".22"/>
+                </pattern>
+                <radialGradient id="pkgFadeTR" cx="1" cy="0" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="pkgFadeBL" cx="0" cy="1" r="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                    <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+                <mask id="pkgMaskTR"><rect x="860" y="0" width="580" height="520" fill="url(#pkgFadeTR)"/></mask>
+                <mask id="pkgMaskBL"><rect x="0" y="420" width="640" height="480" fill="url(#pkgFadeBL)"/></mask>
+                <linearGradient id="pkgBlobL" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".13"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".04"/>
+                </linearGradient>
+                <linearGradient id="pkgBlobR" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#00a651" stop-opacity=".12"/>
+                    <stop offset="1" stop-color="#00a651" stop-opacity=".03"/>
+                </linearGradient>
+            </defs>
 
+            <path fill="url(#pkgBlobL)" d="M-80 150 C 120 70 330 150 400 330 C 470 510 340 700 120 740 C -20 765 -80 720 -80 720Z"/>
+            <path fill="url(#pkgBlobR)" d="M1520 330 C 1330 290 1190 400 1170 570 C 1150 740 1290 860 1520 840Z"/>
+
+            <rect x="860" y="0" width="580" height="520" fill="url(#pkgHalf)" mask="url(#pkgMaskTR)"/>
+            <rect x="0" y="420" width="640" height="480" fill="url(#pkgHalf)" mask="url(#pkgMaskBL)"/>
+
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".28" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M-20 800 C 160 780 300 700 420 620 S 640 520 760 560"/>
+            <path fill="none" stroke="#0a6b3a" stroke-opacity=".22" stroke-width="1.6" stroke-dasharray="7 10" stroke-linecap="round"
+                  d="M1000 90 C 1100 40 1190 110 1270 70 S 1390 30 1460 80"/>
+
+            <path fill="#fff" fill-opacity=".35" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835 L1440 900 L0 900Z"/>
+            <path fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" d="M0 830 C 240 790 460 860 720 835 S 1180 790 1440 835"/>
+        </svg>
+    </div>
+
+    <!-- DECORATIVE FLOATING CAMERA -->
     <div class="package-camera-decoration" aria-hidden="true">
-
-        <img
-            src="{% static 'frontend/assets/img/packages/camera.png' %}"
-            alt=""
-        >
-
+        <img src="{% static 'frontend/assets/img/packages/camera.png' %}" alt="">
     </div>
 
 
@@ -899,13 +712,9 @@
 
                 <div class="package-listing-title">
 
-                    <h6 class="sub-title wow fadeInUp">
-                        OUR TOUR PACKAGES
-                    </h6>
+                    <h6 class="sub-title wow fadeInUp">OUR TOUR PACKAGES</h6>
 
-                    <h2 class="char-animation">
-                        Find Your Perfect Travel Experience
-                    </h2>
+                    <h2 class="char-animation">Find Your Perfect Travel Experience</h2>
 
                     <p class="wow fadeInUp" data-wow-delay=".2s">
                         Explore our carefully selected travel packages and
@@ -915,113 +724,20 @@
 
                 </div>
 
-
                 <!-- RESULT COUNT -->
-
                 <div class="package-result-count wow fadeInUp">
 
-                    <strong>
-                        {{ page_obj.paginator.count }}
-                    </strong>
+                    <strong>{{ page_obj.paginator.count }}</strong>
 
                     {% if current_type == "domestic" %}
-
                         Domestic Package{{ page_obj.paginator.count|pluralize }}
-
                     {% elif current_type == "international" %}
-
                         International Package{{ page_obj.paginator.count|pluralize }}
-
                     {% else %}
-
                         Package{{ page_obj.paginator.count|pluralize }} Available
-
                     {% endif %}
 
                 </div>
-
-            </div>
-
-
-
-            <!-- =================================================
-                 PACKAGE FILTER BAR
-            ================================================== -->
-
-            <div class="package-filter-bar wow fadeInUp"
-                 data-wow-delay=".3s">
-
-
-                <div class="package-filter-options">
-
-
-                    <!-- =========================
-                         ALL PACKAGES
-                    ========================== -->
-
-                    <a
-                        href="{% url 'packages' %}"
-                        class="package-filter-option
-                        {% if not current_type %}active{% endif %}"
-                    >
-
-                        <i class="fa-regular fa-grid-2"></i>
-
-                        <span>
-                            All Packages
-                        </span>
-
-                        <i class="fa-regular fa-arrow-right filter-arrow"></i>
-
-                    </a>
-
-
-
-                    <!-- =========================
-                         DOMESTIC
-                    ========================== -->
-
-                    <a
-                        href="{% url 'packages' %}?type=domestic"
-                        class="package-filter-option
-                        {% if current_type == 'domestic' %}active{% endif %}"
-                    >
-
-                        <i class="fa-regular fa-location-dot"></i>
-
-                        <span>
-                            Domestic
-                        </span>
-
-                        <i class="fa-regular fa-arrow-right filter-arrow"></i>
-
-                    </a>
-
-
-
-                    <!-- =========================
-                         INTERNATIONAL
-                    ========================== -->
-
-                    <a
-                        href="{% url 'packages' %}?type=international"
-                        class="package-filter-option
-                        {% if current_type == 'international' %}active{% endif %}"
-                    >
-
-                        <i class="fa-regular fa-earth-americas"></i>
-
-                        <span>
-                            International
-                        </span>
-
-                        <i class="fa-regular fa-arrow-right filter-arrow"></i>
-
-                    </a>
-
-                </div>
-
-
 
             </div>
 
@@ -1030,195 +746,87 @@
 
 
         <!-- =====================================================
-             PACKAGE GRID
+             PACKAGE GRID (home page card design, 3 per row)
         ====================================================== -->
 
-        <div
-            class="row g-4 package-grid-wrapper"
-            id="package-grid"
-        >
-
+        <div class="pk-grid" id="package-grid">
 
             {% for p in packages %}
 
+            <article class="pk-card">
 
-            <div class="col-xl-4 col-lg-4 col-md-6">
+                {% if p.main_image %}
+                <img class="pk-img" src="{{ p.main_image.url }}" alt="{{ p.name }}" loading="lazy">
+                {% else %}
+                <span class="pk-no-img"><i class="fa-regular fa-image"></i></span>
+                {% endif %}
 
-                <div class="tours-image-itmes tours-image-itmes-style-1">
+                {% if p.duration %}
+                <span class="pk-dur"><i class="fa-solid fa-clock"></i> {{ p.duration }}</span>
+                {% else %}
+                <span class="pk-dur"><i class="fa-solid fa-clock"></i> {{ p.get_package_type_display }}</span>
+                {% endif %}
 
-                    <div class="tour-image">
+                <div class="pk-body">
 
+                    <h3 class="pk-title">
+                        <a href="{% url 'package_details' p.slug %}">{{ p.name }}</a>
+                    </h3>
 
-                        <!-- IMAGE -->
+                    <div class="pk-extra">
+                        <p class="pk-desc">
+                            {% if p.description %}
+                                {{ p.description|striptags|truncatewords:22 }}
+                            {% else %}
+                                A carefully planned journey with comfortable stays, local guidance and memorable experiences.
+                            {% endif %}
+                        </p>
+                    </div>
 
-                        {% if p.main_image %}
+                    <div class="pk-actions">
 
-                        <img
-                            src="{{ p.main_image.url }}"
-                            alt="{{ p.name }}"
-                            loading="lazy"
-                        >
-
-                        {% endif %}
-
-
-
-                        <!-- =====================================
-                             PACKAGE CONTENT
-                        ====================================== -->
-
-                        <div class="tour-content">
-
-
-                            <!-- DURATION -->
-
-                            <ul class="list mb-10">
-
-                                <li>
-
-                                    <i class="fa-regular fa-clock"></i>
-
-                                    {% if p.duration %}
-
-                                        {{ p.duration }}
-
-                                    {% else %}
-
-                                        {{ p.get_package_type_display }}
-
-                                    {% endif %}
-
-                                </li>
-
-                            </ul>
-
-
-
-                            <!-- PACKAGE NAME -->
-
-                            <h3>
-
-                                <a href="{% url 'package_details' p.slug %}">
-
-                                    {{ p.name|truncatechars:28 }}
-
-                                </a>
-
-                            </h3>
-
-
-
-                            <!-- PRICE -->
-
-                            <div class="price-item mt-25 d-flex align-items-center">
-
-
-                                <div class="content">
-
-                                    {% if p.price_from %}
-
-                                    <h3>
-                                        ₹{{ p.price_from|floatformat:0 }}
-                                    </h3>
-
-                                    <span>
-                                        / Per Person
-                                    </span>
-
-                                    {% else %}
-
-                                    <h3>
-                                        On Request
-                                    </h3>
-
-                                    {% endif %}
-
-                                </div>
-
-
-
-                                <!-- BUTTON -->
-
-                                <div class="tour-button">
-
-                                    <a
-                                        href="{% url 'package_details' p.slug %}"
-                                        class="theme-btn"
-                                    >
-
-                                        <i class="fa-sharp fa-regular fa-arrow-right"></i>
-
-                                        View Details
-
-                                    </a>
-
-                                </div>
-
-
-                            </div>
-
+                        <div class="pk-price">
+                            {% if p.price_from %}
+                            <strong>₹{{ p.price_from|floatformat:0 }}</strong><span>/ Per Person</span>
+                            {% else %}
+                            <strong>Contact for Price</strong>
+                            {% endif %}
                         </div>
+
+                        <a href="{% url 'package_details' p.slug %}" class="pk-btn pk-view">View Details</a>
+
+                        <a href="#" class="pk-btn pk-book open-booking-modal" data-package="{{ p.name }}">
+                            Book Now <i class="fa-solid fa-arrow-right"></i>
+                        </a>
 
                     </div>
 
                 </div>
 
-            </div>
-
-
+            </article>
 
             {% empty %}
 
+            <!-- EMPTY RESULT -->
+            <div class="text-center py-5">
 
-            <!-- =================================================
-                 EMPTY RESULT
-            ================================================== -->
+                <i class="fa-regular fa-suitcase-rolling"
+                   style="font-size: 50px; color: #00a651; margin-bottom: 20px;"></i>
 
-            <div class="col-12">
+                <h3>No Packages Found</h3>
 
-                <div class="text-center py-5">
+                <p>No travel packages are currently available in this category.</p>
 
-                    <i
-                        class="fa-regular fa-suitcase-rolling"
-                        style="
-                            font-size: 50px;
-                            color: #ff5a36;
-                            margin-bottom: 20px;
-                        "
-                    ></i>
-
-                    <h3>
-                        No Packages Found
-                    </h3>
-
-                    <p>
-                        No travel packages are currently available
-                        in this category.
-                    </p>
-
-
-                    {% if current_type %}
-
-                    <a
-                        href="{% url 'packages' %}"
-                        class="theme-btn mt-20"
-                    >
-
-                        <i class="fa-regular fa-arrow-left"></i>
-
-                        View All Packages
-
-                    </a>
-
-                    {% endif %}
-
-                </div>
+                {% if current_type %}
+                <a href="{% url 'packages' %}" class="theme-btn mt-20">
+                    <i class="fa-regular fa-arrow-left"></i>
+                    View All Packages
+                </a>
+                {% endif %}
 
             </div>
 
-
             {% endfor %}
-
 
         </div>
 
@@ -1231,102 +839,122 @@
         {% if page_obj.has_other_pages %}
 
         <div class="row">
-
             <div class="col-12">
 
-                <div class="page-nav-wrap text-center mt-50">
+                <div class="page-nav-wrap text-center">
 
                     <ul>
 
-
-                        <!-- PREVIOUS -->
-
                         {% if page_obj.has_previous %}
-
                         <li>
-
-                            <a
-                                class="page-numbers"
-                                href="?page={{ page_obj.previous_page_number }}{% if current_type %}&type={{ current_type }}{% endif %}"
-                            >
-
+                            <a class="page-numbers"
+                               href="?page={{ page_obj.previous_page_number }}{% if current_type %}&type={{ current_type }}{% endif %}">
                                 <i class="fa-solid fa-arrow-left"></i>
-
                             </a>
-
                         </li>
-
                         {% endif %}
-
-
-
-                        <!-- PAGE NUMBERS -->
 
                         {% for n in page_obj.paginator.page_range %}
-
-                        <li
-                            {% if n == page_obj.number %}
-                                class="active"
-                            {% endif %}
-                        >
-
-                            <a
-                                class="page-numbers"
-                                href="?page={{ n }}{% if current_type %}&type={{ current_type }}{% endif %}"
-                            >
-
+                        <li {% if n == page_obj.number %}class="active"{% endif %}>
+                            <a class="page-numbers"
+                               href="?page={{ n }}{% if current_type %}&type={{ current_type }}{% endif %}">
                                 {{ n|stringformat:"02d" }}
-
                             </a>
-
                         </li>
-
                         {% endfor %}
 
-
-
-                        <!-- NEXT -->
-
                         {% if page_obj.has_next %}
-
                         <li>
-
-                            <a
-                                class="page-numbers"
-                                href="?page={{ page_obj.next_page_number }}{% if current_type %}&type={{ current_type }}{% endif %}"
-                            >
-
+                            <a class="page-numbers"
+                               href="?page={{ page_obj.next_page_number }}{% if current_type %}&type={{ current_type }}{% endif %}">
                                 <i class="fa-solid fa-arrow-right"></i>
-
                             </a>
-
                         </li>
-
                         {% endif %}
-
 
                     </ul>
 
                 </div>
 
             </div>
-
         </div>
 
         {% endif %}
 
-
     </div>
 
 </section>
-
-
-
 
 {% endblock %}
 
 
 
 {% block extra_js %}
+
+<!-- Packages: rows of 3 cards, hover = big card (same behaviour as the home page) -->
+<script>
+window.addEventListener('load', function () {
+
+    var grid = document.getElementById('package-grid');
+    if (!grid) return;
+
+    var cards = [].slice.call(grid.querySelectorAll('.pk-card'));
+    if (!cards.length) return;
+
+    var PER_ROW  = 3;
+    var canHover = window.matchMedia('(hover: hover)');
+
+    /* put every 3 cards into their own row */
+    for (var i = 0; i < cards.length; i += PER_ROW) {
+        var row = document.createElement('div');
+        row.className = 'pk-stage';
+        grid.appendChild(row);
+
+        var group = cards.slice(i, i + PER_ROW);
+        group.forEach(function (c) { row.appendChild(c); });
+
+        /* short last row: invisible spacers keep the card width the same */
+        for (var g = group.length; g < PER_ROW; g++) {
+            var ghost = document.createElement('div');
+            ghost.className = 'pk-ghost';
+            ghost.setAttribute('aria-hidden', 'true');
+            row.appendChild(ghost);
+        }
+
+        setupRow(row, group);
+    }
+
+    function setupRow(row, group) {
+        var act = 0;
+
+        function render() {
+            group.forEach(function (c, k) { c.classList.toggle('is-active', k === act); });
+        }
+
+        group.forEach(function (c, k) {
+            c.addEventListener('mouseenter', function () {
+                if (!canHover.matches) return;
+                if (act !== k) { act = k; render(); }
+            });
+        });
+
+        row.addEventListener('mouseleave', function () {
+            if (act !== 0) { act = 0; render(); }
+        });
+
+        /* touch tablets: tap a narrow card to enlarge it (phones show all cards open) */
+        row.addEventListener('click', function (e) {
+            var card = e.target.closest('.pk-card');
+            if (!card || card.classList.contains('is-active') || window.innerWidth < 768) return;
+            if (e.target.closest('.open-booking-modal')) return;
+            e.preventDefault();
+            act = group.indexOf(card);
+            render();
+        });
+
+        render();
+    }
+});
+</script>
 
 {% endblock %}
