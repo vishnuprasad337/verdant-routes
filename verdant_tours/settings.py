@@ -152,25 +152,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 # EMAIL CONFIGURATION - DJANGO 6.1
 # ============================================================
 
-MAILERS = {
-    "default": {
-        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
 
-        "OPTIONS": {
-            "host": "smtp.gmail.com",
-            "port": 587,
-            "use_tls": True,
-
-            # Your Gmail address
-            "username": "sirajvynzora@gmail.com",
-
-            # Google App Password - NOT normal Gmail password
-            "password": "bbwm wsat lauc rewn",
-
-            "timeout": 20,
-        },
-    },
-}
 
 
 # ============================================================
